@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;}</style>
+</helmet>
+<footer style="background:#43332a;font-family:'Noto Sans JP',sans-serif;color:#e9e0d6;">
+  <div style="max-width:1120px;margin:0 auto;padding:56px 44px 36px;display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap;">
+    <div style="max-width:300px;">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:24px;color:#fff;letter-spacing:.04em;margin-bottom:14px;">New Valley</div>
+      <p style="font-size:13px;line-height:1.9;color:#bcae9f;margin:0 0 18px;">地域の未来を支える。人の可能性をひらく。神奈川・東京で障害福祉サービスを展開しています。</p>
+      <p style="font-size:13px;line-height:1.9;color:#bcae9f;margin:0;">神奈川県大和市 ／ 東京都町田市</p>
+    </div>
+    <div style="display:flex;gap:48px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#8aafca;letter-spacing:.1em;margin-bottom:16px;">SITE MAP</div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
+          <a href="index.dc.html" style="text-decoration:none;color:#e9e0d6;" style-hover="color:#fff;">ホーム</a>
+          <a href="news.dc.html" style="text-decoration:none;color:#e9e0d6;" style-hover="color:#fff;">お知らせ</a>
+          <a href="business.dc.html" style="text-decoration:none;color:#e9e0d6;" style-hover="color:#fff;">事業紹介</a>
+          <a href="recruit.dc.html" style="text-decoration:none;color:#e9e0d6;" style-hover="color:#fff;">採用情報</a>
+          <a href="company.dc.html" style="text-decoration:none;color:#e9e0d6;" style-hover="color:#fff;">会社概要</a>
+          <a href="contact.dc.html" style="text-decoration:none;color:#e9e0d6;" style-hover="color:#fff;">お問い合わせ</a>
+          <a href="entry.dc.html" style="text-decoration:none;color:#e9e0d6;" style-hover="color:#fff;">エントリー</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#8aafca;letter-spacing:.1em;margin-bottom:16px;">SERVICE</div>
+        <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#bcae9f;">
+          <span>放デイ マーチ大和・町田</span>
+          <span>放デイ びよんど大和</span>
+          <span>訪問介護 クラージュ町田</span>
+          <span>相談支援 えみたす</span>
+          <span>生活介護・GH（開設予定）</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#8aafca;letter-spacing:.1em;margin-bottom:16px;">CONTACT</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#fff;background:#06C755;padding:9px 16px;border-radius:999px;">LINE公式 @NewValley</a>
+          <a href="https://newvalley-recruit.com/" target="_blank" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#d6e06a;" style-hover="color:#e6ef88;">採用専用サイト →</a>
+          <a href="contact.dc.html" style="text-decoration:none;font-family:'Noto Sans JP',sans-serif;font-size:13px;color:#bcae9f;" style-hover="color:#e9e0d6;">お問い合わせフォーム</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid #5a4639;">
+    <div style="max-width:1120px;margin:0 auto;padding:18px 44px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <span style="font-size:12px;color:#a99c8f;">© New Valley All rights reserved. <button id="admin-login-btn" onclick="document.getElementById('admin-login-modal').style.display='flex'" style="background:none;border:none;color:rgba(169,156,143,.3);font-size:10px;cursor:pointer;padding:0 0 0 8px;letter-spacing:.04em;">管理者</button></span>
+      <a href="entry.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#d6e06a;" style-hover="color:#e6ef88;">採用エントリーはこちら →</a>
+    </div>
+  </div>
+</footer>
+
+<!-- 管理者用 お知らせ投稿ボタン（右下固定・ログイン後のみ表示） -->
+<a href="admin.html" id="admin-fab" style="display:none;position:fixed;bottom:24px;right:24px;z-index:9999;background:#43332a;color:#fff;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;text-decoration:none;padding:12px 20px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,.3);opacity:.7;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.7'">＋ お知らせ投稿</a>
+
+<!-- ログインモーダル -->
+<div id="admin-login-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.5);align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:24px;padding:40px 36px;width:100%;max-width:360px;text-align:center;box-shadow:0 16px 48px rgba(0,0,0,.2);">
+    <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#43332a;margin-bottom:8px;">管理者ログイン</div>
+    <div style="font-size:13px;color:#a99c8f;margin-bottom:24px;">パスワードを入力してください</div>
+    <input type="password" id="admin-modal-pw" placeholder="●●●●●●●●" style="width:100%;padding:13px 18px;border:2px solid #ece4d4;border-radius:12px;font-size:16px;text-align:center;letter-spacing:.2em;outline:none;font-family:'Noto Sans JP',sans-serif;box-sizing:border-box;" onkeydown="if(event.key==='Enter')adminModalLogin()">
+    <div id="admin-modal-err" style="color:#c86880;font-size:13px;margin-top:8px;display:none;">パスワードが違います</div>
+    <button onclick="adminModalLogin()" style="margin-top:16px;width:100%;padding:13px;background:#43332a;color:#fff;border:none;border-radius:999px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;cursor:pointer;">ログイン</button>
+    <button onclick="document.getElementById('admin-login-modal').style.display='none'" style="margin-top:10px;width:100%;padding:10px;background:none;border:none;color:#a99c8f;font-size:13px;cursor:pointer;">キャンセル</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  function showFab(){
+    var fab = document.getElementById('admin-fab');
+    var loginBtn = document.getElementById('admin-login-btn');
+    if(fab){ fab.style.display='flex'; }
+    if(loginBtn){ loginBtn.style.display='none'; }
+  }
+  if(sessionStorage.getItem('nv_admin_pass')){ showFab(); }
+
+  window.adminModalLogin = function(){
+    var pw = document.getElementById('admin-modal-pw').value;
+    if(!pw) return;
+    fetch('/api/news-admin')
+      .then(function(r){ return r.json(); })
+      .then(function(){
+        sessionStorage.setItem('nv_admin_pass', pw);
+        window.__adminPass = pw;
+        document.getElementById('admin-login-modal').style.display='none';
+        showFab();
+      })
+      .catch(function(){
+        sessionStorage.setItem('nv_admin_pass', pw);
+        document.getElementById('admin-login-modal').style.display='none';
+        showFab();
+      });
+  };
+})();
+</script>
+</x-dc>
+</body>
+</html>

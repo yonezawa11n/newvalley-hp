@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#faf7f0;}</style>
+</helmet>
+<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <section style="background:#3a6b30;padding:52px 52px 44px;">
+    <div style="max-width:900px;margin:0 auto;">
+      <a href="emitas.dc.html" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:rgba(255,255,255,.8);font-size:13px;margin-bottom:20px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        えみたす トップへ戻る
+      </a>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.18em;color:rgba(255,255,255,.7);margin-bottom:10px;">DISCLOSURE</div>
+      <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:32px;color:#fff;margin:0;">えみたすサポート
+自己評価結果等の公表</h1>
+    </div>
+  </section>
+  <section style="padding:80px 52px;background:#fff;">
+    <div style="max-width:900px;margin:0 auto;">
+      <p style="font-size:14px;color:#6b6358;line-height:1.9;margin:0 0 48px;padding:16px 24px;background:#faf7f0;border-radius:12px;border-left:4px solid #3a6b30;">障害福祉サービス等自己評価結果等の公表制度に基づき、事業所の評価結果を公開しています。各ファイルをクリックすると、PDFが開きます。</p>
+      <div id="kouhyo-list-emitas"></div>
+    </div>
+  </section>
+  <section style="padding:48px 52px;background:#faf7f0;text-align:center;">
+    <a href="emitas.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#3a6b30;border:2px solid #3a6b30;padding:14px 36px;border-radius:999px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      えみたす トップへ戻る
+    </a>
+  </section>
+  <dc-import name="Footer" hint-size="100%,260px"></dc-import>
+</div>
+</x-dc>
+
+<script>
+var KOUHYO_DATA = [
+  /* データは後ほど追加 */
+];
+var accent = '#3a6b30';
+var container = document.getElementById('kouhyo-list-emitas');
+if (!KOUHYO_DATA.length) {
+  container.innerHTML = '<div style="text-align:center;padding:80px 0;color:#a99c8f;font-size:15px;">自己評価結果等の公表データは準備中です。</div>';
+} else {
+  KOUHYO_DATA.forEach(function(group, gi) {
+    var yearDiv = document.createElement('div');
+    yearDiv.style.cssText = 'margin-bottom:' + (gi < KOUHYO_DATA.length - 1 ? '56px' : '0') + ';';
+    var heading = '<div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;"><div style="width:6px;height:28px;border-radius:3px;background:' + accent + ';flex:none;"></div><h2 style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:900;font-size:22px;color:#43332a;margin:0;">' + group.year + '</h2></div>';
+    var grid = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">';
+    group.files.forEach(function(f) {
+      grid += '<a href="' + f.path + '" target="_blank" rel="noopener" style="text-decoration:none;display:flex;align-items:center;gap:14px;background:#faf7f0;border-radius:14px;padding:18px 20px;transition:box-shadow .2s;" onmouseover="this.style.boxShadow=\'0 4px 16px rgba(0,0,0,.12)\'" onmouseout="this.style.boxShadow=\'none\'"><svg width="36" height="44" viewBox="0 0 36 44" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="44" rx="4" fill="' + accent + '33"/><text x="18" y="28" text-anchor="middle" font-size="11" font-weight="bold" fill="' + accent + '" font-family="sans-serif">PDF</text></svg><div><div style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:4px;">' + f.label + '</div><div style="font-size:11px;color:#a99c8f;">クリックで開く</div></div></a>';
+    });
+    grid += '</div>';
+    yearDiv.innerHTML = heading + grid;
+    container.appendChild(yearDiv);
+  });
+}
+</script>
+</body>
+</html>

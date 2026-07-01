@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}body{margin:0;background:#faf7f0;}
+.faq-item{border-bottom:1px solid #ece4d4;}
+.faq-q{display:flex;align-items:flex-start;gap:14px;padding:22px 0;cursor:pointer;user-select:none;}
+.faq-q:hover .faq-q-text{color:#6f9fc1;}
+.faq-a{display:none;padding:0 0 22px 46px;}
+.faq-a.open{display:block;}
+.faq-chevron{flex:none;width:24px;height:24px;border-radius:50%;background:#6f9fc1;display:flex;align-items:center;justify-content:center;margin-top:2px;transition:transform .25s;}
+.faq-chevron.open{transform:rotate(180deg);}
+</style>
+</helmet>
+<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <!-- HERO -->
+  <section style="background:#6f9fc1;padding:66px 44px 60px;text-align:center;">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:40px;color:#eaf2f8;letter-spacing:.06em;margin-bottom:6px;">FAQ</div>
+    <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#fff;margin:0 0 14px;">よくある質問</h1>
+    <p style="font-size:14px;color:rgba(255,255,255,.85);margin:0;">New Valleyでの入職時にお問い合わせをいただく内容をまとめています</p>
+  </section>
+
+  <!-- FAQ本文 -->
+  <section style="padding:60px 44px 100px;">
+    <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:56px;" id="faq-root"></div>
+  </section>
+
+  <!-- LINE + 問い合わせCTA -->
+  <section style="background:#43332a;padding:64px 44px;text-align:center;">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;color:#fff;margin:0 0 10px;">その他のご質問はこちら</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,.75);margin:0 0 32px;line-height:1.9;">お気軽にお問い合わせください</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#43332a;background:#fff;padding:14px 32px;border-radius:999px;box-shadow:0 4px 0 #8a7060;">お問い合わせフォーム</a>
+      <a href="https://page.line.me/296dkcwv?openQrModal=true" target="_blank" rel="noopener" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#fff;background:#06C755;padding:14px 32px;border-radius:999px;box-shadow:0 4px 0 #05a547;display:inline-flex;align-items:center;gap:8px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.89c.50 0 .901.402.901.9s-.402.9-.9.9h-2.703v1.8h2.702c.499 0 .9.402.9.9s-.401.9-.9.9H15.76a.9.9 0 0 1-.9-.9V9.891c0-.498.402-.9.9-.9h3.604zm-5.405 4.5a.9.9 0 0 1-.9.9.9.9 0 0 1-.9-.9V9.891a.9.9 0 0 1 .9-.9.9.9 0 0 1 .9.9v4.5zm-2.702 0a.9.9 0 0 1-.558.832.9.9 0 0 1-.98-.195l-2.42-2.638v2.001a.9.9 0 0 1-.9.9.9.9 0 0 1-.9-.9V9.891a.9.9 0 0 1 .558-.832.9.9 0 0 1 .98.195l2.42 2.638V9.891a.9.9 0 0 1 .9-.9.9.9 0 0 1 .9.9v4.5zM24 10.8C24 4.836 18.628 0 12 0S0 4.836 0 10.8c0 5.338 4.73 9.804 11.12 10.656.432.094 1.022.286 1.17.658.134.337.088.866.043 1.207l-.187 1.127c-.058.337-.267 1.318 1.154.719 1.42-.6 7.665-4.514 10.46-7.73C23.31 15.37 24 13.17 24 10.8z"/></svg>
+        LINEで問い合わせ
+      </a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,260px"></dc-import>
+</div>
+
+<script>
+(function(){
+  var DATA = [
+    {
+      section: '放課後デイサービス',
+      color: '#c86880',
+      items: [
+        {
+          q: 'マーチとびよんどの違いは何ですか？',
+          a: 'マーチは運動療育がメイン、びよんどは学業・就労支援がメインとなっております。<br>マーチは低学年生が多く、びよんどは高学年から高校生の児童が多いのも特徴です。'
+        },
+        {
+          q: '資格は何が必要ですか？',
+          a: '各施設や雇用形態により、必要資格が異なります。<br>保育士や教員免許をお持ちの方は<strong>児童指導員</strong>、お持ちでない方は<strong>指導員</strong>となります。<br>訪問介護の場合も資格は必須ですが、入社後の取得も可能です。<br>詳しくは<a href="recruit.dc.html" style="color:#c86880;font-weight:700;">採用情報</a>でご確認ください。'
+        },
+        {
+          q: '未経験なのですが、大丈夫でしょうか？',
+          a: '大丈夫です！慣れるまでは、先輩社員がサポート・指導します。<br>と言うよりも、人対人の仕事ですので心の有り様が一番大切です。ご安心ください。'
+        },
+      ]
+    },
+    {
+      section: '訪問介護事業',
+      color: '#3a9090',
+      items: [
+        {
+          q: '資格は何が必要ですか？',
+          a: '各施設や雇用形態により、必要資格が異なります。詳しくは<a href="recruit.dc.html" style="color:#3a9090;font-weight:700;">採用情報</a>でご確認ください。<br>社内で<strong>行動援護</strong>と<strong>同行援護（視覚障害）</strong>の資格は取得できます。働きながら資格を取る仕組みづくりをしているのでご安心ください。'
+        },
+        {
+          q: '未経験なのですが、大丈夫でしょうか？',
+          a: '大丈夫です！慣れるまでは、先輩社員がサポート・指導します。<br>と言うよりも、人対人の仕事ですので心の有り様が一番大切です。ご安心ください。'
+        },
+        {
+          q: 'どんなご利用者さんがいるのですか？',
+          a: 'サービスは４種に大別されます。<br><br>'
+            + '<strong>重度訪問介護：</strong>先天性の寝たきりの方が多いです。特定疾患を患っている方が多いですが、コミュニケーションは何らかの形で取れる場合が多いです。<br><br>'
+            + '<strong>同行援護：</strong>視覚障がいの方の支援で、視力が著しく悪いこと以外は健常です。支援技術よりも共に外出するためコミュニケーションスキルが求められます。<br><br>'
+            + '<strong>行動援護：</strong>主に知的障がい等が認められた方の外出支援サービスです。サービスの中では最も需要がある領域です。２人介助の場合が多いです。<br><br>'
+            + '<strong>居宅介護：</strong>在宅における支援です。高齢者の方の介護と違いおむつ交換は少なく、入浴介助の支援が多いです。その場合は２人介助です。'
+        },
+      ]
+    },
+    {
+      section: 'その他',
+      color: '#6878b8',
+      items: [
+        {
+          q: '育休や産休はしっかり取れますか？',
+          a: 'はい、取ることができます。<strong>男性の方の育休</strong>もしっかり取得しています！<br>女性活躍及びワーク・ライフバランス推進企業として取り組んでいます。'
+        },
+        {
+          q: '全国転勤はありますか？',
+          a: '施設は東京都町田市・神奈川県大和市にあるため、全国への転勤はありません。<br>放課後デイサービス事業で社員の方は移動がある場合もあります。幹部職などは３年を目安に移動があります。事業所間がそれほど遠くないのでご安心ください。<br>当社では<strong>異動→経験を積む→次のステップ</strong>として捉えています。'
+        },
+      ]
+    },
+  ];
+
+  var root = document.getElementById('faq-root');
+
+  DATA.forEach(function(sec) {
+    var block = document.createElement('div');
+
+    // セクションヘッダー
+    var head = document.createElement('div');
+    head.style.cssText = 'display:flex;align-items:center;gap:12px;margin-bottom:8px;';
+    head.innerHTML = '<div style="width:6px;height:28px;border-radius:3px;background:' + sec.color + ';flex:none;"></div>'
+      + '<h2 style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:900;font-size:20px;color:#43332a;margin:0;">' + sec.section + '</h2>';
+    block.appendChild(head);
+
+    // Q&Aリスト
+    var list = document.createElement('div');
+    list.style.cssText = 'background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 18px rgba(67,51,42,.07);';
+
+    sec.items.forEach(function(item) {
+      var wrap = document.createElement('div');
+      wrap.className = 'faq-item';
+
+      var qEl = document.createElement('div');
+      qEl.className = 'faq-q';
+      qEl.innerHTML = '<div class="faq-chevron" style="background:' + sec.color + ';">'
+        + '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        + '</div>'
+        + '<div style="display:flex;gap:10px;align-items:flex-start;flex:1;">'
+        + '<span style="flex:none;font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:16px;color:' + sec.color + ';">Q</span>'
+        + '<span class="faq-q-text" style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:16px;color:#43332a;line-height:1.6;transition:color .2s;">' + item.q + '</span>'
+        + '</div>';
+
+      var aEl = document.createElement('div');
+      aEl.className = 'faq-a';
+      aEl.innerHTML = '<div style="display:flex;gap:10px;align-items:flex-start;">'
+        + '<span style="flex:none;font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:16px;color:#a99c8f;">A</span>'
+        + '<p style="font-size:15px;line-height:2.0;color:#6b6358;margin:0;">' + item.a + '</p>'
+        + '</div>';
+
+      qEl.addEventListener('click', function() {
+        var isOpen = aEl.classList.contains('open');
+        aEl.classList.toggle('open', !isOpen);
+        qEl.querySelector('.faq-chevron').classList.toggle('open', !isOpen);
+      });
+
+      wrap.appendChild(qEl);
+      wrap.appendChild(aEl);
+      list.appendChild(wrap);
+    });
+
+    block.appendChild(list);
+    root.appendChild(block);
+  });
+})();
+</script>
+</x-dc>
+</body>
+</html>

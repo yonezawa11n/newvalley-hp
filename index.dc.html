@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社NewValley | 神奈川・東京の障害福祉サービス</title>
+<meta name="description" content="地域の未来を支える。人の可能性をひらく。神奈川・東京で放課後等デイサービス・訪問介護・相談支援などの障害福祉サービスを展開しています。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://newvalleyhp.com/index.dc.html">
+<meta property="og:title" content="株式会社NewValley | 神奈川・東京の障害福祉サービス">
+<meta property="og:description" content="地域の未来を支える。人の可能性をひらく。神奈川・東京で放課後等デイサービス・訪問介護・相談支援などの障害福祉サービスを展開しています。">
+<meta property="og:image" content="https://newvalleyhp.com/uploads/ogp.jpeg">
+<meta property="og:site_name" content="株式会社NewValley">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://newvalleyhp.com/uploads/ogp.jpeg">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#faf7f0;}
+</style>
+</helmet>
+<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <!-- ========== HERO: VIDEO BG + NV TREE + HOTSPOTS ========== -->
+  <style>
+    .hero-blob { position:absolute; cursor:pointer; transform:translate(-50%,-50%); }
+    #hero-panel {
+      position:fixed; top:0; right:0; bottom:0; width:420px; max-width:46%;
+      background:#fff; box-shadow:-18px 0 50px rgba(0,0,0,.22);
+      display:flex; flex-direction:column; overflow-y:auto; z-index:100;
+      transform:translateX(28px); opacity:0; pointer-events:none;
+      transition:transform .45s cubic-bezier(.22,.61,.36,1), opacity .35s ease;
+    }
+    #hero-panel.open { transform:translateX(0); opacity:1; pointer-events:auto; }
+  </style>
+
+  <section id="hero-section" style="position:relative;overflow:hidden;background:#f5f0e8;">
+    <!-- 動画：1回再生のみ -->
+    <video id="hero-video" autoplay muted playsinline
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0;transition:opacity 1s ease;">
+      <source src="uploads/hero-bg.mp4" type="video/mp4">
+    </video>
+    <button id="video-skip" style="position:absolute;bottom:24px;right:28px;z-index:10;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#fff;background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.4);padding:8px 18px;border-radius:999px;cursor:pointer;backdrop-filter:blur(4px);display:none;">スキップ ▶▶</button>
+
+    <!-- ツリー画像：動画中は非表示、終了後フェードイン -->
+    <img id="hero-tree" src="uploads/nv-tree.png" alt="人と地域の未来を育てる、6つの事業"
+         style="position:relative;width:100%;display:block;z-index:3;opacity:0;transition:opacity 1.5s ease;">
+
+    <!-- ホットスポット（透明な当たり判定） -->
+    <div id="hero-hotspots" style="position:absolute;inset:0;z-index:4;">
+      <div class="hero-blob" data-idx="0" style="left:19.5%;top:42%;width:23.4%;height:35.2%;border-radius:50%;"></div>
+      <div class="hero-blob" data-idx="1" style="left:45.6%;top:24.4%;width:28.6%;height:43%;border-radius:50%;"></div>
+      <div class="hero-blob" data-idx="2" style="left:70.3%;top:30.8%;width:24.1%;height:36.1%;border-radius:50%;"></div>
+      <div class="hero-blob" data-idx="3" style="left:15.6%;top:64%;width:23.4%;height:35.2%;border-radius:50%;"></div>
+      <div class="hero-blob" data-idx="4" style="left:57%;top:63%;width:24%;height:33%;border-radius:50%;"></div>
+      <div class="hero-blob" data-idx="5" style="left:82%;top:48%;width:24%;height:36%;border-radius:50%;"></div>
+      <div class="hero-blob" data-idx="6" style="left:81.7%;top:79.1%;width:13%;height:16.1%;border-radius:14px;"></div>
+    </div>
+
+    <!-- ヒントピル -->
+    <div style="position:absolute;bottom:22px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.9);border-radius:999px;padding:9px 22px;font-family:'Zen Maru Gothic',sans-serif;font-weight:600;font-size:12px;color:#5d4326;box-shadow:0 4px 14px rgba(0,0,0,.1);white-space:nowrap;pointer-events:none;z-index:4;">
+      各事業の葉にカーソルを合わせると詳細が表示されます →
+    </div>
+  </section>
+
+  <!-- スライドパネル（fixed でセクション外、ホットスポットを塞がない） -->
+  <div id="hero-panel">
+    <div id="panel-header" style="height:220px;flex:none;position:relative;display:flex;align-items:flex-end;overflow:hidden;">
+      <img id="panel-photo" src="" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;">
+      <div id="panel-overlay" style="position:absolute;inset:0;"></div>
+      <span id="panel-tag" style="position:absolute;top:18px;left:22px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#fff;padding:5px 12px;border-radius:999px;z-index:1;"></span>
+      <span id="panel-close" style="position:absolute;top:18px;right:22px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#fff;background:rgba(0,0,0,.28);padding:5px 12px;border-radius:999px;cursor:pointer;z-index:1;">✕ 閉じる</span>
+      <span id="panel-name-sm" style="position:relative;z-index:1;margin:0 0 14px 22px;font-family:'Quicksand',sans-serif;font-size:11px;color:rgba(255,255,255,.85);letter-spacing:.1em;"></span>
+    </div>
+    <div style="padding:28px 30px;display:flex;flex-direction:column;flex:1;">
+      <div id="panel-bar" style="width:40px;height:5px;border-radius:999px;margin-bottom:16px;"></div>
+      <h3 id="panel-name" style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;color:#43332a;margin:0 0 6px;line-height:1.4;"></h3>
+      <div id="panel-subtitle" style="font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;margin-bottom:12px;"></div>
+      <p id="panel-desc" style="font-family:'Noto Sans JP',sans-serif;font-size:13px;line-height:2;color:#6b6358;margin:0 0 16px;"></p>
+      <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:auto;">
+        <div id="panel-area" style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:#8a8276;"></div>
+        <div id="panel-access" style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:#8a8276;"></div>
+      </div>
+      <a id="panel-link" href="business.dc.html" style="margin-top:22px;align-self:flex-start;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#6f9fc1;padding:12px 24px;border-radius:999px;box-shadow:0 4px 0 #5a89ab;">詳しく見る →</a>
+    </div>
+  </div>
+
+  <!-- マーチ 選択モーダル -->
+  <div id="march-modal" style="display:none;position:fixed;inset:0;z-index:200;align-items:center;justify-content:center;">
+    <div id="march-modal-bg" style="position:absolute;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);"></div>
+    <div style="position:relative;background:#fff;border-radius:24px;padding:44px 40px;max-width:440px;width:90%;box-shadow:0 24px 60px rgba(0,0,0,.2);text-align:center;">
+      <button id="march-modal-close" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:20px;color:#a99c8f;cursor:pointer;line-height:1;">✕</button>
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;color:#c86880;margin-bottom:12px;">MARCH</div>
+      <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;color:#43332a;margin:0 0 8px;">どちらをご覧になりますか？</h3>
+      <p style="font-size:13px;color:#a99c8f;margin:0 0 32px;">マーチは大和・町田の2拠点で運営しています</p>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <a href="march-yamato.dc.html" style="text-decoration:none;background:#c86880;color:#fff;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;padding:18px 24px;border-radius:16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 6px 20px rgba(200,104,128,.35);transition:transform .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <span>📍 マーチ 大和</span><span style="font-size:13px;opacity:.85;">大和市中央</span>
+        </a>
+        <a href="march-machida.dc.html" style="text-decoration:none;background:#fff;color:#c86880;border:2.5px solid #c86880;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;padding:18px 24px;border-radius:16px;display:flex;align-items:center;justify-content:space-between;transition:transform .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <span>📍 マーチ 町田</span><span style="font-size:13px;opacity:.7;">町田市金森</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var businesses = [
+      { name:'えみたすサポート', tag:'相談支援事業', subtitle:'相談支援・計画相談', color:'#3a6b30', grad:'linear-gradient(135deg,#6f9e5a,#3a6b30)', area:'大和・町田エリア', access:'大和市・町田市内', desc:'一人ひとりに寄り添い、安心できる未来へつなぐ相談支援。福祉サービスの利用計画づくりや日常の相談対応を丁寧に行います。', photo:'uploads/soudanemitasu.jpg', page:'emitas.dc.html' },
+      { name:'放課後等デイサービス マーチ', tag:'放デイ', subtitle:'子どもたちの「できた！」を育む', color:'#c86880', grad:'linear-gradient(135deg,#f0a8b8,#c86880)', area:'大和市中央1-7-20 / 町田市金森3-23-1', access:'大和駅・成瀬駅より各アクセス', desc:'子どもたちの「できた！」を育み、笑顔の毎日をサポート。運動特化型のプログラムで身体を動かしながら自信をつけていきます。', photo:'uploads/marchyamato.jpg', pages:[{label:'マーチ 大和', href:'march-yamato.dc.html'},{label:'マーチ 町田', href:'march-machida.dc.html'}] },
+      { name:'放課後等デイサービス びよんど', tag:'放デイ', subtitle:'その子らしさを大切に', color:'#6878b8', grad:'linear-gradient(135deg,#98a8d8,#6878b8)', area:'〒242-0023 大和市渋谷5-19-6', access:'小田急 高座渋谷駅より徒歩約2分', desc:'その子らしさを大切に、可能性を広げる支援を。自立支援型の放課後等デイサービス。', photo:'uploads/biyondoyamato.jpg', page:'biyondo.dc.html' },
+      { name:'訪問介護 クラージュ', tag:'訪問介護', subtitle:'ご自宅での暮らしを支える', color:'#3a9090', grad:'linear-gradient(135deg,#60c0c0,#3a9090)', area:'〒194-0012 町田市金森3-23-1-2F', access:'JR横浜線 成瀬駅より徒歩約18分', desc:'ご自宅での暮らしを支えるやさしく、あたたかな介護。障がいに特化した訪問介護。', photo:'uploads/couragemachida.jpg', page:'courage.dc.html' },
+      { name:'エックスモバイル大和桜ヶ丘駅前店', tag:'モバイル事業', subtitle:'通信のチカラで、暮らしもビジネスも', color:'#808820', grad:'linear-gradient(135deg,#c0c840,#808820)', area:'大和市桜ヶ丘（大和桜ヶ丘駅前）', access:'小田急 大和桜ヶ丘駅前', desc:'通信のチカラで、暮らしもビジネスももっと快適に。地域密着型の携帯ショップ。', photo:'uploads/xmobile.JPG', page:'xmobile.dc.html' },
+      { name:'DX / IT デザイン事業', tag:'DX・IT', subtitle:'未来をつくるパートナーに', color:'#7850a8', grad:'linear-gradient(135deg,#a878d0,#7850a8)', area:'大和市・町田市エリア', access:'お問い合わせよりご相談ください', desc:'課題を見つけ、仕組みで解決する。DXとデザインのチカラで未来をつくるパートナーに。', photo:'uploads/ITdesign.jpg', page:'dx.dc.html' },
+      { name:'生活介護・GH事業', tag:'★ 展開予定', subtitle:'地域のニーズに応じた安心の場づくり', color:'#c88a5a', grad:'linear-gradient(135deg,#dba878,#c88a5a)', area:'開設準備中', access:'詳細は決まり次第お知らせします', desc:'生活介護・グループホームの両面から地域での自立生活を支えます。', photo:null, page:'gh.dc.html' },
+    ];
+
+    // パネル画像を事前にプリロード
+    businesses.forEach(function(b){
+      if (b.photo) { var img = new Image(); img.src = b.photo; }
+    });
+
+    var panel     = document.getElementById('hero-panel');
+    var pHeader   = document.getElementById('panel-header');
+    var pPhoto    = document.getElementById('panel-photo');
+    var pOverlay  = document.getElementById('panel-overlay');
+    var pTag      = document.getElementById('panel-tag');
+    var pNameSm   = document.getElementById('panel-name-sm');
+    var pBar      = document.getElementById('panel-bar');
+    var pName     = document.getElementById('panel-name');
+    var pSubtitle = document.getElementById('panel-subtitle');
+    var pDesc     = document.getElementById('panel-desc');
+    var pArea     = document.getElementById('panel-area');
+    var pAccess   = document.getElementById('panel-access');
+    var pLink     = document.getElementById('panel-link');
+    var pClose    = document.getElementById('panel-close');
+    var hotspots  = document.getElementById('hero-hotspots');
+    var timer     = null;
+
+    var sec       = document.getElementById('hero-section');
+    var PANEL_W   = 420;
+    var videoPlaying = false;
+
+    function showPanel(idx) {
+      if (videoPlaying) return;
+      clearTimeout(timer);
+      var b = businesses[idx];
+      if (b.photo) {
+        pPhoto.src = b.photo;
+        pPhoto.style.display = 'block';
+        pOverlay.style.background = 'linear-gradient(to bottom,rgba(0,0,0,0.08),rgba(0,0,0,0.52))';
+        pHeader.style.background = 'none';
+      } else {
+        pPhoto.style.display = 'none';
+        pOverlay.style.background = 'none';
+        pHeader.style.background = b.grad;
+      }
+      pTag.style.background     = b.color;
+      pTag.textContent          = b.tag;
+      pNameSm.textContent       = b.name;
+      pBar.style.background     = b.color;
+      pName.textContent         = b.name;
+      pSubtitle.style.color     = b.color;
+      pSubtitle.textContent     = b.subtitle;
+      pDesc.textContent         = b.desc;
+      pArea.textContent         = '📍 ' + b.area;
+      pAccess.textContent       = '🚃 ' + b.access;
+      var pMulti = document.getElementById('panel-multi-links');
+      pLink.style.display = '';
+      pLink.style.background = b.color || '#6f9fc1';
+      pLink.href = b.page || 'business.dc.html';
+      pLink.textContent = b.pages ? 'クリックして選ぶ →' : '詳しく見る →';
+      panel.classList.add('open');
+      sec.style.transition = 'margin-right 0.45s cubic-bezier(.22,.61,.36,1)';
+      sec.style.marginRight = PANEL_W + 'px';
+    }
+
+    function closePanel() {
+      panel.classList.remove('open');
+      sec.style.marginRight = '0';
+    }
+
+    function scheduleClose() {
+      timer = setTimeout(closePanel, 200);
+    }
+
+    // マーチ選択モーダル
+    var marchModal = document.getElementById('march-modal');
+    document.getElementById('march-modal-bg').addEventListener('click', function(){ marchModal.style.display='none'; });
+    document.getElementById('march-modal-close').addEventListener('click', function(){ marchModal.style.display='none'; });
+
+    // ホットスポット
+    document.querySelectorAll('.hero-blob').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ showPanel(+el.dataset.idx); });
+      el.addEventListener('click', function(){
+        var b = businesses[+el.dataset.idx];
+        if (b.pages) {
+          marchModal.style.display = 'flex';
+          return;
+        }
+        if (!b.page) return;
+        if (b.page.startsWith('http')) { window.open(b.page, '_blank'); }
+        else { window.location.href = b.page; }
+      });
+    });
+    hotspots.addEventListener('mouseleave', scheduleClose);
+
+    // パネル自体にホバー中は閉じない
+    panel.addEventListener('mouseenter', function(){ clearTimeout(timer); });
+    panel.addEventListener('mouseleave', scheduleClose);
+
+    // 閉じるボタン
+    pClose.addEventListener('click', function(){
+      clearTimeout(timer);
+      closePanel();
+    });
+
+    // 動画：1回再生 → 終了後にフェードアウト、ツリー画像フェードイン、ホバー有効化
+    var vid  = document.getElementById('hero-video');
+    var tree = document.getElementById('hero-tree');
+    if (vid) {
+      // 動画ファイルが存在しない場合はすぐにツリーを表示
+      vid.addEventListener('error', function(){
+        tree.style.opacity = '1';
+        hotspots.style.pointerEvents = 'auto';
+      });
+      var skipBtn = document.getElementById('video-skip');
+
+      function endVideo() {
+        skipBtn.style.display = 'none';
+        vid.style.transition = 'opacity 1.2s ease';
+        vid.style.opacity = '0';
+        tree.style.opacity = '1';
+        setTimeout(function(){
+          videoPlaying = false;
+          hotspots.style.pointerEvents = 'auto';
+        }, 1200);
+      }
+
+      vid.addEventListener('playing', function(){
+        videoPlaying = true;
+        hotspots.style.pointerEvents = 'none';
+        vid.style.opacity = '1';
+        tree.style.opacity = '0';
+        skipBtn.style.display = 'block';
+      });
+      vid.addEventListener('ended', endVideo);
+      skipBtn.addEventListener('click', function(){
+        vid.pause();
+        endVideo();
+      });
+    } else {
+      // video要素なし → 即表示
+      tree.style.opacity = '1';
+      hotspots.style.pointerEvents = 'auto';
+    }
+  })();
+  </script>
+
+  <!-- ========== NEWS ========== -->
+  <section style="background:#faf7f0;padding:72px 44px;">
+    <div style="max-width:920px;margin:0 auto;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#6f9fc1;margin-bottom:8px;">NEWS</div>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:28px;color:#43332a;margin:0;">お知らせ</h2>
+        </div>
+        <a href="news.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#6f9fc1;">すべて見る →</a>
+      </div>
+      <div id="top-news-list" style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px rgba(67,51,42,.06);"></div>
+    </div>
+  </section>
+  <script src="./news-data.js"></script>
+  <script src="./news-loader.js"></script>
+  <script>
+  (function(){
+    var list = document.getElementById('top-news-list');
+    if(!list) return;
+    NewsLoader.load().then(function(articles){
+      var items = articles.slice(0, 5);
+      items.forEach(function(n, i){
+        var d = new Date(n.date);
+        var dateStr = d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0');
+        var color = (typeof newsCategoryColor === 'function') ? newsCategoryColor(n.category) : '#6f9fc1';
+        var isLast = i === items.length - 1;
+        var row = document.createElement('a');
+        row.href = 'news-detail.dc.html?id=' + n.id;
+        row.style.cssText = 'display:flex;align-items:center;gap:18px;padding:18px 24px;text-decoration:none;' + (isLast ? '' : 'border-bottom:1px solid #f0e8d8;') + 'transition:background .15s;';
+        row.onmouseover = function(){ this.style.background='#faf7f0'; };
+        row.onmouseout  = function(){ this.style.background=''; };
+        row.innerHTML = '<span style="flex:none;font-family:\'Quicksand\',sans-serif;font-weight:600;font-size:13px;color:#a99c8f;min-width:76px;">' + dateStr + '</span>'
+          + '<span style="flex:none;font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:11px;color:#fff;background:' + color + ';padding:3px 10px;border-radius:999px;white-space:nowrap;">' + n.category + '</span>'
+          + '<span style="font-family:\'Noto Sans JP\',sans-serif;font-size:14px;color:#43332a;line-height:1.6;">' + n.title + '</span>';
+        list.appendChild(row);
+      });
+    });
+  })();
+  </script>
+
+  <!-- ========== ABOUT ========== -->
+  <section style="background:#fff;padding:88px 44px;">
+    <div style="max-width:920px;margin:0 auto;text-align:center;">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#6f9fc1;margin-bottom:14px;">ABOUT US</div>
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:34px;line-height:1.6;color:#43332a;margin:0 0 26px;">自らの幸福のたゆまぬ追求</h2>
+      <p style="font-size:16px;line-height:2.1;color:#6b6358;margin:0 0 16px;">ニューバリーは、訪問介護・放課後等デイサービス・相談支援を軸に、障害のある方とご家族の毎日に寄り添う福祉の会社です。</p>
+      <p style="font-size:16px;line-height:2.1;color:#6b6358;margin:0;">利用者さんの小さな一歩を一緒に喜び、地域で安心して暮らせる仕組みをスタッフと共につくっています。2025年、創業10年目を迎えさらなる包括的な地域支援を目指して拡大を続けています。</p>
+    </div>
+  </section>
+
+  <!-- ========== BUSINESS TEASER ========== -->
+  <section style="background:#faf7f0;padding:88px 44px;">
+    <div style="max-width:1120px;margin:0 auto;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#6f9fc1;margin-bottom:10px;">BUSINESS</div>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:32px;color:#43332a;margin:0;">事業紹介</h2>
+        </div>
+        <a href="business.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#6f9fc1;">すべて見る →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <!-- マーチ大和 -->
+        <a href="march-yamato.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(67,51,42,.06);display:block;transition:transform .15s,box-shadow .15s;">
+          <div style="height:140px;overflow:hidden;"><img src="uploads/marchyamato.jpg" alt="マーチ大和" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <div style="padding:18px;border-top:5px solid #c86880;">
+            <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#fff;background:#c86880;padding:4px 10px;border-radius:999px;margin-bottom:8px;">放デイ</span>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#43332a;margin:0 0 3px;">マーチ 大和</h3>
+            <p style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:#8a8276;margin:0;">運動特化型</p>
+          </div>
+        </a>
+        <!-- マーチ町田 -->
+        <a href="march-machida.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(67,51,42,.06);display:block;transition:transform .15s,box-shadow .15s;">
+          <div style="height:140px;overflow:hidden;"><img src="uploads/marchmachida.jpg" alt="マーチ町田" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <div style="padding:18px;border-top:5px solid #b8c235;">
+            <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#43332a;background:#d6e06a;padding:4px 10px;border-radius:999px;margin-bottom:8px;">放デイ</span>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#43332a;margin:0 0 3px;">マーチ 町田</h3>
+            <p style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:#8a8276;margin:0;">運動特化型</p>
+          </div>
+        </a>
+        <!-- びよんど -->
+        <a href="biyondo.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(67,51,42,.06);display:block;transition:transform .15s,box-shadow .15s;">
+          <div style="height:140px;overflow:hidden;"><img src="uploads/biyondoyamato.jpg" alt="びよんど" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <div style="padding:18px;border-top:5px solid #6878b8;">
+            <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#fff;background:#6878b8;padding:4px 10px;border-radius:999px;margin-bottom:8px;">放デイ</span>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#43332a;margin:0 0 3px;">びよんど 大和</h3>
+            <p style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:#8a8276;margin:0;">自立支援型</p>
+          </div>
+        </a>
+        <!-- クラージュ -->
+        <a href="courage.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(67,51,42,.06);display:block;transition:transform .15s,box-shadow .15s;">
+          <div style="height:140px;overflow:hidden;"><img src="uploads/couragemachida.jpg" alt="クラージュ" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <div style="padding:18px;border-top:5px solid #3a9090;">
+            <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#fff;background:#3a9090;padding:4px 10px;border-radius:999px;margin-bottom:8px;">訪問介護</span>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#43332a;margin:0 0 3px;">クラージュ 町田</h3>
+            <p style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:#8a8276;margin:0;">障がい特化型</p>
+          </div>
+        </a>
+        <!-- えみたす -->
+        <a href="emitas.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(67,51,42,.06);display:block;transition:transform .15s,box-shadow .15s;">
+          <div style="height:140px;overflow:hidden;"><img src="uploads/soudanemitasu.jpg" alt="えみたすサポート" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <div style="padding:18px;border-top:5px solid #3a6b30;">
+            <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#fff;background:#3a6b30;padding:4px 10px;border-radius:999px;margin-bottom:8px;">相談支援</span>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#43332a;margin:0 0 3px;">えみたすサポート</h3>
+            <p style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:#8a8276;margin:0;">指定相談支援</p>
+          </div>
+        </a>
+        <!-- GH準備中 -->
+        <a href="gh.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 12px rgba(67,51,42,.05);border:2px dashed #c88a5a;display:block;opacity:.85;">
+          <div style="height:140px;background:linear-gradient(135deg,#dba878,#c88a5a);display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:12px;color:#fff;background:rgba(0,0,0,.2);padding:5px 14px;border-radius:999px;">開設予定</span>
+          </div>
+          <div style="padding:18px;border-top:5px solid #c88a5a;">
+            <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#fff;background:#c88a5a;padding:4px 10px;border-radius:999px;margin-bottom:8px;">準備中</span>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#43332a;margin:0 0 3px;">生活介護・GH</h3>
+            <p style="font-family:'Noto Sans JP',sans-serif;font-size:12px;color:#8a8276;margin:0;">開設準備中</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED BUSINESSES ========== -->
+  <section style="background:#fef9f0;padding:88px 44px;">
+    <div style="max-width:1120px;margin:0 auto;">
+      <div style="margin-bottom:40px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#c88a5a;margin-bottom:10px;">GROUP SERVICES</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:32px;color:#43332a;margin:0;">関連事業</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+        <a href="http://www.liful-college.com/" target="_blank" style="text-decoration:none;background:#fff;border-radius:18px;padding:28px;box-shadow:0 4px 14px rgba(67,51,42,.06);display:block;transition:transform .15s;" style-hover="transform:translateY(-3px);">
+          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#6f9e5a,#3a6b30);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:26px;">🎓</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#3a6b30;letter-spacing:.08em;margin-bottom:8px;">障がい資格研修特化</div>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#43332a;margin:0 0 10px;">リフルカレッジ</h3>
+          <p style="font-family:'Noto Sans JP',sans-serif;font-size:13px;line-height:1.85;color:#8a8276;margin:0;">障がい分野の資格取得に特化した研修機関。同行援護・強度行動障害支援者養成研修等。</p>
+          <div style="margin-top:14px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#3a6b30;">サイトを見る →</div>
+        </a>
+        <a href="xmobile.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;padding:28px;box-shadow:0 4px 14px rgba(67,51,42,.06);display:block;transition:transform .15s;" style-hover="transform:translateY(-3px);">
+          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#c8c850,#98a030);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:26px;">📱</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#98a030;letter-spacing:.08em;margin-bottom:8px;">携帯ショップ</div>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#43332a;margin:0 0 10px;line-height:1.4;">エックスモバイル<br>大和桜ヶ丘駅前店</h3>
+          <p style="font-family:'Noto Sans JP',sans-serif;font-size:13px;line-height:1.85;color:#8a8276;margin:0;">大和桜ヶ丘駅前の携帯ショップ。地域の皆さまの通信をサポートします。</p>
+          <div style="margin-top:14px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#98a030;">詳しく見る →</div>
+        </a>
+        <a href="https://cockroach.shopselect.net/" target="_blank" style="text-decoration:none;background:#fff;border-radius:18px;padding:28px;box-shadow:0 4px 14px rgba(67,51,42,.06);display:block;transition:transform .15s;" style-hover="transform:translateY(-3px);">
+          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#c88a5a,#a06a3a);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:26px;">🦎</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#c88a5a;letter-spacing:.08em;margin-bottom:8px;">ECショップ</div>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#43332a;margin:0 0 10px;">コカローチ・G・大学</h3>
+          <p style="font-family:'Noto Sans JP',sans-serif;font-size:13px;line-height:1.85;color:#8a8276;margin:0;">栄養価の高い爬虫類の餌を販売するECショップ。2025年9月オープン。</p>
+          <div style="margin-top:14px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#c88a5a;">サイトを見る →</div>
+        </a>
+        <a href="https://newvalley-it-yonezawa.vercel.app/" target="_blank" style="text-decoration:none;background:#fff;border-radius:18px;padding:28px;box-shadow:0 4px 14px rgba(67,51,42,.06);display:block;transition:transform .15s;" style-hover="transform:translateY(-3px);">
+          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#a878d0,#7850a8);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:26px;">💻</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#7850a8;letter-spacing:.08em;margin-bottom:8px;">DX・IT</div>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#43332a;margin:0 0 10px;">DX / IT デザイン事業</h3>
+          <p style="font-family:'Noto Sans JP',sans-serif;font-size:13px;line-height:1.85;color:#8a8276;margin:0;">課題を見つけ、仕組みで解決する。DXとデザインのチカラで未来をつくるパートナーに。</p>
+          <div style="margin-top:14px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#7850a8;">詳しく見る →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RECRUIT ========== -->
+  <section style="background:#6f9e5a;padding:88px 44px;">
+    <div style="max-width:1120px;margin:0 auto;display:flex;gap:48px;align-items:center;flex-wrap:wrap;">
+      <div style="flex:1;min-width:280px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#d6e06a;margin-bottom:12px;">RECRUIT</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:32px;line-height:1.5;color:#fff;margin:0 0 18px;">福祉の新しい「あたりまえ」を、<br>一緒につくる仲間を募集中。</h2>
+        <p style="font-size:15px;line-height:2;color:#eef4ea;margin:0 0 28px;max-width:480px;">未経験から始めたスタッフも活躍しています。資格取得支援やキャリアパスを整え、長く働ける環境づくりに力を入れています。</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="recruit.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#43332a;background:#d6e06a;padding:15px 34px;border-radius:999px;box-shadow:0 5px 0 #b9c44f;">募集要項を見る</a>
+          <a href="https://newvalley-recruit.com/" target="_blank" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;border:2px solid rgba(255,255,255,.6);padding:13px 24px;border-radius:999px;">採用専用サイト →</a>
+        </div>
+      </div>
+      <div style="flex:none;width:360px;height:240px;border-radius:20px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.18);"><img src="uploads/staff_group.jpg" alt="スタッフ集合写真" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- ========== COMPANY ========== -->
+  <section style="background:#faf7f0;padding:88px 44px;">
+    <a href="company.dc.html" style="text-decoration:none;display:block;max-width:1120px;margin:0 auto;">
+      <div style="display:flex;gap:48px;align-items:center;flex-wrap:wrap;flex-direction:row-reverse;">
+        <div style="flex:1;min-width:280px;">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#6f9fc1;margin-bottom:12px;">COMPANY</div>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:32px;line-height:1.5;color:#43332a;margin:0 0 18px;">わたしたちについて</h2>
+          <p style="font-size:15px;line-height:2;color:#6b6358;margin:0 0 28px;max-width:480px;">2016年創業、2025年に10周年を迎えました。神奈川・大和と東京・町田を拠点に、障害福祉サービスを展開し続けています。</p>
+          <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#6f9fc1;padding:15px 34px;border-radius:999px;box-shadow:0 5px 0 #5a89ab;">私たちについて →</span>
+        </div>
+        <div style="flex:none;width:360px;height:240px;border-radius:20px;overflow:hidden;">
+          <img src="uploads/company.jpg" alt="オフィス・拠点" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- ========== NEWS ========== -->
+  <section style="padding:80px 44px;background:#faf7f0;">
+    <div style="max-width:1080px;margin:0 auto;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#4a7a3f;margin-bottom:10px;">NEWS &amp; TOPICS</div>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0;">お知らせ</h2>
+        </div>
+        <a href="news.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#4a7a3f;border:2px solid #4a7a3f;padding:10px 22px;border-radius:999px;">一覧を見る →</a>
+      </div>
+      <div id="index-news-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"></div>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var grid = document.getElementById('index-news-grid');
+    if(!grid || !window.NEWS_DATA) return;
+    NEWS_DATA.slice(0,3).forEach(function(n){
+      var color = newsCategoryColor(n.category);
+      var imgHTML = n.image
+        ? '<div style="height:180px;overflow:hidden;"><img src="' + n.image + '" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" loading="lazy"></div>'
+        : '<div style="height:180px;background:linear-gradient(135deg,#f0e8d8,#e0d4c0);display:flex;align-items:center;justify-content:center;"><span style="font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:12px;letter-spacing:.15em;color:#a99c8f;">NEW VALLEY</span></div>';
+      var card = document.createElement('a');
+      card.href = 'news-detail.dc.html?id=' + n.id;
+      card.style.cssText = 'display:block;text-decoration:none;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(67,51,42,.07);transition:transform .25s,box-shadow .25s;';
+      card.onmouseover = function(){ this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 28px rgba(67,51,42,.13)'; };
+      card.onmouseout  = function(){ this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(67,51,42,.07)'; };
+      card.innerHTML = imgHTML +
+        '<div style="padding:20px 20px 22px;">' +
+          '<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">' +
+            '<span style="font-size:11px;font-weight:700;color:#fff;background:' + color + ';padding:2px 10px;border-radius:999px;">' + n.category + '</span>' +
+            '<span style="font-size:11px;color:#a99c8f;">' + newsFormatDate(n.date) + '</span>' +
+          '</div>' +
+          '<h3 style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin:0 0 8px;line-height:1.5;">' + n.title + '</h3>' +
+          '<p style="font-size:12px;line-height:1.8;color:#6b6358;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + n.excerpt + '</p>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+  })();
+  </script>
+
+  <!-- ========== INSTAGRAM FEED ========== -->
+  <section style="padding:80px 44px;background:#fff;">
+    <div style="max-width:1080px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#4a7a3f;margin-bottom:12px;">INSTAGRAM</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0 0 10px;">日々の様子</h2>
+        <a href="https://www.instagram.com/newvalley_official/" target="_blank" rel="noopener" style="font-size:14px;color:#4a7a3f;text-decoration:none;">@newvalley_official ↗</a>
+      </div>
+      <div id="sns-grid-index"></div>
+      <div id="sns-error-index" style="display:none;text-align:center;color:#a99c8f;font-size:14px;padding:32px;">Instagramの投稿を読み込めませんでした。</div>
+    </div>
+  </section>
+  <script src="sns-grid.js"></script>
+  <script>
+  SnsGrid.render({
+    containerId: 'sns-grid-index',
+    errorId:     'sns-error-index',
+    handle:      'newvalley_official',
+    source:      'instagram',
+    color:       '#4a7a3f',
+    limit:       6,
+  });
+  </script>
+
+  <!-- ========== CTA ========== -->
+  <section style="background:#43332a;padding:80px 44px;text-align:center;">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:32px;color:#fff;margin:0 0 14px;line-height:1.5;">あなたの「やってみたい」を、<br>ニューバリーで。</h2>
+    <p style="font-size:14px;color:#d8cec3;margin:0 0 32px;">まずはカジュアルにお話ししましょう。LINEでもお気軽に！</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="entry.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#43332a;background:#d6e06a;padding:16px 38px;border-radius:999px;box-shadow:0 5px 0 #b9c44f;">エントリーする</a>
+      <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#06C755;padding:16px 38px;border-radius:999px;box-shadow:0 5px 0 #059440;">LINEで相談する</a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,280px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

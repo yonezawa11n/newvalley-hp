@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#faf7f0;}</style>
+</helmet>
+<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <!-- ヒーロー -->
+  <section style="position:relative;height:420px;overflow:hidden;background:#3a9090;">
+  <a href="https://www.instagram.com/shougai_houmon_courage/" target="_blank" rel="noopener" style="position:absolute;top:18px;right:22px;z-index:10;display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);padding:8px 16px 8px 12px;border-radius:999px;text-decoration:none;font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:13px;color:#43332a;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="ig" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig)" fill="none"/><circle cx="12" cy="12" r="4" stroke="url(#ig)" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="#dc2743" stroke="none"/></svg>
+    Instagram
+  </a>
+    <img src="uploads/couragemachida.jpg" alt="訪問介護 クラージュ" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" loading="lazy">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.05),rgba(0,0,0,0.52));"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:44px 52px;">
+      <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:rgba(255,255,255,0.25);padding:5px 16px;border-radius:999px;margin-bottom:14px;">訪問介護</span>
+      <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:38px;color:#fff;margin:0 0 8px;line-height:1.3;">訪問介護 クラージュ</h1>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:15px;color:rgba(255,255,255,.88);margin:0;">ご自宅での暮らしを、やさしくあたたかくお支えします</p>
+    </div>
+  </section>
+  <!-- キャッチコピー -->
+  <section style="background:#fff;padding:72px 52px;text-align:center;">
+    <div style="max-width:740px;margin:0 auto;">
+      <div style="width:48px;height:4px;border-radius:999px;background:#3a9090;margin:0 auto 32px;"></div>
+      <p style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px;line-height:2.1;color:#43332a;margin:0;">ご利用者様が可能な限り居宅において、希望する日常生活を営むことができるよう、生活全般にわたり、持っておられる力に応じた支援を提供することを目的としています。</p>
+    </div>
+  </section>
+
+  <!-- スライドショー -->
+  <section style="background:#faf7f0;padding:36px 0;overflow:hidden;" id="ss-section-courage">
+    <div style="overflow:hidden;">
+      <div id="marquee-track-courage" style="display:flex;will-change:transform;"></div>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var PHOTOS_courage = ['uploads/couragemachida.jpg'];
+    var track = document.getElementById('marquee-track-courage');
+    var section = document.getElementById('ss-section-courage');
+    if(!PHOTOS_courage.length) { section.style.display='none'; return; }
+    var _src = PHOTOS_courage; while(_src.length < 10) _src = _src.concat(PHOTOS_courage); var all = _src.concat(_src);
+    all.forEach(function(src){
+      var div = document.createElement('div');
+      div.style.cssText = 'flex:none;width:320px;height:220px;margin-right:14px;border-radius:18px;overflow:hidden;';
+      div.innerHTML = '<img src="' + src + '" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">';
+      track.appendChild(div);
+    });
+    var duration = Math.max(PHOTOS_courage.length * 2, 6);
+    var style = document.createElement('style');
+    style.textContent = '@keyframes marquee_courage { from { transform: translateX(0); } to { transform: translateX(-50%); } }';
+    document.head.appendChild(style);
+    track.style.animation = 'marquee_courage ' + duration + 's linear infinite';
+  })();
+  </script>
+
+  <!-- スタッフ紹介 -->
+  <section style="padding:80px 52px;background:#fff;">
+    <div style="max-width:960px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:56px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#3a9090;margin-bottom:12px;">STAFF</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0;">スタッフ紹介</h2>
+      </div>
+      <div style="background:#faf7f0;border-radius:20px;padding:36px 40px;box-shadow:0 4px 18px rgba(67,51,42,.07);margin-bottom:36px;display:flex;gap:32px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:none;width:110px;height:110px;border-radius:50%;overflow:hidden;background:#3a9090;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:36px;color:#fff;">小</span>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.15em;color:#3a9090;margin-bottom:6px;">MANAGER</div>
+          <div style="font-size:12px;color:#a99c8f;margin-bottom:4px;">管理者</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;color:#43332a;margin-bottom:4px;">小川 聡志</div>
+          <div style="font-size:12px;color:#a99c8f;">おがわ さとし</div>
+        </div>
+      </div>
+      <div id="staff-grid-courage" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:20px;"></div>
+      <div style="margin-top:20px;border:2px dashed #e0c8b8;border-radius:14px;padding:16px 24px;text-align:center;color:#a99c8f;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;">パート・アルバイトも在籍中</div>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var STAFF_COURAGE = [
+      { name:'竹内 順一', ruby:'たけうち じゅんいち', role:'管理者補佐', photo:'' },
+      { name:'亀井 博子', ruby:'かめい ひろこ', role:'管理者補佐', photo:'' },
+      { name:'相星 竜太郎', ruby:'あいほし りゅうたろう', role:'サービス提供責任者', photo:'' },
+      { name:'依田 梨音', ruby:'よだ りおん', role:'サービス提供責任者', photo:'' },
+      { name:'山本 友理佳', ruby:'やまもと ゆりか', role:'サービス提供責任者', photo:'' },
+    ];
+    var color = '#3a9090';
+    var grid = document.getElementById('staff-grid-courage');
+    if(!grid) return;
+    STAFF_COURAGE.forEach(function(s){
+      var photoEl = s.photo ? '<img src="' + s.photo + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy">' : '<span style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:900;font-size:26px;color:#fff;">' + s.name.charAt(0) + '</span>';
+      var el = document.createElement('div');
+      el.style.cssText = 'background:#faf7f0;border-radius:16px;padding:24px 16px;text-align:center;box-shadow:0 4px 14px rgba(67,51,42,.07);';
+      el.innerHTML = '<div style="width:72px;height:72px;border-radius:50%;overflow:hidden;background:' + color + ';display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">' + photoEl + '</div><div style="font-size:11px;color:' + color + ';font-weight:700;margin-bottom:4px;">' + s.role + '</div><div style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin-bottom:3px;">' + s.name + '</div>' + (s.ruby ? '<div style="font-size:11px;color:#a99c8f;">' + s.ruby + '</div>' : '');
+      grid.appendChild(el);
+    });
+    if(STAFF_COURAGE.length === 0) grid.style.display = 'none';
+  })();
+  </script>
+
+  <!-- Instagram投稿 -->
+  <section style="padding:80px 52px;background:#fff;">
+    <div style="max-width:960px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#3a9090;margin-bottom:12px;">INSTAGRAM</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0 0 10px;">最新の投稿</h2>
+        <a href="https://www.instagram.com/shougai_houmon_courage/" target="_blank" rel="noopener" style="font-size:13px;color:#3a9090;text-decoration:none;">@shougai_houmon_courage</a>
+      </div>
+      <div id="sns-grid-courage"></div>
+      <div id="sns-error-courage" style="display:none;text-align:center;color:#a99c8f;font-size:14px;padding:32px;">Instagramの投稿を読み込めませんでした。</div>
+    </div>
+  </section>
+  <script src="sns-grid.js"></script>
+  <script>
+  SnsGrid.render({
+    containerId: 'sns-grid-courage',
+    errorId:     'sns-error-courage',
+    handle:      'shougai_houmon_courage',
+    source:      'instagram',
+    color:       '#3a9090',
+    limit:       6,
+  });
+  </script>
+  <!-- 一緒に働きましょう -->
+
+  <!-- 基本情報 -->
+  <section style="padding:64px 52px;background:#faf7f0;">
+    <div style="max-width:860px;margin:0 auto;">
+      <div style="background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(67,51,42,.06);">
+        <div style="display:flex;padding:22px 28px;border-bottom:1px solid #f0e8d8;align-items:flex-start;">
+          <span style="flex:none;width:90px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#a99c8f;">住所</span>
+          <a href="https://maps.google.com/?q=東京都町田市金森3-23-1" target="_blank" rel="noopener" style="color:#6f9fc1;text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:14px;line-height:1.7;">📍 〒194-0012 東京都町田市金森3-23-1-2F</a>
+        </div>
+        <div style="display:flex;padding:22px 28px;border-bottom:1px solid #f0e8d8;align-items:flex-start;">
+          <span style="flex:none;width:90px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#a99c8f;">アクセス</span>
+          <span style="font-size:14px;color:#43332a;line-height:1.7;">JR横浜線 成瀬駅より徒歩約18分</span>
+        </div>
+        <div style="display:flex;padding:22px 28px;align-items:flex-start;">
+          <span style="flex:none;width:90px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#a99c8f;">営業時間</span>
+          <span style="font-size:14px;color:#43332a;line-height:1.7;">月〜土 9:00〜18:00（要相談）</span>
+        </div>
+      </div>
+
+
+      <div style="margin-top:28px;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(67,51,42,.07);">
+        <iframe src="https://maps.google.com/maps?q=東京都町田市金森3-23-1&output=embed&hl=ja" width="100%" height="300" style="border:0;display:block;" allowfullscreen loading="lazy"></iframe>
+      </div>
+
+      <!-- ボタン -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;">
+        <a href="courage-detail.dc.html" style="text-decoration:none;background:#3a9090;border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;gap:10px;box-shadow:0 6px 24px #3a909055;transition:transform .2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="font-size:32px;">🔍</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;color:#fff;">詳しく見る</div>
+          <p style="font-size:13px;color:rgba(255,255,255,.88);margin:0;line-height:1.8;">サービス内容・特徴など、詳細情報はこちら</p>
+          <div style="font-size:18px;color:rgba(255,255,255,.8);margin-top:8px;">→</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#3a9090;padding:72px 44px;text-align:center;">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:rgba(255,255,255,.7);margin-bottom:12px;">RECRUIT</div>
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#fff;margin:0 0 14px;line-height:1.5;">一緒に働きませんか？</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,.85);margin:0 0 28px;">ニューバリーで、あなたのチカラを活かしてください。</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="entry.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#43332a;background:#d6e06a;padding:14px 32px;border-radius:999px;box-shadow:0 4px 0 #b9c44f;">エントリーする</a>
+      <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#fff;background:#06C755;padding:14px 32px;border-radius:999px;box-shadow:0 4px 0 #059440;">LINEで相談する</a>
+    </div>
+  </section>
+  <dc-import name="Footer" hint-size="100%,260px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

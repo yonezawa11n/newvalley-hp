@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mobile.css">
+<style>
+*{box-sizing:border-box;}body{margin:0;}
+#mobile-menu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
+#mobile-menu-btn span{display:block;width:24px;height:2px;background:#43332a;border-radius:2px;transition:all .3s;}
+#mobile-nav{display:none;}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 44px;background:rgba(250,247,240,.95);backdrop-filter:blur(10px);border-bottom:1px solid #ece4d4;font-family:'Noto Sans JP',sans-serif;">
+  <a href="index.dc.html" style="display:flex;align-items:center;">
+    <img src="assets/newvalley-logo.png" alt="New Valley" style="height:44px;width:auto;display:block;" loading="lazy">
+  </a>
+  <nav style="display:flex;align-items:center;gap:28px;font-family:'Zen Maru Gothic',sans-serif;font-weight:500;font-size:14px;">
+    <a href="index.dc.html" style="text-decoration:none;color:#43332a;">ホーム</a>
+    <a href="news.dc.html" style="text-decoration:none;color:#43332a;">お知らせ</a>
+    <a href="business.dc.html" style="text-decoration:none;color:#43332a;">事業紹介</a>
+    <a href="recruit.dc.html" style="text-decoration:none;color:#43332a;">採用情報</a>
+    <a href="company.dc.html" style="text-decoration:none;color:#43332a;">会社概要</a>
+    <a href="contact.dc.html" style="text-decoration:none;color:#43332a;">お問い合わせ</a>
+    <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="text-decoration:none;font-weight:700;font-size:13px;color:#fff;background:#06C755;padding:10px 20px;border-radius:999px;box-shadow:0 3px 0 #059440;">LINE相談</a>
+    <a href="entry.dc.html" style="text-decoration:none;font-weight:700;font-size:13px;color:#fff;background:#6f9fc1;padding:10px 20px;border-radius:999px;box-shadow:0 3px 0 #5a89ab;">エントリー</a>
+  </nav>
+  <!-- ハンバーガーボタン（モバイルのみ表示） -->
+  <button id="mobile-menu-btn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- モバイルメニューオーバーレイ -->
+<div id="mobile-nav">
+  <span id="mobile-nav-close">✕</span>
+  <a href="index.dc.html">ホーム</a>
+  <a href="news.dc.html">お知らせ</a>
+  <a href="news.dc.html">お知らせ</a>
+  <a href="business.dc.html">事業紹介</a>
+  <a href="recruit.dc.html">採用情報</a>
+  <a href="company.dc.html">会社概要</a>
+  <a href="contact.dc.html">お問い合わせ</a>
+  <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="color:#06C755!important;">LINE相談</a>
+  <a href="entry.dc.html" style="color:#fff!important;background:#6f9fc1;padding:12px 28px;border-radius:999px;">エントリー</a>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('mobile-menu-btn');
+  var nav = document.getElementById('mobile-nav');
+  var close = document.getElementById('mobile-nav-close');
+  if(!btn) return;
+  btn.addEventListener('click', function(){ nav.classList.add('open'); document.body.style.overflow='hidden'; });
+  close.addEventListener('click', function(){ nav.classList.remove('open'); document.body.style.overflow=''; });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); document.body.style.overflow=''; }); });
+})();
+</script>
+</x-dc>
+</body>
+</html>

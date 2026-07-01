@@ -1,0 +1,145 @@
+/* ===== Mobile overrides (375px~) ===== */
+@media (max-width: 767px) {
+
+  /* ── Header ─────────────────────────── */
+  header {
+    padding: 12px 16px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+  }
+  header nav { display: none !important; }
+  #mobile-menu-btn { display: flex !important; }
+  #mobile-nav {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(250,247,240,.97);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  #mobile-nav.open { display: flex !important; }
+  #mobile-nav a {
+    text-decoration: none;
+    color: #43332a;
+  }
+  #mobile-nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #43332a;
+  }
+
+  /* ── Hero section ────────────────────── */
+  #hero-section {
+    margin-right: 0 !important;
+  }
+  #hero-panel {
+    width: 100% !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    height: auto !important;
+    max-height: 70vh !important;
+    border-radius: 20px 20px 0 0 !important;
+    transform: translateY(100%) !important;
+    transition: transform 0.4s cubic-bezier(.22,.61,.36,1), opacity 0.4s !important;
+  }
+  #hero-panel.open {
+    transform: translateY(0) !important;
+  }
+
+  /* ── General section padding ─────────── */
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  section[style*="padding:88px 44px"],
+  section[style*="padding:78px 44px"],
+  section[style*="padding:80px 44px"],
+  section[style*="padding:92px 52px"],
+  section[style*="padding:74px 44px"] {
+    padding-top: 52px !important;
+    padding-bottom: 52px !important;
+  }
+  section[style*="padding:66px 44px"],
+  section[style*="padding:72px 44px"] {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+  }
+
+  /* ── Font sizes ──────────────────────── */
+  h1[style*="font-size:40px"],
+  h1[style*="font-size:38px"] { font-size: 26px !important; }
+  h2[style*="font-size:32px"] { font-size: 22px !important; }
+  h2[style*="font-size:28px"],
+  h2[style*="font-size:30px"] { font-size: 21px !important; }
+  h3[style*="font-size:27px"] { font-size: 20px !important; }
+  div[style*="font-size:40px"][style*="Quicksand"] { font-size: 28px !important; }
+
+  /* ── Grid: collapse to 1 col ─────────── */
+  div[style*="grid-template-columns:repeat(3"],
+  div[style*="grid-template-columns:repeat(auto-fit"],
+  div[style*="grid-template-columns:1fr 1fr"],
+  div[style*="grid-template-columns:repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Flex rows: wrap ─────────────────── */
+  div[style*="display:flex"][style*="flex-direction:row-reverse"] {
+    flex-direction: column !important;
+  }
+
+  /* ── Business cards grid ─────────────── */
+  div[style*="grid-template-columns:repeat(3,1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ── Service rows (business.dc.html) ─── */
+  div[style*="display:flex;flex-wrap:wrap"] > div[style*="min-width:300px"] {
+    min-width: unset !important;
+    width: 100% !important;
+    height: 220px !important;
+  }
+
+  /* ── Xmobile/IT cards ────────────────── */
+  a[style*="flex:none;width:180px"] { width: 100% !important; height: 180px !important; }
+
+  /* ── CTA buttons ─────────────────────── */
+  div[style*="display:flex;gap:14px;justify-content:center"],
+  div[style*="display:flex;gap:16px;justify-content:center"] {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* ── Company table ───────────────────── */
+  th[style*="width:160px"] { width: 90px !important; font-size: 12px !important; }
+  td { font-size: 13px !important; }
+
+  /* ── Contact form ────────────────────── */
+  div[style*="padding:48px 44px"] { padding: 28px 20px !important; }
+
+  /* ── News cards ──────────────────────── */
+  div[style*="display:grid;grid-template-columns:1fr"] > div {
+    min-width: unset !important;
+  }
+
+  /* ── Fixed width image divs ──────────── */
+  div[style*="flex:none;width:360px"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  div[style*="width:360px;height:240px"] {
+    width: 100% !important;
+    height: 200px !important;
+  }
+}

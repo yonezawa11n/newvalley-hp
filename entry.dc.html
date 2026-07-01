@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#faf7f0;}
+  input::placeholder,textarea::placeholder{color:#b8ad9d;}
+</style>
+</helmet>
+<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <section style="background:#d6e06a;padding:40px 44px 36px;text-align:center;">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:40px;color:#9aa83a;letter-spacing:.06em;margin-bottom:6px;">ENTRY</div>
+    <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0;">エントリー・お問い合わせ</h1>
+  </section>
+
+  <!-- 流れる画像 -->
+  <section style="background:#faf7f0;padding:36px 0;overflow:hidden;" id="ss-section-entry">
+    <div id="marquee-track-entry" style="display:flex;will-change:transform;"></div>
+  </section>
+  <script>
+  (function(){
+    var PHOTOS_entry = [
+      'uploads/staff_group.jpg',
+      'uploads/marchyamato.jpg',
+      'uploads/biyondoyamato.jpg',
+      'uploads/marchmachida.jpg',
+      'uploads/company.jpg',
+      'uploads/couragemachida.jpg',
+      'uploads/soudanemitasu.jpg',
+    ];
+    var track = document.getElementById('marquee-track-entry');
+    var section = document.getElementById('ss-section-entry');
+    if (!PHOTOS_entry.length) { section.style.display = 'none'; return; }
+    var _src = PHOTOS_entry;
+    while (_src.length < 10) _src = _src.concat(PHOTOS_entry);
+    var all = _src.concat(_src);
+    all.forEach(function(src) {
+      var wrap = document.createElement('div');
+      wrap.style.cssText = 'flex:none;width:280px;height:200px;border-radius:16px;overflow:hidden;margin-right:16px;';
+      var img = document.createElement('img');
+      img.src = src;
+      img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+      img.loading = 'lazy';
+      wrap.appendChild(img);
+      track.appendChild(wrap);
+    });
+    var duration = Math.max(PHOTOS_entry.length * 3, 18);
+    var style = document.createElement('style');
+    style.textContent = '@keyframes marquee_entry { from { transform: translateX(0); } to { transform: translateX(-50%); } }';
+    document.head.appendChild(style);
+    track.style.animation = 'marquee_entry ' + duration + 's linear infinite';
+    track.addEventListener('mouseenter', function(){ track.style.animationPlayState = 'paused'; });
+    track.addEventListener('mouseleave', function(){ track.style.animationPlayState = 'running'; });
+  })();
+  </script>
+
+  <!-- flow -->
+  <section style="padding:70px 44px 40px;">
+    <div style="max-width:1000px;margin:0 auto;">
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:24px;color:#43332a;margin:0 0 28px;text-align:center;">応募の流れ</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+        <div style="background:#fff;border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 6px 18px rgba(67,51,42,.05);">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;color:#6f9fc1;font-size:13px;letter-spacing:.1em;margin-bottom:8px;">STEP 1</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#43332a;margin-bottom:6px;">エントリー</div>
+          <p style="font-size:12px;line-height:1.8;color:#8a8276;margin:0;">フォームから送信</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 6px 18px rgba(67,51,42,.05);">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;color:#6f9fc1;font-size:13px;letter-spacing:.1em;margin-bottom:8px;">STEP 2</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#43332a;margin-bottom:6px;">面談・見学</div>
+          <p style="font-size:12px;line-height:1.8;color:#8a8276;margin:0;">カジュアル面談OK</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 6px 18px rgba(67,51,42,.05);">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;color:#6f9fc1;font-size:13px;letter-spacing:.1em;margin-bottom:8px;">STEP 3</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#43332a;margin-bottom:6px;">選考</div>
+          <p style="font-size:12px;line-height:1.8;color:#8a8276;margin:0;">面接・書類</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 6px 18px rgba(67,51,42,.05);">
+          <div style="font-family:'Quicksand',sans-serif;font-weight:700;color:#6f9fc1;font-size:13px;letter-spacing:.1em;margin-bottom:8px;">STEP 4</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#43332a;margin-bottom:6px;">内定・入社</div>
+          <p style="font-size:12px;line-height:1.8;color:#8a8276;margin:0;">一緒に働きましょう</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- form -->
+  <section style="padding:30px 44px 90px;">
+    <div style="max-width:720px;margin:0 auto;background:#fff;border-radius:24px;padding:48px 48px 52px;box-shadow:0 10px 30px rgba(67,51,42,.08);">
+
+      <!-- 送信完了画面（初期非表示） -->
+      <div id="entry-success" style="display:none;text-align:center;padding:30px 0;">
+        <div style="width:70px;height:70px;border-radius:50%;background:#d6e06a;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:34px;color:#43332a;">✓</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:24px;color:#43332a;margin:0 0 12px;">送信しました</h2>
+        <p style="font-size:14px;line-height:1.9;color:#6b6358;margin:0;">この度はエントリーいただきありがとうございます。<br>担当者より追ってご連絡いたします。</p>
+      </div>
+
+      <!-- エントリーフォーム -->
+      <div id="entry-form">
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:22px;color:#43332a;margin:0 0 8px;text-align:center;">エントリーフォーム</h2>
+        <p style="font-size:13px;color:#8a8276;text-align:center;margin:0 0 32px;">「まずは話を聞いてみたい」だけでもOKです。</p>
+        <form id="entry-form-el">
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div>
+              <label style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:8px;">お名前 <span style="color:#e08a9a;font-size:11px;">必須</span></label>
+              <input type="text" name="name" required placeholder="山田 太郎" style="width:100%;border:1.5px solid #e6ddcd;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Noto Sans JP',sans-serif;background:#faf7f0;outline:none;">
+            </div>
+            <div>
+              <label style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:8px;">メールアドレス <span style="color:#e08a9a;font-size:11px;">必須</span></label>
+              <input type="email" name="email" required placeholder="example@mail.com" style="width:100%;border:1.5px solid #e6ddcd;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Noto Sans JP',sans-serif;background:#faf7f0;outline:none;">
+            </div>
+            <div>
+              <label style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:8px;">電話番号</label>
+              <input type="tel" name="tel" placeholder="090-0000-0000" style="width:100%;border:1.5px solid #e6ddcd;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Noto Sans JP',sans-serif;background:#faf7f0;outline:none;">
+            </div>
+            <div>
+              <label style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:8px;">ご希望の職種</label>
+              <select name="position" style="width:100%;border:1.5px solid #e6ddcd;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Noto Sans JP',sans-serif;background:#faf7f0;outline:none;color:#43332a;">
+                <option>訪問介護スタッフ（ヘルパー）</option>
+                <option>サービス管理責任者／児発管</option>
+                <option>相談支援専門員</option>
+                <option>まだ決めていない／相談したい</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:8px;">お問い合わせ内容</label>
+              <textarea name="message" rows="4" placeholder="ご質問やご希望をご記入ください" style="width:100%;border:1.5px solid #e6ddcd;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Noto Sans JP',sans-serif;background:#faf7f0;outline:none;resize:vertical;"></textarea>
+            </div>
+            <button type="submit" style="margin-top:8px;border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;color:#43332a;background:#d6e06a;padding:17px;border-radius:999px;box-shadow:0 5px 0 #b9c44f;">この内容で送信する</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+  <script>
+  document.getElementById('entry-form-el').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('entry-form').style.display = 'none';
+    document.getElementById('entry-success').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  </script>
+
+  <dc-import name="Footer" hint-size="100%,260px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

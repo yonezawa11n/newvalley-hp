@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}body{margin:0;background:#faf7f0;}
+.year-tab{cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;padding:8px 22px;border-radius:999px;border:2px solid transparent;transition:all .2s;}
+.year-tab.active{color:#fff;}
+.year-panel{display:none;}
+.year-panel.active{display:block;}
+</style>
+</helmet>
+<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <!-- ヒーロー -->
+  <section style="background:#43332a;padding:56px 52px 48px;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.22em;color:rgba(255,255,255,.5);margin-bottom:12px;">INFORMATION DISCLOSURE</div>
+      <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:30px;color:#fff;margin:0 0 12px;">自己評価結果等の公表</h1>
+      <p style="font-size:14px;color:rgba(255,255,255,.7);margin:0;line-height:1.9;">各事業所の自己評価・保護者評価・総括表を年度別に公開しています。<br>ご覧になりたい事業所と年度を選んでください。</p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <section style="padding:60px 52px 100px;">
+    <div style="max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:32px;" id="kouhyo-list"></div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,260px"></dc-import>
+</div>
+
+<script>
+(function(){
+  var DATA = [
+    {
+      id: 'march-yamato',
+      name: 'マーチ 大和',
+      tag: '放課後等デイサービス',
+      color: '#c86880',
+      years: [
+        {
+          year: '2025年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/march-yamato-2025-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/march-yamato-2025-jiko.pdf' },
+            { label: '総括表',     file: 'uploads/kouhyo/march-yamato-2025-sokatsu.pdf' },
+          ]
+        },
+        {
+          year: '2024年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/march-yamato-2024-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/march-yamato-2024-jiko.pdf' },
+            { label: '総括表',     file: 'uploads/kouhyo/march-yamato-2024-sokatsu.pdf' },
+          ]
+        },
+        {
+          year: '2023年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/march-yamato-2023-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/march-yamato-2023-jiko.pdf' },
+          ]
+        },
+        {
+          year: '2022年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/march-yamato-2022-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/march-yamato-2022-jiko.pdf' },
+          ]
+        },
+        {
+          year: '2021年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/march-yamato-2021-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/march-yamato-2021-jiko.pdf' },
+          ]
+        },
+        {
+          year: '2020年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/march-yamato-2020-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/march-yamato-2020-jiko.pdf' },
+          ]
+        },
+        {
+          year: '2019年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/march-yamato-2019-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/march-yamato-2019-jiko.pdf' },
+          ]
+        },
+        {
+          year: '2018年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/march-yamato-2018-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/march-yamato-2018-jiko.pdf' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'march-machida',
+      name: 'マーチ 町田',
+      tag: '放課後等デイサービス',
+      color: '#b8c235',
+      years: [
+        {
+          year: '2025年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/march-machida-2025-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/march-machida-2025-jiko.pdf' },
+            { label: '総括表',     file: 'uploads/kouhyo/march-machida-2025-sokatsu.pdf' },
+          ]
+        },
+        {
+          year: '2024年度',
+          docs: [
+            { label: '評価表',     file: 'uploads/kouhyo/march-machida-2024-hyoka.pdf' },
+            { label: '保護者評価集計', file: 'uploads/kouhyo/march-machida-2024-hogosha.pdf' },
+            { label: '総括表',     file: 'uploads/kouhyo/march-machida-2024-sokatsu.pdf' },
+          ]
+        },
+      ]
+    },
+    {
+      id: 'biyondo',
+      name: 'びよんど',
+      tag: '放課後等デイサービス',
+      color: '#6878b8',
+      years: [
+        {
+          year: '2025年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/biyondo-2025-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/biyondo-2025-jiko.pdf' },
+            { label: '総括表',     file: 'uploads/kouhyo/biyondo-2025-sokatsu.pdf' },
+          ]
+        },
+        {
+          year: '2024年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/biyondo-2024-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/biyondo-2024-jiko.pdf' },
+            { label: '総括表',     file: 'uploads/kouhyo/biyondo-2024-sokatsu.pdf' },
+          ]
+        },
+        {
+          year: '2023年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/biyondo-2023-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/biyondo-2023-jiko.pdf' },
+          ]
+        },
+        {
+          year: '2022年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/biyondo-2022-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/biyondo-2022-jiko.pdf' },
+          ]
+        },
+        {
+          year: '2021年度',
+          docs: [
+            { label: '保護者評価', file: 'uploads/kouhyo/biyondo-2021-hogosha.pdf' },
+            { label: '自己評価',   file: 'uploads/kouhyo/biyondo-2021-jiko.pdf' },
+          ]
+        },
+      ]
+    },
+  ];
+
+  var container = document.getElementById('kouhyo-list');
+
+  DATA.forEach(function(facility) {
+    var card = document.createElement('div');
+    card.style.cssText = 'background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 6px 24px rgba(67,51,42,.07);';
+
+    // ヘッダー
+    var header = document.createElement('div');
+    header.style.cssText = 'background:' + facility.color + ';padding:24px 32px;display:flex;align-items:center;gap:14px;';
+    header.innerHTML = '<div>'
+      + '<div style="font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.7);margin-bottom:4px;">' + facility.tag + '</div>'
+      + '<h2 style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:900;font-size:22px;color:#fff;margin:0;">' + facility.name + '</h2>'
+      + '</div>';
+
+    // 年度タブ
+    var body = document.createElement('div');
+    body.style.cssText = 'padding:28px 32px;';
+
+    var tabRow = document.createElement('div');
+    tabRow.style.cssText = 'display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;';
+
+    var panels = [];
+
+    facility.years.forEach(function(yr, i) {
+      // タブボタン
+      var tab = document.createElement('button');
+      tab.className = 'year-tab' + (i === 0 ? ' active' : '');
+      tab.textContent = yr.year;
+      tab.style.cssText = 'cursor:pointer;font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:14px;padding:8px 22px;border-radius:999px;transition:all .2s;'
+        + (i === 0
+          ? 'background:' + facility.color + ';color:#fff;border:2px solid ' + facility.color + ';'
+          : 'background:#fff;color:' + facility.color + ';border:2px solid ' + facility.color + ';');
+
+      // パネル
+      var panel = document.createElement('div');
+      panel.className = 'year-panel' + (i === 0 ? ' active' : '');
+      panel.style.display = i === 0 ? 'block' : 'none';
+
+      var docsGrid = document.createElement('div');
+      docsGrid.style.cssText = 'display:flex;gap:12px;flex-wrap:wrap;';
+
+      yr.docs.forEach(function(doc) {
+        var btn = document.createElement('a');
+        btn.href = doc.file;
+        btn.target = '_blank';
+        btn.rel = 'noopener';
+        btn.style.cssText = 'display:inline-flex;align-items:center;gap:8px;text-decoration:none;'
+          + 'background:#faf7f0;border:2px solid ' + facility.color + ';color:' + facility.color + ';'
+          + 'font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:14px;'
+          + 'padding:12px 22px;border-radius:12px;transition:all .2s;';
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'
+          + doc.label;
+        btn.addEventListener('mouseenter', function(){
+          this.style.background = facility.color;
+          this.style.color = '#fff';
+        });
+        btn.addEventListener('mouseleave', function(){
+          this.style.background = '#faf7f0';
+          this.style.color = facility.color;
+        });
+        docsGrid.appendChild(btn);
+      });
+
+      panel.appendChild(docsGrid);
+
+      // タブ切り替え
+      (function(t, p, allTabs, allPanels, color) {
+        t.addEventListener('click', function() {
+          allTabs.forEach(function(at, j) {
+            var isActive = at === t;
+            at.style.background = isActive ? color : '#fff';
+            at.style.color = isActive ? '#fff' : color;
+            allPanels[j].style.display = isActive ? 'block' : 'none';
+          });
+        });
+      })(tab, panel, [], panels, facility.color);
+
+      tabRow.appendChild(tab);
+      panels.push(panel);
+    });
+
+    // タブのクロスリファレンスを再設定
+    var tabEls = tabRow.querySelectorAll ? Array.from(tabRow.children) : [];
+    tabRow.childNodes.forEach(function(tab, i) {
+      tab.addEventListener('click', function() {
+        tabRow.childNodes.forEach(function(t, j) {
+          var active = t === tab;
+          t.style.background = active ? facility.color : '#fff';
+          t.style.color = active ? '#fff' : facility.color;
+          panels[j].style.display = active ? 'block' : 'none';
+        });
+      });
+    });
+
+    body.appendChild(tabRow);
+    panels.forEach(function(p){ body.appendChild(p); });
+
+    card.appendChild(header);
+    card.appendChild(body);
+    container.appendChild(card);
+  });
+})();
+</script>
+</x-dc>
+</body>
+</html>

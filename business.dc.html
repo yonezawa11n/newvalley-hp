@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#faf7f0;}</style>
+</helmet>
+<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <!-- PAGE BANNER -->
+  <section style="background:#6f9fc1;padding:66px 44px 60px;text-align:center;">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:40px;color:#eaf2f8;letter-spacing:.06em;margin-bottom:6px;">BUSINESS</div>
+    <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#fff;margin:0;">事業紹介</h1>
+  </section>
+
+  <section style="padding:74px 44px 40px;">
+    <div style="max-width:880px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:26px;line-height:1.6;color:#43332a;margin:0 0 20px;">くらし・こども・地域を、まるごと支える。</h2>
+      <p style="font-size:15px;line-height:2.05;color:#6b6358;margin:0;">ニューバリーは、訪問介護から児童福祉、相談支援まで複数の事業を展開。一人ひとりのライフステージに合わせて、切れ目のない支援を届けます。</p>
+    </div>
+  </section>
+
+  <!-- service rows -->
+  <section style="padding:30px 44px 60px;">
+    <div style="max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:34px;">
+
+      <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;">
+        <div style="flex:1;min-width:300px;height:300px;overflow:hidden;"><img src="uploads/couragemachida.jpg" alt="訪問介護クラージュ" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;justify-content:center;">
+          <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#6f9fc1;padding:5px 14px;border-radius:999px;margin-bottom:16px;">訪問介護</span>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:27px;color:#43332a;margin:0 0 14px;">訪問介護クラージュ</h3>
+          <p style="font-size:15px;line-height:2;color:#6b6358;margin:0 0 18px;">住み慣れた自宅で安心して暮らせるよう、身体介護や生活援助を提供。一人ひとりの「こうしたい」に寄り添い、自立した毎日を支えます。</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+            <span style="font-size:12px;color:#5a89ab;background:#eaf2f8;padding:6px 13px;border-radius:999px;">身体介護</span>
+            <span style="font-size:12px;color:#5a89ab;background:#eaf2f8;padding:6px 13px;border-radius:999px;">生活援助</span>
+            <span style="font-size:12px;color:#5a89ab;background:#eaf2f8;padding:6px 13px;border-radius:999px;">神奈川県大和市</span>
+          </div>
+          <a href="courage.dc.html" style="text-decoration:none;display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#3a9090;padding:12px 26px;border-radius:999px;box-shadow:0 4px 0 #2a7070;">詳しく見る →</a>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;flex-direction:row-reverse;">
+        <div style="flex:1;min-width:300px;height:300px;overflow:hidden;"><img src="uploads/marchyamato.jpg" alt="マーチ" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;justify-content:center;">
+          <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#43332a;background:#d6e06a;padding:5px 14px;border-radius:999px;margin-bottom:16px;">児童福祉</span>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:27px;color:#43332a;margin:0 0 14px;">放課後等デイサービス マーチ</h3>
+          <p style="font-size:15px;line-height:2;color:#6b6358;margin:0 0 18px;">障害のある子どもたちの「やってみたい」を応援。遊びや学び、お友だちとの関わりを通して、放課後の時間と成長を支えます。</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+            <span style="font-size:12px;color:#8a942f;background:#f6f7e6;padding:6px 13px;border-radius:999px;">放課後等デイ</span>
+            <span style="font-size:12px;color:#8a942f;background:#f6f7e6;padding:6px 13px;border-radius:999px;">療育</span>
+            <span style="font-size:12px;color:#8a942f;background:#f6f7e6;padding:6px 13px;border-radius:999px;">大和市・町田市</span>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="march-yamato.dc.html" style="text-decoration:none;display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#c86880;padding:12px 26px;border-radius:999px;box-shadow:0 4px 0 #a85060;">大和を見る →</a>
+            <a href="march-machida.dc.html" style="text-decoration:none;display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#b8c235;padding:12px 26px;border-radius:999px;box-shadow:0 4px 0 #98a025;">町田を見る →</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;">
+        <div style="flex:1;min-width:300px;height:300px;overflow:hidden;"><img src="uploads/biyondoyamato.jpg" alt="びよんど" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;justify-content:center;">
+          <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#43332a;background:#f1b3c1;padding:5px 14px;border-radius:999px;margin-bottom:16px;">児童福祉</span>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:27px;color:#43332a;margin:0 0 14px;">びよんど</h3>
+          <p style="font-size:15px;line-height:2;color:#6b6358;margin:0 0 18px;">子どもたちの可能性を、その先（beyond）へ。一人ひとりの特性に合わせた療育プログラムで、できることを少しずつ広げていきます。</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+            <span style="font-size:12px;color:#c2748a;background:#f9ecf0;padding:6px 13px;border-radius:999px;">児童発達支援</span>
+            <span style="font-size:12px;color:#c2748a;background:#f9ecf0;padding:6px 13px;border-radius:999px;">個別療育</span>
+          </div>
+          <a href="biyondo.dc.html" style="text-decoration:none;display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#6878b8;padding:12px 26px;border-radius:999px;box-shadow:0 4px 0 #4858a0;">詳しく見る →</a>
+        </div>
+      </div>
+
+      <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;flex-direction:row-reverse;">
+        <div style="flex:1;min-width:300px;height:300px;overflow:hidden;"><img src="uploads/soudanemitasu.jpg" alt="えみたすサポート" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;justify-content:center;">
+          <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#4a7a3f;padding:5px 14px;border-radius:999px;margin-bottom:16px;">相談支援</span>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:27px;color:#43332a;margin:0 0 14px;">相談支援事業</h3>
+          <p style="font-size:15px;line-height:2;color:#6b6358;margin:0 0 18px;">福祉サービスの利用計画づくりから日々の生活のご相談まで。ご本人とご家族の伴走者として、必要な支援へとつなぎます。</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
+            <span style="font-size:12px;color:#3f6b34;background:#e8f0e3;padding:6px 13px;border-radius:999px;">計画相談</span>
+            <span style="font-size:12px;color:#3f6b34;background:#e8f0e3;padding:6px 13px;border-radius:999px;">地域連携</span>
+          </div>
+          <a href="emitas.dc.html" style="text-decoration:none;display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#3a6b30;padding:12px 26px;border-radius:999px;box-shadow:0 4px 0 #2a5020;">詳しく見る →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- coming soon + モバイル/IT -->
+  <section style="padding:0 44px 80px;">
+    <div style="max-width:1080px;margin:0 auto;background:#fff;border:2px dashed #c88a5a;border-radius:22px;padding:40px;text-align:center;margin-bottom:24px;">
+      <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#c88a5a;padding:6px 16px;border-radius:999px;margin-bottom:16px;">COMING SOON</span>
+      <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:24px;color:#43332a;margin:0 0 10px;">生活介護・グループホーム　開設予定</h3>
+      <p style="font-size:14px;line-height:1.9;color:#6b6358;margin:0 0 20px;">日中の活動の場から暮らしの場まで。地域でのくらしを、もっと幅広く支えていきます。</p>
+      <a href="gh.dc.html" style="text-decoration:none;display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#c88a5a;padding:12px 26px;border-radius:999px;box-shadow:0 4px 0 #a86a3a;">詳細を見る →</a>
+    </div>
+    <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <a href="xmobile.dc.html" style="text-decoration:none;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;">
+        <div style="flex:none;width:180px;height:180px;overflow:hidden;"><img src="uploads/xmobile.JPG" alt="エックスモバイル" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="flex:1;min-width:200px;padding:28px;display:flex;flex-direction:column;justify-content:center;">
+          <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#808820;padding:5px 14px;border-radius:999px;margin-bottom:12px;">モバイル事業</span>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#43332a;margin:0 0 10px;line-height:1.4;">エックスモバイル<br>大和桜ヶ丘駅前店</h3>
+          <p style="font-size:13px;line-height:1.9;color:#6b6358;margin:0 0 14px;">地域密着型の携帯ショップ。通信のお悩みを丁寧にサポートします。</p>
+          <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#808820;">詳しく見る →</span>
+        </div>
+      </a>
+      <a href="https://newvalley-it-yonezawa.vercel.app/" target="_blank" style="text-decoration:none;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;">
+        <div style="flex:none;width:180px;height:180px;overflow:hidden;"><img src="uploads/ITdesign.jpg" alt="DX/ITデザイン" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="flex:1;min-width:200px;padding:28px;display:flex;flex-direction:column;justify-content:center;">
+          <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#7850a8;padding:5px 14px;border-radius:999px;margin-bottom:12px;">DX・IT</span>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#43332a;margin:0 0 10px;">DX / IT デザイン事業</h3>
+          <p style="font-size:13px;line-height:1.9;color:#6b6358;margin:0 0 14px;">課題を見つけ、仕組みで解決する。未来をつくるパートナーに。</p>
+          <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#7850a8;">公式サイトを見る →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,260px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

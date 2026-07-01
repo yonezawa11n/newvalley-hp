@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#faf7f0;}</style>
+</helmet>
+<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <!-- HERO -->
+  <section style="position:relative;height:480px;overflow:hidden;background:#4a7a3f;">
+    <img src="uploads/company.jpg" alt="私たちについて" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" loading="lazy">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.08),rgba(30,55,25,0.65));"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:52px 56px;">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;color:rgba(255,255,255,.7);margin-bottom:14px;">ABOUT US / COMPANY</div>
+      <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:40px;color:#fff;margin:0 0 10px;line-height:1.25;">私たちについて・会社概要</h1>
+      <p style="font-family:'Noto Sans JP',sans-serif;font-size:16px;color:rgba(255,255,255,.88);margin:0;">すべての人にハッピーな生活を創造する</p>
+    </div>
+  </section>
+
+  <!-- 社長の言葉 -->
+  <section style="padding:96px 52px;background:#fff;">
+    <div style="max-width:960px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:64px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#4a7a3f;margin-bottom:12px;">PRESIDENT'S MESSAGE</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:30px;color:#43332a;margin:0;">社長の言葉</h2>
+      </div>
+      <div style="display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap;">
+        <!-- 社長写真 -->
+        <div style="flex:none;text-align:center;">
+          <div style="width:200px;height:240px;border-radius:20px;overflow:hidden;background:#e8f0e4;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(67,51,42,.12);margin-bottom:16px;">
+            <img src="uploads/president.jpg" alt="代表取締役" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.display='none'" loading="lazy">
+          </div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#43332a;margin-bottom:4px;">米澤 直行</div>
+          <div style="font-size:12px;color:#4a7a3f;font-weight:700;">代表取締役</div>
+        </div>
+        <!-- メッセージ -->
+        <div style="flex:1;min-width:280px;">
+          <div style="width:40px;height:4px;border-radius:999px;background:#4a7a3f;margin-bottom:32px;"></div>
+          <p style="font-size:16px;line-height:2.4;color:#6b6358;margin:0 0 24px;">（社長からのメッセージをここに入力します）</p>
+          <p style="font-size:16px;line-height:2.4;color:#6b6358;margin:0 0 24px;">私たちニューバリーは、障がいを持つ方々とその家族が、地域の中で安心して暮らしていける社会を目指しています。</p>
+          <p style="font-size:16px;line-height:2.4;color:#6b6358;margin:0;">スタッフ一人ひとりの「想い」を大切に、これからも歩み続けてまいります。</p>
+          <div style="margin-top:36px;padding-top:28px;border-top:1px solid #ece4d4;">
+            <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;color:#43332a;">株式会社ニューバリー　代表取締役　米澤 直行</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ミッション -->
+  <section style="padding:92px 52px;">
+    <div style="max-width:800px;margin:0 auto;text-align:center;">
+      <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#4a7a3f;margin-bottom:16px;">MISSION</div>
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:30px;color:#43332a;margin:0 0 36px;line-height:1.55;">「すべての人にハッピーな生活を創造する」</h2>
+      <div style="width:56px;height:4px;border-radius:999px;background:#4a7a3f;margin:0 auto 40px;"></div>
+      <p style="font-size:17px;line-height:2.3;color:#6b6358;margin:0 0 32px;">常に学びながら成長し、<br>お客さまをはじめとする、<br>みなさまに選ばれるパートナーであり続けることを目指します。</p>
+      <p style="font-size:17px;line-height:2.3;color:#6b6358;margin:0;">社員の安全と健康を最優先に、<br>お客様の日常生活に欠かせない<br>安全・安心なサービスを提供するという<br>重要な使命を果たしていきます。</p>
+    </div>
+  </section>
+
+  <!-- ビジョン -->
+  <section style="background:#43332a;padding:88px 52px;text-align:center;">
+    <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#d6e06a;margin-bottom:16px;">VISION</div>
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#fff;margin:0 0 24px;line-height:1.7;">「県央地域で最も必要とされる企業」を目指して</h2>
+    <p style="font-size:16px;line-height:2.2;color:rgba(255,255,255,.82);max-width:680px;margin:0 auto;">私達は、激しく変化する環境の中で、一人でも多くの人に喜びや感動を伝えることに尽力し、社会貢献を推進してまいります。</p>
+  </section>
+
+  <!-- 理念・ビジョン -->
+  <section style="padding:92px 52px;background:#fff;">
+    <div style="max-width:860px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:64px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#4a7a3f;margin-bottom:12px;">PHILOSOPHY</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:30px;color:#43332a;margin:0;">理念・ビジョン</h2>
+      </div>
+      <div style="display:flex;gap:48px;align-items:flex-start;margin-bottom:72px;flex-wrap:wrap;">
+        <div style="flex:none;display:flex;gap:4px;align-items:flex-start;">
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:11px;color:#4a7a3f;writing-mode:vertical-rl;">V</span>
+            <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:11px;color:#4a7a3f;writing-mode:vertical-rl;">I</span>
+            <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:11px;color:#4a7a3f;writing-mode:vertical-rl;">S</span>
+            <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:11px;color:#4a7a3f;writing-mode:vertical-rl;">I</span>
+            <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:11px;color:#4a7a3f;writing-mode:vertical-rl;">O</span>
+            <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:11px;color:#4a7a3f;writing-mode:vertical-rl;">N</span>
+          </div>
+          <div style="width:1px;background:#d6e06a;align-self:stretch;margin:0 10px;"></div>
+        </div>
+        <div style="flex:1;min-width:260px;">
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;color:#43332a;margin:0 0 18px;line-height:1.5;">自らの幸福の、たゆまぬ追求</h3>
+          <p style="font-size:15px;line-height:2.2;color:#6b6358;margin:0;">われわれは自らの仕事を通じて、自らの幸福を追求し、その結果として、世の中の発展と繁栄に貢献します。</p>
+        </div>
+      </div>
+      <div style="background:#faf7f0;border-radius:22px;padding:48px;border-left:6px solid #4a7a3f;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.18em;color:#4a7a3f;margin-bottom:16px;">VISION</div>
+        <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#43332a;margin:0 0 20px;line-height:1.7;">「"私たちと共に暮らせる世界"でなければ、<br>ダメなんじゃないですか？」</h3>
+        <p style="font-size:15px;line-height:2.2;color:#6b6358;margin:0 0 20px;">われわれは障がい・高齢介護という言葉で括られる人たちが、分け隔てなく暮らせる社会の実現の為に存在します。</p>
+        <p style="font-size:15px;line-height:2.2;color:#6b6358;margin:0;">私たちはこの理念のもと、神奈川県央エリア・東京都町田市とその近郊エリアを中心に活動しています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社概要テーブル -->
+  <section style="padding:80px 44px;">
+    <div style="max-width:860px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#6f9fc1;margin-bottom:12px;">COMPANY</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:30px;color:#43332a;margin:0;">会社概要</h2>
+      </div>
+      <div style="background:#fff;border-radius:22px;padding:14px 44px;box-shadow:0 8px 24px rgba(67,51,42,.07);">
+        <table style="width:100%;border-collapse:collapse;font-size:15px;">
+          <tbody>
+            <tr style="border-bottom:1px solid #eee5d6;"><th style="text-align:left;width:160px;padding:22px 0;color:#6f9fc1;font-weight:700;vertical-align:top;">会社名</th><td style="padding:22px 0;color:#43332a;">株式会社ニューバリー（New Valley）</td></tr>
+            <tr style="border-bottom:1px solid #eee5d6;"><th style="text-align:left;padding:22px 0;color:#6f9fc1;font-weight:700;vertical-align:top;">所在地</th><td style="padding:22px 0;color:#43332a;">神奈川県大和市 ／ 東京都町田市</td></tr>
+            <tr style="border-bottom:1px solid #eee5d6;"><th style="text-align:left;padding:22px 0;color:#6f9fc1;font-weight:700;vertical-align:top;">設立</th><td style="padding:22px 0;color:#43332a;">2016年</td></tr>
+            <tr style="border-bottom:1px solid #eee5d6;"><th style="text-align:left;padding:22px 0;color:#6f9fc1;font-weight:700;vertical-align:top;">事業内容</th><td style="padding:22px 0;color:#43332a;line-height:1.8;">訪問介護事業<br>放課後等デイサービス事業<br>相談支援事業<br>（生活介護・グループホーム　開設予定）</td></tr>
+            <tr style="border-bottom:1px solid #eee5d6;"><th style="text-align:left;padding:22px 0;color:#6f9fc1;font-weight:700;vertical-align:top;">事業所</th><td style="padding:22px 0;color:#43332a;line-height:1.8;">訪問介護クラージュ<br>放課後等デイサービス マーチ（大和・町田）<br>放課後等デイサービス びよんど<br>えみたすサポート</td></tr>
+            <tr><th style="text-align:left;padding:22px 0;color:#6f9fc1;font-weight:700;vertical-align:top;">エリア</th><td style="padding:22px 0;color:#43332a;">神奈川県大和市・東京都町田市およびその近郊</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 本部メンバー -->
+  <section style="padding:88px 52px;background:#fff;">
+    <div style="max-width:960px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:56px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#4a7a3f;margin-bottom:12px;">HEADQUARTERS TEAM</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:30px;color:#43332a;margin:0;">本部メンバー</h2>
+      </div>
+      <div id="hq-member-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:28px;"></div>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var HQ_MEMBERS = [
+      { name:'米澤 直行', ruby:'よねざわ なおゆき', role:'代表取締役', photo:'uploads/president.jpg' },
+    ];
+    var color = '#4a7a3f';
+    var grid = document.getElementById('hq-member-grid');
+    if (!grid) return;
+    HQ_MEMBERS.forEach(function(m){
+      var photoEl = m.photo
+        ? '<img src="' + m.photo + '" alt="' + m.name + '" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.innerHTML=\'<span style=\\\"font-family:Zen Maru Gothic,sans-serif;font-weight:900;font-size:32px;color:#fff;\\\">' + m.name.charAt(0) + '</span>\'" loading="lazy">'
+        : '<span style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:900;font-size:32px;color:#fff;">' + m.name.charAt(0) + '</span>';
+      var el = document.createElement('div');
+      el.style.cssText = 'background:#faf7f0;border-radius:18px;padding:28px 16px 24px;text-align:center;box-shadow:0 4px 16px rgba(67,51,42,.07);';
+      el.innerHTML =
+        '<div style="width:100px;height:120px;border-radius:14px;overflow:hidden;background:' + color + ';display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">' + photoEl + '</div>' +
+        '<div style="font-size:11px;color:' + color + ';font-weight:700;margin-bottom:6px;">' + m.role + '</div>' +
+        '<div style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin-bottom:4px;">' + m.name + '</div>' +
+        '<div style="font-size:11px;color:#a99c8f;">' + m.ruby + '</div>';
+      grid.appendChild(el);
+    });
+  })();
+  </script>
+
+  <!-- 拠点・エリア -->
+  <section style="background:#fff;padding:0 44px 88px;">
+    <div style="max-width:1080px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#6f9fc1;margin-bottom:10px;">ACCESS</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:28px;color:#43332a;margin:0;">拠点・事業所</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div>
+          <div style="height:240px;border-radius:18px;overflow:hidden;margin-bottom:16px;"><img src="uploads/yamato_area.jpg" alt="大和エリア" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px;color:#43332a;margin:0 0 6px;">大和エリア</h3>
+          <p style="font-size:13px;line-height:1.9;color:#6b6358;margin:0;">訪問介護クラージュ ／ 放課後等デイサービス マーチ大和 ／ びよんど ／ えみたすサポート<br>神奈川県大和市</p>
+        </div>
+        <div>
+          <div style="height:240px;border-radius:18px;overflow:hidden;margin-bottom:16px;"><img src="uploads/machida_area.jpg" alt="町田エリア" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px;color:#43332a;margin:0 0 6px;">町田エリア</h3>
+          <p style="font-size:13px;line-height:1.9;color:#6b6358;margin:0;">放課後等デイサービス マーチ町田<br>東京都町田市</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:#4a7a3f;padding:80px 44px;text-align:center;">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#fff;margin:0 0 14px;">一緒に、未来をつくりませんか？</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,.85);margin:0 0 28px;">ニューバリーで、あなたのチカラを活かしてください。</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="entry.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#43332a;background:#d6e06a;padding:14px 34px;border-radius:999px;box-shadow:0 4px 0 #b9c44f;">エントリーする</a>
+      <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#fff;background:#06C755;padding:14px 34px;border-radius:999px;box-shadow:0 4px 0 #059440;">LINEで相談する</a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,260px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

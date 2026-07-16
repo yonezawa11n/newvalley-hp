@@ -18,7 +18,7 @@ const IG_TOKEN_KEYS = {
   'shougai_houmon_courage': 'IG_TOKEN_COURAGE',
   'xmobile.sakuragaoka':    'IG_TOKEN_XMOBILE',
   'newvalley_official':     'INSTAGRAM_ACCESS_TOKEN',
-  'newvalley_recruit':      'INSTAGRAM_ACCESS_TOKEN',
+  'newvalley_recruit':      'IG_LOGIN_TOKEN_RECRUIT', // Instagram Login (no Facebook Page needed)
 };
 
 function mapMedia(data, limit) {
@@ -104,7 +104,12 @@ async function fetchInstagram(handle, limit) {
   const data = await r.json();
 
   if (data.error) {
-    // Fall back to Facebook Login flow
+    // For accounts with Facebook Pages, fall back to Facebook Login flow
+    // For Instagram-Login tokens (IG_LOGIN_TOKEN_*), this won't help so skip
+    const tokenKey = IG_TOKEN_KEYS[handle] || '';
+    if (tokenKey.startsWith('IG_LOGIN_TOKEN')) {
+      throw new Error(data.error.message);
+    }
     return fetchInstagramViaFacebook(token, limit, handle);
   }
 

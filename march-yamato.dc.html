@@ -62,11 +62,9 @@
       track.appendChild(div);
     });
     var unitW = (W + GAP) * PHOTOS.length;
-    var x = 0, paused = false, speed = 0.6;
-    track.addEventListener('mouseenter', function(){ paused = true; });
-    track.addEventListener('mouseleave', function(){ paused = false; });
+    var x = 0, speed = 0.6;
     (function tick(){
-      if(!paused){ x += speed; if(x >= unitW) x -= unitW; track.style.transform = 'translateX(-'+x+'px)'; }
+      x += speed; if(x >= unitW) x -= unitW; track.style.transform = 'translateX(-'+x+'px)';
       requestAnimationFrame(tick);
     })();
   })();

@@ -17,21 +17,60 @@ const IG_TOKEN_KEYS = {
   'ma_chi.machida':         'IG_TOKEN_MARCH_MACHIDA',
   'shougai_houmon_courage': 'IG_TOKEN_COURAGE',
   'xmobile.sakuragaoka':    'IG_TOKEN_XMOBILE',
-  'newvalley_official':     'IG_TOKEN_NEWVALLEY',
+  'newvalley_official':     'INSTAGRAM_ACCESS_TOKEN',
+  'newvalley_recruit':      'INSTAGRAM_ACCESS_TOKEN',
 };
+
+async function fetchInstagramViaFacebook(token, limit) {
+  // Facebook Login flow: User token → Pages → Instagram Business Account → media
+  const pagesRes = await fetch(`https://graph.facebook.com/me/accounts?access_token=${token}`);
+  const pagesData = await pagesRes.json();
+  if (pagesData.error) throw new Error('Pages: ' + pagesData.error.message);
+  const pages = pagesData.data || [];
+  if (!pages.length) throw new Error('No Facebook Pages found for this token');
+
+  // Find page linked to Instagram
+  for (const page of pages) {
+    const igRes = await fetch(
+      `https://graph.facebook.com/${page.id}?fields=instagram_business_account&access_token=${page.access_token}`
+    );
+    const igData = await igRes.json();
+    const igId = igData.instagram_business_account && igData.instagram_business_account.id;
+    if (!igId) continue;
+
+    const mediaRes = await fetch(
+      `https://graph.facebook.com/${igId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=${limit}&access_token=${page.access_token}`
+    );
+    const mediaData = await mediaRes.json();
+    if (mediaData.error) throw new Error('Media: ' + mediaData.error.message);
+    return (mediaData.data || []).map(p => ({
+      id: p.id,
+      image: p.media_type === 'VIDEO' ? p.thumbnail_url : p.media_url,
+      caption: (p.caption || '').slice(0, 80),
+      date: p.timestamp,
+      url: p.permalink,
+      source: 'instagram',
+    }));
+  }
+  throw new Error('No Instagram Business Account linked to any Facebook Page');
+}
 
 async function fetchInstagram(handle, limit) {
   const tokenKey = IG_TOKEN_KEYS[handle];
   const token = tokenKey ? process.env[tokenKey] : null;
   if (!token) throw new Error(`No token configured for @${handle} (set env var ${tokenKey || '?'})`);
 
+  // Try Instagram Basic Display API first, fall back to Facebook Graph API
   const url = `https://graph.instagram.com/me/media` +
     `?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp` +
     `&limit=${limit}&access_token=${token}`;
   const r = await fetch(url);
-  if (!r.ok) throw new Error(`Instagram API HTTP ${r.status}`);
   const data = await r.json();
-  if (data.error) throw new Error(data.error.message);
+
+  if (data.error) {
+    // Fall back to Facebook Login flow
+    return fetchInstagramViaFacebook(token, limit);
+  }
 
   return (data.data || []).map(p => ({
     id: p.id,

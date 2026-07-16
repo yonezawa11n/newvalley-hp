@@ -1,10 +1,15 @@
 export default async function handler(req, res) {
-  const shortToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+  // Accept token from query param (preferred) or env var
+  const shortToken = req.query.token || process.env.INSTAGRAM_ACCESS_TOKEN;
   const appId = process.env.META_APP_ID;
   const appSecret = process.env.META_APP_SECRET;
 
   if (!shortToken || !appId || !appSecret) {
-    return res.status(500).json({ error: 'Missing env vars: INSTAGRAM_ACCESS_TOKEN, META_APP_ID, META_APP_SECRET' });
+    return res.status(500).json({
+      error: 'Missing token or env vars',
+      usage: 'GET /api/setup-instagram?token=YOUR_SHORT_LIVED_TOKEN',
+      hint: 'Graph API Explorerでトークンを生成し、?token=xxx として渡してください'
+    });
   }
 
   const url = `https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=${appId}&client_secret=${appSecret}&fb_exchange_token=${shortToken}`;

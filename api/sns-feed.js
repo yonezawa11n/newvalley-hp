@@ -21,15 +21,25 @@ const IG_TOKEN_KEYS = {
   'newvalley_recruit':      'INSTAGRAM_ACCESS_TOKEN',
 };
 
+function mapMedia(data, limit) {
+  return (data || []).slice(0, limit).map(p => ({
+    id: p.id,
+    image: p.media_type === 'VIDEO' ? p.thumbnail_url : p.media_url,
+    caption: (p.caption || '').slice(0, 80),
+    date: p.timestamp,
+    url: p.permalink,
+    source: 'instagram',
+  }));
+}
+
 async function fetchInstagramViaFacebook(token, limit) {
-  // Facebook Login flow: User token → Pages → Instagram Business Account → media
+  const FIELDS = 'id,caption,media_type,media_url,thumbnail_url,permalink,timestamp';
+
+  // Approach 1: User token → Pages → Instagram Business Account
   const pagesRes = await fetch(`https://graph.facebook.com/me/accounts?access_token=${token}`);
   const pagesData = await pagesRes.json();
-  if (pagesData.error) throw new Error('Pages: ' + pagesData.error.message);
-  const pages = pagesData.data || [];
-  if (!pages.length) throw new Error('No Facebook Pages found for this token');
 
-  // Find page linked to Instagram
+  const pages = (!pagesData.error && pagesData.data) ? pagesData.data : [];
   for (const page of pages) {
     const igRes = await fetch(
       `https://graph.facebook.com/${page.id}?fields=instagram_business_account&access_token=${page.access_token}`
@@ -37,22 +47,38 @@ async function fetchInstagramViaFacebook(token, limit) {
     const igData = await igRes.json();
     const igId = igData.instagram_business_account && igData.instagram_business_account.id;
     if (!igId) continue;
-
     const mediaRes = await fetch(
-      `https://graph.facebook.com/${igId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp&limit=${limit}&access_token=${page.access_token}`
+      `https://graph.facebook.com/${igId}/media?fields=${FIELDS}&limit=${limit}&access_token=${page.access_token}`
     );
     const mediaData = await mediaRes.json();
-    if (mediaData.error) throw new Error('Media: ' + mediaData.error.message);
-    return (mediaData.data || []).map(p => ({
-      id: p.id,
-      image: p.media_type === 'VIDEO' ? p.thumbnail_url : p.media_url,
-      caption: (p.caption || '').slice(0, 80),
-      date: p.timestamp,
-      url: p.permalink,
-      source: 'instagram',
-    }));
+    if (!mediaData.error && mediaData.data) return mapMedia(mediaData.data, limit);
   }
-  throw new Error('No Instagram Business Account linked to any Facebook Page');
+
+  // Approach 2: User token directly → instagram_business_account on /me
+  const meRes = await fetch(
+    `https://graph.facebook.com/me?fields=instagram_business_account&access_token=${token}`
+  );
+  const meData = await meRes.json();
+  const igId2 = meData.instagram_business_account && meData.instagram_business_account.id;
+  if (igId2) {
+    const mediaRes = await fetch(
+      `https://graph.facebook.com/${igId2}/media?fields=${FIELDS}&limit=${limit}&access_token=${token}`
+    );
+    const mediaData = await mediaRes.json();
+    if (!mediaData.error && mediaData.data) return mapMedia(mediaData.data, limit);
+  }
+
+  // Approach 3: User token → Instagram Basic Display API
+  const basicRes = await fetch(
+    `https://graph.instagram.com/me/media?fields=${FIELDS}&limit=${limit}&access_token=${token}`
+  );
+  const basicData = await basicRes.json();
+  if (!basicData.error && basicData.data) return mapMedia(basicData.data, limit);
+
+  const pagesErrMsg = pagesData.error
+    ? `pages_show_listパーミッションが必要です（${pagesData.error.message}）`
+    : `Facebookページが見つかりません。@newvalley_recruitをFacebookページに接続してください`;
+  throw new Error(pagesErrMsg);
 }
 
 async function fetchInstagram(handle, limit) {

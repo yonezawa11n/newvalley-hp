@@ -4,8 +4,8 @@ export default async function handler(req, res) {
   if (error) return res.status(400).send(`<h2>エラー: ${error}</h2>`);
   if (!code) return res.status(400).send('<h2>codeが見つかりません</h2>');
 
-  const appId = process.env.META_APP_ID;
-  const appSecret = process.env.META_APP_SECRET;
+  const appId = process.env.META_IG_APP_ID || process.env.META_APP_ID;
+  const appSecret = process.env.META_IG_APP_SECRET || process.env.META_APP_SECRET;
   const redirectUri = 'https://newvalleyhp.com/api/auth/instagram-callback';
 
   try {

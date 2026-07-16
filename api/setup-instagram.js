@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Missing env vars: INSTAGRAM_ACCESS_TOKEN, META_APP_ID, META_APP_SECRET' });
   }
 
-  const url = `https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_id=${appId}&client_secret=${appSecret}&access_token=${shortToken}`;
+  const url = `https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=${appId}&client_secret=${appSecret}&fb_exchange_token=${shortToken}`;
   const r = await fetch(url);
   const data = await r.json();
 

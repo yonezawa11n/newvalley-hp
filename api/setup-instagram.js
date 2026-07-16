@@ -16,9 +16,18 @@ export default async function handler(req, res) {
   }
 
   const days = Math.floor((data.expires_in || 0) / 86400);
+  const longToken = data.access_token;
+
+  // Verify token works by calling /me/accounts
+  const verifyRes = await fetch(`https://graph.facebook.com/me/accounts?access_token=${longToken}`);
+  const verifyData = await verifyRes.json();
+
   res.json({
     message: `長期トークン取得成功（有効期限 約${days}日）`,
-    access_token: data.access_token,
+    access_token: longToken,
+    token_length: longToken.length,
+    pages_found: verifyData.data ? verifyData.data.map(p => p.name) : null,
+    pages_error: verifyData.error ? verifyData.error.message : null,
     next: 'このaccess_tokenをVercelのINSTAGRAM_ACCESS_TOKENに上書き保存してください'
   });
 }

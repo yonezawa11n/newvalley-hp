@@ -32,10 +32,10 @@ function mapMedia(data, limit) {
   }));
 }
 
-async function fetchInstagramViaFacebook(token, limit) {
+async function fetchInstagramViaFacebook(token, limit, handle) {
   const FIELDS = 'id,caption,media_type,media_url,thumbnail_url,permalink,timestamp';
 
-  // Approach 1: User token → Pages → Instagram Business Account
+  // Approach 1: User token → Pages → Instagram Business Account (match by username)
   const pagesRes = await fetch(`https://graph.facebook.com/me/accounts?access_token=${token}`);
   const pagesData = await pagesRes.json();
 
@@ -47,6 +47,16 @@ async function fetchInstagramViaFacebook(token, limit) {
     const igData = await igRes.json();
     const igId = igData.instagram_business_account && igData.instagram_business_account.id;
     if (!igId) continue;
+
+    // Verify this is the correct Instagram account by checking username
+    if (handle) {
+      const profileRes = await fetch(
+        `https://graph.facebook.com/${igId}?fields=username&access_token=${page.access_token}`
+      );
+      const profileData = await profileRes.json();
+      if (profileData.username && profileData.username !== handle) continue;
+    }
+
     const mediaRes = await fetch(
       `https://graph.facebook.com/${igId}/media?fields=${FIELDS}&limit=${limit}&access_token=${page.access_token}`
     );
@@ -95,7 +105,7 @@ async function fetchInstagram(handle, limit) {
 
   if (data.error) {
     // Fall back to Facebook Login flow
-    return fetchInstagramViaFacebook(token, limit);
+    return fetchInstagramViaFacebook(token, limit, handle);
   }
 
   return (data.data || []).map(p => ({

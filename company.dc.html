@@ -130,39 +130,46 @@
     </div>
   </section>
 
-  <!-- 本部メンバー -->
+  <!-- メンバー -->
   <section style="padding:88px 52px;background:#fff;">
     <div style="max-width:960px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:56px;">
-        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#4a7a3f;margin-bottom:12px;">HEADQUARTERS TEAM</div>
-        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:30px;color:#43332a;margin:0;">本部メンバー</h2>
+        <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;color:#4a7a3f;margin-bottom:12px;">MEMBERS</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:30px;color:#43332a;margin:0;">メンバー紹介</h2>
       </div>
-      <div id="hq-member-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:28px;"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px;">
+        <!-- 代表取締役 -->
+        <div style="background:#faf7f0;border-radius:18px;padding:28px 16px 24px;text-align:center;box-shadow:0 4px 16px rgba(67,51,42,.07);">
+          <div style="width:100px;height:120px;border-radius:14px;overflow:hidden;background:#4a7a3f;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <img src="uploads/president.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" onerror="this.parentNode.innerHTML='<span style=\'font-family:Zen Maru Gothic,sans-serif;font-weight:900;font-size:32px;color:#fff;\'>新</span>'">
+          </div>
+          <div style="font-size:11px;color:#4a7a3f;font-weight:700;margin-bottom:6px;">代表取締役</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin-bottom:4px;">新谷 誠</div>
+          <div style="font-size:11px;color:#a99c8f;">しんや まこと</div>
+        </div>
+        <!-- 湯村 雅美 -->
+        <div style="background:#faf7f0;border-radius:18px;padding:28px 16px 24px;text-align:center;box-shadow:0 4px 16px rgba(67,51,42,.07);">
+          <div style="width:100px;height:120px;border-radius:14px;overflow:hidden;background:#4a7a3f;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <img src="uploads/yumura.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" onerror="this.parentNode.innerHTML='<span style=\'font-family:Zen Maru Gothic,sans-serif;font-weight:900;font-size:32px;color:#fff;\'>湯</span>'">
+          </div>
+          <div style="font-size:11px;color:#4a7a3f;font-weight:700;margin-bottom:2px;">福祉事業部</div>
+          <div style="font-size:11px;color:#4a7a3f;font-weight:700;margin-bottom:6px;">統括部長</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin-bottom:4px;">湯村 雅美</div>
+          <div style="font-size:11px;color:#a99c8f;">ゆむら まさみ</div>
+        </div>
+        <!-- 新谷 寛子 -->
+        <div style="background:#faf7f0;border-radius:18px;padding:28px 16px 24px;text-align:center;box-shadow:0 4px 16px rgba(67,51,42,.07);">
+          <div style="width:100px;height:120px;border-radius:14px;overflow:hidden;background:#4a7a3f;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <img src="uploads/shinya-hiroko.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" onerror="this.parentNode.innerHTML='<span style=\'font-family:Zen Maru Gothic,sans-serif;font-weight:900;font-size:32px;color:#fff;\'>新</span>'">
+          </div>
+          <div style="font-size:11px;color:#4a7a3f;font-weight:700;margin-bottom:2px;">タレント発掘部</div>
+          <div style="font-size:11px;color:#4a7a3f;font-weight:700;margin-bottom:6px;">部長</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin-bottom:4px;">新谷 寛子</div>
+          <div style="font-size:11px;color:#a99c8f;">しんや ひろこ</div>
+        </div>
+      </div>
     </div>
   </section>
-  <script>
-  (function(){
-    var HQ_MEMBERS = [
-      { name:'新谷 誠', ruby:'しんや まこと', role:'代表取締役', photo:'uploads/president.jpg' },
-    ];
-    var color = '#4a7a3f';
-    var grid = document.getElementById('hq-member-grid');
-    if (!grid) return;
-    HQ_MEMBERS.forEach(function(m){
-      var photoEl = m.photo
-        ? '<img src="' + m.photo + '" alt="' + m.name + '" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.parentNode.innerHTML=\'<span style=\\\"font-family:Zen Maru Gothic,sans-serif;font-weight:900;font-size:32px;color:#fff;\\\">' + m.name.charAt(0) + '</span>\'" loading="lazy">'
-        : '<span style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:900;font-size:32px;color:#fff;">' + m.name.charAt(0) + '</span>';
-      var el = document.createElement('div');
-      el.style.cssText = 'background:#faf7f0;border-radius:18px;padding:28px 16px 24px;text-align:center;box-shadow:0 4px 16px rgba(67,51,42,.07);';
-      el.innerHTML =
-        '<div style="width:100px;height:120px;border-radius:14px;overflow:hidden;background:' + color + ';display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">' + photoEl + '</div>' +
-        '<div style="font-size:11px;color:' + color + ';font-weight:700;margin-bottom:6px;">' + m.role + '</div>' +
-        '<div style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin-bottom:4px;">' + m.name + '</div>' +
-        '<div style="font-size:11px;color:#a99c8f;">' + m.ruby + '</div>';
-      grid.appendChild(el);
-    });
-  })();
-  </script>
 
   <!-- 拠点・エリア -->
   <section style="background:#fff;padding:0 44px 88px;">

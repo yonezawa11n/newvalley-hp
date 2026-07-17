@@ -64,6 +64,34 @@ async function fetchInstagramViaFacebook(token, limit, handle) {
     if (!mediaData.error && mediaData.data) return mapMedia(mediaData.data, limit);
   }
 
+  // Approach 1b: Business Portfolio → owned pages → Instagram
+  const BUSINESS_ID = process.env.META_BUSINESS_ID || '2190043121437145';
+  const bizPagesRes = await fetch(
+    `https://graph.facebook.com/${BUSINESS_ID}/owned_pages?fields=id,name,access_token&access_token=${token}`
+  );
+  const bizPagesData = await bizPagesRes.json();
+  const bizPages = (!bizPagesData.error && bizPagesData.data) ? bizPagesData.data : [];
+  for (const page of bizPages) {
+    const igRes = await fetch(
+      `https://graph.facebook.com/${page.id}?fields=instagram_business_account&access_token=${page.access_token || token}`
+    );
+    const igData = await igRes.json();
+    const igId = igData.instagram_business_account && igData.instagram_business_account.id;
+    if (!igId) continue;
+    if (handle) {
+      const profileRes = await fetch(
+        `https://graph.facebook.com/${igId}?fields=username&access_token=${page.access_token || token}`
+      );
+      const profileData = await profileRes.json();
+      if (profileData.username && profileData.username !== handle) continue;
+    }
+    const mediaRes = await fetch(
+      `https://graph.facebook.com/${igId}/media?fields=${FIELDS}&limit=${limit}&access_token=${page.access_token || token}`
+    );
+    const mediaData = await mediaRes.json();
+    if (!mediaData.error && mediaData.data) return mapMedia(mediaData.data, limit);
+  }
+
   // Approach 2: User token directly → instagram_business_account on /me
   const meRes = await fetch(
     `https://graph.facebook.com/me?fields=instagram_business_account&access_token=${token}`

@@ -84,31 +84,14 @@
           <p style="font-size:14px;line-height:2.0;color:#6b6358;margin:0;">中学生以上の子が8割以上在籍しているびよんどでは、社会の中のルールなどを勉強していきます。働くことに目を向けた放課後デイです。</p>
         </div>
       </div>
-      <div id="staff-grid-biyondo" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:20px;"></div>
-      <div style="margin-top:20px;border:2px dashed #e0c8b8;border-radius:14px;padding:16px 24px;text-align:center;color:#a99c8f;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;">パート・アルバイトも在籍中</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;">
+        <div style="border-radius:14px;overflow:hidden;aspect-ratio:4/3;"><img src="uploads/biyondo/work1.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="border-radius:14px;overflow:hidden;aspect-ratio:4/3;"><img src="uploads/biyondo/work2.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="border-radius:14px;overflow:hidden;aspect-ratio:4/3;"><img src="uploads/biyondo/work3.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+      </div>
+      <div style="margin-top:20px;border:2px dashed #e0c8b8;border-radius:14px;padding:16px 24px;text-align:center;color:#a99c8f;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;">社員・パート・アルバイトも在籍中</div>
     </div>
   </section>
-  <script>
-  (function(){
-    var STAFF_BIYONDO = [
-      { name:'砂塚 優花', ruby:'すなづか ゆうか', photo:'uploads/biyondo/sunaduka.jpg' },
-      { name:'齋藤 さくら', ruby:'さいとう さくら', photo:'uploads/biyondo/saitou.jpg' },
-      { name:'原島 秀宜', ruby:'はらしま ひでき', photo:'uploads/biyondo/harashima.jpg' },
-      { name:'横川 幸太郎', ruby:'よこかわ こうたろう', photo:'uploads/biyondo/yokokawa.jpg' },
-    ];
-    var color = '#6878b8';
-    var grid = document.getElementById('staff-grid-biyondo');
-    if(!grid) return;
-    STAFF_BIYONDO.forEach(function(s){
-      var photoEl = s.photo ? '<img src="' + s.photo + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy">' : '<span style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:900;font-size:26px;color:#fff;">' + s.name.charAt(0) + '</span>';
-      var el = document.createElement('div');
-      el.style.cssText = 'background:#faf7f0;border-radius:16px;padding:24px 16px;text-align:center;box-shadow:0 4px 14px rgba(67,51,42,.07);';
-      el.innerHTML = '<div style="width:72px;height:72px;border-radius:50%;overflow:hidden;background:' + color + ';display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">' + photoEl + '</div><div style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin-bottom:3px;">' + s.name + '</div>' + (s.ruby ? '<div style="font-size:11px;color:#a99c8f;">' + s.ruby + '</div>' : '');
-      grid.appendChild(el);
-    });
-    if(STAFF_BIYONDO.length === 0) grid.style.display = 'none';
-  })();
-  </script>
 
   <!-- Instagram投稿 -->
   <section style="padding:80px 52px;background:#fff;">

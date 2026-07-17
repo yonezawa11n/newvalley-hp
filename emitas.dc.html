@@ -81,30 +81,9 @@
           <p style="font-size:14px;line-height:2.0;color:#6b6358;margin:0;">フットワークの軽い迅速な対応で、あなたの「想い」に寄り添い、未来を一緒に描きます。地域に根ざした相談支援を届けます。</p>
         </div>
       </div>
-      <div id="staff-grid-emitas" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:20px;"></div>
-      <div style="margin-top:20px;border:2px dashed #e0c8b8;border-radius:14px;padding:16px 24px;text-align:center;color:#a99c8f;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;">パート・アルバイトも在籍中</div>
+      <div style="margin-top:24px;border:2px dashed #e0c8b8;border-radius:14px;padding:16px 24px;text-align:center;color:#a99c8f;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;">社員・パート・アルバイトも在籍中</div>
     </div>
   </section>
-  <script>
-  (function(){
-    var STAFF_EMITAS = [
-      { name:'大野 舞', ruby:'おおの まい', photo:'' },
-      { name:'荻野 美智子', ruby:'おぎの みちこ', photo:'' },
-      { name:'佐久間 亜衣', ruby:'さくま あい', photo:'' },
-    ];
-    var color = '#3a6b30';
-    var grid = document.getElementById('staff-grid-emitas');
-    if(!grid) return;
-    STAFF_EMITAS.forEach(function(s){
-      var photoEl = s.photo ? '<img src="' + s.photo + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy">' : '<span style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:900;font-size:26px;color:#fff;">' + s.name.charAt(0) + '</span>';
-      var el = document.createElement('div');
-      el.style.cssText = 'background:#faf7f0;border-radius:16px;padding:24px 16px;text-align:center;box-shadow:0 4px 14px rgba(67,51,42,.07);';
-      el.innerHTML = '<div style="width:72px;height:72px;border-radius:50%;overflow:hidden;background:' + color + ';display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">' + photoEl + '</div><div style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin-bottom:3px;">' + s.name + '</div>' + (s.ruby ? '<div style="font-size:11px;color:#a99c8f;">' + s.ruby + '</div>' : '');
-      grid.appendChild(el);
-    });
-    if(STAFF_EMITAS.length === 0) grid.style.display = 'none';
-  })();
-  </script>
 
   <!-- 一緒に働きましょう -->
 

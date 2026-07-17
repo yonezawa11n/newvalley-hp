@@ -85,41 +85,14 @@
           <p style="font-size:14px;line-height:2.0;color:#6b6358;margin:0;">楽しい物作りで指先を使った細かい動きと集中力を育みます。楽しい！通いたい！という事業所です。</p>
         </div>
       </div>
-      <!-- 児童発達支援管理責任者 -->
-      <div style="background:#faf7f0;border-radius:20px;padding:36px 40px;box-shadow:0 4px 18px rgba(67,51,42,.07);margin-bottom:36px;display:flex;gap:32px;align-items:center;flex-wrap:wrap;">
-        <div style="flex:none;width:110px;height:110px;border-radius:50%;overflow:hidden;background:#b8c235;display:flex;align-items:center;justify-content:center;">
-          <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:36px;color:#fff;">新</span>
-        </div>
-        <div style="flex:1;min-width:200px;">
-          <div style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.15em;color:#b8c235;margin-bottom:6px;">STAFF</div>
-          <div style="font-size:12px;color:#a99c8f;margin-bottom:4px;">児童発達支援管理責任者</div>
-          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;color:#43332a;margin-bottom:4px;">新谷 勇</div>
-          <div style="font-size:12px;color:#a99c8f;">しんや いさむ</div>
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;">
+        <div style="border-radius:14px;overflow:hidden;aspect-ratio:4/3;"><img src="uploads/march-machida/work1.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="border-radius:14px;overflow:hidden;aspect-ratio:4/3;"><img src="uploads/march-machida/work2.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
+        <div style="border-radius:14px;overflow:hidden;aspect-ratio:4/3;"><img src="uploads/march-machida/work3.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
       </div>
-      <div id="staff-grid-march_machida" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:20px;"></div>
-      <div style="margin-top:20px;border:2px dashed #e0c8b8;border-radius:14px;padding:16px 24px;text-align:center;color:#a99c8f;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;">パート・アルバイトも在籍中</div>
+      <div style="margin-top:20px;border:2px dashed #e0c8b8;border-radius:14px;padding:16px 24px;text-align:center;color:#a99c8f;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;">社員・パート・アルバイトも在籍中</div>
     </div>
   </section>
-  <script>
-  (function(){
-    var STAFF_MARCH_MACHIDA = [
-      { name:'光野 佑歩', ruby:'こうの ゆうほ', photo:'uploads/march-machida/kouno.jpg' },
-      { name:'勝山 馨子', ruby:'かつやま きょうこ', photo:'uploads/march-machida/katsuyama.jpg' },
-    ];
-    var color = '#b8c235';
-    var grid = document.getElementById('staff-grid-march_machida');
-    if(!grid) return;
-    STAFF_MARCH_MACHIDA.forEach(function(s){
-      var photoEl = s.photo ? '<img src="' + s.photo + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy">' : '<span style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:900;font-size:26px;color:#fff;">' + s.name.charAt(0) + '</span>';
-      var el = document.createElement('div');
-      el.style.cssText = 'background:#faf7f0;border-radius:16px;padding:24px 16px;text-align:center;box-shadow:0 4px 14px rgba(67,51,42,.07);';
-      el.innerHTML = '<div style="width:72px;height:72px;border-radius:50%;overflow:hidden;background:' + color + ';display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">' + photoEl + '</div><div style="font-family:\'Zen Maru Gothic\',sans-serif;font-weight:700;font-size:15px;color:#43332a;margin-bottom:3px;">' + s.name + '</div>' + (s.ruby ? '<div style="font-size:11px;color:#a99c8f;">' + s.ruby + '</div>' : '');
-      grid.appendChild(el);
-    });
-    if(STAFF_MARCH_MACHIDA.length === 0) grid.style.display = 'none';
-  })();
-  </script>
 
   <!-- Instagram投稿 -->
   <section style="padding:80px 52px;background:#fff;">

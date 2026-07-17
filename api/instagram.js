@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     if (data.error) {
       return res.status(400).json({ error: data.error.message });
     }
-    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');
+    res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(data);
   } catch (e) {

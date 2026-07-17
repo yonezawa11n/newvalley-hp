@@ -46,22 +46,25 @@
   </section>
   <script>
   (function(){
-    var PHOTOS_march_machida = ['uploads/march-machida/work2.jpg','uploads/march-machida/work8.jpg','uploads/march-machida/work10.jpg','uploads/march-machida/work9.jpg'];
+    var PHOTOS = ['uploads/march-machida/work2.jpg','uploads/march-machida/work8.jpg','uploads/march-machida/work10.jpg','uploads/march-machida/work9.jpg'];
     var track = document.getElementById('marquee-track-march_machida');
     var section = document.getElementById('ss-section-march_machida');
-    if(!PHOTOS_march_machida.length) { section.style.display='none'; return; }
-    var _src = PHOTOS_march_machida; while(_src.length < 10) _src = _src.concat(PHOTOS_march_machida); var all = _src.concat(_src);
-    all.forEach(function(src){
+    if(!PHOTOS.length) { section.style.display='none'; return; }
+    var W = 320, GAP = 14;
+    var repeated = [];
+    while(repeated.length < 16) repeated = repeated.concat(PHOTOS);
+    repeated.forEach(function(src){
       var div = document.createElement('div');
-      div.style.cssText = 'flex:none;width:320px;height:220px;margin-right:14px;border-radius:18px;overflow:hidden;';
-      div.innerHTML = '<img src="' + src + '" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">';
+      div.style.cssText = 'flex:none;width:'+W+'px;height:220px;margin-right:'+GAP+'px;border-radius:18px;overflow:hidden;';
+      div.innerHTML = '<img src="'+src+'" style="width:100%;height:100%;object-fit:cover;display:block;">';
       track.appendChild(div);
     });
-    var duration = Math.max(PHOTOS_march_machida.length * 2, 6);
-    var style = document.createElement('style');
-    style.textContent = '@keyframes marquee_march_machida { from { transform: translateX(0); } to { transform: translateX(-50%); } }';
-    document.head.appendChild(style);
-    track.style.animation = 'marquee_march_machida ' + duration + 's linear infinite';
+    var unitW = (W + GAP) * PHOTOS.length;
+    var x = 0, speed = 0.6;
+    (function tick(){
+      x += speed; if(x >= unitW) x -= unitW; track.style.transform = 'translateX(-'+x+'px)';
+      requestAnimationFrame(tick);
+    })();
   })();
   </script>
 

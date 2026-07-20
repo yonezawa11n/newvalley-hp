@@ -38,6 +38,8 @@ html{-webkit-text-size-adjust:100%;}
   [style*="min-width:"]{min-width:0 !important;}
   /* 固定幅の画像カラムを全幅に */
   [style*="width:300px"],[style*="width:180px"]{width:100% !important;}
+  /* 画像カラムは高さを固定して、画像がテキストに重なるのを防ぐ */
+  [style*="min-height:240px"]{height:210px !important;min-height:0 !important;overflow:hidden !important;}
   /* 折り返し禁止を解除 */
   [style*="white-space:nowrap"]{white-space:normal !important;}
   /* セクション左右余白を圧縮 */

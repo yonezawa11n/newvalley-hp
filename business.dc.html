@@ -27,10 +27,6 @@ html{-webkit-text-size-adjust:100%;}
   [style*="width:300px"],[style*="width:180px"]{width:100% !important;}
   /* 画像カラムは高さを固定して、画像がテキストに重なるのを防ぐ */
   [style*="min-height:240px"]{height:210px !important;min-height:0 !important;overflow:hidden !important;}
-  /* 縦中央寄せカラムが内容より低いと上下にはみ出して重なるため解除 */
-  [style*="flex-direction:column"][style*="justify-content:center"]{display:block !important;height:auto !important;}
-  /* 画像+テキストの横並びカードは縦積みにして、flex行高さによる重なりを防ぐ */
-  [style*="border-radius:22px"][style*="display:flex"]{display:block !important;}
   /* 折り返し禁止を解除 */
   [style*="white-space:nowrap"]{white-space:normal !important;}
   /* セクション左右余白を圧縮 */
@@ -79,7 +75,7 @@ html{-webkit-text-size-adjust:100%;}
 
       <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;">
         <div style="flex:1;min-width:300px;height:300px;overflow:hidden;"><img src="uploads/couragemachida.jpg" alt="訪問介護クラージュ" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
-        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;">
           <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#6f9fc1;padding:5px 14px;border-radius:999px;margin-bottom:16px;">訪問介護</span>
           <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:27px;color:#43332a;margin:0 0 14px;">訪問介護クラージュ</h3>
           <p style="font-size:15px;line-height:2;color:#6b6358;margin:0 0 18px;">住み慣れた自宅で安心して暮らせるよう、身体介護や生活援助を提供。一人ひとりの「こうしたい」に寄り添い、自立した毎日を支えます。</p>
@@ -94,7 +90,7 @@ html{-webkit-text-size-adjust:100%;}
 
       <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;flex-direction:row-reverse;">
         <div style="flex:1;min-width:300px;height:300px;overflow:hidden;"><img src="uploads/marchyamato.jpg" alt="マーチ" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
-        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;">
           <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#43332a;background:#d6e06a;padding:5px 14px;border-radius:999px;margin-bottom:16px;">児童福祉</span>
           <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:27px;color:#43332a;margin:0 0 14px;">放課後等デイサービス マーチ</h3>
           <p style="font-size:15px;line-height:2;color:#6b6358;margin:0 0 18px;">障害のある子どもたちの「やってみたい」を応援。遊びや学び、お友だちとの関わりを通して、放課後の時間と成長を支えます。</p>
@@ -112,7 +108,7 @@ html{-webkit-text-size-adjust:100%;}
 
       <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;">
         <div style="flex:1;min-width:300px;height:300px;overflow:hidden;"><img src="uploads/biyondoyamato.jpg" alt="びよんど" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
-        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;">
           <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#43332a;background:#f1b3c1;padding:5px 14px;border-radius:999px;margin-bottom:16px;">児童福祉</span>
           <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:27px;color:#43332a;margin:0 0 14px;">びよんど</h3>
           <p style="font-size:15px;line-height:2;color:#6b6358;margin:0 0 18px;">子どもたちの可能性を、その先（beyond）へ。一人ひとりの特性に合わせた療育プログラムで、できることを少しずつ広げていきます。</p>
@@ -126,7 +122,7 @@ html{-webkit-text-size-adjust:100%;}
 
       <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;flex-direction:row-reverse;">
         <div style="flex:1;min-width:300px;height:300px;overflow:hidden;"><img src="uploads/soudanemitasu.jpg" alt="えみたすサポート" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
-        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="flex:1;min-width:320px;padding:44px 44px;display:flex;flex-direction:column;">
           <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#4a7a3f;padding:5px 14px;border-radius:999px;margin-bottom:16px;">相談支援</span>
           <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:27px;color:#43332a;margin:0 0 14px;">相談支援事業</h3>
           <p style="font-size:15px;line-height:2;color:#6b6358;margin:0 0 18px;">福祉サービスの利用計画づくりから日々の生活のご相談まで。ご本人とご家族の伴走者として、必要な支援へとつなぎます。</p>
@@ -152,7 +148,7 @@ html{-webkit-text-size-adjust:100%;}
     <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
       <a href="xmobile.dc.html" style="text-decoration:none;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;">
         <div style="flex:none;width:180px;height:180px;overflow:hidden;"><img src="uploads/xmobile.JPG" alt="エックスモバイル" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
-        <div style="flex:1;min-width:200px;padding:28px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="flex:1;min-width:200px;padding:28px;display:flex;flex-direction:column;">
           <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#808820;padding:5px 14px;border-radius:999px;margin-bottom:12px;">モバイル事業</span>
           <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#43332a;margin:0 0 10px;line-height:1.4;">エックスモバイル<br>大和桜ヶ丘駅前店</h3>
           <p style="font-size:13px;line-height:1.9;color:#6b6358;margin:0 0 14px;">地域密着型の携帯ショップ。通信のお悩みを丁寧にサポートします。</p>
@@ -161,7 +157,7 @@ html{-webkit-text-size-adjust:100%;}
       </a>
       <a href="https://newvalley-it-yonezawa.vercel.app/" target="_blank" style="text-decoration:none;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px rgba(67,51,42,.07);display:flex;flex-wrap:wrap;">
         <div style="flex:none;width:180px;height:180px;overflow:hidden;"><img src="uploads/ITdesign.png" alt="DX/ITデザイン" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>
-        <div style="flex:1;min-width:200px;padding:28px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="flex:1;min-width:200px;padding:28px;display:flex;flex-direction:column;">
           <span style="align-self:flex-start;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;color:#fff;background:#7850a8;padding:5px 14px;border-radius:999px;margin-bottom:12px;">DX・IT</span>
           <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#43332a;margin:0 0 10px;">DX / IT デザイン事業</h3>
           <p style="font-size:13px;line-height:1.9;color:#6b6358;margin:0 0 14px;">課題を見つけ、仕組みで解決する。未来をつくるパートナーに。</p>

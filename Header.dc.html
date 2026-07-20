@@ -34,7 +34,7 @@ html{-webkit-text-size-adjust:100%;}
   /* 画像カラムは高さを固定して、画像がテキストに重なるのを防ぐ */
   [style*="min-height:240px"]{height:210px !important;min-height:0 !important;overflow:hidden !important;}
   /* 縦中央寄せカラムが内容より低いと上下にはみ出して重なるため解除 */
-  [style*="flex-direction:column"][style*="justify-content:center"]{justify-content:flex-start !important;height:auto !important;align-self:flex-start !important;}
+  [style*="flex-direction:column"][style*="justify-content:center"]{display:block !important;height:auto !important;}
   /* 画像+テキストの横並びカードは縦積みにして、flex行高さによる重なりを防ぐ */
   [style*="border-radius:22px"][style*="display:flex"]{display:block !important;}
   /* 折り返し禁止を解除 */

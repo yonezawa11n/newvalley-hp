@@ -17,6 +17,44 @@
 .year-tab.active{color:#fff;}
 .year-panel{display:none;}
 .year-panel.active{display:block;}
+
+/* nv-responsive */
+img{max-width:100%;}
+html{-webkit-text-size-adjust:100%;}
+@media (max-width:1000px){
+  /* 多カラムグリッドを1カラムに */
+  [style*="grid-template-columns:repeat(3"],
+  [style*="grid-template-columns:repeat(4"],
+  [style*="grid-template-columns:1fr 1fr 1fr"],
+  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+  /* flex子要素のmin-widthを解除して重なり・はみ出しを防ぐ */
+  [style*="min-width:"]{min-width:0 !important;}
+  /* 固定幅の画像カラムを全幅に */
+  [style*="width:300px"],[style*="width:180px"]{width:100% !important;}
+  /* 折り返し禁止を解除 */
+  [style*="white-space:nowrap"]{white-space:normal !important;}
+  /* セクション左右余白を圧縮 */
+  section[style*="padding"]{padding-left:24px !important;padding-right:24px !important;}
+  /* 見出しの縮小 */
+  h1{font-size:28px !important;line-height:1.4 !important;}
+  h2{font-size:22px !important;line-height:1.5 !important;}
+  h3{font-size:17px !important;line-height:1.5 !important;}
+}
+@media (max-width:680px){
+  section[style*="padding"]{padding-left:16px !important;padding-right:16px !important;}
+  /* カード内の大きな余白を圧縮 */
+  [style*="padding:52px 56px"],[style*="padding:48px 52px"],[style*="padding:44px 48px"],
+  [style*="padding:40px 44px"],[style*="padding:36px 40px"],[style*="padding:34px 38px"],
+  [style*="padding:32px 36px"],[style*="padding:14px 44px"]{padding:24px 20px !important;}
+  /* テーブルを縦積みに */
+  table th,table td{display:block !important;width:auto !important;padding-left:0 !important;padding-right:0 !important;}
+  table th{padding-bottom:4px !important;}
+  table td{padding-top:0 !important;padding-bottom:16px !important;}
+  h1{font-size:24px !important;}
+  h2{font-size:20px !important;}
+  /* ヒーローの高さを抑える */
+  section[style*="height:480px"],section[style*="height:420px"]{height:320px !important;}
+}
 </style>
 </helmet>
 <div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">

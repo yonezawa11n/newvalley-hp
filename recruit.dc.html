@@ -20,7 +20,8 @@ html{-webkit-text-size-adjust:100%;}
   [style*="grid-template-columns:repeat(3"],
   [style*="grid-template-columns:repeat(4"],
   [style*="grid-template-columns:1fr 1fr 1fr"],
-  [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns:300px 1fr"]{grid-template-columns:1fr !important;}
   /* flex子要素のmin-widthを解除して重なり・はみ出しを防ぐ */
   [style*="min-width:"]{min-width:0 !important;}
   /* 固定幅の画像カラムを全幅に */
@@ -92,11 +93,11 @@ html{-webkit-text-size-adjust:100%;}
       <div style="display:flex;flex-direction:column;gap:24px;">
 
         <!-- 訪問介護スタッフ -->
-        <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(67,51,42,.08);display:flex;flex-wrap:wrap;align-items:flex-start;">
-          <div style="flex:none;width:300px;min-height:240px;background:#eaf2f8;">
+        <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(67,51,42,.08);display:grid;grid-template-columns:300px 1fr;align-items:start;">
+          <div style="min-height:240px;background:#eaf2f8;">
             <img src="uploads/courage/work1.jpg" alt="訪問介護スタッフ" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
           </div>
-          <div style="flex:1;min-width:300px;padding:34px 38px;display:flex;flex-direction:column;border-left:6px solid #6f9fc1;">
+          <div style="padding:34px 38px;border-left:6px solid #6f9fc1;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
               <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:21px;color:#43332a;margin:0;">訪問介護スタッフ（ヘルパー）</h3>
               <span style="font-size:12px;color:#fff;background:#6f9fc1;padding:5px 13px;border-radius:999px;white-space:nowrap;">正社員・パート</span>
@@ -115,11 +116,11 @@ html{-webkit-text-size-adjust:100%;}
         </div>
 
         <!-- サビ管・児発管 -->
-        <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(67,51,42,.08);display:flex;flex-wrap:wrap;align-items:flex-start;">
-          <div style="flex:none;width:300px;min-height:240px;background:#f9ecf0;">
+        <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(67,51,42,.08);display:grid;grid-template-columns:300px 1fr;align-items:start;">
+          <div style="min-height:240px;background:#f9ecf0;">
             <img src="uploads/soudanemitasu.jpg" alt="サービス管理責任者・児童発達支援管理責任者" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
           </div>
-          <div style="flex:1;min-width:300px;padding:34px 38px;display:flex;flex-direction:column;border-left:6px solid #f1b3c1;">
+          <div style="padding:34px 38px;border-left:6px solid #f1b3c1;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
               <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:21px;color:#43332a;margin:0;">サービス管理責任者／<br>児童発達支援管理責任者</h3>
               <span style="font-size:12px;color:#43332a;background:#f1b3c1;padding:5px 13px;border-radius:999px;white-space:nowrap;">正社員</span>
@@ -137,15 +138,15 @@ html{-webkit-text-size-adjust:100%;}
         </div>
 
         <!-- 児童指導員・指導員 -->
-        <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(67,51,42,.08);display:flex;flex-wrap:wrap;align-items:flex-start;position:relative;">
+        <div style="background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 6px 22px rgba(67,51,42,.08);display:grid;grid-template-columns:300px 1fr;align-items:start;position:relative;">
           <div style="position:absolute;top:18px;left:18px;z-index:2;display:inline-flex;align-items:center;gap:6px;background:rgba(200,104,128,.95);padding:6px 15px;border-radius:999px;box-shadow:0 3px 10px rgba(0,0,0,.18);">
             <span style="font-size:13px;">🌟</span>
             <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11px;color:#fff;letter-spacing:.08em;">新規事業所 2025年冬オープン予定</span>
           </div>
-          <div style="flex:none;width:300px;min-height:240px;background:#f9ecf0;">
+          <div style="min-height:240px;background:#f9ecf0;">
             <img src="uploads/march-machida/work2.jpg" alt="児童指導員・指導員" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
           </div>
-          <div style="flex:1;min-width:300px;padding:34px 38px;display:flex;flex-direction:column;border-left:6px solid #c86880;">
+          <div style="padding:34px 38px;border-left:6px solid #c86880;">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">
               <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:21px;color:#43332a;margin:0;">児童指導員・指導員</h3>
               <span style="font-size:12px;color:#fff;background:#c86880;padding:5px 13px;border-radius:999px;white-space:nowrap;">正社員・パート</span>

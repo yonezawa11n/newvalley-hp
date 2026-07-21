@@ -152,7 +152,7 @@ html{-webkit-text-size-adjust:100%;}
     filtered.forEach(function(n){
       var color = newsCategoryColor(n.category);
       var imgHTML = n.image
-        ? '<div style="height:200px;overflow:hidden;"><img src="' + n.image + '" alt="' + n.title + '" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;" loading="lazy"></div>'
+        ? '<div style="height:200px;overflow:hidden;"><img src="' + n.image + '" alt="' + n.title + '" style="width:100%;height:100%;object-fit:cover;object-position:' + (n.imagePos || '50% 50%') + ';display:block;transition:transform .4s;" loading="lazy"></div>'
         : '<div style="height:200px;background:linear-gradient(135deg,#f0e8d8,#e0d4c0);display:flex;align-items:center;justify-content:center;"><span style="font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:13px;letter-spacing:.15em;color:#a99c8f;">NEW VALLEY</span></div>';
       var card = document.createElement('a');
       card.href = 'news-detail.dc.html?id=' + n.id;

@@ -44,6 +44,43 @@ textarea{resize:vertical;min-height:180px;line-height:1.8;}
 .img-preview{margin-top:10px;border-radius:12px;overflow:hidden;max-height:200px;display:none;}
 .img-preview img{width:100%;height:200px;object-fit:cover;display:block;}
 
+/* ドラッグ&ドロップ */
+.dropzone{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  padding:28px 20px;border:2.5px dashed #c8b89a;border-radius:14px;background:#faf7f0;
+  cursor:pointer;text-align:center;transition:border-color .18s,background .18s,transform .1s;
+}
+.dropzone:hover{border-color:#6f9fc1;background:#f4f9fc;}
+.dropzone.dragover{border-color:#4a7a3f;background:#eef7ea;transform:scale(1.01);}
+.dropzone.uploading{opacity:.6;pointer-events:none;}
+.dropzone .dz-main{font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#6b6358;}
+.dropzone .dz-sub{font-size:12px;color:#a99c8f;}
+
+/* 画像の表示位置調整 */
+.pos-editor{margin-top:16px;display:none;}
+.pos-frame{
+  position:relative;width:100%;height:200px;border-radius:12px;overflow:hidden;
+  background:#f0e8d8;cursor:grab;user-select:none;touch-action:none;
+}
+.pos-frame.grabbing{cursor:grabbing;}
+.pos-frame img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
+.pos-frame::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.55);border-radius:12px;
+}
+.pos-badge{
+  position:absolute;left:10px;top:10px;background:rgba(67,51,42,.78);color:#fff;
+  font-size:11px;font-weight:700;padding:5px 12px;border-radius:999px;pointer-events:none;
+}
+.pos-row{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap;}
+.pos-row label{margin-bottom:0;flex:none;font-size:12px;}
+.pos-row input[type=range]{flex:1;min-width:140px;accent-color:#6f9fc1;}
+.pos-reset{
+  flex:none;padding:8px 16px;border:1.5px solid #e0c8b8;border-radius:999px;background:#fff;
+  color:#6b6358;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:12px;cursor:pointer;
+}
+.pos-reset:hover{border-color:#6f9fc1;color:#6f9fc1;}
+
 .submit-btn{width:100%;padding:16px;background:#4a7a3f;color:#fff;border:none;border-radius:999px;
   font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;cursor:pointer;
   box-shadow:0 4px 0 #365c2e;transition:opacity .15s;}
@@ -129,16 +166,37 @@ textarea{resize:vertical;min-height:180px;line-height:1.8;}
 
       <div class="field">
         <label>画像</label>
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-          <label id="file-label" style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;background:#f0e8d8;border:2px dashed #c8b89a;border-radius:12px;padding:12px 20px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#6b6358;transition:border-color .2s;margin-bottom:0;">
-            📷 画像を選択
-            <input type="file" id="f-image-file" accept="image/*" style="display:none;">
-          </label>
-          <span id="upload-status" style="font-size:12px;color:#a99c8f;"></span>
+
+        <div class="dropzone" id="dropzone">
+          <div style="font-size:26px;">📷</div>
+          <div class="dz-main">ここに画像をドラッグ＆ドロップ</div>
+          <div class="dz-sub">クリックして選択／画像をコピーして Ctrl+V でも貼り付けできます</div>
+          <input type="file" id="f-image-file" accept="image/*" style="display:none;">
         </div>
+        <div style="margin-top:8px;"><span id="upload-status" style="font-size:12px;color:#a99c8f;"></span></div>
+
         <input type="text" id="f-image" placeholder="画像URLが自動入力されます（または外部URL直接入力も可）" style="margin-top:10px;">
-        <div class="hint">ファイルを選ぶと自動でVercelにアップロードされます。外部URLを直接入力することもできます。</div>
-        <div class="img-preview" id="img-preview"><img id="img-preview-img" src=""></div>
+        <div class="hint">アップロードすると自動でURLが入ります。外部URLを直接入力することもできます。</div>
+
+        <!-- 表示位置の調整 -->
+        <div class="pos-editor" id="pos-editor">
+          <label style="margin-top:18px;">表示位置の調整</label>
+          <div class="pos-frame" id="pos-frame">
+            <img id="img-preview-img" src="">
+            <div class="pos-badge" id="pos-badge">ドラッグして動かせます</div>
+          </div>
+          <div class="pos-row">
+            <label for="pos-y">上下</label>
+            <input type="range" id="pos-y" min="0" max="100" value="50">
+            <label for="pos-x">左右</label>
+            <input type="range" id="pos-x" min="0" max="100" value="50">
+            <button type="button" class="pos-reset" onclick="resetImagePos()">中央に戻す</button>
+          </div>
+          <div class="hint">サイト上では画像が枠に合わせて切り抜かれます。見せたい部分が中央にくるよう調整してください。</div>
+        </div>
+
+        <!-- 旧プレビュー（画像なし時の非表示用に保持） -->
+        <div class="img-preview" id="img-preview" style="display:none;"></div>
       </div>
 
       <div class="field">
@@ -185,54 +243,195 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('f-date').value = y + '-' + m + '-' + d;
 });
 
-// 画像ファイル選択時にVercel Blobへアップロード
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('f-image-file').addEventListener('change', function(e) {
-    var file = e.target.files[0];
-    if (!file) return;
-    var status = document.getElementById('upload-status');
-    status.textContent = 'アップロード中...';
-    status.style.color = '#6f9fc1';
-    var reader = new FileReader();
-    reader.onload = function(ev) {
-      fetch('/api/news-admin', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password: window.__adminPass, filename: file.name, base64: ev.target.result }),
-      })
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        if (data.url) {
-          document.getElementById('f-image').value = data.url;
-          updateImagePreview(data.url);
-          status.textContent = '✅ アップロード完了';
-          status.style.color = '#2e7d32';
-        } else {
-          status.textContent = '❌ ' + (data.error || 'アップロード失敗');
-          status.style.color = '#c62828';
-        }
-      })
-      .catch(function() {
-        status.textContent = '❌ 通信エラー';
+// ===== 画像アップロード（ファイル選択／ドラッグ&ドロップ／貼り付け）=====
+var MAX_UPLOAD_MB = 4;
+
+function uploadImageFile(file) {
+  if (!file) return;
+  var status = document.getElementById('upload-status');
+  var dz = document.getElementById('dropzone');
+
+  if (!/^image\//.test(file.type)) {
+    status.textContent = '❌ 画像ファイルを選んでください';
+    status.style.color = '#c62828';
+    return;
+  }
+  if (file.size > MAX_UPLOAD_MB * 1024 * 1024) {
+    status.textContent = '❌ 画像が大きすぎます（' + MAX_UPLOAD_MB + 'MBまで／今: ' + (file.size/1024/1024).toFixed(1) + 'MB）';
+    status.style.color = '#c62828';
+    return;
+  }
+
+  status.textContent = '⏳ アップロード中... (' + file.name + ')';
+  status.style.color = '#6f9fc1';
+  dz.classList.add('uploading');
+
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    fetch('/api/news-admin', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: window.__adminPass, filename: file.name, base64: ev.target.result }),
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.url) {
+        document.getElementById('f-image').value = data.url;
+        resetImagePos();
+        updateImagePreview(data.url);
+        status.textContent = '✅ アップロード完了';
+        status.style.color = '#2e7d32';
+      } else {
+        status.textContent = '❌ ' + (data.error || 'アップロード失敗');
         status.style.color = '#c62828';
-      });
-    };
-    reader.readAsDataURL(file);
+      }
+    })
+    .catch(function() {
+      status.textContent = '❌ 通信エラー';
+      status.style.color = '#c62828';
+    })
+    .finally(function() {
+      dz.classList.remove('uploading');
+    });
+  };
+  reader.readAsDataURL(file);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var dz = document.getElementById('dropzone');
+  var fileInput = document.getElementById('f-image-file');
+
+  // クリックで選択
+  dz.addEventListener('click', function() { fileInput.click(); });
+  fileInput.addEventListener('change', function(e) {
+    uploadImageFile(e.target.files[0]);
+    e.target.value = '';
   });
+
+  // ドラッグ&ドロップ
+  ['dragenter','dragover'].forEach(function(evt) {
+    dz.addEventListener(evt, function(e) {
+      e.preventDefault(); e.stopPropagation();
+      dz.classList.add('dragover');
+    });
+  });
+  ['dragleave','dragend'].forEach(function(evt) {
+    dz.addEventListener(evt, function(e) {
+      e.preventDefault(); e.stopPropagation();
+      if (evt === 'dragleave' && dz.contains(e.relatedTarget)) return;
+      dz.classList.remove('dragover');
+    });
+  });
+  dz.addEventListener('drop', function(e) {
+    e.preventDefault(); e.stopPropagation();
+    dz.classList.remove('dragover');
+    var dt = e.dataTransfer;
+    if (dt.files && dt.files.length) { uploadImageFile(dt.files[0]); return; }
+    // ブラウザから画像を直接ドラッグした場合はURLとして受け取る
+    var url = dt.getData('text/uri-list') || dt.getData('text/plain');
+    if (url && /^https?:\/\//.test(url)) {
+      document.getElementById('f-image').value = url.trim();
+      resetImagePos();
+      updateImagePreview(url.trim());
+      var st = document.getElementById('upload-status');
+      st.textContent = '✅ 画像URLを設定しました';
+      st.style.color = '#2e7d32';
+    }
+  });
+
+  // ページ全体でのドロップは無効化（誤って画像を開いてしまうのを防ぐ）
+  ['dragover','drop'].forEach(function(evt) {
+    window.addEventListener(evt, function(e) {
+      if (!dz.contains(e.target)) e.preventDefault();
+    });
+  });
+
+  // クリップボードから貼り付け
+  document.addEventListener('paste', function(e) {
+    if (document.getElementById('main-screen').style.display === 'none') return;
+    var items = (e.clipboardData || {}).items || [];
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].type && items[i].type.indexOf('image/') === 0) {
+        var f = items[i].getAsFile();
+        if (f) { e.preventDefault(); uploadImageFile(f); }
+        return;
+      }
+    }
+  });
+
   document.getElementById('f-image').addEventListener('input', function() {
     updateImagePreview(this.value);
   });
+
+  initPosEditor();
 });
 
 function updateImagePreview(src) {
-  var preview = document.getElementById('img-preview');
   var img = document.getElementById('img-preview-img');
+  var editor = document.getElementById('pos-editor');
   if (src) {
     img.src = src;
-    preview.style.display = 'block';
+    editor.style.display = 'block';
+    applyImagePos();
   } else {
-    preview.style.display = 'none';
+    editor.style.display = 'none';
   }
+}
+
+// ===== 画像の表示位置（object-position）調整 =====
+var __posX = 50, __posY = 50;
+
+function applyImagePos() {
+  var img = document.getElementById('img-preview-img');
+  img.style.objectPosition = __posX + '% ' + __posY + '%';
+  document.getElementById('pos-x').value = __posX;
+  document.getElementById('pos-y').value = __posY;
+  document.getElementById('pos-badge').textContent =
+    (__posX === 50 && __posY === 50) ? 'ドラッグして動かせます' : '左右 ' + Math.round(__posX) + '% / 上下 ' + Math.round(__posY) + '%';
+}
+
+function setImagePos(x, y) {
+  __posX = Math.max(0, Math.min(100, x));
+  __posY = Math.max(0, Math.min(100, y));
+  applyImagePos();
+}
+
+function resetImagePos() { setImagePos(50, 50); }
+
+function getImagePosValue() {
+  return Math.round(__posX) + '% ' + Math.round(__posY) + '%';
+}
+
+function initPosEditor() {
+  var frame = document.getElementById('pos-frame');
+  var dragging = false, startX = 0, startY = 0, baseX = 50, baseY = 50;
+
+  frame.addEventListener('pointerdown', function(e) {
+    dragging = true;
+    startX = e.clientX; startY = e.clientY;
+    baseX = __posX; baseY = __posY;
+    frame.classList.add('grabbing');
+    frame.setPointerCapture(e.pointerId);
+  });
+
+  frame.addEventListener('pointermove', function(e) {
+    if (!dragging) return;
+    var rect = frame.getBoundingClientRect();
+    // 掴んで動かす感覚に合わせ、ドラッグ方向と逆に object-position を動かす
+    var dx = (e.clientX - startX) / rect.width  * 100;
+    var dy = (e.clientY - startY) / rect.height * 100;
+    setImagePos(baseX - dx, baseY - dy);
+  });
+
+  ['pointerup','pointercancel'].forEach(function(evt) {
+    frame.addEventListener(evt, function() {
+      dragging = false;
+      frame.classList.remove('grabbing');
+    });
+  });
+
+  document.getElementById('pos-x').addEventListener('input', function() { setImagePos(+this.value, __posY); });
+  document.getElementById('pos-y').addEventListener('input', function() { setImagePos(__posX, +this.value); });
 }
 
 function checkPassword() {
@@ -328,7 +527,13 @@ function editArticle(id) {
   var rawBody = (a.body || '').replace(/<p[^>]*>/gi,'').replace(/<\/p>/gi,'').replace(/<br\s*\/?>/gi,'\n').replace(/<div[^>]*>[\s\S]*?<\/div>/gi,'').trim();
   document.getElementById('f-body').value = rawBody;
 
+  // 保存済みの表示位置を復元（例: "50% 30%"）
+  var pos = (a.imagePos || '50% 50%').match(/(-?[\d.]+)%\s+(-?[\d.]+)%/);
+  __posX = pos ? parseFloat(pos[1]) : 50;
+  __posY = pos ? parseFloat(pos[2]) : 50;
+
   if (a.image) updateImagePreview(a.image);
+  else document.getElementById('pos-editor').style.display = 'none';
 
   document.getElementById('form-title').textContent = '記事を編集中';
   document.getElementById('edit-cancel-bar').style.display = 'block';
@@ -372,6 +577,7 @@ function submitArticle() {
     title: title,
     excerpt: document.getElementById('f-excerpt').value.trim() || title,
     image: document.getElementById('f-image').value.trim(),
+    imagePos: getImagePosValue(),
     body: body ? '<p style="font-size:15px;line-height:2.0;color:#6b6358;">' + body.replace(/\n/g,'<br>') + '</p>' : '',
     dynamic: true,
   };
@@ -432,7 +638,8 @@ function clearForm() {
   document.getElementById('f-image-file').value = '';
   document.getElementById('f-body').value = '';
   document.getElementById('f-url').value = '';
-  document.getElementById('img-preview').style.display = 'none';
+  document.getElementById('pos-editor').style.display = 'none';
+  resetImagePos();
   document.getElementById('upload-status').textContent = '';
   document.getElementById('form-title').textContent = '新しい記事を投稿';
   document.getElementById('edit-cancel-bar').style.display = 'none';

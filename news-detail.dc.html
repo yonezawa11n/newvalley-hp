@@ -87,7 +87,7 @@ html{-webkit-text-size-adjust:100%;}
 
   var color = newsCategoryColor(article.category);
   var imgHTML = article.image
-    ? '<div style="height:420px;overflow:hidden;border-radius:0;"><img src="' + article.image + '" alt="' + article.title + '" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy"></div>'
+    ? '<div style="height:420px;overflow:hidden;border-radius:0;"><img src="' + article.image + '" alt="' + article.title + '" style="width:100%;height:100%;object-fit:cover;object-position:' + (article.imagePos || '50% 50%') + ';display:block;" loading="lazy"></div>'
     : '';
 
   wrap.innerHTML =

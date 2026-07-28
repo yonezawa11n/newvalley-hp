@@ -517,8 +517,9 @@ html{-webkit-text-size-adjust:100%;}
   <script>
   (function(){
     var grid = document.getElementById('index-news-grid');
-    if(!grid || !window.NEWS_DATA) return;
-    NEWS_DATA.slice(0,3).forEach(function(n){
+    if(!grid || !window.NewsLoader) return;
+    NewsLoader.load().then(function(articles){
+    articles.slice(0,3).forEach(function(n){
       var color = newsCategoryColor(n.category);
       var imgHTML = n.image
         ? '<div style="height:180px;overflow:hidden;"><img src="' + n.image + '" alt="" style="width:100%;height:100%;object-fit:cover;object-position:' + (n.imagePos || '50% 50%') + ';display:block;transition:transform .4s;" loading="lazy"></div>'
@@ -538,6 +539,7 @@ html{-webkit-text-size-adjust:100%;}
           '<p style="font-size:12px;line-height:1.8;color:#6b6358;margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">' + n.excerpt + '</p>' +
         '</div>';
       grid.appendChild(card);
+    });
     });
   })();
   </script>

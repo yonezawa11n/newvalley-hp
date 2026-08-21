@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>あなたにぴったりを、みつける | 株式会社NewValley</title>
+<meta name="description" content="お仕事をお探しの方、サービスの利用をお考えの方へ。写真から、あなたに合った選択をみつけられます。">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;}body{margin:0;background:#faf7f0;}
+img{max-width:100%;}
+html{-webkit-text-size-adjust:100%;}
+/* 写真タイルグリッド（auto-fillで自動折返し。モバイルは2列） */
+.nv-tilegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+.nv-tile{position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:16/11;text-decoration:none;box-shadow:0 4px 16px rgba(67,51,42,.08);transition:transform .2s,box-shadow .2s;}
+.nv-tile:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(67,51,42,.16);}
+.nv-tile img{width:100%;height:100%;object-fit:cover;display:block;}
+.nv-tile .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.62),rgba(0,0,0,0) 58%);}
+.nv-tile .lb{position:absolute;left:16px;bottom:14px;right:16px;color:#fff;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;text-shadow:0 1px 5px rgba(0,0,0,.45);line-height:1.35;}
+.nv-tile .sub{display:block;font-size:11px;font-weight:500;color:rgba(255,255,255,.85);margin-top:3px;text-shadow:0 1px 4px rgba(0,0,0,.5);}
+@media (max-width:520px){
+  .nv-tilegrid{grid-template-columns:1fr 1fr;gap:12px;}
+  .nv-tile .lb{font-size:14px;left:12px;bottom:10px;right:12px;}
+}
+@media (max-width:767px){ body{padding-bottom:62px;} }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+<style>/* nv-handwriting */ h1,h2,h3{font-family:'Yomogi','Zen Maru Gothic',sans-serif !important;}</style>
+</helmet>
+<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <!-- ヒーロー -->
+  <section style="padding:64px 44px 8px;">
+    <div style="max-width:1160px;margin:0 auto;">
+      <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:40px;color:#43332a;margin:0 0 12px;line-height:1.25;">あなたにぴったりを、みつける</h1>
+      <p style="font-size:16px;color:#8a8276;margin:0;">写真から、あなたに合った選択と出会う。</p>
+    </div>
+  </section>
+
+  <!-- 入口2択 -->
+  <section style="padding:36px 44px 8px;">
+    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;">
+      <a href="#jobs" style="text-decoration:none;background:linear-gradient(135deg,#6f9fc1,#5a89ab);border-radius:20px;padding:32px 34px;display:flex;align-items:center;gap:20px;box-shadow:0 6px 20px rgba(111,159,193,.28);">
+        <div style="font-size:40px;flex:none;">💼</div>
+        <div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#fff;margin-bottom:4px;">働きたい方へ</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.9);">お仕事・働き方をみつける</div>
+        </div>
+      </a>
+      <a href="#services" style="text-decoration:none;background:linear-gradient(135deg,#5a9e4a,#468a38);border-radius:20px;padding:32px 34px;display:flex;align-items:center;gap:20px;box-shadow:0 6px 20px rgba(90,158,74,.28);">
+        <div style="font-size:40px;flex:none;">🌿</div>
+        <div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#fff;margin-bottom:4px;">利用したい方へ</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.9);">サービス・事業所をみつける</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 仕事をみつける -->
+  <section id="jobs" style="padding:56px 44px 20px;scroll-margin-top:90px;">
+    <div style="max-width:1160px;margin:0 auto;">
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0 0 6px;">お仕事をみつける</h2>
+      <p style="font-size:14px;color:#8a8276;margin:0 0 28px;">どんな働き方・職種をお探しですか？</p>
+      <div class="nv-tilegrid">
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/staff_group.jpg" alt="正社員（フルタイム）" loading="lazy"><div class="ov"></div><span class="lb">正社員（フルタイム）<span class="sub">しっかり働きたい方へ</span></span></a>
+        <a class="nv-tile" href="short-time.dc.html"><img src="uploads/company-group.jpg" alt="短時間社員" loading="lazy"><div class="ov"></div><span class="lb">短時間社員<span class="sub">正社員のまま短い時間で</span></span></a>
+        <a class="nv-tile" href="recruit-courage.dc.html"><img src="uploads/couragemachida.jpg" alt="訪問介護スタッフ" loading="lazy"><div class="ov"></div><span class="lb">訪問介護スタッフ<span class="sub">資格なし・未経験もOK</span></span></a>
+        <a class="nv-tile" href="recruit-march-part.dc.html"><img src="uploads/marchyamato.jpg" alt="放課後デイ 指導員" loading="lazy"><div class="ov"></div><span class="lb">放課後デイ 指導員<span class="sub">子どもたちの成長を支える</span></span></a>
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/soudanemitasu.jpg" alt="相談支援専門員" loading="lazy"><div class="ov"></div><span class="lb">相談支援専門員<span class="sub">計画・調整のお仕事</span></span></a>
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/march-machida/work1.jpg" alt="サービス管理責任者" loading="lazy"><div class="ov"></div><span class="lb">サビ管／児発管<span class="sub">現場マネジメント</span></span></a>
+        <a class="nv-tile" href="recruit-march-part.dc.html"><img src="uploads/machida_area.jpg" alt="送迎ドライバー" loading="lazy"><div class="ov"></div><span class="lb">送迎ドライバー<span class="sub">子どもたちの送り迎え</span></span></a>
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/yamato_area.jpg" alt="グループホーム（開設予定）" loading="lazy"><div class="ov"></div><span class="lb">グループホーム<span class="sub">開設予定・スタッフ募集</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- サービスをみつける -->
+  <section id="services" style="padding:44px 44px 20px;scroll-margin-top:90px;">
+    <div style="max-width:1160px;margin:0 auto;">
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0 0 6px;">サービスをみつける</h2>
+      <p style="font-size:14px;color:#8a8276;margin:0 0 28px;">どんな支援をお探しですか？</p>
+      <div class="nv-tilegrid">
+        <a class="nv-tile" href="march-yamato.dc.html"><img src="uploads/marchyamato.jpg" alt="放課後デイ 運動あそび中心" loading="lazy"><div class="ov"></div><span class="lb">放課後デイ（運動あそび）<span class="sub">身体を動かして自信を育む</span></span></a>
+        <a class="nv-tile" href="biyondo.dc.html"><img src="uploads/biyondoyamato.jpg" alt="放課後デイ 自立・就労準備" loading="lazy"><div class="ov"></div><span class="lb">放課後デイ（自立・就労準備）<span class="sub">将来の自立を見据えて</span></span></a>
+        <a class="nv-tile" href="march-machida.dc.html"><img src="uploads/marchmachida.jpg" alt="低学年のお子さま向け" loading="lazy"><div class="ov"></div><span class="lb">低学年のお子さま<span class="sub">はじめての療育に</span></span></a>
+        <a class="nv-tile" href="biyondo.dc.html"><img src="uploads/biyondo/work1.jpg" alt="高学年・中学生向け" loading="lazy"><div class="ov"></div><span class="lb">高学年・中学生<span class="sub">社会適応・就労を見据える</span></span></a>
+        <a class="nv-tile" href="courage.dc.html"><img src="uploads/couragemachida.jpg" alt="訪問介護を利用したい" loading="lazy"><div class="ov"></div><span class="lb">訪問介護<span class="sub">自宅での暮らしを支える</span></span></a>
+        <a class="nv-tile" href="emitas.dc.html"><img src="uploads/soudanemitasu.jpg" alt="相談支援について" loading="lazy"><div class="ov"></div><span class="lb">相談支援<span class="sub">サービス利用の相談・計画</span></span></a>
+        <a class="nv-tile" href="gh.dc.html"><img src="uploads/yamato_area.jpg" alt="グループホーム入所を目指す" loading="lazy"><div class="ov"></div><span class="lb">グループホーム入所<span class="sub">支えのある暮らし（開設予定）</span></span></a>
+        <a class="nv-tile" href="gh.dc.html"><img src="uploads/machida_area.jpg" alt="一人暮らしを目指す" loading="lazy"><div class="ov"></div><span class="lb">一人暮らしを目指す<span class="sub">自立に向けたステップ</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 地域からみつける -->
+  <section style="padding:44px 44px 72px;">
+    <div style="max-width:1160px;margin:0 auto;">
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0 0 6px;">地域からみつける</h2>
+      <p style="font-size:14px;color:#8a8276;margin:0 0 28px;">お住まい・通勤エリアからお仕事を探せます。</p>
+      <div class="nv-tilegrid">
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/yamato_area.jpg" alt="大和市" loading="lazy"><div class="ov"></div><span class="lb">大和市</span></a>
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/biyondoyamato.jpg" alt="海老名市" loading="lazy"><div class="ov"></div><span class="lb">海老名市</span></a>
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/yamato-march/work1.jpg" alt="綾瀬市" loading="lazy"><div class="ov"></div><span class="lb">綾瀬市</span></a>
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/courage/work1.jpg" alt="座間市" loading="lazy"><div class="ov"></div><span class="lb">座間市</span></a>
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/biyondo/work1.jpg" alt="横浜市瀬谷区" loading="lazy"><div class="ov"></div><span class="lb">横浜市瀬谷区</span></a>
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/machida_area.jpg" alt="東京都町田市" loading="lazy"><div class="ov"></div><span class="lb">東京都町田市</span></a>
+        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/march-machida/work1.jpg" alt="相模原市" loading="lazy"><div class="ov"></div><span class="lb">相模原市</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:linear-gradient(145deg,#3a6e30,#5a9e4a);padding:64px 44px;text-align:center;">
+    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:26px;color:#fff;margin:0 0 14px;">迷ったら、お気軽にご相談ください</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,.85);margin:0 0 28px;">「まずは話を聞いてみたい」も大歓迎です。</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#3a6e30;background:#d6e06a;padding:15px 38px;border-radius:999px;box-shadow:0 5px 0 #b9c44f;">お問い合わせ</a>
+      <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#fff;background:#06C755;padding:15px 38px;border-radius:999px;box-shadow:0 5px 0 #059440;">LINEで相談する</a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,260px"></dc-import>
+  <dc-import name="TabBar" hint-size="100%,62px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

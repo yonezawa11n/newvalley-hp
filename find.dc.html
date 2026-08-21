@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>あなたにぴったりを、みつける | 株式会社NewValley</title>
-<meta name="description" content="お仕事をお探しの方、サービスの利用をお考えの方へ。写真から、あなたに合った選択をみつけられます。">
+<meta name="description" content="お仕事をお探しの方、サービスの利用をお考えの方へ。あなたに合った選択をみつけられます。">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -12,118 +12,165 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-<style>*{box-sizing:border-box;}body{margin:0;background:#faf7f0;}
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Zen+Old+Mincho:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Yomogi&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{margin:0;background:#fdfbf7;}
 img{max-width:100%;}
 html{-webkit-text-size-adjust:100%;}
-/* 写真タイルグリッド（auto-fillで自動折返し。モバイルは2列） */
-.nv-tilegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
-.nv-tile{position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:16/11;text-decoration:none;box-shadow:0 4px 16px rgba(67,51,42,.08);transition:transform .2s,box-shadow .2s;}
-.nv-tile:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(67,51,42,.16);}
-.nv-tile img{width:100%;height:100%;object-fit:cover;display:block;}
-.nv-tile .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.62),rgba(0,0,0,0) 58%);}
-.nv-tile .lb{position:absolute;left:16px;bottom:14px;right:16px;color:#fff;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;text-shadow:0 1px 5px rgba(0,0,0,.45);line-height:1.35;}
-.nv-tile .sub{display:block;font-size:11px;font-weight:500;color:rgba(255,255,255,.85);margin-top:3px;text-shadow:0 1px 4px rgba(0,0,0,.5);}
-@media (max-width:520px){
-  .nv-tilegrid{grid-template-columns:1fr 1fr;gap:12px;}
-  .nv-tile .lb{font-size:14px;left:12px;bottom:10px;right:12px;}
-}
 @media (max-width:767px){ body{padding-bottom:62px;} }
+
+.find-wrap{font-family:'Noto Sans JP',sans-serif;color:#43332a;}
+.mincho{font-family:'Zen Old Mincho',serif;}
+
+/* ヒーロー */
+.find-hero{position:relative;text-align:center;padding:76px 24px 48px;overflow:hidden;}
+.find-hero h1{font-family:'Zen Old Mincho',serif !important;font-weight:900;font-size:34px;line-height:1.6;color:#3b2f26;margin:0 0 26px;letter-spacing:.02em;}
+.find-hero .sub{font-family:'Zen Old Mincho',serif;font-size:16px;color:#8a7d6d;margin:0 0 22px;letter-spacing:.06em;}
+.find-hero .lead{font-size:14px;line-height:2.1;color:#6b6358;margin:0 auto;max-width:560px;}
+.accent{position:absolute;pointer-events:none;}
+.accent path{stroke:#a13a34;stroke-width:7;stroke-linecap:round;fill:none;}
+
+/* セクション */
+.find-sec{padding:44px 28px 8px;max-width:1080px;margin:0 auto;}
+.find-sec h2{font-family:'Zen Old Mincho',serif !important;font-weight:700;font-size:24px;color:#3b2f26;margin:0 0 4px;text-align:center;}
+.find-sec .cap{font-size:13px;color:#9c8f7f;margin:0 0 34px;text-align:center;}
+
+/* アイテム（線画アイコン + にじみブロブ） */
+.item-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:30px 12px;}
+.item{display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;color:#43332a;transition:transform .18s;}
+.item:hover{transform:translateY(-4px);}
+.item .blob{width:118px;height:100px;display:flex;align-items:center;justify-content:center;
+  background:#efe7db;border-radius:56% 44% 47% 53% / 52% 55% 45% 48%;}
+.item:nth-child(3n+2) .blob{border-radius:48% 52% 55% 45% / 46% 48% 52% 54%;background:#ece5da;}
+.item:nth-child(3n+3) .blob{border-radius:52% 48% 46% 54% / 55% 47% 53% 45%;background:#f0eadf;}
+.item .blob svg{width:46px;height:46px;stroke:#5b4a3a;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.item .ttl{font-family:'Zen Old Mincho',serif;font-weight:500;font-size:15px;color:#3b2f26;margin-top:12px;line-height:1.4;}
+.item .sub{font-size:11px;color:#a99c8f;margin-top:3px;line-height:1.4;}
+
+@media (max-width:520px){
+  .find-hero h1{font-size:26px;}
+  .item-grid{grid-template-columns:1fr 1fr;gap:26px 8px;}
+  .item .blob{width:104px;height:90px;}
+}
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
-<style>/* nv-handwriting */ h1,h2,h3{font-family:'Yomogi','Zen Maru Gothic',sans-serif !important;}</style>
 </helmet>
-<div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
+<div class="find-wrap" style="background:#fdfbf7;">
   <dc-import name="Header" hint-size="100%,80px"></dc-import>
 
   <!-- ヒーロー -->
-  <section style="padding:64px 44px 8px;">
-    <div style="max-width:1160px;margin:0 auto;">
-      <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:40px;color:#43332a;margin:0 0 12px;line-height:1.25;">あなたにぴったりを、みつける</h1>
-      <p style="font-size:16px;color:#8a8276;margin:0;">写真から、あなたに合った選択と出会う。</p>
-    </div>
-  </section>
+  <section class="find-hero">
+    <!-- 赤い手描きアクセント -->
+    <svg class="accent" style="left:calc(50% - 250px);top:44px;width:70px;height:70px;transform:rotate(-6deg);" viewBox="0 0 70 70"><path d="M14 52 L26 20"/><path d="M40 60 L52 30"/></svg>
+    <svg class="accent" style="left:calc(50% + 182px);top:40px;width:70px;height:70px;transform:rotate(8deg);" viewBox="0 0 70 70"><path d="M30 20 L18 52"/><path d="M56 30 L44 60"/></svg>
 
-  <!-- 入口2択 -->
-  <section style="padding:36px 44px 8px;">
-    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;">
-      <a href="#jobs" style="text-decoration:none;background:linear-gradient(135deg,#6f9fc1,#5a89ab);border-radius:20px;padding:32px 34px;display:flex;align-items:center;gap:20px;box-shadow:0 6px 20px rgba(111,159,193,.28);">
-        <div style="font-size:40px;flex:none;">💼</div>
-        <div>
-          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#fff;margin-bottom:4px;">働きたい方へ</div>
-          <div style="font-size:13px;color:rgba(255,255,255,.9);">お仕事・働き方をみつける</div>
-        </div>
-      </a>
-      <a href="#services" style="text-decoration:none;background:linear-gradient(135deg,#5a9e4a,#468a38);border-radius:20px;padding:32px 34px;display:flex;align-items:center;gap:20px;box-shadow:0 6px 20px rgba(90,158,74,.28);">
-        <div style="font-size:40px;flex:none;">🌿</div>
-        <div>
-          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#fff;margin-bottom:4px;">利用したい方へ</div>
-          <div style="font-size:13px;color:rgba(255,255,255,.9);">サービス・事業所をみつける</div>
-        </div>
-      </a>
-    </div>
+    <h1>あなたにぴったりを、<br>みつける</h1>
+    <p class="sub">お仕事も、サービスも。</p>
+    <p class="lead">「何をお探しですか？」から、あなたに合った事業所や求人へ。<br>気になるところを選んでみてください。</p>
   </section>
 
   <!-- 仕事をみつける -->
-  <section id="jobs" style="padding:56px 44px 20px;scroll-margin-top:90px;">
-    <div style="max-width:1160px;margin:0 auto;">
-      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0 0 6px;">お仕事をみつける</h2>
-      <p style="font-size:14px;color:#8a8276;margin:0 0 28px;">どんな働き方・職種をお探しですか？</p>
-      <div class="nv-tilegrid">
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/staff_group.jpg" alt="正社員（フルタイム）" loading="lazy"><div class="ov"></div><span class="lb">正社員（フルタイム）<span class="sub">しっかり働きたい方へ</span></span></a>
-        <a class="nv-tile" href="short-time.dc.html"><img src="uploads/company-group.jpg" alt="短時間社員" loading="lazy"><div class="ov"></div><span class="lb">短時間社員<span class="sub">正社員のまま短い時間で</span></span></a>
-        <a class="nv-tile" href="recruit-courage.dc.html"><img src="uploads/couragemachida.jpg" alt="訪問介護スタッフ" loading="lazy"><div class="ov"></div><span class="lb">訪問介護スタッフ<span class="sub">資格なし・未経験もOK</span></span></a>
-        <a class="nv-tile" href="recruit-march-part.dc.html"><img src="uploads/marchyamato.jpg" alt="放課後デイ 指導員" loading="lazy"><div class="ov"></div><span class="lb">放課後デイ 指導員<span class="sub">子どもたちの成長を支える</span></span></a>
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/soudanemitasu.jpg" alt="相談支援専門員" loading="lazy"><div class="ov"></div><span class="lb">相談支援専門員<span class="sub">計画・調整のお仕事</span></span></a>
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/march-machida/work1.jpg" alt="サービス管理責任者" loading="lazy"><div class="ov"></div><span class="lb">サビ管／児発管<span class="sub">現場マネジメント</span></span></a>
-        <a class="nv-tile" href="recruit-march-part.dc.html"><img src="uploads/machida_area.jpg" alt="送迎ドライバー" loading="lazy"><div class="ov"></div><span class="lb">送迎ドライバー<span class="sub">子どもたちの送り迎え</span></span></a>
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/yamato_area.jpg" alt="グループホーム（開設予定）" loading="lazy"><div class="ov"></div><span class="lb">グループホーム<span class="sub">開設予定・スタッフ募集</span></span></a>
-      </div>
+  <section class="find-sec">
+    <h2>お仕事をみつける</h2>
+    <p class="cap">どんな働き方・職種をお探しですか？</p>
+    <div class="item-grid">
+      <a class="item" href="recruit.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span>
+        <span class="ttl">正社員</span><span class="sub">フルタイム</span>
+      </a>
+      <a class="item" href="short-time.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <span class="ttl">短時間社員</span><span class="sub">正社員のまま短時間</span>
+      </a>
+      <a class="item" href="recruit-courage.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-9a4 4 0 0 1 7-2.5A4 4 0 0 1 19 12c0 4.5-7 9-7 9z"/></svg></span>
+        <span class="ttl">訪問介護スタッフ</span><span class="sub">未経験もOK</span>
+      </a>
+      <a class="item" href="recruit-march-part.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><circle cx="16" cy="9" r="3"/><path d="M9 12v4M16 12v3"/><path d="M9 16c-2 1-2 4-2 4M16 15c1.5 .8 1.5 3 1.5 3"/></svg></span>
+        <span class="ttl">放課後デイ 指導員</span><span class="sub">子どもの成長を支える</span>
+      </a>
+      <a class="item" href="recruit.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 12h5"/></svg></span>
+        <span class="ttl">相談支援専門員</span><span class="sub">計画・調整のお仕事</span>
+      </a>
+      <a class="item" href="recruit.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M8.5 12.5l2 2 4-4"/></svg></span>
+        <span class="ttl">サビ管／児発管</span><span class="sub">現場マネジメント</span>
+      </a>
+      <a class="item" href="recruit-march-part.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M4 16v-4l2-5h12l2 5v4"/><path d="M4 16h16v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1M4 16v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1"/><circle cx="7.5" cy="14.5" r="1"/><circle cx="16.5" cy="14.5" r="1"/></svg></span>
+        <span class="ttl">送迎ドライバー</span><span class="sub">子どもの送り迎え</span>
+      </a>
+      <a class="item" href="recruit.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span>
+        <span class="ttl">グループホーム</span><span class="sub">開設予定・募集</span>
+      </a>
     </div>
   </section>
 
   <!-- サービスをみつける -->
-  <section id="services" style="padding:44px 44px 20px;scroll-margin-top:90px;">
-    <div style="max-width:1160px;margin:0 auto;">
-      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0 0 6px;">サービスをみつける</h2>
-      <p style="font-size:14px;color:#8a8276;margin:0 0 28px;">どんな支援をお探しですか？</p>
-      <div class="nv-tilegrid">
-        <a class="nv-tile" href="march-yamato.dc.html"><img src="uploads/marchyamato.jpg" alt="放課後デイ 運動あそび中心" loading="lazy"><div class="ov"></div><span class="lb">放課後デイ（運動あそび）<span class="sub">身体を動かして自信を育む</span></span></a>
-        <a class="nv-tile" href="biyondo.dc.html"><img src="uploads/biyondoyamato.jpg" alt="放課後デイ 自立・就労準備" loading="lazy"><div class="ov"></div><span class="lb">放課後デイ（自立・就労準備）<span class="sub">将来の自立を見据えて</span></span></a>
-        <a class="nv-tile" href="march-machida.dc.html"><img src="uploads/marchmachida.jpg" alt="低学年のお子さま向け" loading="lazy"><div class="ov"></div><span class="lb">低学年のお子さま<span class="sub">はじめての療育に</span></span></a>
-        <a class="nv-tile" href="biyondo.dc.html"><img src="uploads/biyondo/work1.jpg" alt="高学年・中学生向け" loading="lazy"><div class="ov"></div><span class="lb">高学年・中学生<span class="sub">社会適応・就労を見据える</span></span></a>
-        <a class="nv-tile" href="courage.dc.html"><img src="uploads/couragemachida.jpg" alt="訪問介護を利用したい" loading="lazy"><div class="ov"></div><span class="lb">訪問介護<span class="sub">自宅での暮らしを支える</span></span></a>
-        <a class="nv-tile" href="emitas.dc.html"><img src="uploads/soudanemitasu.jpg" alt="相談支援について" loading="lazy"><div class="ov"></div><span class="lb">相談支援<span class="sub">サービス利用の相談・計画</span></span></a>
-        <a class="nv-tile" href="gh.dc.html"><img src="uploads/yamato_area.jpg" alt="グループホーム入所を目指す" loading="lazy"><div class="ov"></div><span class="lb">グループホーム入所<span class="sub">支えのある暮らし（開設予定）</span></span></a>
-        <a class="nv-tile" href="gh.dc.html"><img src="uploads/machida_area.jpg" alt="一人暮らしを目指す" loading="lazy"><div class="ov"></div><span class="lb">一人暮らしを目指す<span class="sub">自立に向けたステップ</span></span></a>
-      </div>
+  <section class="find-sec">
+    <h2>サービスをみつける</h2>
+    <p class="cap">どんな支援をお探しですか？</p>
+    <div class="item-grid">
+      <a class="item" href="march-yamato.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+        <span class="ttl">放課後デイ</span><span class="sub">運動あそび中心</span>
+      </a>
+      <a class="item" href="biyondo.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21v-8"/><path d="M12 13c0-3 2-5 5-5 0 3-2 5-5 5z"/><path d="M12 15c0-3-2-5-5-5 0 3 2 5 5 5z"/></svg></span>
+        <span class="ttl">放課後デイ</span><span class="sub">自立・就労準備</span>
+      </a>
+      <a class="item" href="march-machida.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M6 20l-2 0 0-2L16 6l2 2z"/><path d="M14 8l2 2"/><path d="M16 6l1.5-1.5a1.5 1.5 0 0 1 2 2L18 8z"/></svg></span>
+        <span class="ttl">低学年のお子さま</span><span class="sub">はじめての療育に</span>
+      </a>
+      <a class="item" href="biyondo.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h5v16H6a2 2 0 0 0-2 2z"/><path d="M20 5a2 2 0 0 0-2-2h-5v16h5a2 2 0 0 1 2 2z"/></svg></span>
+        <span class="ttl">高学年・中学生</span><span class="sub">社会適応・就労へ</span>
+      </a>
+      <a class="item" href="courage.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-9a4 4 0 0 1 7-2.5A4 4 0 0 1 19 12c0 4.5-7 9-7 9z"/></svg></span>
+        <span class="ttl">訪問介護</span><span class="sub">自宅での暮らしを支える</span>
+      </a>
+      <a class="item" href="emitas.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M12 8v5M9.5 10.5h5"/></svg></span>
+        <span class="ttl">相談支援</span><span class="sub">利用の相談・計画</span>
+      </a>
+      <a class="item" href="gh.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span>
+        <span class="ttl">グループホーム</span><span class="sub">支えのある暮らし</span>
+      </a>
+      <a class="item" href="gh.dc.html">
+        <span class="blob"><svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="4"/><path d="M10.8 11.8L20 21"/><path d="M17 18l2-2M15 16l2-2"/></svg></span>
+        <span class="ttl">一人暮らしを目指す</span><span class="sub">自立へのステップ</span>
+      </a>
     </div>
   </section>
 
   <!-- 地域からみつける -->
-  <section style="padding:44px 44px 72px;">
-    <div style="max-width:1160px;margin:0 auto;">
-      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:28px;color:#43332a;margin:0 0 6px;">地域からみつける</h2>
-      <p style="font-size:14px;color:#8a8276;margin:0 0 28px;">お住まい・通勤エリアからお仕事を探せます。</p>
-      <div class="nv-tilegrid">
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/yamato_area.jpg" alt="大和市" loading="lazy"><div class="ov"></div><span class="lb">大和市</span></a>
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/biyondoyamato.jpg" alt="海老名市" loading="lazy"><div class="ov"></div><span class="lb">海老名市</span></a>
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/yamato-march/work1.jpg" alt="綾瀬市" loading="lazy"><div class="ov"></div><span class="lb">綾瀬市</span></a>
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/courage/work1.jpg" alt="座間市" loading="lazy"><div class="ov"></div><span class="lb">座間市</span></a>
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/biyondo/work1.jpg" alt="横浜市瀬谷区" loading="lazy"><div class="ov"></div><span class="lb">横浜市瀬谷区</span></a>
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/machida_area.jpg" alt="東京都町田市" loading="lazy"><div class="ov"></div><span class="lb">東京都町田市</span></a>
-        <a class="nv-tile" href="recruit.dc.html"><img src="uploads/march-machida/work1.jpg" alt="相模原市" loading="lazy"><div class="ov"></div><span class="lb">相模原市</span></a>
-      </div>
+  <section class="find-sec" style="padding-bottom:56px;">
+    <h2>地域からみつける</h2>
+    <p class="cap">お住まい・通勤エリアからお仕事を探せます</p>
+    <div class="item-grid">
+      <a class="item" href="recruit.dc.html"><span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="ttl">大和市</span></a>
+      <a class="item" href="recruit.dc.html"><span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="ttl">海老名市</span></a>
+      <a class="item" href="recruit.dc.html"><span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="ttl">綾瀬市</span></a>
+      <a class="item" href="recruit.dc.html"><span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="ttl">座間市</span></a>
+      <a class="item" href="recruit.dc.html"><span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="ttl">横浜市瀬谷区</span></a>
+      <a class="item" href="recruit.dc.html"><span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="ttl">東京都町田市</span></a>
+      <a class="item" href="recruit.dc.html"><span class="blob"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="ttl">相模原市</span></a>
     </div>
   </section>
 
   <!-- CTA -->
-  <section style="background:linear-gradient(145deg,#3a6e30,#5a9e4a);padding:64px 44px;text-align:center;">
-    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:26px;color:#fff;margin:0 0 14px;">迷ったら、お気軽にご相談ください</h2>
-    <p style="font-size:14px;color:rgba(255,255,255,.85);margin:0 0 28px;">「まずは話を聞いてみたい」も大歓迎です。</p>
+  <section style="background:#efe7db;padding:56px 28px;text-align:center;">
+    <h2 style="font-family:'Zen Old Mincho',serif !important;font-weight:700;font-size:22px;color:#3b2f26;margin:0 0 12px;">迷ったら、お気軽にご相談ください</h2>
+    <p style="font-size:13px;color:#7a6f60;margin:0 0 26px;">「まずは話を聞いてみたい」も大歓迎です。</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="contact.dc.html" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#3a6e30;background:#d6e06a;padding:15px 38px;border-radius:999px;box-shadow:0 5px 0 #b9c44f;">お問い合わせ</a>
-      <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#fff;background:#06C755;padding:15px 38px;border-radius:999px;box-shadow:0 5px 0 #059440;">LINEで相談する</a>
+      <a href="contact.dc.html" style="text-decoration:none;font-family:'Zen Old Mincho',serif;font-weight:700;font-size:15px;color:#fff;background:#5b4a3a;padding:14px 34px;border-radius:999px;">お問い合わせ</a>
+      <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="text-decoration:none;font-family:'Zen Old Mincho',serif;font-weight:700;font-size:15px;color:#fff;background:#06C755;padding:14px 34px;border-radius:999px;">LINEで相談する</a>
     </div>
   </section>
 

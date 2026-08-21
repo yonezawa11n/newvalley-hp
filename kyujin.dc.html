@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>求人一覧｜訪問介護・放課後デイ｜大和市・町田市・相模原市｜株式会社NewValley</title>
+<meta name="description" content="株式会社NewValleyの求人一覧。訪問介護・放課後等デイサービス・相談支援などの求人を、職種・勤務地・雇用形態で絞り込み検索できます。神奈川県大和市・東京都町田市・相模原市・海老名・綾瀬・座間・横浜市瀬谷区。未経験歓迎。">
+<meta name="keywords" content="訪問介護 求人,放課後等デイサービス 求人,児童指導員 求人,大和市 求人,町田市 求人,相模原市 求人,福祉 求人 神奈川県">
+<meta property="og:title" content="求人一覧｜株式会社NewValley（大和市・町田市・相模原市）">
+<meta property="og:description" content="訪問介護・放課後デイ等の求人を職種・勤務地・雇用形態で絞り込み検索。未経験歓迎・資格取得サポートあり。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://newvalleyhp.com/kyujin.dc.html">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+body{margin:0;background:#f4f8fb;}
+img{max-width:100%;}
+html{-webkit-text-size-adjust:100%;}
+@media (max-width:767px){ body{padding-bottom:62px;} }
+
+.kj{font-family:'Noto Sans JP',sans-serif;color:#2a3b48;}
+.kj h1,.kj h2,.kj h3{font-family:'Zen Maru Gothic',sans-serif !important;}
+
+.kj-hero{background:linear-gradient(120deg,#234f74,#2f6ea5);padding:48px 28px;text-align:center;color:#fff;}
+.kj-hero h1{font-weight:900;font-size:30px;margin:0 0 8px;}
+.kj-hero p{font-size:14px;color:rgba(255,255,255,.88);margin:0;}
+
+.kj-wrap{max-width:1120px;margin:0 auto;padding:32px 20px 72px;display:grid;grid-template-columns:280px 1fr;gap:26px;align-items:start;}
+@media (max-width:900px){ .kj-wrap{grid-template-columns:1fr;} }
+
+/* 絞り込み */
+.filter{background:#fff;border:1px solid #e0ecf4;border-radius:18px;padding:22px 22px;box-shadow:0 4px 14px rgba(47,110,165,.06);position:sticky;top:88px;}
+@media (max-width:900px){ .filter{position:static;} }
+.filter h2{font-size:16px;color:#234f74;margin:0 0 6px;display:flex;align-items:center;gap:8px;}
+.filter .fh{font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#2f6ea5;margin:18px 0 8px;padding-top:16px;border-top:1px solid #eef4f8;}
+.filter .fh:first-of-type{border-top:none;padding-top:0;margin-top:14px;}
+.filter label{display:flex;align-items:center;gap:9px;font-size:13px;color:#43596a;padding:6px 0;cursor:pointer;}
+.filter input[type=checkbox]{width:17px;height:17px;accent-color:#2f6ea5;flex:none;cursor:pointer;}
+.filter .kw{width:100%;padding:11px 14px;border:1.5px solid #dbe7f0;border-radius:10px;font-size:14px;outline:none;margin-top:6px;}
+.filter .kw:focus{border-color:#2f6ea5;}
+.filter .clear{margin-top:18px;width:100%;padding:11px;background:#eef4f8;border:none;border-radius:999px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#43596a;cursor:pointer;}
+.filter .clear:hover{background:#e2edf4;}
+
+/* 一覧 */
+.count{font-size:14px;color:#5b7183;margin:0 0 16px;font-weight:700;}
+.count b{color:#2f6ea5;font-size:20px;}
+.list{display:flex;flex-direction:column;gap:16px;}
+.card{background:#fff;border:1px solid #e0ecf4;border-radius:18px;padding:24px 26px;box-shadow:0 4px 16px rgba(47,110,165,.06);}
+.card .top{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+.card .emp{font-size:11px;font-weight:700;color:#fff;background:#2f6ea5;padding:5px 12px;border-radius:999px;}
+.card .emp.p{background:#5a9e4a;}
+.card .new{font-size:10px;font-weight:700;color:#fff;background:#e0603a;padding:4px 9px;border-radius:6px;}
+.card h3{font-weight:900;font-size:19px;color:#234f74;margin:0 0 4px;}
+.card .org{font-size:13px;color:#5b7183;margin:0 0 14px;}
+.card .rows{display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
+.card .row{display:flex;gap:10px;font-size:13px;color:#43596a;}
+.card .row .k{flex:none;width:64px;color:#8ba0b2;font-weight:700;}
+.card .tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;}
+.card .tag{font-size:11px;font-weight:700;padding:4px 11px;border-radius:999px;background:#eef6ec;color:#5a9e4a;}
+.card .btns{display:flex;gap:10px;flex-wrap:wrap;}
+.card .btn{text-decoration:none;font-weight:700;font-size:14px;padding:11px 24px;border-radius:999px;}
+.card .b-o{color:#2f6ea5;background:#fff;border:2px solid #2f6ea5;}
+.card .b-f{color:#fff;background:#2f6ea5;}
+.card.paused{opacity:.72;background:#f6f8fa;}
+.card.paused h3{color:#7a8894;}
+.empty{display:none;text-align:center;padding:60px 20px;color:#8ba0b2;font-size:15px;background:#fff;border-radius:18px;border:1px dashed #cdddf0;}
+</style>
+</helmet>
+<div class="kj">
+  <dc-import name="Header" hint-size="100%,80px"></dc-import>
+
+  <section class="kj-hero">
+    <h1>求人一覧</h1>
+    <p>職種・勤務地・雇用形態から、あなたに合ったお仕事を探せます。</p>
+  </section>
+
+  <div class="kj-wrap">
+    <!-- 絞り込み -->
+    <aside class="filter">
+      <h2>🔍 絞り込み検索</h2>
+      <input type="text" id="kw" class="kw" placeholder="キーワードで探す">
+
+      <div class="fh">職種</div>
+      <label><input type="checkbox" class="f" data-g="job" value="houmon">訪問介護スタッフ</label>
+      <label><input type="checkbox" class="f" data-g="job" value="jido">児童指導員・指導員</label>
+      <label><input type="checkbox" class="f" data-g="job" value="sabikan">サビ管・児発管</label>
+      <label><input type="checkbox" class="f" data-g="job" value="soudan">相談支援専門員</label>
+      <label><input type="checkbox" class="f" data-g="job" value="driver">送迎ドライバー</label>
+      <label><input type="checkbox" class="f" data-g="job" value="seikatsu">生活支援員・世話人</label>
+
+      <div class="fh">勤務地</div>
+      <label><input type="checkbox" class="f" data-g="loc" value="yamato">大和市</label>
+      <label><input type="checkbox" class="f" data-g="loc" value="machida">町田市</label>
+      <label><input type="checkbox" class="f" data-g="loc" value="sagamihara">相模原市</label>
+      <label><input type="checkbox" class="f" data-g="loc" value="ebina">海老名市</label>
+      <label><input type="checkbox" class="f" data-g="loc" value="ayase">綾瀬市</label>
+      <label><input type="checkbox" class="f" data-g="loc" value="zama">座間市</label>
+      <label><input type="checkbox" class="f" data-g="loc" value="seya">横浜市瀬谷区</label>
+
+      <div class="fh">雇用形態</div>
+      <label><input type="checkbox" class="f" data-g="emp" value="seishain">正社員</label>
+      <label><input type="checkbox" class="f" data-g="emp" value="part">パート・アルバイト</label>
+
+      <button class="clear" id="clear">条件をクリア</button>
+    </aside>
+
+    <!-- 一覧 -->
+    <main>
+      <p class="count"><b id="cnt">0</b> 件の求人</p>
+      <div class="list" id="list">
+
+        <article class="card" data-job="houmon" data-loc="yamato machida sagamihara ebina" data-emp="seishain">
+          <div class="top"><span class="emp">正社員</span><span class="new">NEW</span></div>
+          <h3>訪問介護スタッフ（ヘルパー）</h3>
+          <p class="org">訪問介護クラージュ</p>
+          <div class="rows">
+            <div class="row"><span class="k">給与</span><span>月給 266,900円〜（試用期間中 246,900円〜）</span></div>
+            <div class="row"><span class="k">勤務地</span><span>大和市・町田市・相模原市・海老名エリア（直行直帰）</span></div>
+            <div class="row"><span class="k">時間</span><span>シフト制／実働8時間</span></div>
+          </div>
+          <div class="tags"><span class="tag">未経験OK</span><span class="tag">資格取得サポート</span><span class="tag">賞与年2回</span><span class="tag">短時間社員制度</span></div>
+          <div class="btns"><a class="btn b-o" href="recruit-courage.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </article>
+
+        <article class="card" data-job="houmon" data-loc="yamato machida sagamihara ebina" data-emp="part">
+          <div class="top"><span class="emp p">パート</span></div>
+          <h3>訪問介護スタッフ（登録ヘルパー）</h3>
+          <p class="org">訪問介護クラージュ</p>
+          <div class="rows">
+            <div class="row"><span class="k">給与</span><span>時給 応相談（資格・経験による）</span></div>
+            <div class="row"><span class="k">勤務地</span><span>大和市・町田市・相模原市・海老名エリア</span></div>
+            <div class="row"><span class="k">時間</span><span>週1日・1日1時間〜応相談</span></div>
+          </div>
+          <div class="tags"><span class="tag">未経験OK</span><span class="tag">扶養内OK</span><span class="tag">Wワーク可</span></div>
+          <div class="btns"><a class="btn b-o" href="recruit-courage.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </article>
+
+        <article class="card" data-job="jido" data-loc="yamato" data-emp="seishain">
+          <div class="top"><span class="emp">正社員</span><span class="new">NEW</span></div>
+          <h3>児童指導員（放課後等デイサービス）</h3>
+          <p class="org">放課後等デイサービス マーチ（大和校）</p>
+          <div class="rows">
+            <div class="row"><span class="k">給与</span><span>月給 応相談</span></div>
+            <div class="row"><span class="k">勤務地</span><span>大和市中央</span></div>
+            <div class="row"><span class="k">時間</span><span>平日 午後〜／長期休みは日中</span></div>
+          </div>
+          <div class="tags"><span class="tag">新規事業所オープン予定</span><span class="tag">資格保有者優遇</span><span class="tag">研修あり</span></div>
+          <div class="btns"><a class="btn b-o" href="recruit-march-part.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </article>
+
+        <article class="card" data-job="jido" data-loc="machida" data-emp="part">
+          <div class="top"><span class="emp p">パート</span></div>
+          <h3>児童指導員・指導員（放課後等デイ）</h3>
+          <p class="org">放課後等デイサービス マーチ（町田校）</p>
+          <div class="rows">
+            <div class="row"><span class="k">給与</span><span>時給 1,226円〜1,500円</span></div>
+            <div class="row"><span class="k">勤務地</span><span>町田市金森</span></div>
+            <div class="row"><span class="k">時間</span><span>平日 12:00〜18:00／祝・長期休み 9:30〜17:00</span></div>
+          </div>
+          <div class="tags"><span class="tag">ブランクOK</span><span class="tag">学生可</span><span class="tag">残業なし</span><span class="tag">Wワーク可</span></div>
+          <div class="btns"><a class="btn b-o" href="recruit-march-part.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </article>
+
+        <article class="card" data-job="jido" data-loc="yamato" data-emp="part">
+          <div class="top"><span class="emp p">パート</span></div>
+          <h3>指導員（放課後等デイ・就労準備型）</h3>
+          <p class="org">放課後等デイサービス びよんど</p>
+          <div class="rows">
+            <div class="row"><span class="k">給与</span><span>時給 1,226円〜1,500円</span></div>
+            <div class="row"><span class="k">勤務地</span><span>大和市渋谷</span></div>
+            <div class="row"><span class="k">時間</span><span>平日 午後〜／シフト制</span></div>
+          </div>
+          <div class="tags"><span class="tag">資格不問（社内取得可）</span><span class="tag">中高生の支援</span><span class="tag">研修あり</span></div>
+          <div class="btns"><a class="btn b-o" href="recruit-march-part.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </article>
+
+        <article class="card" data-job="sabikan" data-loc="machida yamato" data-emp="seishain">
+          <div class="top"><span class="emp">正社員</span></div>
+          <h3>児童発達支援管理責任者（児発管）</h3>
+          <p class="org">放課後等デイサービス（各校）</p>
+          <div class="rows">
+            <div class="row"><span class="k">給与</span><span>月給 応相談（経験・資格による）</span></div>
+            <div class="row"><span class="k">勤務地</span><span>大和市・町田市</span></div>
+            <div class="row"><span class="k">時間</span><span>シフト制</span></div>
+          </div>
+          <div class="tags"><span class="tag">研修修了者歓迎</span><span class="tag">実務経験者優遇</span><span class="tag">マネジメント</span></div>
+          <div class="btns"><a class="btn b-o" href="saiyo.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </article>
+
+        <article class="card" data-job="sabikan" data-loc="yamato" data-emp="seishain">
+          <div class="top"><span class="emp">正社員</span></div>
+          <h3>サービス管理責任者（サビ管）</h3>
+          <p class="org">各事業所</p>
+          <div class="rows">
+            <div class="row"><span class="k">給与</span><span>月給 応相談（経験・資格による）</span></div>
+            <div class="row"><span class="k">勤務地</span><span>大和市・町田市</span></div>
+            <div class="row"><span class="k">時間</span><span>シフト制</span></div>
+          </div>
+          <div class="tags"><span class="tag">研修修了者歓迎</span><span class="tag">個別支援計画</span><span class="tag">スタッフ育成</span></div>
+          <div class="btns"><a class="btn b-o" href="contact.dc.html">お問い合わせ</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </article>
+
+        <article class="card" data-job="driver" data-loc="yamato machida" data-emp="part">
+          <div class="top"><span class="emp p">パート</span></div>
+          <h3>送迎ドライバー（放課後等デイ）</h3>
+          <p class="org">放課後等デイサービス マーチ・びよんど</p>
+          <div class="rows">
+            <div class="row"><span class="k">給与</span><span>時給 応相談</span></div>
+            <div class="row"><span class="k">勤務地</span><span>大和市・町田市</span></div>
+            <div class="row"><span class="k">時間</span><span>下校時刻〜夕方／短時間</span></div>
+          </div>
+          <div class="tags"><span class="tag">普通免許でOK</span><span class="tag">短時間</span><span class="tag">Wワーク可</span></div>
+          <div class="btns"><a class="btn b-o" href="recruit-march-part.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </article>
+
+        <article class="card" data-job="seikatsu" data-loc="yamato" data-emp="seishain">
+          <div class="top"><span class="emp">正社員</span><span class="new">NEW</span></div>
+          <h3>生活支援員・世話人（グループホーム）</h3>
+          <p class="org">グループホーム（開設予定）</p>
+          <div class="rows">
+            <div class="row"><span class="k">給与</span><span>月給 応相談</span></div>
+            <div class="row"><span class="k">勤務地</span><span>大和市（予定）</span></div>
+            <div class="row"><span class="k">時間</span><span>シフト制（開設に合わせて調整）</span></div>
+          </div>
+          <div class="tags"><span class="tag">開設スタッフ募集</span><span class="tag">未経験相談可</span><span class="tag">新規オープン</span></div>
+          <div class="btns"><a class="btn b-o" href="saiyo.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </article>
+
+        <article class="card paused" data-job="soudan" data-loc="yamato" data-emp="seishain">
+          <div class="top"><span class="emp" style="background:#bbb;">正社員</span><span class="tag" style="background:#e5e9ee;color:#7a8894;">募集一時中断中</span></div>
+          <h3>相談支援専門員</h3>
+          <p class="org">相談支援事業所</p>
+          <div class="rows">
+            <div class="row"><span class="k">内容</span><span>現在この職種の募集は一時中断しています。再開時にこちらでお知らせします。</span></div>
+          </div>
+        </article>
+
+      </div>
+      <div class="empty" id="empty">条件に合う求人が見つかりませんでした。条件を変えてお試しください。</div>
+    </main>
+  </div>
+
+  <dc-import name="Footer" hint-size="100%,260px"></dc-import>
+</div>
+
+<script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#list .card'));
+  var checks = Array.prototype.slice.call(document.querySelectorAll('.filter .f'));
+  var kw = document.getElementById('kw');
+  var cnt = document.getElementById('cnt');
+  var empty = document.getElementById('empty');
+
+  function selected(group){
+    return checks.filter(function(c){ return c.dataset.g===group && c.checked; }).map(function(c){ return c.value; });
+  }
+  function apply(){
+    var jobs = selected('job'), locs = selected('loc'), emps = selected('emp');
+    var word = (kw.value||'').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card){
+      var cardJobs = (card.dataset.job||'').split(' ');
+      var cardLocs = (card.dataset.loc||'').split(' ');
+      var cardEmps = (card.dataset.emp||'').split(' ');
+      var okJob = !jobs.length || jobs.some(function(v){ return cardJobs.indexOf(v)>-1; });
+      var okLoc = !locs.length || locs.some(function(v){ return cardLocs.indexOf(v)>-1; });
+      var okEmp = !emps.length || emps.some(function(v){ return cardEmps.indexOf(v)>-1; });
+      var okKw  = !word || (card.textContent||'').toLowerCase().indexOf(word)>-1;
+      var show = okJob && okLoc && okEmp && okKw;
+      card.style.display = show ? '' : 'none';
+      if(show) shown++;
+    });
+    cnt.textContent = shown;
+    empty.style.display = shown ? 'none' : 'block';
+  }
+  checks.forEach(function(c){ c.addEventListener('change', apply); });
+  kw.addEventListener('input', apply);
+  document.getElementById('clear').addEventListener('click', function(){
+    checks.forEach(function(c){ c.checked=false; }); kw.value=''; apply();
+  });
+  apply();
+})();
+</script>
+</x-dc>
+</body>
+</html>

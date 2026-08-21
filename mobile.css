@@ -143,3 +143,44 @@
     height: 200px !important;
   }
 }
+
+/* ===== Mobile bottom tab bar (Hoshino-style) ===== */
+.nv-tabbar { display: none; }
+@media (max-width: 767px) {
+  .nv-tabbar {
+    display: flex !important;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 150;
+    background: #ffffff;
+    border-top: 1px solid #ece4d4;
+    box-shadow: 0 -3px 16px rgba(67,51,42,.07);
+    padding: 6px 2px calc(6px + env(safe-area-inset-bottom, 0px));
+    justify-content: space-around;
+    align-items: stretch;
+    font-family: 'Zen Maru Gothic', sans-serif;
+  }
+  .nv-tabbar a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #9c8f7f;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 4px 2px;
+  }
+  .nv-tabbar a span { white-space: nowrap; }
+  .nv-tabbar a svg {
+    width: 22px; height: 22px;
+    stroke: #9c8f7f; fill: none; stroke-width: 1.7;
+    transition: stroke .2s;
+  }
+  .nv-tabbar a.active { color: #6f9fc1; }
+  .nv-tabbar a.active svg { stroke: #6f9fc1; }
+  body { padding-bottom: 62px !important; }
+}

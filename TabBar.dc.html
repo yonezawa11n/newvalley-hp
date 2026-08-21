@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+.nv-tabbar { display: none; }
+@media (max-width: 767px) {
+  .nv-tabbar {
+    display: flex;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 150;
+    background: #ffffff;
+    border-top: 1px solid #ece4d4;
+    box-shadow: 0 -3px 16px rgba(67,51,42,.07);
+    padding: 6px 2px calc(6px + env(safe-area-inset-bottom, 0px));
+    justify-content: space-around; align-items: stretch;
+    font-family: 'Zen Maru Gothic', sans-serif;
+  }
+  .nv-tabbar a {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 4px;
+    text-decoration: none; color: #9c8f7f;
+    font-size: 10px; font-weight: 700; line-height: 1; padding: 4px 2px;
+  }
+  .nv-tabbar a span { white-space: nowrap; }
+  .nv-tabbar a svg { width: 22px; height: 22px; stroke: #9c8f7f; fill: none; stroke-width: 1.7; transition: stroke .2s; }
+  .nv-tabbar a.active { color: #6f9fc1; }
+  .nv-tabbar a.active svg { stroke: #6f9fc1; }
+  body { padding-bottom: 62px; }
+}
+</style>
+</helmet>
+<nav class="nv-tabbar" aria-label="メインナビゲーション">
+  <a href="index.dc.html" data-key="home">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+    <span>ホーム</span>
+  </a>
+  <a href="business.dc.html" data-key="business">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
+    <span>事業紹介</span>
+  </a>
+  <a href="recruit.dc.html" data-key="recruit">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="8" r="4"/></svg>
+    <span>採用情報</span>
+  </a>
+  <a href="company.dc.html" data-key="company">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16"/><path d="M15 10h3a1 1 0 0 1 1 1v10"/><path d="M8 8h2M8 12h2M8 16h2"/></svg>
+    <span>会社概要</span>
+  </a>
+  <a href="contact.dc.html" data-key="contact">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+    <span>お問い合わせ</span>
+  </a>
+</nav>
+<script>
+(function(){
+  var f = (location.pathname.split('/').pop() || 'index.dc.html').toLowerCase();
+  if (f === '' || f === '/') f = 'index.dc.html';
+  var key = '';
+  if (f === 'index.dc.html') key = 'home';
+  else if (f.indexOf('business') > -1) key = 'business';
+  else if (f.indexOf('recruit') > -1 || f.indexOf('entry') > -1) key = 'recruit';
+  else if (f.indexOf('company') > -1) key = 'company';
+  else if (f.indexOf('contact') > -1) key = 'contact';
+  if (key) {
+    var el = document.querySelector('.nv-tabbar a[data-key="' + key + '"]');
+    if (el) el.classList.add('active');
+  }
+})();
+</script>
+</x-dc>
+</body>
+</html>

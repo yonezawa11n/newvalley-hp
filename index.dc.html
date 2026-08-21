@@ -66,6 +66,8 @@ html{-webkit-text-size-adjust:100%;}
   section[style*="height:480px"],section[style*="height:420px"]{height:320px !important;}
 }
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+<style>/* nv-handwriting */ h1,h2,h3{font-family:'Yomogi','Zen Maru Gothic',sans-serif !important;}</style>
 </helmet>
 <div style="background:#faf7f0;font-family:'Noto Sans JP',sans-serif;">
   <dc-import name="Header" hint-size="100%,80px"></dc-import>
@@ -268,6 +270,18 @@ html{-webkit-text-size-adjust:100%;}
     // 動画：1回再生 → 終了後にフェードアウト、ツリー画像フェードイン、ホバー有効化
     var vid  = document.getElementById('hero-video');
     var tree = document.getElementById('hero-tree');
+    var isMobile = window.matchMedia('(max-width:767px)').matches;
+    if (vid && isMobile) {
+      // スマホでは動画を流さず、最初からツリー画像を表示
+      vid.pause();
+      vid.removeAttribute('autoplay');
+      vid.style.display = 'none';
+      tree.style.transition = 'none';
+      tree.style.opacity = '1';
+      hotspots.style.pointerEvents = 'auto';
+      videoPlaying = false;
+      vid = null; // 以降の動画処理をスキップ
+    }
     if (vid) {
       // 動画ファイルが存在しない場合はすぐにツリーを表示
       vid.addEventListener('error', function(){

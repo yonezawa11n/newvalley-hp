@@ -1,6 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/find.dc.html" }
+  "redirects": [
+    { "source": "/", "destination": "/find.dc.html", "permanent": false }
   ],
   "crons": [
     {

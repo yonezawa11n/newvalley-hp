@@ -1,4 +1,7 @@
 {
+  "rewrites": [
+    { "source": "/", "destination": "/find.dc.html" }
+  ],
   "crons": [
     {
       "path": "/api/refresh-instagram-token",

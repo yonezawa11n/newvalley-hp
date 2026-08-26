@@ -52,7 +52,15 @@ html{-webkit-text-size-adjust:100%;}
 .count{font-size:14px;color:#5b7183;margin:0 0 16px;font-weight:700;}
 .count b{color:#2f6ea5;font-size:20px;}
 .list{display:flex;flex-direction:column;gap:16px;}
-.card{background:#fff;border:1px solid #e0ecf4;border-radius:18px;padding:24px 26px;box-shadow:0 4px 16px rgba(47,110,165,.06);}
+.card{background:#fff;border:1px solid #e0ecf4;border-radius:18px;box-shadow:0 4px 16px rgba(47,110,165,.06);display:flex;gap:0;overflow:hidden;}
+.card .thumb{flex:none;width:210px;align-self:stretch;overflow:hidden;background:#e6f0f8;}
+.card .thumb img{width:100%;height:100%;min-height:190px;object-fit:cover;display:block;}
+.card .body{flex:1;min-width:0;padding:24px 26px;}
+@media (max-width:600px){
+  .card{flex-direction:column;}
+  .card .thumb{width:100%;height:160px;align-self:auto;}
+  .card .thumb img{min-height:0;height:160px;}
+}
 .card .top{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
 .card .emp{font-size:11px;font-weight:700;color:#fff;background:#2f6ea5;padding:5px 12px;border-radius:999px;}
 .card .emp.p{background:#5a9e4a;}
@@ -117,6 +125,8 @@ html{-webkit-text-size-adjust:100%;}
       <div class="list" id="list">
 
         <article class="card" data-job="houmon" data-loc="yamato machida sagamihara ebina" data-emp="seishain">
+          <div class="thumb"><img src="uploads/couragemachida.jpg" alt="訪問介護スタッフ（ヘルパー）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp">正社員</span><span class="new">NEW</span></div>
           <h3>訪問介護スタッフ（ヘルパー）</h3>
           <p class="org">訪問介護クラージュ</p>
@@ -127,9 +137,12 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">未経験OK</span><span class="tag">資格取得サポート</span><span class="tag">賞与年2回</span><span class="tag">短時間社員制度</span></div>
           <div class="btns"><a class="btn b-o" href="recruit-courage.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card" data-job="houmon" data-loc="yamato machida sagamihara ebina" data-emp="seishain">
+          <div class="thumb"><img src="uploads/courage/work1.jpg" alt="訪問介護スタッフ（短時間28H社員）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp">短時間社員</span><span class="new">NEW</span></div>
           <h3>訪問介護スタッフ（短時間28H社員）</h3>
           <p class="org">訪問介護クラージュ</p>
@@ -140,9 +153,12 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">短い時間で正社員的に</span><span class="tag">家庭と両立</span><span class="tag">資格手当あり</span><span class="tag">社保完備</span></div>
           <div class="btns"><a class="btn b-o" href="recruit-courage.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card" data-job="houmon" data-loc="yamato machida sagamihara ebina" data-emp="part">
+          <div class="thumb"><img src="uploads/courage/work2.jpg" alt="訪問介護スタッフ（登録ヘルパー）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp p">パート</span></div>
           <h3>訪問介護スタッフ（登録ヘルパー）</h3>
           <p class="org">訪問介護クラージュ</p>
@@ -153,9 +169,12 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">未経験OK</span><span class="tag">扶養内OK</span><span class="tag">Wワーク可</span></div>
           <div class="btns"><a class="btn b-o" href="recruit-courage.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card" data-job="jido" data-loc="yamato" data-emp="seishain">
+          <div class="thumb"><img src="uploads/marchyamato.jpg" alt="児童指導員（放課後等デイサービス）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp">正社員</span><span class="new">NEW</span></div>
           <h3>児童指導員（放課後等デイサービス）</h3>
           <p class="org">放課後等デイサービス マーチ（大和校）</p>
@@ -166,9 +185,12 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">新規事業所オープン予定</span><span class="tag">資格保有者優遇</span><span class="tag">研修あり</span></div>
           <div class="btns"><a class="btn b-o" href="recruit-march-part.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card" data-job="jido" data-loc="machida" data-emp="part">
+          <div class="thumb"><img src="uploads/marchmachida.jpg" alt="児童指導員・指導員（放課後等デイ）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp p">パート</span></div>
           <h3>児童指導員・指導員（放課後等デイ）</h3>
           <p class="org">放課後等デイサービス マーチ（町田校）</p>
@@ -179,9 +201,12 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">ブランクOK</span><span class="tag">学生可</span><span class="tag">残業なし</span><span class="tag">Wワーク可</span></div>
           <div class="btns"><a class="btn b-o" href="recruit-march-part.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card" data-job="jido" data-loc="yamato" data-emp="part">
+          <div class="thumb"><img src="uploads/biyondoyamato.jpg" alt="指導員（放課後等デイ・就労準備型）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp p">パート</span></div>
           <h3>指導員（放課後等デイ・就労準備型）</h3>
           <p class="org">放課後等デイサービス びよんど</p>
@@ -192,9 +217,12 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">資格不問（社内取得可）</span><span class="tag">中高生の支援</span><span class="tag">研修あり</span></div>
           <div class="btns"><a class="btn b-o" href="recruit-march-part.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card" data-job="sabikan" data-loc="machida yamato" data-emp="seishain">
+          <div class="thumb"><img src="uploads/march-machida/work1.jpg" alt="児童発達支援管理責任者（児発管）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp">正社員</span></div>
           <h3>児童発達支援管理責任者（児発管）</h3>
           <p class="org">放課後等デイサービス（各校）</p>
@@ -205,9 +233,12 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">研修修了者歓迎</span><span class="tag">実務経験者優遇</span><span class="tag">マネジメント</span></div>
           <div class="btns"><a class="btn b-o" href="saiyo.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card" data-job="sabikan" data-loc="yamato" data-emp="seishain">
+          <div class="thumb"><img src="uploads/soudanemitasu.jpg" alt="サービス管理責任者（サビ管）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp">正社員</span></div>
           <h3>サービス管理責任者（サビ管）</h3>
           <p class="org">各事業所</p>
@@ -218,9 +249,12 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">研修修了者歓迎</span><span class="tag">個別支援計画</span><span class="tag">スタッフ育成</span></div>
           <div class="btns"><a class="btn b-o" href="contact.dc.html">お問い合わせ</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card" data-job="driver" data-loc="yamato machida" data-emp="part">
+          <div class="thumb"><img src="uploads/biyondoyamato.jpg" alt="送迎ドライバー（放課後等デイ）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp p">パート</span></div>
           <h3>送迎ドライバー（放課後等デイ）</h3>
           <p class="org">放課後等デイサービス マーチ・びよんど</p>
@@ -231,9 +265,12 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">普通免許でOK</span><span class="tag">短時間</span><span class="tag">Wワーク可</span></div>
           <div class="btns"><a class="btn b-o" href="recruit-march-part.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card" data-job="seikatsu" data-loc="yamato" data-emp="seishain">
+          <div class="thumb"><img src="uploads/yamato_area.jpg" alt="生活支援員・世話人（グループホーム）" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp">正社員</span><span class="new">NEW</span></div>
           <h3>生活支援員・世話人（グループホーム）</h3>
           <p class="org">グループホーム（開設予定）</p>
@@ -244,15 +281,19 @@ html{-webkit-text-size-adjust:100%;}
           </div>
           <div class="tags"><span class="tag">開設スタッフ募集</span><span class="tag">未経験相談可</span><span class="tag">新規オープン</span></div>
           <div class="btns"><a class="btn b-o" href="saiyo.dc.html">詳しく見る</a><a class="btn b-f" href="entry.dc.html">応募する</a></div>
+        </div>
         </article>
 
         <article class="card paused" data-job="soudan" data-loc="yamato" data-emp="seishain">
+          <div class="thumb"><img src="uploads/soudanemitasu.jpg" alt="相談支援専門員" loading="lazy"></div>
+          <div class="body">
           <div class="top"><span class="emp" style="background:#bbb;">正社員</span><span class="tag" style="background:#e5e9ee;color:#7a8894;">募集一時中断中</span></div>
           <h3>相談支援専門員</h3>
           <p class="org">相談支援事業所</p>
           <div class="rows">
             <div class="row"><span class="k">内容</span><span>現在この職種の募集は一時中断しています。再開時にこちらでお知らせします。</span></div>
           </div>
+        </div>
         </article>
 
       </div>

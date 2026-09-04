@@ -87,9 +87,8 @@ html{-webkit-text-size-adjust:100%;}
 
   <section id="hero-section" style="position:relative;overflow:hidden;background:#f5f0e8;">
     <!-- 動画：1回再生のみ -->
-    <video id="hero-video" autoplay muted playsinline
-           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0;transition:opacity 1s ease;">
-      <source src="uploads/hero-bg.mp4" type="video/mp4">
+    <video id="hero-video" muted playsinline preload="none"
+           style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0;transition:opacity 1s ease;">
     </video>
     <button id="video-skip" style="position:absolute;bottom:24px;right:28px;z-index:10;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#fff;background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.4);padding:8px 18px;border-radius:999px;cursor:pointer;backdrop-filter:blur(4px);display:none;">スキップ ▶▶</button>
 
@@ -270,9 +269,9 @@ html{-webkit-text-size-adjust:100%;}
     // 動画：1回再生 → 終了後にフェードアウト、ツリー画像フェードイン、ホバー有効化
     var vid  = document.getElementById('hero-video');
     var tree = document.getElementById('hero-tree');
-    var isMobile = window.matchMedia('(max-width:767px)').matches;
-    if (vid && isMobile) {
-      // スマホでは動画を流さず、最初からツリー画像を表示
+    // 全端末で動画は流さず、最初からツリー画像を表示する
+    if (vid) {
+      // 動画を流さず、最初からツリー画像を表示
       vid.pause();
       vid.removeAttribute('autoplay');
       vid.style.display = 'none';

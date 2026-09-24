@@ -203,6 +203,15 @@ textarea{resize:vertical;min-height:180px;line-height:1.8;}
         <label>本文</label>
         <textarea id="f-body" placeholder="記事の詳細内容を入力。HTMLタグも使えます。&#10;例：&lt;p&gt;本文&lt;/p&gt; &lt;br&gt; &lt;strong&gt;太字&lt;/strong&gt;"></textarea>
         <div class="hint">改行は &lt;br&gt;、段落は &lt;p&gt;〜&lt;/p&gt;、太字は &lt;strong&gt;〜&lt;/strong&gt; で記述できます。</div>
+
+        <!-- 本文に画像を挿入 -->
+        <div class="dropzone" id="body-dropzone" style="margin-top:12px;">
+          <div style="font-size:22px;">🖼️</div>
+          <div class="dz-main">本文に画像を挿入</div>
+          <div class="dz-sub">クリックして選択／ドラッグ＆ドロップ／Ctrl+V で貼り付け（カーソル位置に挿入されます）</div>
+          <input type="file" id="f-body-image-file" accept="image/*" style="display:none;">
+        </div>
+        <div style="margin-top:6px;"><span id="body-upload-status" style="font-size:12px;color:#a99c8f;"></span></div>
       </div>
 
       <div class="field">
@@ -297,9 +306,105 @@ function uploadImageFile(file) {
   reader.readAsDataURL(file);
 }
 
+// ===== 本文に画像を挿入（アップロード → カーソル位置に <img> タグを挿入）=====
+function insertAtCursor(textarea, text) {
+  var start = textarea.selectionStart != null ? textarea.selectionStart : textarea.value.length;
+  var end = textarea.selectionEnd != null ? textarea.selectionEnd : textarea.value.length;
+  textarea.value = textarea.value.slice(0, start) + text + textarea.value.slice(end);
+  var pos = start + text.length;
+  textarea.selectionStart = textarea.selectionEnd = pos;
+  textarea.focus();
+}
+
+function uploadBodyImageFile(file) {
+  if (!file) return;
+  var status = document.getElementById('body-upload-status');
+  var dz = document.getElementById('body-dropzone');
+
+  if (!/^image\//.test(file.type)) {
+    status.textContent = '❌ 画像ファイルを選んでください';
+    status.style.color = '#c62828';
+    return;
+  }
+  if (file.size > MAX_UPLOAD_MB * 1024 * 1024) {
+    status.textContent = '❌ 画像が大きすぎます（' + MAX_UPLOAD_MB + 'MBまで／今: ' + (file.size/1024/1024).toFixed(1) + 'MB）';
+    status.style.color = '#c62828';
+    return;
+  }
+
+  status.textContent = '⏳ アップロード中... (' + file.name + ')';
+  status.style.color = '#6f9fc1';
+  dz.classList.add('uploading');
+
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    fetch('/api/news-admin', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: window.__adminPass, filename: file.name, base64: ev.target.result }),
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.url) {
+        var tag = '\n<img src="' + data.url + '" alt="" style="max-width:100%;height:auto;border-radius:12px;margin:16px 0;display:block;">\n';
+        insertAtCursor(document.getElementById('f-body'), tag);
+        status.textContent = '✅ 本文に画像を挿入しました';
+        status.style.color = '#2e7d32';
+      } else {
+        status.textContent = '❌ ' + (data.error || 'アップロード失敗');
+        status.style.color = '#c62828';
+      }
+    })
+    .catch(function() {
+      status.textContent = '❌ 通信エラー';
+      status.style.color = '#c62828';
+    })
+    .finally(function() {
+      dz.classList.remove('uploading');
+    });
+  };
+  reader.readAsDataURL(file);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   var dz = document.getElementById('dropzone');
   var fileInput = document.getElementById('f-image-file');
+
+  // 本文用画像ドロップゾーン
+  var bodyDz = document.getElementById('body-dropzone');
+  var bodyFileInput = document.getElementById('f-body-image-file');
+  bodyDz.addEventListener('click', function() { bodyFileInput.click(); });
+  bodyFileInput.addEventListener('change', function(e) {
+    uploadBodyImageFile(e.target.files[0]);
+    e.target.value = '';
+  });
+  ['dragenter','dragover'].forEach(function(evt) {
+    bodyDz.addEventListener(evt, function(e) {
+      e.preventDefault(); e.stopPropagation();
+      bodyDz.classList.add('dragover');
+    });
+  });
+  ['dragleave','dragend'].forEach(function(evt) {
+    bodyDz.addEventListener(evt, function(e) {
+      e.preventDefault(); e.stopPropagation();
+      if (evt === 'dragleave' && bodyDz.contains(e.relatedTarget)) return;
+      bodyDz.classList.remove('dragover');
+    });
+  });
+  bodyDz.addEventListener('drop', function(e) {
+    e.preventDefault(); e.stopPropagation();
+    bodyDz.classList.remove('dragover');
+    var dt = e.dataTransfer;
+    if (dt.files && dt.files.length) { uploadBodyImageFile(dt.files[0]); return; }
+    var url = dt.getData('text/uri-list') || dt.getData('text/plain');
+    if (url && /^https?:\/\//.test(url)) {
+      var tag = '\n<img src="' + url.trim() + '" alt="" style="max-width:100%;height:auto;border-radius:12px;margin:16px 0;display:block;">\n';
+      insertAtCursor(document.getElementById('f-body'), tag);
+      var st = document.getElementById('body-upload-status');
+      st.textContent = '✅ 本文に画像URLを挿入しました';
+      st.style.color = '#2e7d32';
+    }
+  });
 
   // クリックで選択
   dz.addEventListener('click', function() { fileInput.click(); });
@@ -350,10 +455,11 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('paste', function(e) {
     if (document.getElementById('main-screen').style.display === 'none') return;
     var items = (e.clipboardData || {}).items || [];
+    var inBody = document.activeElement === document.getElementById('f-body');
     for (var i = 0; i < items.length; i++) {
       if (items[i].type && items[i].type.indexOf('image/') === 0) {
         var f = items[i].getAsFile();
-        if (f) { e.preventDefault(); uploadImageFile(f); }
+        if (f) { e.preventDefault(); inBody ? uploadBodyImageFile(f) : uploadImageFile(f); }
         return;
       }
     }

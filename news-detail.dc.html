@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>お知らせ｜株式会社NewValley</title>
+<meta name="description" content="株式会社NewValleyからのお知らせです。">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -86,6 +88,11 @@ html{-webkit-text-size-adjust:100%;}
       wrap.innerHTML = '<div style="text-align:center;padding:80px 20px;"><p style="color:#a99c8f;font-size:15px;">記事が見つかりませんでした。</p><a href="news.dc.html" style="color:#4a7a3f;font-weight:700;">← お知らせ一覧へ戻る</a></div>';
       return;
     }
+
+  // SEO: 記事タイトルをページタイトル・説明に反映
+  document.title = article.title + '｜お知らせ｜株式会社NewValley';
+  var metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && article.excerpt) metaDesc.setAttribute('content', article.excerpt);
 
   var color = newsCategoryColor(article.category);
   var imgHTML = article.image

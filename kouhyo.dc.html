@@ -322,10 +322,18 @@ html{-webkit-text-size-adjust:100%;}
     body.appendChild(tabRow);
     panels.forEach(function(p){ body.appendChild(p); });
 
+    card.id = facility.id;
+    card.style.scrollMarginTop = '96px';
     card.appendChild(header);
     card.appendChild(body);
     container.appendChild(card);
   });
+
+  // #march-yamato などのリンクで来たら、その事業所までスクロール
+  if (location.hash) {
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) setTimeout(function(){ target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
+  }
 })();
 </script>
 </x-dc>

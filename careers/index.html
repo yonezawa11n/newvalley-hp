@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>採用サイト｜一本の木から、多色を。｜株式会社NewValley</title>
+<link rel="canonical" href="https://newvalleyhp.com/careers/">
+<meta name="description" content="株式会社NewValley（ニューバリー）の採用サイト。神奈川県大和市・東京都町田市を中心に、訪問介護・放課後等デイサービス・相談支援などを展開。未経験・無資格から資格を取りながら働けます。10代〜70代まで幅広い世代が活躍中。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一本の木から、多色を。｜NewValley 採用サイト">
+<meta property="og:description" content="訪問介護・放課後等デイ・相談支援。未経験から資格を取りながら、あなたらしい色で働ける場所。">
+<meta property="og:site_name" content="株式会社NewValley">
+<meta property="og:url" content="https://newvalleyhp.com/careers/">
+<meta property="og:image" content="https://newvalleyhp.com/uploads/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<style>
+/* =====================================================================
+   NewValley 採用サイト（careers）
+   色・余白はすべて :root で管理
+   ===================================================================== */
+:root{
+  --ink:#1c2620;
+  --ink2:#45524a;
+  --muted:#7f8a83;
+  --line:#e3e8e2;
+  --bg:#ffffff;
+  --off:#f5f6f1;
+  --green:#3f8f4f;
+  --green-deep:#235c33;
+  --green-pale:#e7f2e6;
+  --lime:#d6e06a;
+  --lime-deep:#b9c44f;
+  --line-brand:#06C755;
+  --maxw:1160px;
+  --head-h:72px;
+  --en:"Outfit","Zen Kaku Gothic New",sans-serif;
+  --jp:"Zen Kaku Gothic New","Hiragino Sans","Noto Sans JP",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:var(--head-h)}
+body{font-family:var(--jp);color:var(--ink);background:var(--bg);line-height:1.8;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- Header ---------- */
+.hd{position:fixed;inset:0 0 auto 0;height:var(--head-h);z-index:50;display:flex;align-items:center;transition:background .3s,box-shadow .3s}
+.hd.scrolled{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:none;padding:0 28px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .mark{width:70px;height:46px;overflow:hidden;background:#fff;border-radius:10px;flex:none}
+.logo .mark img{width:74px;max-width:none;margin:-24px 0 0 -3px}
+.logo b{color:var(--ink);font-family:var(--en);font-weight:800;font-size:18px;letter-spacing:.02em;line-height:1.1;display:block}
+.logo .txt span{display:block;font-family:var(--en);font-weight:700;font-size:12px;letter-spacing:.22em;color:var(--green-deep)}
+.gnav{display:flex;align-items:center;gap:26px}
+.gnav a{font-family:var(--en);font-weight:700;font-size:13px;letter-spacing:.12em;transition:color .2s}
+.gnav a:hover{color:var(--green)}
+.gnav .entry{background:var(--ink);color:#fff;padding:12px 26px;border-radius:999px}
+.gnav .entry:hover{background:var(--green);color:#fff}
+.menu-btn{display:none;width:46px;height:46px;border:0;background:var(--ink);border-radius:50%;cursor:pointer;position:relative}
+.menu-btn i{position:absolute;left:14px;right:14px;height:2px;background:#fff;transition:.3s}
+.menu-btn i:nth-child(1){top:17px}.menu-btn i:nth-child(2){top:22px}.menu-btn i:nth-child(3){top:27px}
+.menu-open .menu-btn i:nth-child(1){top:22px;transform:rotate(45deg)}
+.menu-open .menu-btn i:nth-child(2){opacity:0}
+.menu-open .menu-btn i:nth-child(3){top:22px;transform:rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;animation:zoom 14s ease-out forwards}
+@keyframes zoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,30,24,.15) 0%,rgba(20,30,24,.25) 45%,rgba(20,30,24,.78) 100%)}
+.hero-in{position:relative;z-index:1;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px 88px;color:#fff}
+.hero-en{font-family:var(--en);font-weight:800;font-size:clamp(44px,9vw,120px);line-height:.95;letter-spacing:-.01em;margin-bottom:28px}
+.hero-en em{font-style:normal;color:var(--lime)}
+.hero h1{font-weight:900;font-size:clamp(26px,3.6vw,44px);line-height:1.5;letter-spacing:.04em;margin-bottom:16px}
+.hero p{font-size:clamp(14px,1.4vw,16px);line-height:2;max-width:560px;color:rgba(255,255,255,.9)}
+.scroll{position:absolute;right:28px;bottom:40px;z-index:1;writing-mode:vertical-rl;font-family:var(--en);font-weight:700;font-size:11px;letter-spacing:.3em;color:#fff;display:flex;align-items:center;gap:12px}
+.scroll::after{content:"";width:1px;height:64px;background:rgba(255,255,255,.4);position:relative;overflow:hidden;animation:line 2s infinite}
+@keyframes line{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- Common section ---------- */
+.sec{padding:120px 0}
+.sec.off{background:var(--off)}
+.sh{margin-bottom:56px}
+.sh .en{font-family:var(--en);font-weight:800;font-size:clamp(44px,7vw,88px);line-height:1;letter-spacing:-.01em;color:var(--ink)}
+.sh .en::first-letter{color:var(--green)}
+.sh .jp{display:flex;align-items:center;gap:12px;margin-top:14px;font-weight:700;font-size:15px;color:var(--ink2)}
+.sh .jp::before{content:"";width:28px;height:2px;background:var(--green)}
+.sh.center{text-align:center}.sh.center .jp{justify-content:center}
+.lead{font-size:16px;line-height:2.2;color:var(--ink2)}
+
+/* fade-in */
+.fx{opacity:0;transform:translateY(32px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.61,.36,1)}
+.fx.in{opacity:1;transform:none}
+
+/* ---------- Marquee ---------- */
+.mq{overflow:hidden;padding:28px 0;background:var(--bg)}
+.mq-track{display:flex;gap:16px;width:max-content;animation:mq 50s linear infinite}
+.mq-track img{width:300px;height:200px;object-fit:cover;border-radius:16px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- Message ---------- */
+.msg{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
+.msg h3{font-weight:900;font-size:clamp(26px,3.4vw,40px);line-height:1.6;margin-bottom:28px}
+.msg h3 span{background:linear-gradient(transparent 62%,var(--lime) 62%)}
+.msg p+p{margin-top:18px}
+.msg-ph{position:relative}
+.msg-ph img{border-radius:24px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.msg-ph .sign{position:absolute;left:-28px;bottom:32px;background:#fff;border-radius:16px;padding:18px 24px;box-shadow:0 18px 40px -20px rgba(0,0,0,.3)}
+.sign small{display:block;font-size:12px;color:var(--green);font-weight:700}
+.sign b{font-size:20px;font-weight:900;letter-spacing:.1em}
+
+/* ---------- Business ---------- */
+.biz{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.biz a{display:block;background:#fff;border-radius:20px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.biz a:hover{transform:translateY(-6px);box-shadow:0 24px 40px -24px rgba(28,38,32,.35)}
+.biz .ph{aspect-ratio:16/10;overflow:hidden}
+.biz .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.biz a:hover .ph img{transform:scale(1.06)}
+.biz .bd{padding:24px 26px 28px}
+.biz .cat{font-family:var(--en);font-weight:700;font-size:11px;letter-spacing:.18em;color:var(--green)}
+.biz h3{font-weight:900;font-size:19px;margin:6px 0 10px}
+.biz p{font-size:13.5px;line-height:1.9;color:var(--ink2)}
+.biz .more{display:inline-flex;margin-top:14px;font-family:var(--en);font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--ink)}
+.biz .more::after{content:"→";margin-left:8px;transition:transform .2s}
+.biz a:hover .more::after{transform:translateX(4px)}
+
+/* ---------- Numbers ---------- */
+.num-sec{background:var(--green-deep);color:#fff}
+.num-sec .sh .en{color:#fff}.num-sec .sh .en::first-letter{color:var(--lime)}
+.num-sec .sh .jp{color:rgba(255,255,255,.8)}.num-sec .sh .jp::before{background:var(--lime)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.16);border-radius:24px;overflow:hidden}
+.nums div{background:var(--green-deep);padding:44px 28px;text-align:center}
+.nums .lbl{font-size:14px;font-weight:700;color:rgba(255,255,255,.8)}
+.nums .v{font-family:var(--en);font-weight:800;font-size:clamp(48px,6vw,72px);line-height:1.1;color:var(--lime);margin:8px 0 4px}
+.nums .v small{font-family:var(--jp);font-size:18px;font-weight:700;color:#fff;margin-left:4px}
+.nums .note{font-size:12px;color:rgba(255,255,255,.6)}
+
+/* ---------- Work style ---------- */
+.ws{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.ws-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:36px 34px;display:flex;gap:24px;align-items:flex-start}
+.ws-card .no{flex:none;font-family:var(--en);font-weight:800;font-size:40px;line-height:1;color:var(--green-pale);-webkit-text-stroke:1.5px var(--green)}
+.ws-card h3{font-weight:900;font-size:19px;margin-bottom:10px}
+.ws-card p{font-size:14px;line-height:2;color:var(--ink2)}
+.ws-card strong{color:var(--green-deep);background:linear-gradient(transparent 65%,var(--lime) 65%)}
+.ws-banner{margin-top:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:22px;padding:36px 40px}
+.ws-banner h3{font-weight:900;font-size:22px;margin-bottom:6px}
+.ws-banner p{font-size:14px;color:rgba(255,255,255,.8)}
+
+/* ---------- Career ---------- */
+.career{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.career::before{content:"";position:absolute;left:10%;right:10%;top:34px;height:2px;background:repeating-linear-gradient(90deg,var(--green) 0 8px,transparent 8px 14px)}
+.step{text-align:center;padding:0 10px;position:relative}
+.step .dot{width:68px;height:68px;margin:0 auto 18px;border-radius:50%;background:#fff;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--en);font-weight:800;font-size:20px;color:var(--green);position:relative;z-index:1}
+.step:last-child .dot{background:var(--green);color:#fff}
+.step h3{font-weight:900;font-size:16px;margin-bottom:8px}
+.step p{font-size:13px;line-height:1.85;color:var(--ink2)}
+.career-note{text-align:center;font-size:12px;color:var(--muted);margin-top:36px}
+
+/* ---------- People ---------- */
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.pp{position:relative;border-radius:22px;overflow:hidden;background:#fff}
+.pp .ph{aspect-ratio:4/5;overflow:hidden;background:var(--green-pale)}
+.pp .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pp:hover .ph img{transform:scale(1.05)}
+.pp .cap{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(255,255,255,.96);border-radius:16px;padding:20px 22px}
+.pp .q{font-weight:900;font-size:16px;line-height:1.6;margin-bottom:10px}
+.pp .role{font-size:12px;color:var(--green);font-weight:700}
+.pp .nm{font-size:15px;font-weight:700}
+.pp details{margin-top:10px;font-size:13px;color:var(--ink2);line-height:1.9}
+.pp summary{cursor:pointer;font-family:var(--en);font-weight:700;font-size:12px;letter-spacing:.12em;color:var(--ink);list-style:none}
+.pp summary::-webkit-details-marker{display:none}
+.pp summary::after{content:" ＋"}
+.pp details[open] summary::after{content:" −"}
+.pp details p{margin-top:8px}
+.team{margin-top:56px;border-radius:24px;overflow:hidden;position:relative}
+.team img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 75%}
+.team span{position:absolute;left:28px;bottom:24px;background:#fff;border-radius:999px;padding:10px 22px;font-weight:700;font-size:14px}
+
+/* ---------- Jobs ---------- */
+.jobs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.job{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:32px 8px;border-bottom:1px solid var(--line);transition:background .2s}
+.job:hover{background:var(--off)}
+.job h3{font-weight:900;font-size:21px;margin-bottom:10px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.tags span{font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--green-pale);color:var(--green-deep)}
+.tags span.hl{background:#fdf1d8;color:#a8701f}
+.job p{font-size:14px;color:var(--ink2);line-height:1.9}
+.job .arrow{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--ink);display:flex;align-items:center;justify-content:center;transition:.25s;flex:none}
+.job:hover .arrow{background:var(--ink);color:#fff}
+.job.paused{opacity:.55;pointer-events:none}
+.jobs-more{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding:17px 36px;border-radius:999px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-out{border:1.5px solid var(--ink)}
+.btn-lime{background:var(--lime);color:var(--ink);box-shadow:0 5px 0 var(--lime-deep)}
+.btn-line{background:var(--line-brand);color:#fff;box-shadow:0 5px 0 #059440}
+
+/* ---------- Flow ---------- */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:f}
+.fl{background:#fff;border-radius:20px;padding:30px 26px;position:relative}
+.fl::before{counter-increment:f;content:"STEP 0" counter(f);font-family:var(--en);font-weight:800;font-size:13px;letter-spacing:.16em;color:var(--green)}
+.fl h3{font-weight:900;font-size:17px;margin:10px 0 8px}
+.fl p{font-size:13.5px;line-height:1.9;color:var(--ink2)}
+.fl:not(:last-child)::after{content:"";position:absolute;right:-14px;top:50%;width:10px;height:10px;border-top:2px solid var(--green);border-right:2px solid var(--green);transform:translateY(-50%) rotate(45deg);z-index:1}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:26px 48px 26px 48px;font-weight:700;font-size:16px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";position:absolute;left:4px;top:22px;font-family:var(--en);font-weight:800;font-size:22px;color:var(--green)}
+.faq summary::after{content:"";position:absolute;right:12px;top:50%;width:12px;height:12px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:translateY(-70%) rotate(45deg);transition:.25s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+.faq .a{padding:0 48px 28px;font-size:14.5px;line-height:2;color:var(--ink2)}
+
+/* ---------- Entry ---------- */
+.entry-sec{position:relative;overflow:hidden;color:#fff;text-align:center;padding:140px 0}
+.entry-sec .bg{position:absolute;inset:0}
+.entry-sec .bg img{width:100%;height:100%;object-fit:cover}
+.entry-sec .bg::after{content:"";position:absolute;inset:0;background:rgba(28,38,32,.72)}
+.entry-sec .wrap{position:relative}
+.entry-sec .en{font-family:var(--en);font-weight:800;font-size:clamp(56px,11vw,140px);line-height:1;letter-spacing:-.01em}
+.entry-sec h2{font-weight:900;font-size:clamp(20px,2.6vw,28px);margin:20px 0 14px}
+.entry-sec p{font-size:15px;color:rgba(255,255,255,.85);margin-bottom:40px}
+.entry-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- Footer ---------- */
+.ft{background:var(--ink);color:rgba(255,255,255,.75);padding:56px 0 40px;font-size:13px}
+.ft .wrap{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;align-items:flex-end}
+.ft b{display:block;color:#fff;font-size:16px;margin-bottom:6px}
+.ft nav{display:flex;gap:22px;flex-wrap:wrap}
+.ft nav a:hover{color:#fff}
+.ft small{display:block;width:100%;margin-top:28px;font-family:var(--en);letter-spacing:.1em;color:rgba(255,255,255,.45)}
+
+/* ---------- Fixed entry (SP) ---------- */
+.fix-entry{display:none}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1000px){
+  .gnav{position:fixed;inset:0;background:#fff;flex-direction:column;justify-content:center;gap:22px;opacity:0;pointer-events:none;transition:opacity .3s}
+  .gnav a{font-size:18px}
+  .menu-open .gnav{opacity:1;pointer-events:auto}
+  .menu-btn{display:block;z-index:2}
+  .msg{grid-template-columns:1fr;gap:48px}
+  .msg-ph{max-width:420px}
+  .msg-ph .sign{left:16px}
+  .biz,.people{grid-template-columns:repeat(2,1fr)}
+  .career{grid-template-columns:1fr;gap:28px;max-width:520px;margin:0 auto}
+  .career::before{left:33px;right:auto;top:34px;bottom:34px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--green) 0 8px,transparent 8px 14px)}
+  .step{display:grid;grid-template-columns:68px 1fr;gap:0 20px;text-align:left;padding:0}
+  .step .dot{margin:0;grid-row:span 2}
+  .step h3{align-self:end;margin:0}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .fl:nth-child(2)::after{display:none}
+}
+@media (max-width:680px){
+  :root{--head-h:64px}
+  .hd .wrap{padding:0 16px}
+  .logo .mark{transform:scale(.85);transform-origin:left center}.logo b{font-size:16px}
+  .wrap{padding:0 16px}
+  .sec{padding:84px 0}
+  .sh{margin-bottom:40px}
+  .hero-in{padding-bottom:64px}
+  .scroll{display:none}
+  .hero-bg img{object-position:22% center}
+  .mq-track img{width:220px;height:150px}
+  .biz,.people,.ws,.nums,.flow{grid-template-columns:1fr}
+  .ws-card{padding:28px 22px;gap:16px}
+  .ws-banner{padding:28px 24px}
+  .fl::after{display:none}
+  .job{grid-template-columns:1fr;padding:26px 4px}
+  .job .arrow{display:none}
+  .team img{aspect-ratio:4/3}
+  .faq summary{padding:22px 36px 22px 36px;font-size:15px}
+  .faq .a{padding:0 8px 24px 36px}
+  .entry-sec{padding:96px 0}
+  .fix-entry{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;gap:1px;background:var(--line);padding-bottom:env(safe-area-inset-bottom);transform:translateY(100%);transition:transform .3s}
+  .fix-entry.show{transform:none}
+  .fix-entry a{flex:1;text-align:center;font-weight:700;font-size:15px;padding:16px 8px;color:#fff}
+  body{padding-bottom:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .fx{opacity:1;transform:none;transition:none}
+  .hero-bg img,.mq-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="hd" id="hd">
+  <div class="wrap">
+    <a class="logo" href="./"><span class="mark"><img src="../assets/newvalley-logo.png" alt="株式会社NewValley"></span><span class="txt"><b>NewValley</b><span>RECRUIT</span></span></a>
+    <nav class="gnav" id="gnav">
+      <a href="#message">MESSAGE</a>
+      <a href="#business">BUSINESS</a>
+      <a href="#numbers">NUMBERS</a>
+      <a href="#workstyle">WORK STYLE</a>
+      <a href="#people">PEOPLE</a>
+      <a href="#jobs">JOBS</a>
+      <a href="#faq">FAQ</a>
+      <a class="entry" href="../entry.dc.html">ENTRY</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main>
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-bg"><img src="../uploads/staff_group.jpg" alt="NewValleyで働くスタッフ"></div>
+  <div class="hero-in">
+    <div class="hero-en">Grow your<br><em>own color.</em></div>
+    <h1>一本の木から、多色を。</h1>
+    <p>訪問介護・放課後等デイサービス・相談支援。<br>未経験からでも、資格を取りながら。あなたらしい色で、地域の暮らしを支える仕事をはじめませんか。</p>
+  </div>
+  <div class="scroll">SCROLL</div>
+</section>
+
+<!-- ===== Photo marquee ===== -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-track">
+    <img src="../uploads/march-machida/work3.jpg" alt="" loading="lazy">
+    <img src="../uploads/biyondo/work2.jpg" alt="" loading="lazy">
+    <img src="../uploads/courage/work1.jpg" alt="" loading="lazy">
+    <img src="../uploads/yamato-march/work2.jpg" alt="" loading="lazy">
+    <img src="../uploads/emitasu/work1.jpg" alt="" loading="lazy">
+    <img src="../uploads/march-machida/work6.jpg" alt="" loading="lazy">
+    <img src="../uploads/biyondo/work5.jpg" alt="" loading="lazy">
+    <img src="../uploads/xmobile/work1.jpg" alt="" loading="lazy">
+    <!-- 無限ループ用の複製 -->
+    <img src="../uploads/march-machida/work3.jpg" alt="" loading="lazy">
+    <img src="../uploads/biyondo/work2.jpg" alt="" loading="lazy">
+    <img src="../uploads/courage/work1.jpg" alt="" loading="lazy">
+    <img src="../uploads/yamato-march/work2.jpg" alt="" loading="lazy">
+    <img src="../uploads/emitasu/work1.jpg" alt="" loading="lazy">
+    <img src="../uploads/march-machida/work6.jpg" alt="" loading="lazy">
+    <img src="../uploads/biyondo/work5.jpg" alt="" loading="lazy">
+    <img src="../uploads/xmobile/work1.jpg" alt="" loading="lazy">
+  </div>
+</div>
+
+<!-- ===== Message ===== -->
+<section class="sec" id="message">
+  <div class="wrap">
+    <div class="sh fx"><div class="en">Message</div><div class="jp">代表メッセージ</div></div>
+    <div class="msg">
+      <div class="fx">
+        <h3>年齢も、経験も、国籍も。<br><span>ちがう色</span>が集まるから、<br>強い木になる。</h3>
+        <p class="lead">株式会社NewValleyは「一本の木から多色」を理念に、年齢・性別・国籍・経験にかかわらず、多様な人材が自分らしく活躍できる環境づくりを進めています。10代から70代まで幅広い世代が在籍し、未経験から挑戦する仲間もたくさんいます。</p>
+        <p class="lead">「誰かの役に立ちたい」「新しいことに挑戦したい」「仕事も自分らしい人生も大切にしたい」。そんな想いを持つ方を歓迎します。誰もが長く安心して働き、成長できる会社を、一緒につくっていきましょう。</p>
+      </div>
+      <div class="msg-ph fx">
+        <img src="../uploads/shinya.jpg" alt="代表取締役 新谷 誠" loading="lazy">
+        <div class="sign"><small>代表取締役</small><b>新谷 誠</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Business ===== -->
+<section class="sec off" id="business">
+  <div class="wrap">
+    <div class="sh fx"><div class="en">Business</div><div class="jp">わたしたちの事業</div></div>
+    <p class="lead fx" style="max-width:720px;margin:-24px 0 48px;">神奈川県大和市・東京都町田市を拠点に、障がい福祉を中心とした事業を展開。子どもから大人まで、地域で暮らすすべての人の「その人らしさ」を支えています。</p>
+    <div class="biz">
+      <a class="fx" href="../courage.dc.html">
+        <div class="ph"><img src="../uploads/couragemachida.jpg" alt="訪問介護 クラージュ" loading="lazy"></div>
+        <div class="bd"><div class="cat">HOME CARE</div><h3>訪問介護 クラージュ</h3><p>障がいに特化した訪問介護。ご自宅での暮らしを、やさしく、あたたかく支えます。</p><span class="more">VIEW MORE</span></div>
+      </a>
+      <a class="fx" href="../march-yamato.dc.html">
+        <div class="ph"><img src="../uploads/marchyamato.jpg" alt="放課後等デイサービス マーチ" loading="lazy"></div>
+        <div class="bd"><div class="cat">AFTER SCHOOL</div><h3>放課後等デイサービス マーチ</h3><p>運動特化型のプログラムで、子どもたちの「できた！」を育み、自信につなげます。</p><span class="more">VIEW MORE</span></div>
+      </a>
+      <a class="fx" href="../biyondo.dc.html">
+        <div class="ph"><img src="../uploads/biyondoyamato.jpg" alt="放課後等デイサービス びよんど" loading="lazy"></div>
+        <div class="bd"><div class="cat">AFTER SCHOOL</div><h3>放課後等デイサービス びよんど</h3><p>その子らしさを大切に、可能性を広げる自立支援型の放課後等デイサービス。</p><span class="more">VIEW MORE</span></div>
+      </a>
+      <a class="fx" href="../emitas.dc.html">
+        <div class="ph"><img src="../uploads/soudanemitasu.jpg" alt="えみたすサポート" loading="lazy"></div>
+        <div class="bd"><div class="cat">CONSULTATION</div><h3>相談支援 えみたすサポート</h3><p>福祉サービスの利用計画づくりや日常の相談に、一人ひとりに寄り添って応えます。</p><span class="more">VIEW MORE</span></div>
+      </a>
+      <a class="fx" href="../xmobile.dc.html">
+        <div class="ph"><img src="../uploads/xmobile.JPG" alt="エックスモバイル大和桜ヶ丘駅前店" loading="lazy"></div>
+        <div class="bd"><div class="cat">MOBILE</div><h3>エックスモバイル</h3><p>通信のチカラで、暮らしもビジネスももっと快適に。地域密着型の携帯ショップ。</p><span class="more">VIEW MORE</span></div>
+      </a>
+      <a class="fx" href="../dx.dc.html">
+        <div class="ph"><img src="../uploads/ITdesign.png" alt="DX / ITデザイン事業" loading="lazy"></div>
+        <div class="bd"><div class="cat">DX / IT</div><h3>DX / ITデザイン</h3><p>課題を見つけ、仕組みで解決する。DXとデザインのチカラで未来をつくります。</p><span class="more">VIEW MORE</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Numbers ===== -->
+<section class="sec num-sec" id="numbers">
+  <div class="wrap">
+    <div class="sh fx"><div class="en">Numbers</div><div class="jp">数字で見るNewValley</div></div>
+    <div class="nums fx">
+      <div><div class="lbl">設立</div><div class="v">2016<small>年</small></div><div class="note">神奈川・東京で展開</div></div>
+      <div><div class="lbl">事業所数</div><div class="v">5<small>事業所</small></div><div class="note">大和市・町田市ほか</div></div>
+      <div><div class="lbl">活躍する世代</div><div class="v">10–70<small>代</small></div><div class="note">幅広い世代が在籍</div></div>
+      <div><div class="lbl">賞与</div><div class="v">年2<small>回</small></div><div class="note">昨年実績 3〜4ヶ月分</div></div>
+      <div><div class="lbl">有給消化率</div><div class="v">80<small>%以上</small></div><div class="note">休みも大切に</div></div>
+      <div><div class="lbl">資格取得の自己負担</div><div class="v">0<small>円</small></div><div class="note">会社がサポート</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Work style ===== -->
+<section class="sec" id="workstyle">
+  <div class="wrap">
+    <div class="sh fx"><div class="en">Work Style</div><div class="jp">働き方と制度</div></div>
+    <div class="ws">
+      <div class="ws-card fx"><div class="no">01</div><div><h3>未経験・無資格から始められる</h3><p>資格取得を会社が全力でサポート。休日の研修には<strong>バイト代が支給</strong>されるので、費用の負担なく資格が取れます。</p></div></div>
+      <div class="ws-card fx"><div class="no">02</div><div><h3>ライフスタイルに合わせて</h3><p>短時間社員制度・シフト制・副業OKなど、家庭や自分の時間を大切にしながら働けます。</p></div></div>
+      <div class="ws-card fx"><div class="no">03</div><div><h3>頑張りをきちんと評価</h3><p>賞与年2回・各種手当・社会保険完備。資格取得や役割に応じて<strong>毎年昇給</strong>のチャンスがあります。</p></div></div>
+      <div class="ws-card fx"><div class="no">04</div><div><h3>ひとりにしない、チームの支え</h3><p>先輩が丁寧に教えるOJTと研修でサポート。スタッフ同士で話し合いながら支援を進める、風通しのよい職場です。</p></div></div>
+    </div>
+    <div class="ws-banner fx">
+      <div><h3>NewValley独自の「短時間社員制度」</h3><p>勤務時間は短くても、正社員として。育児や介護と両立しながら、安心して働けます。</p></div>
+      <a class="btn btn-lime" href="../short-time.dc.html">制度について詳しく →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Career ===== -->
+<section class="sec off" id="career">
+  <div class="wrap">
+    <div class="sh center fx"><div class="en">Career</div><div class="jp">キャリアステップ</div></div>
+    <div class="career fx">
+      <div class="step"><div class="dot">01</div><h3>入社・OJT</h3><p>未経験の方はパートからのスタートもOK。先輩と一緒に現場を学びます。</p></div>
+      <div class="step"><div class="dot">02</div><h3>資格取得</h3><p>初任者研修などを、バイト代をもらいながら取得できます。</p></div>
+      <div class="step"><div class="dot">03</div><h3>正社員へ</h3><p>資格と経験を積んで正社員に。短時間社員という選択肢も。</p></div>
+      <div class="step"><div class="dot">04</div><h3>リーダー</h3><p>チームをまとめ、後輩の育成や支援の質づくりを担います。</p></div>
+      <div class="step"><div class="dot">05</div><h3>管理者・責任者</h3><p>管理者やサビ管・児発管として、事業所の運営に関わります。</p></div>
+    </div>
+    <p class="career-note">※キャリアの一例です。職種や経験・ご希望に応じて一緒に考えます。</p>
+  </div>
+</section>
+
+<!-- ===== People ===== -->
+<section class="sec" id="people">
+  <div class="wrap">
+    <div class="sh fx"><div class="en">People</div><div class="jp">はたらく仲間</div></div>
+    <div class="people">
+      <article class="pp fx">
+        <div class="ph"><img src="../uploads/courage/ogawa.jpg" alt="小川 聡志" loading="lazy"></div>
+        <div class="cap">
+          <div class="q">「ありがとう」の一言が、<br>何よりの励み。</div>
+          <div class="role">訪問介護クラージュ ／ 管理者</div><div class="nm">小川 聡志</div>
+          <details><summary>READ</summary><p>ご利用者様の「ありがとう」の一言が、何よりの励みです。生活に寄り添う中で、その方らしい暮らしを一緒につくれることに、大きなやりがいを感じています。</p></details>
+        </div>
+      </article>
+      <article class="pp fx">
+        <div class="ph"><img src="../uploads/emitasu/nagao.jpg" alt="長尾 玲奈" loading="lazy"></div>
+        <div class="cap">
+          <div class="q">未経験でも、<br>できることが増えていく。</div>
+          <div class="role">えみたすサポート ／ 管理責任者</div><div class="nm">長尾 玲奈</div>
+          <details><summary>READ</summary><p>先輩が丁寧に教えてくれるので、不安はすぐになくなりました。資格も働きながら取得でき、少しずつできることが増えていく実感があります。</p></details>
+        </div>
+      </article>
+      <article class="pp fx">
+        <div class="ph"><img src="../uploads/biyondo/suzuki.jpg" alt="鈴木 裕一郎" loading="lazy"></div>
+        <div class="cap">
+          <div class="q">子どもの成長を、<br>チームで喜べる。</div>
+          <div class="role">放課後等デイ びよんど ／ 児発管</div><div class="nm">鈴木 裕一郎</div>
+          <details><summary>READ</summary><p>スタッフ同士で話し合いながら支援を進めるので、風通しがとても良いです。子どもたちの成長を一緒に喜べる、あたたかいチームです。</p></details>
+        </div>
+      </article>
+    </div>
+    <div class="team fx">
+      <img src="../uploads/company-group.jpg" alt="NewValleyのスタッフ集合写真" loading="lazy">
+      <span>10代から70代まで、いろんな色の仲間がいます。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Jobs ===== -->
+<section class="sec off" id="jobs">
+  <div class="wrap">
+    <div class="sh fx"><div class="en">Jobs</div><div class="jp">募集職種</div></div>
+    <div class="jobs fx">
+      <a class="job" href="../homon/">
+        <div><h3>訪問介護スタッフ（ヘルパー）</h3><div class="tags"><span>正社員・パート</span><span>大和市／町田市ほか</span><span class="hl">未経験OK・研修バイト代支給</span></div><p>ご自宅を訪問し、身体介護・生活援助を行います。無資格・未経験の方も、バイト代をもらいながら資格取得ができます。</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="job" href="../recruit-march-part.dc.html">
+        <div><h3>児童指導員・指導員（放課後等デイ）</h3><div class="tags"><span>正社員・パート</span><span>大和市／町田市</span><span class="hl">新規事業所オープン予定</span></div><p>子どもたちの療育・活動支援を行います。新規事業所では資格をお持ちの方を正社員で募集。マーチ・びよんど等でも募集中です。</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="job" href="../contact.dc.html">
+        <div><h3>サービス管理責任者／児童発達支援管理責任者</h3><div class="tags"><span>正社員</span><span>各事業所</span><span class="hl">研修修了者・実務経験者歓迎</span></div><p>個別支援計画の作成・現場マネジメント・スタッフ育成など。まずはお気軽にご相談ください。</p></div>
+        <span class="arrow">→</span>
+      </a>
+      <div class="job paused">
+        <div><h3>相談支援専門員</h3><div class="tags"><span>正社員</span><span>募集一時中断中</span></div><p>現在、こちらの職種の募集は一時中断しています。</p></div>
+      </div>
+    </div>
+    <div class="jobs-more fx">
+      <a class="btn btn-ink" href="../kyujin.dc.html">求人一覧から探す →</a>
+      <a class="btn btn-out" href="../saiyo.dc.html">募集要項・詳しい採用情報</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Flow ===== -->
+<section class="sec" id="flow">
+  <div class="wrap">
+    <div class="sh fx"><div class="en">Flow</div><div class="jp">選考の流れ</div></div>
+    <div class="flow fx">
+      <div class="fl"><h3>エントリー</h3><p>フォームまたはLINEから気軽にご連絡ください。「話だけ聞きたい」も大歓迎。</p></div>
+      <div class="fl"><h3>面談・見学</h3><p>カジュアル面談や職場見学で、雰囲気を感じてからゆっくり考えられます。</p></div>
+      <div class="fl"><h3>面接・条件確認</h3><p>希望の働き方・シフト・待遇などを、一緒に確認しながら進めます。</p></div>
+      <div class="fl"><h3>内定・入社</h3><p>入社後も研修・OJTでしっかりサポート。一緒に成長していきましょう。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec off" id="faq">
+  <div class="wrap">
+    <div class="sh center fx"><div class="en">FAQ</div><div class="jp">よくある質問</div></div>
+    <div class="faq fx">
+      <details><summary>未経験・無資格でも応募できますか？</summary><div class="a">はい、大歓迎です。訪問介護では、無資格・未経験の方はまずパートからスタートし、資格を取りながら正社員を目指せます。休日の研修にはバイト代が支給されるので、費用の負担なく資格取得ができます。</div></details>
+      <details><summary>子育て中でも働けますか？</summary><div class="a">もちろんです。「短時間社員制度」があり、勤務時間は短くても正社員として働けます。お子さんの送り迎えや行事に合わせて、無理のない働き方を一緒に考えます。</div></details>
+      <details><summary>どんな資格が活かせますか？</summary><div class="a">介護職員初任者研修・実務者研修・介護福祉士、保育士・教員免許・児童指導員任用資格、サビ管・児発管、相談支援従事者研修修了など、幅広い資格を活かせます。</div></details>
+      <details><summary>まずは見学・相談だけでも大丈夫ですか？</summary><div class="a">大丈夫です。「まずは話を聞いてみたい」「職場を見てみたい」という方も大歓迎です。エントリーフォームまたはLINEからお気軽にご連絡ください。</div></details>
+      <details><summary>賞与や昇給はありますか？</summary><div class="a">賞与は年2回（昨年実績で3〜4ヶ月分）。昇給は毎年あり、資格取得や頑張りに応じてアップします。社会保険完備・各種手当もご用意しています。</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Entry ===== -->
+<section class="entry-sec" id="entry">
+  <div class="bg"><img src="../homon/images/cta.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div class="en fx">Entry</div>
+    <h2 class="fx">あなたの色で、この木を育てよう。</h2>
+    <p class="fx">まずは「話だけ」でも大歓迎です。お気軽にご連絡ください。</p>
+    <div class="entry-btns fx">
+      <a class="btn btn-lime" href="../entry.dc.html">エントリーフォームへ</a>
+      <a class="btn btn-line" href="https://line.me/R/ti/p/@296dkcwv" target="_blank" rel="noopener">LINEで相談する</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="ft">
+  <div class="wrap">
+    <div><b>株式会社NewValley</b>神奈川県大和市・東京都町田市</div>
+    <nav>
+      <a href="../find.dc.html">コーポレートサイト</a>
+      <a href="../company.dc.html">会社概要</a>
+      <a href="../saiyo.dc.html">採用情報</a>
+      <a href="../contact.dc.html">お問い合わせ</a>
+    </nav>
+    <small>&copy; NewValley Inc.</small>
+  </div>
+</footer>
+
+<!-- SP固定エントリーボタン -->
+<div class="fix-entry" id="fixEntry">
+  <a href="../entry.dc.html" style="background:var(--ink)">エントリー</a>
+  <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" rel="noopener" style="background:var(--line-brand)">LINEで相談</a>
+</div>
+
+<script>
+(function(){
+  var hd=document.getElementById('hd'),fix=document.getElementById('fixEntry');
+  function onScroll(){
+    var y=window.scrollY;
+    hd.classList.toggle('scrolled',y>40);
+    fix.classList.toggle('show',y>window.innerHeight*.6);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // メニュー
+  var btn=document.getElementById('menuBtn');
+  btn.addEventListener('click',function(){
+    var open=document.body.classList.toggle('menu-open');
+    btn.setAttribute('aria-expanded',open);
+  });
+  document.querySelectorAll('#gnav a').forEach(function(a){
+    a.addEventListener('click',function(){document.body.classList.remove('menu-open');btn.setAttribute('aria-expanded','false');});
+  });
+
+  // スクロールでふわっと表示
+  var els=document.querySelectorAll('.fx');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -10% 0px'});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('in');});}
+})();
+</script>
+</body>
+</html>

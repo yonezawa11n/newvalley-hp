@@ -125,38 +125,32 @@
     els.forEach(function (el) { io.observe(el); });
   } else { els.forEach(function (el) { el.classList.add('in'); }); }
 
-  /* ---------- お知らせ（news-data.js + /api/news-admin） ---------- */
+  /* ---------- お知らせ（HPと共通：news-data.js + news-loader.js） ---------- */
   // <ul class="news" data-news data-limit="3"> を置くと描画されます
+  // 記事はHPの管理画面（/api/news-admin）の投稿も含めて NewsLoader から取得します
   var lists = document.querySelectorAll('[data-news]');
-  if (lists.length) {
+  window.CR_NEWS_URL = function (id) { return R + 'news/detail.html?id=' + encodeURIComponent(id); };
+  if (lists.length && window.NewsLoader) {
     var render = function (articles) {
-      articles = (articles || []).slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
       lists.forEach(function (ul) {
         var limit = +ul.getAttribute('data-limit') || 0;
         var filter = ul.getAttribute('data-filter') || '';
-        var list = articles.filter(function (a) { return !filter || a.category === filter; });
+        var list = (articles || []).filter(function (a) { return !filter || a.category === filter; });
         if (limit) list = list.slice(0, limit);
         ul.innerHTML = list.length ? list.map(function (a) {
-          return '<li><a href="' + SITE + 'news-detail.dc.html?id=' + encodeURIComponent(a.id) + '">' +
+          return '<li><a href="' + window.CR_NEWS_URL(a.id) + '">' +
             '<time>' + esc((a.date || '').replace(/-/g, '.')) + '</time>' +
             '<span class="cat' + (a.category === '採用情報' ? ' rec' : '') + '">' + esc(a.category || 'お知らせ') + '</span>' +
             '<span class="t">' + esc(a.title) + '</span></a></li>';
         }).join('') : '<li class="news-empty">該当するおしらせはまだありません。</li>';
       });
     };
-    window.CR_RENDER_NEWS = function (filter) {
-      lists.forEach(function (ul) { ul.setAttribute('data-filter', filter || ''); });
-      render(window.CR_NEWS);
-    };
-    var base = (typeof NEWS_DATA !== 'undefined') ? NEWS_DATA : [];
-    window.CR_NEWS = base; render(base);
-    if (window.fetch) {
-      fetch('/api/news-admin').then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
-        if (!d || !d.articles || !d.articles.length) return;
-        var ids = {}; base.forEach(function (a) { ids[a.id] = 1; });
-        window.CR_NEWS = base.concat(d.articles.filter(function (a) { return !ids[a.id]; }));
+    NewsLoader.load().then(function (all) {
+      window.CR_NEWS = all; render(all);
+      window.CR_RENDER_NEWS = function (filter) {
+        lists.forEach(function (ul) { ul.setAttribute('data-filter', filter || ''); });
         render(window.CR_NEWS);
-      }).catch(function () {});
-    }
+      };
+    });
   }
 })();

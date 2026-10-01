@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>おしらせ｜NewValley 採用サイト</title>
+<link rel="canonical" href="https://newvalleyhp.com/careers/news/detail.html">
+<meta name="description" content="株式会社NewValley採用サイトのおしらせ記事。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="おしらせ｜NewValley 採用サイト">
+<meta property="og:description" content="株式会社NewValley採用サイトのおしらせ記事。">
+<meta property="og:site_name" content="株式会社NewValley">
+<meta property="og:url" content="https://newvalleyhp.com/careers/news/detail.html">
+<meta property="og:image" content="https://newvalleyhp.com/uploads/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/careers.css">
+</head>
+<body data-root="../" data-page="news">
+<div id="cr-header"></div>
+<main>
+<section class="pg-hero">
+  <div class="wrap">
+    <ol class="bc"><li><a href="../">HOME</a></li><li><a href="../news/">おしらせ</a></li><li>記事</li></ol>
+    <div class="en">News</div>
+    <h1>おしらせ</h1>
+    
+  </div>
+</section>
+<section class="sec" style="padding-top:64px;">
+  <div class="wrap" style="max-width:860px;">
+    <article id="nd" class="nd"><p class="news-empty">読み込み中…</p></article>
+    <div class="jobs-more" style="justify-content:flex-start;"><a class="btn btn-out" href="./">← おしらせ一覧へ</a></div>
+  </div>
+</section>
+<div id="cr-entry"></div>
+</main>
+<div id="cr-footer"></div>
+<script src="../../news-data.js"></script>
+<script src="../../news-loader.js"></script>
+<script>
+(function(){
+  var id=new URLSearchParams(location.search).get('id');
+  var box=document.getElementById('nd');
+  function esc(s){return String(s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function src(p){ return /^(https?:)?\/\//.test(p)||p.charAt(0)==='/' ? p : '../../'+p; }
+  NewsLoader.load().then(function(all){
+    var a=all.filter(function(n){return n.id===id;})[0];
+    if(!a){ box.innerHTML='<p class="news-empty">記事が見つかりませんでした。</p>'; return; }
+    document.title=a.title+'｜おしらせ｜NewValley 採用サイト';
+    var md=document.querySelector('meta[name="description"]'); if(md&&a.excerpt) md.setAttribute('content',a.excerpt);
+    var bc=document.querySelector('.bc li:last-child'); if(bc) bc.textContent=a.title;
+    box.innerHTML=
+      '<div class="nd-meta"><time>'+esc((a.date||'').replace(/-/g,'.'))+'</time><span class="cat'+(a.category==='採用情報'?' rec':'')+'">'+esc(a.category||'お知らせ')+'</span></div>'+
+      '<h2 class="nd-title">'+esc(a.title)+'</h2>'+
+      (a.image?'<figure class="nd-img"><img src="'+esc(src(a.image))+'" alt="'+esc(a.title)+'"></figure>':'')+
+      '<div class="nd-body">'+(a.body||('<p>'+esc(a.excerpt)+'</p>'))+'</div>';
+  });
+})();
+</script>
+<script src="../assets/careers.js"></script>
+</body>
+</html>

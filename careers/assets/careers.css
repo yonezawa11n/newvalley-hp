@@ -496,3 +496,16 @@ a{color:inherit;text-decoration:none}
   .fx{opacity:1;transform:none;transition:none}
   .hero-bg img,.mq-track{animation:none}
 }
+
+/* お知らせ詳細 */
+.nd-meta{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.nd-meta time{font-family:var(--en);font-weight:700;font-size:14px;color:var(--muted)}
+.nd-meta .cat{font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--off);color:var(--ink2)}
+.nd-meta .cat.rec{background:var(--green);color:#fff}
+.nd-title{font-weight:900;font-size:clamp(22px,2.8vw,30px);line-height:1.6;margin-bottom:28px}
+.nd-img{margin:0 0 32px;border-radius:20px;overflow:hidden}
+.nd-img img{width:100%;max-height:480px;object-fit:cover}
+.nd-body{font-size:15px;line-height:2.1;color:var(--ink2)}
+.nd-body p{margin:0 0 1.2em}
+.nd-body img{border-radius:14px;height:auto}
+.nd-body a{color:var(--green-deep);text-decoration:underline}

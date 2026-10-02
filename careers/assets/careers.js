@@ -12,16 +12,17 @@
 
   var NAV = [
     { id: 'home', label: 'HOME', href: '' },
-    { id: 'career', label: 'キャリア採用', href: 'career/', sub: [
+    { id: 'career', label: 'キャリア採用', href: 'career/', top: 'キャリア採用トップ', sub: [
       { id: 'kaigo', label: '介護職（訪問介護）', href: 'career/kaigo/' },
       { id: 'jido', label: '児童指導員・指導員（放課後等デイ）', href: 'career/jido/' },
       { id: 'kanri', label: '管理・専門職（児発管・サビ管）', href: 'career/kanri/' }
     ]},
     { id: 'shinsotsu', label: '新卒採用', href: 'shinsotsu/' },
-    { id: 'careerpath', label: 'キャリアパス', href: 'careerpath/' },
-    { id: 'data', label: 'データで見る', href: 'data/' },
+    { id: 'data', label: 'データで見る', href: 'data/', top: 'データで見る', sub: [
+      { id: 'careerpath', label: 'キャリアパス', href: 'careerpath/' },
+      { id: 'interview', label: '社員インタビュー', href: 'interview/' }
+    ]},
     { id: 'message', label: '代表メッセージ', href: 'message/' },
-    { id: 'interview', label: '社員インタビュー', href: 'interview/' },
     { id: 'news', label: 'おしらせ', href: 'news/' }
   ];
   var page = body.getAttribute('data-page') || '';
@@ -33,9 +34,10 @@
   var hdSlot = document.getElementById('cr-header');
   if (hdSlot) {
     var items = NAV.map(function (n) {
-      var cur = (n.id === page || n.id === parent) ? ' cur' : '';
+      var inSub = (n.sub || []).some(function (x) { return x.id === page || x.id === parent; });
+      var cur = (n.id === page || n.id === parent || inSub) ? ' cur' : '';
       if (!n.sub) return '<li><a class="nl' + cur + '" href="' + R + n.href + '">' + esc(n.label) + '</a></li>';
-      var subs = '<li><a href="' + R + n.href + '"' + (page === n.id ? ' class="cur"' : '') + '>キャリア採用トップ</a></li>' +
+      var subs = '<li><a href="' + R + n.href + '"' + (page === n.id ? ' class="cur"' : '') + '>' + esc(n.top || n.label) + '</a></li>' +
         n.sub.map(function (s) {
           return '<li><a href="' + R + s.href + '"' + (page === s.id ? ' class="cur"' : '') + '>' + esc(s.label) + '</a></li>';
         }).join('');
@@ -70,7 +72,10 @@
   /* ---------- Footer ---------- */
   var ftSlot = document.getElementById('cr-footer');
   if (ftSlot) {
-    var fl = NAV.map(function (n) { return '<a href="' + R + n.href + '">' + esc(n.label) + '</a>'; }).join('');
+    var fl = NAV.map(function (n) {
+      return '<a href="' + R + n.href + '">' + esc(n.label) + '</a>' +
+        (n.id === 'data' ? (n.sub || []).map(function (x) { return '<a href="' + R + x.href + '">' + esc(x.label) + '</a>'; }).join('') : '');
+    }).join('');
     ftSlot.outerHTML =
       '<footer class="ft"><div class="wrap">' +
         '<div><b>株式会社NewValley</b>神奈川県大和市・東京都町田市</div>' +
@@ -111,7 +116,7 @@
     });
   });
   document.addEventListener('click', function (e) {
-    if (window.innerWidth > 1320) document.querySelectorAll('.has-sub.open').forEach(function (li) {
+    if (window.innerWidth > 1180) document.querySelectorAll('.has-sub.open').forEach(function (li) {
       if (!li.contains(e.target)) { li.classList.remove('open'); li.firstChild.setAttribute('aria-expanded', 'false'); }
     });
   });

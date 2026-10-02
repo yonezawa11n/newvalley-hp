@@ -44,7 +44,7 @@
     hdSlot.outerHTML =
       '<header class="hd" id="hd"><div class="wrap">' +
         '<a class="logo" href="' + R + '"><span class="mark"><img src="' + SITE + 'assets/newvalley-logo.png" alt="株式会社NewValley"></span><span class="txt"><b>NewValley</b><span>RECRUIT</span></span></a>' +
-        '<nav class="gnav" id="gnav" aria-label="採用サイトメニュー"><ul>' + items + '</ul><a class="entry" href="' + SITE + 'entry.dc.html">ENTRY</a></nav>' +
+        '<nav class="gnav" id="gnav" aria-label="採用サイトメニュー"><ul>' + items + '</ul><a class="diag" href="' + R + 'shindan/">キャリア診断</a><a class="entry" href="' + SITE + 'entry.dc.html">ENTRY</a></nav>' +
         '<button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false"><i></i><i></i><i></i></button>' +
       '</div></header>';
   }
@@ -75,7 +75,7 @@
       '<footer class="ft"><div class="wrap">' +
         '<div><b>株式会社NewValley</b>神奈川県大和市・東京都町田市</div>' +
         '<nav>' + fl + '</nav>' +
-        '<nav><a href="' + SITE + 'find.dc.html">コーポレートサイト</a><a href="' + SITE + 'company.dc.html">会社概要</a><a href="' + SITE + 'kyujin.dc.html">求人一覧</a><a href="' + SITE + 'contact.dc.html">お問い合わせ</a></nav>' +
+        '<nav><a href="' + R + 'shindan/">キャリア診断</a><a href="' + SITE + 'find.dc.html">コーポレートサイト</a><a href="' + SITE + 'company.dc.html">会社概要</a><a href="' + SITE + 'kyujin.dc.html">求人一覧</a><a href="' + SITE + 'contact.dc.html">お問い合わせ</a></nav>' +
         '<small>&copy; NewValley Inc.</small>' +
       '</div></footer>' +
       '<div class="fix-entry" id="fixEntry">' +
@@ -111,7 +111,7 @@
     });
   });
   document.addEventListener('click', function (e) {
-    if (window.innerWidth > 1180) document.querySelectorAll('.has-sub.open').forEach(function (li) {
+    if (window.innerWidth > 1320) document.querySelectorAll('.has-sub.open').forEach(function (li) {
       if (!li.contains(e.target)) { li.classList.remove('open'); li.firstChild.setAttribute('aria-expanded', 'false'); }
     });
   });

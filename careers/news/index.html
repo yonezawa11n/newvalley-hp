@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>おしらせ｜NewValley 採用サイト</title>
+<link rel="canonical" href="https://newvalleyhp.com/careers/news/">
+<meta name="description" content="株式会社NewValley採用サイトのおしらせ。採用情報、資格取得支援、表彰などのニュースをお届けします。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="おしらせ｜NewValley 採用サイト">
+<meta property="og:description" content="株式会社NewValley採用サイトのおしらせ。採用情報、資格取得支援、表彰などのニュースをお届けします。">
+<meta property="og:site_name" content="株式会社NewValley">
+<meta property="og:url" content="https://newvalleyhp.com/careers/news/">
+<meta property="og:image" content="https://newvalleyhp.com/uploads/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/careers.css">
+</head>
+<body data-root="../" data-page="news">
+<div id="cr-header"></div>
+<main>
+<section class="pg-hero">
+  <div class="wrap">
+    <ol class="bc"><li><a href="../">HOME</a></li><li>おしらせ</li></ol>
+    <div class="en">News</div>
+    <h1>おしらせ</h1>
+    <p class="lead">採用に関するおしらせや、NewValleyの取り組みをお届けします。</p>
+  </div>
+</section>
+<section class="sec">
+  <div class="wrap">
+    <div class="ftabs fx" role="group" aria-label="カテゴリで絞り込む">
+      <button type="button" aria-pressed="true" data-f="">すべて</button>
+      <button type="button" aria-pressed="false" data-f="採用情報">採用情報</button>
+      <button type="button" aria-pressed="false" data-f="お知らせ">お知らせ</button>
+      <button type="button" aria-pressed="false" data-f="イベント">イベント</button>
+      <button type="button" aria-pressed="false" data-f="活動報告">活動報告</button>
+    </div>
+    <ul class="news fx" data-news></ul>
+  </div>
+</section>
+<div id="cr-entry"></div>
+</main>
+<div id="cr-footer"></div>
+<script src="../../news-data.js"></script>
+<script src="../../news-loader.js"></script>
+<script>
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.ftabs button'); if(!b) return;
+  document.querySelectorAll('.ftabs button').forEach(function(x){x.setAttribute('aria-pressed',x===b);});
+  if(window.CR_RENDER_NEWS) window.CR_RENDER_NEWS(b.dataset.f);
+});
+</script>
+<script src="../assets/careers.js"></script>
+</body>
+</html>

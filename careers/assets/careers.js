@@ -130,6 +130,48 @@
     els.forEach(function (el) { io.observe(el); });
   } else { els.forEach(function (el) { el.classList.add('in'); }); }
 
+  /* ---------- キャリアアップモデル ---------- */
+  // <div data-career-model></div> を置くと描画されます。ポジション名・年収はここだけ直せばOK
+  var CAREER_MODEL = {
+    lead: 'NewValleyでは、現場のプロをめざす道と、チームをまとめる道の2つを用意しています。事業所が増えている今だからこそ、経験を積んだ人にどんどん役割を任せています。',
+    note: '※年収は訪問介護の正社員の目安です。実際の給与は経験・資格・勤務内容により面談で決まります。<br>※ポジション名は事業により異なります（放課後等デイは 指導員 → 児童指導員 → 児童発達支援管理責任者）。',
+    tracks: [
+      { key: 'sp', band: 'スペシャリスト志向', sub: '現場のプロをめざす', steps: [
+        { name: '研修生・\nパート', memo: '〜6か月', inc: '資格取得中', h: 30 },
+        { name: 'ヘルパー', memo: '正社員', inc: '年収<b>350</b>万円', h: 46 },
+        { name: '中堅\nヘルパー', memo: '入社2年目〜', inc: '年収<b>420</b>万円', h: 62 },
+        { name: '専門資格\nスタッフ', memo: '介護福祉士・行動援護など', inc: '年収<b>420〜500</b>万円', extra: '＋資格手当', h: 80 }
+      ]},
+      { key: 'mg', band: 'マネジメント志向', sub: 'チームをまとめる', steps: [
+        { name: 'サービス\n提供責任者', memo: '入社1年半〜2年の先輩も', inc: '年収<b>500</b>万円〜', h: 52 },
+        { name: 'ユニット\n責任者', memo: '大和・海老名、町田・相模原など', inc: '年収<b>500</b>万円〜', h: 66 },
+        { name: '管理者', memo: '入社3年半の先輩も', inc: '年収<b>500</b>万円〜', h: 80 },
+        { name: '統括部長\n候補', memo: '事業全体の運営', inc: '年収は<b>面談</b>で', h: 94 }
+      ]}
+    ]
+  };
+  document.querySelectorAll('[data-career-model]').forEach(function (el) {
+    var M = CAREER_MODEL;
+    var card = function (t) {
+      return '<div class="cm-card cm-' + t.key + '">' +
+        '<div class="cm-bars">' + t.steps.map(function (s) {
+          return '<div class="cm-bar" style="--h:' + s.h + '%">' +
+            '<div class="cm-name"><b>' + esc(s.name).replace(/\n/g, '<br>') + '</b><small>' + esc(s.memo) + '</small></div>' +
+            '<div class="cm-inc">' + s.inc + (s.extra ? '<small>' + esc(s.extra) + '</small>' : '') + '</div>' +
+          '</div>';
+        }).join('') + '</div>' +
+        '<div class="cm-band"><small>' + esc(t.sub) + '</small>' + esc(t.band) + '</div>' +
+      '</div>';
+    };
+    el.classList.add('cm');
+    el.innerHTML =
+      (el.hasAttribute('data-no-lead') ? '' : '<p class="cm-lead">' + M.lead + '</p>') +
+      '<div class="cm-grid">' + card(M.tracks[0]) +
+        '<div class="cm-arrow" aria-hidden="true"><span>サ責へ<br>ステップアップ</span></div>' +
+        card(M.tracks[1]) + '</div>' +
+      '<p class="note">' + M.note + '</p>';
+  });
+
   /* ---------- お知らせ（HPと共通：news-data.js + news-loader.js） ---------- */
   // <ul class="news" data-news data-limit="3"> を置くと描画されます
   // 記事はHPの管理画面（/api/news-admin）の投稿も含めて NewsLoader から取得します

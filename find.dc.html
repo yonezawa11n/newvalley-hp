@@ -25,7 +25,7 @@ html{-webkit-text-size-adjust:100%;}
 .find-wrap{font-family:'Noto Sans JP',sans-serif;color:#43332a;}
 
 /* ヒーロー */
-.find-hero{position:relative;text-align:center;padding:76px 24px 40px;overflow:hidden;}
+.find-hero{position:relative;text-align:center;padding:48px 24px 40px;overflow:hidden;}
 .find-hero h1{font-family:'Zen Old Mincho',serif !important;font-weight:900;font-size:34px;line-height:1.6;color:#3b2f26;margin:0 0 24px;letter-spacing:.02em;}
 .find-hero .sub{font-family:'Zen Old Mincho',serif;font-size:16px;color:#8a7d6d;margin:0 0 20px;letter-spacing:.06em;}
 .find-hero .lead{font-size:14px;line-height:2.1;color:#6b6358;margin:0 auto;max-width:560px;}
@@ -60,6 +60,28 @@ html{-webkit-text-size-adjust:100%;}
 <div class="find-wrap" style="background:#fdfbf7;">
   <dc-import name="Header" hint-size="100%,80px"></dc-import>
 
+  <!-- 採用サイトへの案内（ページ最上部） -->
+  <section style="padding:24px 20px 0;">
+    <!-- 採用サイトへの案内 -->
+    <a href="/careers/" style="display:flex;align-items:stretch;flex-wrap:wrap;max-width:980px;margin:0 auto;text-decoration:none;background:#1c2620;border-radius:22px;overflow:hidden;box-shadow:0 14px 34px -18px rgba(28,38,32,.5);">
+      <span style="flex:1 1 300px;min-height:150px;background:url('uploads/staff_group.jpg') center/cover;"></span>
+      <span style="flex:1 1 340px;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:28px 32px;">
+        <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;color:#d6e06a;">NEWVALLEY RECRUIT SITE</span>
+        <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;line-height:1.5;color:#fff;">一本の木から、多色を。<br>採用サイトができました</span>
+        <span style="font-size:13px;line-height:1.8;color:rgba(255,255,255,.82);">キャリア採用・新卒採用・キャリアパス・社員インタビューなど、働く人の目線でまとめています。</span>
+        <span style="align-self:flex-start;margin-top:6px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#1c2620;background:#d6e06a;padding:11px 24px;border-radius:999px;">採用サイトを見る →</span>
+      </span>
+    </a>
+    <!-- キャリア診断への案内 -->
+    <a href="/careers/shindan/" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;max-width:980px;margin:16px auto 0;text-decoration:none;background:#e7f2e6;border:2px solid #3f8f4f;border-radius:18px;padding:18px 26px;">
+      <span style="display:block;">
+        <span style="display:block;font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.18em;color:#3f8f4f;margin-bottom:2px;">CAREER CHECK</span>
+        <span style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#1c2620;line-height:1.5;">約1分でわかる！あなたに合う職種と推定年収</span>
+      </span>
+      <span style="flex:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#3f8f4f;padding:11px 22px;border-radius:999px;">キャリア診断 →</span>
+    </a>
+  </section>
+
   <!-- ヒーロー -->
   <section class="find-hero">
     <svg class="accent" style="left:calc(50% - 250px);top:44px;width:70px;height:70px;transform:rotate(-6deg);" viewBox="0 0 70 70"><path d="M14 52 L26 20"/><path d="M40 60 L52 30"/></svg>
@@ -83,24 +105,6 @@ html{-webkit-text-size-adjust:100%;}
       <a class="tile" href="recruit-march-part.dc.html"><img src="uploads/machida_area.jpg" alt="送迎ドライバー" loading="lazy"><div class="ov"></div><span class="badge"><svg viewBox="0 0 24 24"><path d="M4 16v-4l2-5h12l2 5v4"/><path d="M4 16h16v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1M4 16v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1"/><circle cx="7.5" cy="14.5" r="1"/><circle cx="16.5" cy="14.5" r="1"/></svg></span><span class="lb">送迎ドライバー<span class="sub">子どもの送り迎え</span></span></a>
       <a class="tile" href="recruit.dc.html"><img src="uploads/yamato_area.jpg" alt="グループホーム" loading="lazy"><div class="ov"></div><span class="badge"><svg viewBox="0 0 24 24"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg></span><span class="lb">グループホーム<span class="sub">開設予定・募集</span></span></a>
     </div>
-    <!-- 採用サイトへの案内 -->
-    <a href="/careers/" style="display:flex;align-items:stretch;flex-wrap:wrap;max-width:980px;margin:32px auto 0;text-decoration:none;background:#1c2620;border-radius:22px;overflow:hidden;box-shadow:0 14px 34px -18px rgba(28,38,32,.5);">
-      <span style="flex:1 1 300px;min-height:180px;background:url('uploads/staff_group.jpg') center/cover;"></span>
-      <span style="flex:1 1 340px;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:28px 32px;">
-        <span style="font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;color:#d6e06a;">NEWVALLEY RECRUIT SITE</span>
-        <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;line-height:1.5;color:#fff;">一本の木から、多色を。<br>採用サイトができました</span>
-        <span style="font-size:13px;line-height:1.8;color:rgba(255,255,255,.82);">キャリア採用・新卒採用・キャリアパス・社員インタビューなど、働く人の目線でまとめています。</span>
-        <span style="align-self:flex-start;margin-top:6px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#1c2620;background:#d6e06a;padding:11px 24px;border-radius:999px;">採用サイトを見る →</span>
-      </span>
-    </a>
-    <!-- キャリア診断への案内 -->
-    <a href="/careers/shindan/" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;max-width:980px;margin:16px auto 0;text-decoration:none;background:#e7f2e6;border:2px solid #3f8f4f;border-radius:18px;padding:18px 26px;">
-      <span style="display:block;">
-        <span style="display:block;font-family:'Quicksand',sans-serif;font-weight:700;font-size:12px;letter-spacing:.18em;color:#3f8f4f;margin-bottom:2px;">CAREER CHECK</span>
-        <span style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#1c2620;line-height:1.5;">約1分でわかる！あなたに合う職種と推定年収</span>
-      </span>
-      <span style="flex:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#3f8f4f;padding:11px 22px;border-radius:999px;">キャリア診断 →</span>
-    </a>
   </section>
 
   <!-- サービスをみつける -->

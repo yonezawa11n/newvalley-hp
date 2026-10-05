@@ -6,7 +6,7 @@
 (function () {
   var CONFIG = {
     // 訪問介護（正社員・週40時間）の年収モデル（万円）
-    homon: { year1: 350, mid: 420, satsu: 500 },
+    homon: { year1: 350, mid: 420, satsu: 500, manager: [500, 1250], director: 920 },
     // 放課後等デイ（正社員）の目安（万円）※訪問介護の年収モデルに合わせた目安
     hoday: { staff: [350, 420], jihatsu: [420, 500] },
     // 短時間社員（契約社員）は正社員の何割で計算するか
@@ -119,7 +119,7 @@
   }
 
   /* ---------- 計算 ---------- */
-  function man(n) { return Math.round(n); }
+  function man(n) { return Math.round(n).toLocaleString(); }
   function range(lo, hi, plus) {
     if (hi == null || lo === hi) return man(lo) + '万円' + (plus ? '〜' : '');
     return man(lo) + '〜' + man(hi) + '万円' + (plus ? '〜' : '');
@@ -138,7 +138,8 @@
     steps.push({ t: '正社員', s: careQual ? '資格を活かして正社員でスタート' : '資格取得・6か月の勤務後、管理者面談のうえ正社員へ', inc: [c.year1] });
     steps.push({ t: '中堅ヘルパー', s: '入社2年目〜', inc: [c.mid] });
     steps.push({ t: 'サービス提供責任者', s: '実務者研修以上が目安。入社1年半〜2年でサ責になった先輩も', inc: [c.satsu], plus: true });
-    steps.push({ t: '管理者', s: '入社3年半で管理者になった先輩も', inc: [c.satsu], plus: true });
+    steps.push({ t: '管理者', s: '入社3年半で管理者になった先輩も。固定給＋成果給', inc: c.manager, fixed: true });
+    steps.push({ t: '事業部長', s: '事業全体の運営。固定給＋成果給', inc: [c.director], plus: true, fixed: true });
     var now;
     if (!careQual) { now = 0; p.pos = '研修生・パートからスタート'; p.inc = [c.year1]; }
     else if (senior) { now = 2; p.pos = '正社員（サービス提供責任者候補）'; p.inc = [c.mid]; }
@@ -211,7 +212,7 @@
     var inc = incText(main);
     var road = main.steps.map(function (s, k) {
       var v = s.wage ? '時給 ' + CONFIG.partWage[0].toLocaleString() + '円〜（パート）' :
-        s.inc ? (A.style === 'part' ? '正社員なら ' + range(s.inc[0], s.inc[1], s.plus) : range(scale(s.inc[0]), s.inc[1] != null ? scale(s.inc[1]) : null, s.plus)) : '';
+        s.inc ? (s.fixed ? '正社員 ' + range(s.inc[0], s.inc[1], s.plus) : A.style === 'part' ? '正社員なら ' + range(s.inc[0], s.inc[1], s.plus) : range(scale(s.inc[0]), s.inc[1] != null ? scale(s.inc[1]) : null, s.plus)) : '';
       return '<li class="' + (k === main.now ? 'now' : k < main.now ? 'done' : '') + '">' +
         (k === main.now ? '<span class="here">いまのあなた</span>' : '') +
         '<b>' + esc(s.t) + '</b>' + (v ? '<em>' + esc(v) + '</em>' : '') + '<p>' + esc(s.s) + '</p></li>';

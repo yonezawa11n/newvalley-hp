@@ -6,7 +6,7 @@
 (function () {
   var CONFIG = {
     // 訪問介護（正社員・週40時間）の年収モデル（万円）
-    homon: { year1: 350, mid: 420, satsu: 500, manager: [500, 1250], director: 920 },
+    homon: { year1: 350, mid: 420, satsu: 500, manager: [500], director: 920 },
     // 放課後等デイ（正社員）の目安（万円）※訪問介護の年収モデルに合わせた目安
     hoday: { staff: [350, 420], jihatsu: [420, 500] },
     // 短時間社員（契約社員）は正社員の何割で計算するか
@@ -138,7 +138,7 @@
     steps.push({ t: '正社員', s: careQual ? '資格を活かして正社員でスタート' : '資格取得・6か月の勤務後、管理者面談のうえ正社員へ', inc: [c.year1] });
     steps.push({ t: '中堅ヘルパー', s: '入社2年目〜', inc: [c.mid] });
     steps.push({ t: 'サービス提供責任者', s: '実務者研修以上が目安。入社1年半〜2年でサ責になった先輩も', inc: [c.satsu], plus: true });
-    steps.push({ t: '管理者', s: '入社3年半で管理者になった先輩も。固定給＋成果給', inc: c.manager, fixed: true });
+    steps.push({ t: '管理者', s: '入社3年半で管理者になった先輩も。固定給＋成果給', inc: c.manager, plus: true, fixed: true });
     steps.push({ t: '事業部長', s: '事業全体の運営。固定給＋成果給', inc: [c.director], plus: true, fixed: true });
     var now;
     if (!careQual) { now = 0; p.pos = '研修生・パートからスタート'; p.inc = [c.year1]; }

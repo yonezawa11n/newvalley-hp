@@ -2,6 +2,7 @@
  * 採用エントリーフォーム送信 API
  * POST /api/entry
  * 必要な環境変数: RESEND_API_KEY（お問い合わせフォームと共通）
+ * 応募者の個人情報はログ・エラー応答に出さないこと
  */
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,11 +12,18 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
   const RESEND_KEY = process.env.RESEND_API_KEY;
-  if (!RESEND_KEY) return res.status(500).json({ error: 'RESEND_API_KEY が設定されていません' });
+  if (!RESEND_KEY) {
+    console.error('entry: RESEND_API_KEY missing');
+    return res.status(500).json({ error: 'RESEND_API_KEY が設定されていません' });
+  }
 
   const { name, email, tel, position, message } = req.body || {};
   if (!name || !email) {
     return res.status(400).json({ error: '必須項目が不足しています' });
+  }
+  if ([name, email, tel, position].some(v => v && String(v).length > 200) ||
+      (message && String(message).length > 5000)) {
+    return res.status(400).json({ error: '入力が長すぎます' });
   }
 
   const subject = `【NewValley エントリー】${position || '職種未選択'} — ${name} 様`;
@@ -48,8 +56,12 @@ export default async function handler(req, res) {
     }),
   });
 
-  const result = await emailRes.json();
-  if (!emailRes.ok) return res.status(500).json({ error: '送信に失敗しました', detail: result });
+  if (!emailRes.ok) {
+    // 原因調査用。Resend の message には宛先アドレスが入ることがあるので name だけ出す
+    const result = await emailRes.json().catch(() => ({}));
+    console.error('entry: resend failed', emailRes.status, result.name || '');
+    return res.status(500).json({ error: '送信に失敗しました' });
+  }
   return res.json({ ok: true });
 }
 

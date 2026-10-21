@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>エントリー・応募フォーム｜採用・求人｜株式会社NewValley</title>
 <link rel="canonical" href="https://newvalleyhp.com/entry.dc.html">
-<meta name="description" content="株式会社NewValleyの採用エントリーフォーム。訪問介護・放課後等デイ・相談支援などの求人へのご応募はこちらから。大和市・町田市・相模原市エリアで募集中です。">
+<meta name="description" content="株式会社NewValleyの採用エントリーフォーム。訪問介護・放課後等デイ・グループホームなどの求人へのご応募はこちらから。大和市・町田市・相模原市エリアで募集中です。">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -175,8 +175,10 @@ html{-webkit-text-size-adjust:100%;}
               <label style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:8px;">ご希望の職種</label>
               <select name="position" style="width:100%;border:1.5px solid #e6ddcd;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Noto Sans JP',sans-serif;background:#faf7f0;outline:none;color:#43332a;">
                 <option>訪問介護スタッフ（ヘルパー）</option>
-                <option>サービス管理責任者／児発管</option>
-                <option>相談支援専門員</option>
+                <option>児童指導員・指導員（放課後等デイ）</option>
+                <option>サービス管理責任者／児童発達支援管理責任者</option>
+                <option>送迎ドライバー（放課後等デイ）</option>
+                <option>生活支援員・世話人（グループホーム）</option>
                 <option>まだ決めていない／相談したい</option>
               </select>
             </div>
@@ -184,7 +186,8 @@ html{-webkit-text-size-adjust:100%;}
               <label style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:8px;">お問い合わせ内容</label>
               <textarea name="message" rows="4" placeholder="ご質問やご希望をご記入ください" style="width:100%;border:1.5px solid #e6ddcd;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Noto Sans JP',sans-serif;background:#faf7f0;outline:none;resize:vertical;"></textarea>
             </div>
-            <button type="submit" style="margin-top:8px;border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;color:#43332a;background:#d6e06a;padding:17px;border-radius:999px;box-shadow:0 5px 0 #b9c44f;">この内容で送信する</button>
+            <p id="entry-err" style="display:none;margin:0;font-size:13px;color:#d0566b;text-align:center;"></p>
+            <button type="submit" id="entry-submit-btn" style="margin-top:8px;border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;color:#43332a;background:#d6e06a;padding:17px;border-radius:999px;box-shadow:0 5px 0 #b9c44f;">この内容で送信する</button>
           </div>
         </form>
       </div>
@@ -194,9 +197,46 @@ html{-webkit-text-size-adjust:100%;}
   <script>
   document.getElementById('entry-form-el').addEventListener('submit', function(e) {
     e.preventDefault();
-    document.getElementById('entry-form').style.display = 'none';
-    document.getElementById('entry-success').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    var form = e.target;
+    var btn = document.getElementById('entry-submit-btn');
+    var errEl = document.getElementById('entry-err');
+    var data = Object.fromEntries(new FormData(form).entries());
+
+    btn.disabled = true;
+    btn.textContent = '送信中...';
+    errEl.style.display = 'none';
+
+    function fail(msg) {
+      errEl.textContent = msg;
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'この内容で送信する';
+    }
+
+    fetch('/api/entry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        tel: data.tel,
+        position: data.position,
+        message: data.message,
+      }),
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if (res.ok) {
+        document.getElementById('entry-form').style.display = 'none';
+        document.getElementById('entry-success').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        fail('送信に失敗しました。時間をおいて再度お試しください。');
+      }
+    })
+    .catch(function(){
+      fail('通信エラーが発生しました。時間をおいて再度お試しください。');
+    });
   });
   </script>
 

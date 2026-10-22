@@ -2,6 +2,7 @@
  * 採用エントリーフォーム送信 API
  * POST /api/entry
  * 必要な環境変数: RESEND_API_KEY（お問い合わせフォームと共通）
+ * 任意: MAIL_FROM（送信元。例: NewValley <noreply@newvalleyhp.com>。Resend でドメイン認証が必要）
  */
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -40,7 +41,7 @@ export default async function handler(req, res) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'NewValley エントリー <onboarding@resend.dev>',
+      from: process.env.MAIL_FROM || 'NewValley エントリー <onboarding@resend.dev>',
       to: ['newvalleykouhou31@gmail.com'],
       reply_to: email,
       subject,
@@ -49,7 +50,11 @@ export default async function handler(req, res) {
   });
 
   const result = await emailRes.json();
-  if (!emailRes.ok) return res.status(500).json({ error: '送信に失敗しました', detail: result });
+  if (!emailRes.ok) {
+    // 原因の確認用。氏名・メール・本文などの個人情報はログに出さない
+    console.error('resend send failed', emailRes.status, result && result.name, result && result.message);
+    return res.status(500).json({ error: '送信に失敗しました' });
+  }
   return res.json({ ok: true });
 }
 

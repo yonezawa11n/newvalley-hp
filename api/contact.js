@@ -52,7 +52,8 @@ export default async function handler(req, res) {
   const result = await emailRes.json();
   if (!emailRes.ok) {
     // 原因の確認用。氏名・メール・本文などの個人情報はログに出さない
-    console.error('resend send failed', emailRes.status, result && result.name, result && result.message);
+    // Resend の message には宛先アドレスが入ることがあるので name だけ出す
+    console.error('contact: resend failed', emailRes.status, (result && result.name) || '');
     return res.status(500).json({ error: '送信に失敗しました' });
   }
   return res.json({ ok: true });

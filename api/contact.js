@@ -3,7 +3,7 @@
  * POST /api/contact
  * 必要な環境変数: RESEND_API_KEY
  * 任意: MAIL_TO（届け先。未設定なら newvalley.it@gmail.com）
- * 任意: MAIL_FROM（送信元。例: NewValley <noreply@newvalleyhp.com>。Resend でドメイン認証が必要）
+ * 任意: MAIL_FROM（送信元。未設定なら noreply@newvalleyhp.com。Resend で newvalleyhp.com は認証済み）
  */
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: process.env.MAIL_FROM || 'NewValley お問い合わせ <onboarding@resend.dev>',
+      from: process.env.MAIL_FROM || 'NewValley お問い合わせ <noreply@newvalleyhp.com>',
       to: [process.env.MAIL_TO || 'newvalley.it@gmail.com'],
       reply_to: email,
       subject,

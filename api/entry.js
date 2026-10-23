@@ -2,6 +2,7 @@
  * 採用エントリーフォーム送信 API
  * POST /api/entry
  * 必要な環境変数: RESEND_API_KEY（お問い合わせフォームと共通）
+ * 任意: MAIL_TO（届け先。未設定なら newvalley.it@gmail.com）
  * 任意: MAIL_FROM（送信元。例: NewValley <noreply@newvalleyhp.com>。Resend でドメイン認証が必要）
  * 応募者の個人情報はログ・エラー応答に出さないこと
  */
@@ -50,7 +51,7 @@ export default async function handler(req, res) {
     },
     body: JSON.stringify({
       from: process.env.MAIL_FROM || 'NewValley エントリー <onboarding@resend.dev>',
-      to: ['newvalleykouhou31@gmail.com'],
+      to: [process.env.MAIL_TO || 'newvalley.it@gmail.com'],
       reply_to: email,
       subject,
       html,

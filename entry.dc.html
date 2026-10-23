@@ -174,9 +174,14 @@ html{-webkit-text-size-adjust:100%;}
             <div>
               <label style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:8px;">ご希望の職種</label>
               <select name="position" style="width:100%;border:1.5px solid #e6ddcd;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Noto Sans JP',sans-serif;background:#faf7f0;outline:none;color:#43332a;">
-                <option>訪問介護スタッフ（ヘルパー）</option>
-                <option>サービス管理責任者／児発管</option>
-                <option>相談支援専門員</option>
+                <option>訪問介護スタッフ（フルタイム）</option>
+                <option>訪問介護スタッフ（短時間社員）</option>
+                <option>登録ヘルパー（パート）</option>
+                <option>児童指導員・保育士（放課後等デイサービス）</option>
+                <option>指導員・支援スタッフ（放課後等デイサービス・資格不問）</option>
+                <option>送迎ドライバー（放課後等デイサービス）</option>
+                <option>児発管・サービス管理責任者</option>
+                <option>グループホーム（世話人・生活支援員）</option>
                 <option>まだ決めていない／相談したい</option>
               </select>
             </div>
@@ -184,7 +189,8 @@ html{-webkit-text-size-adjust:100%;}
               <label style="display:block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#43332a;margin-bottom:8px;">お問い合わせ内容</label>
               <textarea name="message" rows="4" placeholder="ご質問やご希望をご記入ください" style="width:100%;border:1.5px solid #e6ddcd;border-radius:12px;padding:14px 16px;font-size:15px;font-family:'Noto Sans JP',sans-serif;background:#faf7f0;outline:none;resize:vertical;"></textarea>
             </div>
-            <button type="submit" style="margin-top:8px;border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;color:#43332a;background:#d6e06a;padding:17px;border-radius:999px;box-shadow:0 5px 0 #b9c44f;">この内容で送信する</button>
+            <button type="submit" id="entry-submit-btn" style="margin-top:8px;border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;color:#43332a;background:#d6e06a;padding:17px;border-radius:999px;box-shadow:0 5px 0 #b9c44f;">この内容で送信する</button>
+            <div id="entry-err" style="display:none;text-align:center;color:#c86880;font-size:13px;line-height:1.8;"></div>
           </div>
         </form>
       </div>
@@ -194,9 +200,47 @@ html{-webkit-text-size-adjust:100%;}
   <script>
   document.getElementById('entry-form-el').addEventListener('submit', function(e) {
     e.preventDefault();
-    document.getElementById('entry-form').style.display = 'none';
-    document.getElementById('entry-success').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    var form = e.target;
+    var btn = document.getElementById('entry-submit-btn');
+    var errEl = document.getElementById('entry-err');
+    var data = Object.fromEntries(new FormData(form).entries());
+    var LINE_MSG = '<br>お急ぎの方は<a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" rel="noopener" style="color:#c86880;font-weight:700;">公式LINE</a>からもご連絡いただけます。';
+
+    btn.disabled = true;
+    btn.textContent = '送信中...';
+    errEl.style.display = 'none';
+
+    function fail(msg) {
+      errEl.innerHTML = msg + LINE_MSG;
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'この内容で送信する';
+    }
+
+    fetch('/api/entry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        tel: data.tel,
+        position: data.position,
+        message: data.message,
+      }),
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(res){
+      if (res.ok) {
+        document.getElementById('entry-form').style.display = 'none';
+        document.getElementById('entry-success').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        fail('送信に失敗しました。時間をおいて再度お試しください。');
+      }
+    })
+    .catch(function(){
+      fail('通信エラーが発生しました。時間をおいて再度お試しください。');
+    });
   });
   </script>
 

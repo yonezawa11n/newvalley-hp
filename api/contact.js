@@ -2,6 +2,8 @@
  * お問い合わせフォーム送信 API
  * POST /api/contact
  * 必要な環境変数: RESEND_API_KEY
+ * 任意: MAIL_TO（届け先。未設定なら newvalley.it@gmail.com）
+ * 任意: MAIL_FROM（送信元。未設定なら noreply@newvalleyhp.com。Resend で newvalleyhp.com は認証済み）
  */
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -40,8 +42,8 @@ export default async function handler(req, res) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'NewValley お問い合わせ <onboarding@resend.dev>',
-      to: ['newvalleykouhou31@gmail.com'],
+      from: process.env.MAIL_FROM || 'NewValley お問い合わせ <noreply@newvalleyhp.com>',
+      to: [process.env.MAIL_TO || 'newvalley.it@gmail.com'],
       reply_to: email,
       subject,
       html,
@@ -49,7 +51,12 @@ export default async function handler(req, res) {
   });
 
   const result = await emailRes.json();
-  if (!emailRes.ok) return res.status(500).json({ error: '送信に失敗しました', detail: result });
+  if (!emailRes.ok) {
+    // 原因の確認用。氏名・メール・本文などの個人情報はログに出さない
+    // Resend の message には宛先アドレスが入ることがあるので name だけ出す
+    console.error('contact: resend failed', emailRes.status, (result && result.name) || '');
+    return res.status(500).json({ error: '送信に失敗しました' });
+  }
   return res.json({ ok: true });
 }
 

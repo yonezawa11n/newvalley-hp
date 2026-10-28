@@ -181,21 +181,25 @@ textarea{resize:vertical;min-height:180px;line-height:1.8;}
         <input type="text" id="f-image" placeholder="画像URLが自動入力されます（または外部URL直接入力も可）" style="margin-top:10px;">
         <div class="hint">アップロードすると自動でURLが入ります。外部URLを直接入力することもできます。</div>
 
-        <!-- 表示位置の調整 -->
+        <!-- 表示プレビュー -->
         <div class="pos-editor" id="pos-editor">
-          <label style="margin-top:18px;">表示位置の調整</label>
-          <div class="pos-frame" id="pos-frame">
-            <img id="img-preview-img" src="">
-            <div class="pos-badge" id="pos-badge">ドラッグして動かせます</div>
+          <label style="margin-top:18px;">サイトでの見え方（プレビュー）</label>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;">
+            <div style="flex:0 0 240px;">
+              <div class="hint" style="margin:0 0 6px;">お知らせ一覧・トップのカード</div>
+              <div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.08);">
+                <div style="height:150px;background:#f3eee6;"><img id="pv-card-img" src="" style="width:100%;height:100%;object-fit:contain;display:block;"></div>
+                <div style="padding:12px 14px;font-weight:700;font-size:13px;color:#43332a;line-height:1.6;" id="pv-card-title">タイトル</div>
+              </div>
+            </div>
+            <div style="flex:1 1 260px;min-width:0;">
+              <div class="hint" style="margin:0 0 6px;">記事ページ</div>
+              <div style="background:#fff;border-radius:16px;padding:14px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.08);">
+                <img id="img-preview-img" src="" style="max-width:100%;max-height:360px;width:auto;height:auto;border-radius:10px;display:inline-block;">
+              </div>
+            </div>
           </div>
-          <div class="pos-row">
-            <label for="pos-y">上下</label>
-            <input type="range" id="pos-y" min="0" max="100" value="50">
-            <label for="pos-x">左右</label>
-            <input type="range" id="pos-x" min="0" max="100" value="50">
-            <button type="button" class="pos-reset" onclick="resetImagePos()">中央に戻す</button>
-          </div>
-          <div class="hint">サイト上では画像が枠に合わせて切り抜かれます。見せたい部分が中央にくるよう調整してください。</div>
+          <div class="hint">画像は切り取られず、入れた画像の形のまま表示されます。</div>
         </div>
 
         <!-- 旧プレビュー（画像なし時の非表示用に保持） -->
@@ -487,60 +491,18 @@ function updateImagePreview(src) {
   }
 }
 
-// ===== 画像の表示位置（object-position）調整 =====
-var __posX = 50, __posY = 50;
-
+// ===== プレビュー（画像は切り取らず元の比率で表示するため、位置調整は不要） =====
 function applyImagePos() {
-  var img = document.getElementById('img-preview-img');
-  img.style.objectPosition = __posX + '% ' + __posY + '%';
-  document.getElementById('pos-x').value = __posX;
-  document.getElementById('pos-y').value = __posY;
-  document.getElementById('pos-badge').textContent =
-    (__posX === 50 && __posY === 50) ? 'ドラッグして動かせます' : '左右 ' + Math.round(__posX) + '% / 上下 ' + Math.round(__posY) + '%';
+  var src = document.getElementById('f-image').value.trim();
+  document.getElementById('pv-card-img').src = src;
+  document.getElementById('pv-card-title').textContent = document.getElementById('f-title').value.trim() || 'タイトル';
 }
-
-function setImagePos(x, y) {
-  __posX = Math.max(0, Math.min(100, x));
-  __posY = Math.max(0, Math.min(100, y));
-  applyImagePos();
-}
-
-function resetImagePos() { setImagePos(50, 50); }
-
-function getImagePosValue() {
-  return Math.round(__posX) + '% ' + Math.round(__posY) + '%';
-}
-
+function setImagePos() {}
+function resetImagePos() {}
+function getImagePosValue() { return '50% 50%'; }
 function initPosEditor() {
-  var frame = document.getElementById('pos-frame');
-  var dragging = false, startX = 0, startY = 0, baseX = 50, baseY = 50;
-
-  frame.addEventListener('pointerdown', function(e) {
-    dragging = true;
-    startX = e.clientX; startY = e.clientY;
-    baseX = __posX; baseY = __posY;
-    frame.classList.add('grabbing');
-    frame.setPointerCapture(e.pointerId);
-  });
-
-  frame.addEventListener('pointermove', function(e) {
-    if (!dragging) return;
-    var rect = frame.getBoundingClientRect();
-    // 掴んで動かす感覚に合わせ、ドラッグ方向と逆に object-position を動かす
-    var dx = (e.clientX - startX) / rect.width  * 100;
-    var dy = (e.clientY - startY) / rect.height * 100;
-    setImagePos(baseX - dx, baseY - dy);
-  });
-
-  ['pointerup','pointercancel'].forEach(function(evt) {
-    frame.addEventListener(evt, function() {
-      dragging = false;
-      frame.classList.remove('grabbing');
-    });
-  });
-
-  document.getElementById('pos-x').addEventListener('input', function() { setImagePos(+this.value, __posY); });
-  document.getElementById('pos-y').addEventListener('input', function() { setImagePos(__posX, +this.value); });
+  document.getElementById('f-title').addEventListener('input', applyImagePos);
+  document.getElementById('f-image').addEventListener('input', function () { updateImagePreview(this.value.trim()); });
 }
 
 function checkPassword() {
@@ -777,6 +739,15 @@ function showMsg(text, type) {
   <div style="background:#fff;border-radius:20px;padding:20px;max-width:380px;width:100%;max-height:96vh;overflow:auto;text-align:center;">
     <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#43332a;margin-bottom:12px;">インスタ ストーリー用画像</div>
     <canvas id="story-canvas" width="1080" height="1920" style="width:100%;max-width:300px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.18);"></canvas>
+    <div style="text-align:left;margin-top:14px;display:flex;flex-direction:column;gap:10px;font-size:13px;color:#43332a;">
+      <label>ラベル<input type="text" id="st-label" style="margin-top:4px;"></label>
+      <label>タイトル（改行もできます）<textarea id="st-title" rows="3" style="margin-top:4px;min-height:0;"></textarea></label>
+      <label>日付<input type="text" id="st-date" style="margin-top:4px;"></label>
+      <label>下のボタンの文字<input type="text" id="st-foot" style="margin-top:4px;"></label>
+      <label style="display:flex;align-items:center;gap:8px;"><input type="checkbox" id="st-photo" style="width:auto;margin:0;" checked>写真を入れる</label>
+      <label>背景の色
+        <select id="st-bg" style="margin-top:4px;"><option value="#f7f1e7">ベージュ</option><option value="#e7f2e6">グリーン</option><option value="#fbe9ee">ピンク</option><option value="#e6eef6">ブルー</option></select></label>
+    </div>
     <p style="font-size:12px;color:#8a7d70;line-height:1.7;margin:12px 0;">保存した画像をストーリーに載せて、リンクスタンプで<br>newvalleyhp.com を貼ってください。</p>
     <button class="submit-btn" id="story-save" type="button">画像を保存する</button>
     <button type="button" onclick="document.getElementById('story-modal').style.display='none'" style="margin-top:8px;width:100%;padding:10px;background:none;border:none;color:#a99c8f;font-size:14px;cursor:pointer;">閉じる</button>
@@ -809,12 +780,23 @@ function openStory(a) {
   var cv = document.getElementById('story-canvas'), ctx = cv.getContext('2d'), W = 1080, H = 1920;
   document.getElementById('story-modal').style.display = 'flex';
   var F = "'Zen Maru Gothic', sans-serif";
+  var $ = function (id) { return document.getElementById(id); };
+  var dd = a.date ? new Date(a.date) : null;
+  $('st-label').value = (a.category || 'お知らせ') + '　NEWS';
+  $('st-title').value = a.title || '';
+  $('st-date').value = dd ? dd.getFullYear() + '.' + (dd.getMonth() + 1) + '.' + dd.getDate() : '';
+  $('st-foot').value = 'くわしくはホームページへ';
+  $('st-photo').checked = !!a.image; $('st-photo').disabled = !a.image;
+  $('st-bg').value = '#f7f1e7';
   Promise.all([
     document.fonts.load('900 60px "Zen Maru Gothic"'), document.fonts.load('700 40px "Zen Maru Gothic"'),
     loadImg(a.image), loadImg('assets/newvalley-logo.png')
   ]).then(function (r) {
-    var photo = r[2], logo = r[3];
-    ctx.fillStyle = '#f7f1e7'; ctx.fillRect(0, 0, W, H);
+    var photo0 = r[2], logo = r[3];
+    function draw() {
+    var photo = $('st-photo').checked ? photo0 : null;
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = $('st-bg').value; ctx.fillRect(0, 0, W, H);
     ctx.fillStyle = '#e9dfcf'; ctx.beginPath(); ctx.arc(W + 60, 140, 300, 0, 7); ctx.fill();
     ctx.beginPath(); ctx.arc(-80, H - 180, 260, 0, 7); ctx.fill();
     // ヘッダー
@@ -825,7 +807,7 @@ function openStory(a) {
     // ラベル
     y = 300;
     ctx.font = '700 40px ' + F;
-    var lab = (a.category || 'お知らせ') + '　NEWS', lw2 = ctx.measureText(lab).width + 70;
+    var lab = $('st-label').value, lw2 = ctx.measureText(lab).width + 70;
     ctx.fillStyle = '#3f8f4f'; storyRound(ctx, 90, y - 54, lw2, 76, 38); ctx.fill();
     ctx.fillStyle = '#fff'; ctx.fillText(lab, 125, y);
     // 写真（元の比率のまま枠に収める）
@@ -838,17 +820,21 @@ function openStory(a) {
       ctx.save(); storyRound(ctx, px, py, pw, ph, 28); ctx.clip(); ctx.drawImage(photo, px, py, pw, ph); ctx.restore();
       y = py + ph + 90;
     } else y = 520;
-    if (a.date) { var d = new Date(a.date); ctx.fillStyle = '#8a7d70'; ctx.font = '700 38px ' + F;
-      ctx.fillText(d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate(), 90, y); y += 100; }
+    if ($('st-date').value) { ctx.fillStyle = '#8a7d70'; ctx.font = '700 38px ' + F; ctx.fillText($('st-date').value, 90, y); y += 100; }
     // タイトル
     ctx.fillStyle = '#3b2f26'; ctx.font = '900 66px ' + F;
-    storyWrap(ctx, a.title || '', W - 180, photo ? 3 : 6).forEach(function (l) { ctx.fillText(l, 90, y); y += 96; });
+    var maxL = photo ? 3 : 7, out = [];
+    $('st-title').value.split('\n').forEach(function (para) { out = out.concat(storyWrap(ctx, para, W - 180, maxL)); });
+    out.slice(0, maxL).forEach(function (l) { ctx.fillText(l, 90, y); y += 96; });
     // フッター
     ctx.fillStyle = '#43332a'; storyRound(ctx, 90, H - 330, W - 180, 150, 75); ctx.fill();
     ctx.fillStyle = '#fff'; ctx.font = '900 46px ' + F; ctx.textAlign = 'center';
-    ctx.fillText('くわしくはホームページへ', W / 2, H - 240);
+    ctx.fillText($('st-foot').value, W / 2, H - 240);
     ctx.fillStyle = '#d6e06a'; ctx.font = '700 34px ' + F; ctx.fillText('newvalleyhp.com', W / 2, H - 196 + 0);
     ctx.textAlign = 'left';
+    }
+    draw();
+    ['st-label', 'st-title', 'st-date', 'st-foot', 'st-photo', 'st-bg'].forEach(function (id) { $(id).oninput = draw; $(id).onchange = draw; });
   });
   document.getElementById('story-save').onclick = function () {
     var name = 'story-' + (a.date || 'news') + '.png';

@@ -99,25 +99,98 @@ html{-webkit-text-size-adjust:100%;}
     <button id="video-skip" style="position:absolute;bottom:24px;right:28px;z-index:10;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:13px;color:#fff;background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.4);padding:8px 18px;border-radius:999px;cursor:pointer;backdrop-filter:blur(4px);display:none;">スキップ ▶▶</button>
 
     <!-- ツリー画像：動画中は非表示、終了後フェードイン -->
-    <img id="hero-tree" src="uploads/nv-tree.png" alt="人と地域の未来を育てる、6つの事業"
+    <img id="hero-tree" src="uploads/nv-tree-2027.jpg" alt="NewValleyの事業：相談支援 えみたすサポート、放課後等デイサービス マーチ・びよんど・新規事業所、訪問介護 クラージュ、エックスモバイル、DX・ITデザイン、障がい者シェアハウス、生活介護・GH"
          style="position:relative;width:100%;display:block;z-index:3;opacity:0;transition:opacity 1.5s ease;">
 
     <!-- ホットスポット（透明な当たり判定） -->
     <div id="hero-hotspots" style="position:absolute;inset:0;z-index:4;">
-      <div class="hero-blob" data-idx="0" style="left:19.5%;top:42%;width:23.4%;height:35.2%;border-radius:50%;"></div>
-      <div class="hero-blob" data-idx="1" style="left:45.6%;top:24.4%;width:28.6%;height:43%;border-radius:50%;"></div>
-      <div class="hero-blob" data-idx="2" style="left:70.3%;top:30.8%;width:24.1%;height:36.1%;border-radius:50%;"></div>
-      <div class="hero-blob" data-idx="3" style="left:15.6%;top:64%;width:23.4%;height:35.2%;border-radius:50%;"></div>
-      <div class="hero-blob" data-idx="4" style="left:57%;top:63%;width:24%;height:33%;border-radius:50%;"></div>
-      <div class="hero-blob" data-idx="5" style="left:82%;top:48%;width:24%;height:36%;border-radius:50%;"></div>
-      <div class="hero-blob" data-idx="6" style="left:81.7%;top:79.1%;width:13%;height:16.1%;border-radius:14px;"></div>
+      <div class="hero-blob" data-href=houkago-day.dc.html style="left:15%;top:38.5%;width:23%;height:36%;border-radius:50%;"></div>
+      <div class="hero-blob" data-href=emitas.dc.html style="left:30.5%;top:23.3%;width:22%;height:34%;border-radius:50%;"></div>
+      <div class="hero-blob" data-idx=1 style="left:50%;top:18.8%;width:23%;height:30.5%;border-radius:50%;"></div>
+      <div class="hero-blob" data-href=biyondo.dc.html style="left:69%;top:21.5%;width:21%;height:32%;border-radius:50%;"></div>
+      <div class="hero-blob" data-href=dx.dc.html style="left:87%;top:38.5%;width:21%;height:32%;border-radius:50%;"></div>
+      <div class="hero-blob" data-href=courage.dc.html style="left:28%;top:59%;width:21%;height:30.5%;border-radius:50%;"></div>
+      <div class="hero-blob" data-href=xmobile.dc.html style="left:68%;top:57.3%;width:22%;height:34%;border-radius:50%;"></div>
+      <div class="hero-blob" data-href=sharehouse.dc.html style="left:88%;top:66.3%;width:20%;height:27%;border-radius:50%;"></div>
+      <div class="hero-blob" data-href=gh.dc.html style="left:76%;top:86%;width:13%;height:18%;border-radius:14px;"></div>
+      <div class="hero-blob" data-href=#bz-cards style="left:18.5%;top:86%;width:13%;height:16%;border-radius:14px;"></div>
     </div>
 
-    <!-- ヒントピル -->
-    <div style="position:absolute;bottom:22px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.9);border-radius:999px;padding:9px 22px;font-family:'Zen Maru Gothic',sans-serif;font-weight:600;font-size:12px;color:#5d4326;box-shadow:0 4px 14px rgba(0,0,0,.1);white-space:nowrap;pointer-events:none;z-index:4;">
-      各事業の葉にカーソルを合わせると詳細が表示されます →
+  </section>
+
+
+  <!-- ========== 事業から探す（カード一覧） ========== -->
+  <style>
+    .bz-wrap{position:relative;max-width:1180px;margin:0 auto;}
+    .bz-row{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 10px;}
+    .bz-row::-webkit-scrollbar{display:none;}
+    .bz-card{position:relative;flex:0 0 210px;height:280px;border-radius:12px;overflow:hidden;scroll-snap-align:start;text-decoration:none;display:block;box-shadow:0 4px 14px rgba(67,51,42,.10);}
+    .bz-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+    .bz-card:hover img{transform:scale(1.05);}
+    .bz-card::after{content:"";position:absolute;inset:0;background:rgba(30,24,20,.42);}
+    .bz-in{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 12px;}
+    .bz-in svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:10px;}
+    .bz-sub{font-size:12px;line-height:1.5;margin-bottom:16px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+    .bz-t{font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:21px;line-height:1.35;text-shadow:0 2px 8px rgba(0,0,0,.45);}
+    .bz-nav{position:absolute;top:50%;transform:translateY(-60%);width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.95);box-shadow:0 2px 10px rgba(0,0,0,.18);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;}
+    .bz-nav svg{width:18px;height:18px;fill:none;stroke:#43332a;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
+    .bz-nav[hidden]{display:none;}
+    @media (max-width:767px){ .bz-card{flex-basis:46%;height:240px;} .bz-t{font-size:18px;} .bz-nav{display:none;} }
+  </style>
+  <section id="bz-cards" style="background:#fff;padding:44px 24px 40px;scroll-margin-top:80px;">
+    <div class="bz-wrap">
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;color:#43332a;margin:0 0 16px;padding-left:4px;">事業から探す</h2>
+      <button class="bz-nav" id="bz-prev" aria-label="前へ" style="left:-14px;" hidden><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="bz-row" id="bz-row">
+        <a class="bz-card" href="march-yamato.dc.html">
+          <img src="uploads/marchyamato.jpg" alt="マーチ（大和校）" loading="lazy">
+          <span class="bz-in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="16" cy="8" r="2.5"/><path d="M4 20v-2a5 5 0 0 1 10 0v2"/><path d="M14 20v-1.5a4 4 0 0 1 6-3.4"/></svg><span class="bz-sub">運動あそびで「できた！」を育む</span><span class="bz-t">マーチ<br>（大和校）</span></span>
+        </a>
+        <a class="bz-card" href="march-machida.dc.html">
+          <img src="uploads/march-machida/work1.jpg" alt="マーチ（町田校）" loading="lazy">
+          <span class="bz-in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="16" cy="8" r="2.5"/><path d="M4 20v-2a5 5 0 0 1 10 0v2"/><path d="M14 20v-1.5a4 4 0 0 1 6-3.4"/></svg><span class="bz-sub">町田エリアの放課後の居場所</span><span class="bz-t">マーチ<br>（町田校）</span></span>
+        </a>
+        <a class="bz-card" href="biyondo.dc.html">
+          <img src="uploads/biyondoyamato.jpg" alt="びよんど" loading="lazy">
+          <span class="bz-in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="16" cy="8" r="2.5"/><path d="M4 20v-2a5 5 0 0 1 10 0v2"/><path d="M14 20v-1.5a4 4 0 0 1 6-3.4"/></svg><span class="bz-sub">その子らしさを大切に</span><span class="bz-t">びよんど</span></span>
+        </a>
+        <a class="bz-card" href="houkago-day.dc.html">
+          <img src="uploads/march-machida/work3.jpg" alt="放課後等デイサービス（新規）" loading="lazy">
+          <span class="bz-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9"/><path d="M12 12c0-3.5-2.5-6-6-6 0 3.5 2.5 6 6 6z"/><path d="M12 12c0-3.5 2.5-6 6-6 0 3.5-2.5 6-6 6z"/></svg><span class="bz-sub">2027年オープン予定</span><span class="bz-t">放課後等デイ<br>（新規）</span></span>
+        </a>
+        <a class="bz-card" href="courage.dc.html">
+          <img src="uploads/couragemachida.jpg" alt="訪問介護クラージュ" loading="lazy">
+          <span class="bz-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-9.5A4 4 0 0 1 12 8a4 4 0 0 1 7 2.5C19 15.6 12 20 12 20z"/></svg><span class="bz-sub">ご自宅での暮らしを支える</span><span class="bz-t">訪問介護<br>クラージュ</span></span>
+        </a>
+        <a class="bz-card" href="emitas.dc.html">
+          <img src="uploads/soudanemitasu.jpg" alt="相談支援えみたす" loading="lazy">
+          <span class="bz-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 12h5"/></svg><span class="bz-sub">一人ひとりの想いに寄り添う</span><span class="bz-t">相談支援<br>えみたす</span></span>
+        </a>
+        <a class="bz-card" href="sharehouse.dc.html">
+          <img src="uploads/sharehouse/living.jpg" alt="障がい者シェアハウス" loading="lazy">
+          <span class="bz-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-6 8 6"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/></svg><span class="bz-sub">2027年1月オープン予定</span><span class="bz-t">障がい者<br>シェアハウス</span></span>
+        </a>
+        <a class="bz-card" href="xmobile.dc.html">
+          <img src="uploads/xmobile.JPG" alt="エックスモバイル" loading="lazy">
+          <span class="bz-in"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg><span class="bz-sub">大和桜ヶ丘駅前の携帯ショップ</span><span class="bz-t">エックス<br>モバイル</span></span>
+        </a>
+        <a class="bz-card" href="dx.dc.html">
+          <img src="uploads/ITdesign.png" alt="DX・ITデザイン" loading="lazy">
+          <span class="bz-in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13 6l-2 12"/></svg><span class="bz-sub">課題を仕組みで解決する</span><span class="bz-t">DX・IT<br>デザイン</span></span>
+        </a>
+      </div>
+      <button class="bz-nav" id="bz-next" aria-label="次へ" style="right:-14px;"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   </section>
+  <script>
+  (function(){
+    var row=document.getElementById('bz-row'), p=document.getElementById('bz-prev'), n=document.getElementById('bz-next');
+    function upd(){ p.hidden = row.scrollLeft < 8; n.hidden = row.scrollLeft + row.clientWidth >= row.scrollWidth - 8; }
+    function go(d){ row.scrollBy({left: d * (row.clientWidth * 0.8), behavior:'smooth'}); }
+    p.addEventListener('click', function(){ go(-1); }); n.addEventListener('click', function(){ go(1); });
+    row.addEventListener('scroll', upd); window.addEventListener('resize', upd); upd();
+  })();
+  </script>
 
   <!-- スライドパネル（fixed でセクション外、ホットスポットを塞がない） -->
   <div id="hero-panel">
@@ -248,8 +321,13 @@ html{-webkit-text-size-adjust:100%;}
 
     // ホットスポット
     document.querySelectorAll('.hero-blob').forEach(function(el){
-      el.addEventListener('mouseenter', function(){ showPanel(+el.dataset.idx); });
       el.addEventListener('click', function(){
+        var href = el.dataset.href;
+        if (href) {
+          if (href.charAt(0) === '#') { var t = document.querySelector(href); if (t) t.scrollIntoView({behavior:'smooth', block:'start'}); }
+          else { window.location.href = href; }
+          return;
+        }
         var b = businesses[+el.dataset.idx];
         if (b.pages) {
           marchModal.style.display = 'flex';
@@ -260,7 +338,6 @@ html{-webkit-text-size-adjust:100%;}
         else { window.location.href = b.page; }
       });
     });
-    hotspots.addEventListener('mouseleave', scheduleClose);
 
     // パネル自体にホバー中は閉じない
     panel.addEventListener('mouseenter', function(){ clearTimeout(timer); });

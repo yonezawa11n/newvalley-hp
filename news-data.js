@@ -102,3 +102,15 @@ function newsFormatDate(str) {
   var d = new Date(str);
   return d.getFullYear() + '年' + (d.getMonth()+1) + '月' + d.getDate() + '日';
 }
+
+/* 投稿日から5日間は NEW を表示 */
+function newsIsNew(dateStr) {
+  if (!dateStr) return false;
+  var p = String(dateStr).split('-'), d = new Date(+p[0], +p[1] - 1, +p[2]);
+  var t = new Date(); t.setHours(0, 0, 0, 0);
+  var days = Math.round((t - d) / 86400000);
+  return days >= 0 && days < 5;
+}
+function newsNewBadge(dateStr) {
+  return newsIsNew(dateStr) ? '<span style="flex:none;font-family:\'Quicksand\',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;color:#fff;background:#e0564a;padding:2px 9px;border-radius:999px;line-height:1.6;">NEW</span>' : '';
+}

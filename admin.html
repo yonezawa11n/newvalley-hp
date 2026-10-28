@@ -613,11 +613,17 @@ function renderArticleList(articles) {
       + '<div class="article-title">' + a.title + '</div>'
       + '</div>'
       + '<div style="display:flex;gap:8px;flex:none;">'
+      + '<button class="del-btn" onclick="storyById(\'' + a.id + '\')" style="border-color:#c86880;color:#c86880;">ストーリー画像</button>'
       + '<button class="del-btn" onclick="editArticle(\'' + a.id + '\')" style="border-color:#6f9fc1;color:#6f9fc1;">編集</button>'
       + '<button class="del-btn" onclick="deleteArticle(\'' + a.id + '\')">削除</button>'
       + '</div>';
     el.appendChild(row);
   });
+}
+
+function storyById(id) {
+  var a = __allArticles.find(function(x){ return x.id === id; });
+  if (a) openStory(a);
 }
 
 function editArticle(id) {
@@ -710,6 +716,7 @@ function submitArticle() {
   .then(function(data) {
     if (data.ok) {
       showMsg(isEdit ? '✅ 更新しました！' : '✅ 投稿しました！サイトに反映されました。', 'ok');
+      if (!isEdit) openStory(article);
       cancelEdit();
       loadArticles();
     } else {
@@ -762,6 +769,98 @@ function showMsg(text, type) {
   el.className = 'result-msg ' + type;
   el.style.display = 'block';
   setTimeout(function(){ el.style.display = 'none'; }, 5000);
+}
+</script>
+
+<!-- インスタ ストーリー用画像 -->
+<div id="story-modal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:16px;">
+  <div style="background:#fff;border-radius:20px;padding:20px;max-width:380px;width:100%;max-height:96vh;overflow:auto;text-align:center;">
+    <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#43332a;margin-bottom:12px;">インスタ ストーリー用画像</div>
+    <canvas id="story-canvas" width="1080" height="1920" style="width:100%;max-width:300px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.18);"></canvas>
+    <p style="font-size:12px;color:#8a7d70;line-height:1.7;margin:12px 0;">保存した画像をストーリーに載せて、リンクスタンプで<br>newvalleyhp.com を貼ってください。</p>
+    <button class="submit-btn" id="story-save" type="button">画像を保存する</button>
+    <button type="button" onclick="document.getElementById('story-modal').style.display='none'" style="margin-top:8px;width:100%;padding:10px;background:none;border:none;color:#a99c8f;font-size:14px;cursor:pointer;">閉じる</button>
+  </div>
+</div>
+<script>
+function storyWrap(ctx, text, maxW, maxLines) {
+  var lines = [], line = '';
+  for (var i = 0; i < text.length; i++) {
+    var t = line + text[i];
+    if (ctx.measureText(t).width > maxW && line) { lines.push(line); line = text[i]; } else line = t;
+  }
+  if (line) lines.push(line);
+  if (lines.length > maxLines) { lines = lines.slice(0, maxLines); lines[maxLines - 1] = lines[maxLines - 1].slice(0, -1) + '…'; }
+  return lines;
+}
+function storyRound(ctx, x, y, w, h, r) {
+  ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+}
+function loadImg(src) {
+  return new Promise(function (ok) {
+    if (!src) return ok(null);
+    var im = new Image(); im.crossOrigin = 'anonymous';
+    im.onload = function () { ok(im); }; im.onerror = function () { ok(null); };
+    im.src = src;
+  });
+}
+function openStory(a) {
+  var cv = document.getElementById('story-canvas'), ctx = cv.getContext('2d'), W = 1080, H = 1920;
+  document.getElementById('story-modal').style.display = 'flex';
+  var F = "'Zen Maru Gothic', sans-serif";
+  Promise.all([
+    document.fonts.load('900 60px "Zen Maru Gothic"'), document.fonts.load('700 40px "Zen Maru Gothic"'),
+    loadImg(a.image), loadImg('assets/newvalley-logo.png')
+  ]).then(function (r) {
+    var photo = r[2], logo = r[3];
+    ctx.fillStyle = '#f7f1e7'; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#e9dfcf'; ctx.beginPath(); ctx.arc(W + 60, 140, 300, 0, 7); ctx.fill();
+    ctx.beginPath(); ctx.arc(-80, H - 180, 260, 0, 7); ctx.fill();
+    // ヘッダー
+    var y = 150;
+    if (logo) { var lh = 110, lw = logo.width * lh / logo.height; ctx.drawImage(logo, 90, y - 80, lw, lh); }
+    ctx.fillStyle = '#43332a'; ctx.font = '900 46px ' + F; ctx.textBaseline = 'alphabetic';
+    ctx.fillText('New Valley', logo ? 90 + 130 : 90, y);
+    // ラベル
+    y = 300;
+    ctx.font = '700 40px ' + F;
+    var lab = (a.category || 'お知らせ') + '　NEWS', lw2 = ctx.measureText(lab).width + 70;
+    ctx.fillStyle = '#3f8f4f'; storyRound(ctx, 90, y - 54, lw2, 76, 38); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.fillText(lab, 125, y);
+    // 写真（元の比率のまま枠に収める）
+    var bx = 90, by = 380, bw = W - 180, bh = 780;
+    if (photo) {
+      var sc = Math.min(bw / photo.width, bh / photo.height), pw = photo.width * sc, ph = photo.height * sc;
+      var px = bx + (bw - pw) / 2, py = by + (bh - ph) / 2;
+      ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.18)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 14;
+      storyRound(ctx, px, py, pw, ph, 28); ctx.fillStyle = '#fff'; ctx.fill(); ctx.restore();
+      ctx.save(); storyRound(ctx, px, py, pw, ph, 28); ctx.clip(); ctx.drawImage(photo, px, py, pw, ph); ctx.restore();
+      y = py + ph + 90;
+    } else y = 520;
+    if (a.date) { var d = new Date(a.date); ctx.fillStyle = '#8a7d70'; ctx.font = '700 38px ' + F;
+      ctx.fillText(d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate(), 90, y); y += 100; }
+    // タイトル
+    ctx.fillStyle = '#3b2f26'; ctx.font = '900 66px ' + F;
+    storyWrap(ctx, a.title || '', W - 180, photo ? 3 : 6).forEach(function (l) { ctx.fillText(l, 90, y); y += 96; });
+    // フッター
+    ctx.fillStyle = '#43332a'; storyRound(ctx, 90, H - 330, W - 180, 150, 75); ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.font = '900 46px ' + F; ctx.textAlign = 'center';
+    ctx.fillText('くわしくはホームページへ', W / 2, H - 240);
+    ctx.fillStyle = '#d6e06a'; ctx.font = '700 34px ' + F; ctx.fillText('newvalleyhp.com', W / 2, H - 196 + 0);
+    ctx.textAlign = 'left';
+  });
+  document.getElementById('story-save').onclick = function () {
+    var name = 'story-' + (a.date || 'news') + '.png';
+    try {
+      cv.toBlob(function (b) {
+        var file = new File([b], name, { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) { navigator.share({ files: [file] }).catch(function () {}); return; }
+        var u = URL.createObjectURL(b), el = document.createElement('a'); el.href = u; el.download = name; el.click();
+        setTimeout(function () { URL.revokeObjectURL(u); }, 3000);
+      }, 'image/png');
+    } catch (e) { alert('画像を保存できませんでした。写真を外して作り直すか、画面を長押しして保存してください。'); }
+  };
 }
 </script>
 </body>

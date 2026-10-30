@@ -243,6 +243,7 @@ textarea{resize:vertical;min-height:180px;line-height:1.8;}
   </div>
 </div>
 
+<script src="news-data.js"></script>
 <script>
 var SESSION_KEY = 'nv_admin_pass';
 var __editingId = null;
@@ -553,6 +554,11 @@ function loadArticles() {
 }
 
 function renderArticleList(articles) {
+  // サイトのコード（news-data.js）に書かれた記事も、ストーリー画像を作れるように一覧に出す
+  var fixed = (typeof NEWS_DATA !== 'undefined' ? NEWS_DATA : []).filter(function(f) {
+    return !articles.some(function(x) { return x.id === f.id; });
+  }).map(function(f) { return Object.assign({ fixed: true }, f); });
+  articles = articles.concat(fixed).sort(function(x, y) { return String(y.date).localeCompare(String(x.date)); });
   __allArticles = articles;
   var el = document.getElementById('articles-list');
   if (!articles.length) {
@@ -576,8 +582,9 @@ function renderArticleList(articles) {
       + '</div>'
       + '<div style="display:flex;gap:8px;flex:none;">'
       + '<button class="del-btn" onclick="storyById(\'' + a.id + '\')" style="border-color:#c86880;color:#c86880;">ストーリー画像</button>'
-      + '<button class="del-btn" onclick="editArticle(\'' + a.id + '\')" style="border-color:#6f9fc1;color:#6f9fc1;">編集</button>'
-      + '<button class="del-btn" onclick="deleteArticle(\'' + a.id + '\')">削除</button>'
+      + (a.fixed ? '' :
+          '<button class="del-btn" onclick="editArticle(\'' + a.id + '\')" style="border-color:#6f9fc1;color:#6f9fc1;">編集</button>'
+        + '<button class="del-btn" onclick="deleteArticle(\'' + a.id + '\')">削除</button>')
       + '</div>';
     el.appendChild(row);
   });

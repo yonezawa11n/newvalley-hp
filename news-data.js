@@ -14,6 +14,39 @@
 
 var NEWS_DATA = [
   {
+    id: 'halloween-2026',
+    date: '2026-10-30',
+    category: 'イベント',
+    title: '1日前ハロウィンを開催しました',
+    excerpt: '今年のハロウィン当日（10/31）は土曜日で本部がお休みのため、1日前の10月30日にハロウィンを開催しました。仮装をして、いつもお世話になっている方へおやつを配ったり、事業所をまわったりしました。',
+    image: 'uploads/oshirase/halloween2026-main.jpg',
+    body: `
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">今年のハロウィン当日（10月31日）は土曜日で、本部はお休み。<br>ということで、NewValley は<strong>1日前の10月30日にハロウィン</strong>を開催しました🎃</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">朝のオンライン会議からみんな仮装で参加。この日のお仕事は「お菓子詰め」からスタートです。</p>
+      <div style="max-width:300px;margin:20px auto;"><img src="uploads/oshirase/halloween2026-okashi.jpg" alt="お菓子詰めの様子" style="width:100%;height:auto;border-radius:14px;display:block;" loading="lazy"></div>
+
+      <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;color:#43332a;margin:36px 0 12px;">いつもお世話になっている方へ</h3>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">仮装のまま、いつもお世話になっている不動産屋さん・整骨院さん・近所のお店へおやつを配りにまわりました。整骨院さんとは一緒に動画撮影、お店では逆におやつをいただいてしまいました。ありがとうございました！</p>
+      <div style="max-width:300px;margin:20px auto;"><img src="uploads/oshirase/halloween2026-seikotsu.jpg" alt="整骨院さんと一緒に" style="width:100%;height:auto;border-radius:14px;display:block;" loading="lazy"></div>
+
+      <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;color:#43332a;margin:36px 0 12px;">事業所めぐり</h3>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">マーチ大和では、スタッフのみんなが笑顔で迎えてくれました。放課後等デイサービス びよんど にもおじゃましました。しょうが人形の正体は…ちょっと明かせません🤫</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px;margin:20px auto;"><img src="uploads/oshirase/halloween2026-march.jpg" alt="マーチ大和のスタッフ" style="width:100%;height:auto;border-radius:14px;display:block;" loading="lazy"><img src="uploads/oshirase/halloween2026-biyondo.jpg" alt="びよんどにて" style="width:100%;height:auto;border-radius:14px;display:block;" loading="lazy"></div>
+
+      <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;color:#43332a;margin:36px 0 12px;">最後は高座渋谷駅へ</h3>
+      <div style="max-width:300px;margin:20px auto;"><img src="uploads/oshirase/halloween2026-station.jpg" alt="高座渋谷駅にて" style="width:100%;height:auto;border-radius:14px;display:block;" loading="lazy"></div>
+
+      <div style="background:#faf7f0;border-radius:16px;padding:24px 28px;margin:32px 0;">
+        <p style="font-size:15px;line-height:2.0;color:#6b6358;margin:0;">「イベントやろう！」と社長が積極的に盛り上げる会社です。<br>来年は<strong>放課後デイのスタッフも一緒に、大和市のハロウィンイベントに参加予定</strong>です🎃</p>
+      </div>
+
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">楽しく働く会社で、一緒に働きませんか？</p>
+      <div style="text-align:center;margin:32px 0 0;">
+        <a href="/careers/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#4a7a3f;padding:16px 36px;border-radius:999px;box-shadow:0 4px 0 #365c2e;">採用情報を見る →</a>
+      </div>
+    `
+  },
+  {
     id: 'waku-award-2026',
     date: '2026-02-23',
     category: 'お知らせ',

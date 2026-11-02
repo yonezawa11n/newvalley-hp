@@ -14,6 +14,24 @@
 
 var NEWS_DATA = [
   {
+    id: 'instagram-100-followers',
+    date: '2026-11-02',
+    category: 'お知らせ',
+    title: 'Instagramフォロワー100人達成！',
+    excerpt: 'このたび、Instagramのフォロワーが100人になりました！NewValleyに興味を持ち、フォローしてくださった皆さま、本当にありがとうございます！',
+    image: 'uploads/oshirase/instagram-100.jpg',
+    body: `
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">🎉 このたび、Instagramのフォロワーが100人になりました！</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">私たちNewValleyに興味を持ち、フォローしてくださった皆さま、本当にありがとうございます！<br>会社のことを知ってくださる方が100人もいることを、とても嬉しく、ありがたく感じています。</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">これからも、神奈川県央エリアで必要とされ、地域の皆さまに信頼していただける会社を目指して、一歩ずつ成長してまいります。</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">福祉を通じて地域に貢献し、たくさんの方に「NewValleyがあってよかった」と思っていただけるよう、これからも精進してまいります！</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">今後ともNewValleyをよろしくお願いいたします！✨</p>
+      <div style="text-align:center;margin:32px 0 0;">
+        <a href="https://www.instagram.com/newvalley_recruit/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#c86880;padding:16px 36px;border-radius:999px;box-shadow:0 4px 0 #a5506a;">Instagramを見る →</a>
+      </div>
+    `
+  },
+  {
     id: 'halloween-2026',
     date: '2026-10-30',
     category: 'イベント',

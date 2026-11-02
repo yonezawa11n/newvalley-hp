@@ -14,6 +14,27 @@
 
 var NEWS_DATA = [
   {
+    id: 'emitas-kasan-2026',
+    date: '2026-11-02',
+    category: 'お知らせ',
+    title: '相談支援事業所 えみたすサポートの体制加算について公表しました',
+    excerpt: '相談支援事業所「えみたすサポート」が、行動障害支援体制加算・精神障害者支援体制加算・高次脳機能障害支援体制加算の対象事業所となりましたので公表いたします。',
+    image: 'uploads/soudanemitasu.jpg',
+    body: `
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">相談支援事業所「えみたすサポート」は、下記の体制加算の対象事業所となりましたので公表いたします。</p>
+      <ul style="font-size:15px;line-height:2.0;color:#6b6358;padding-left:1.4em;">
+        <li>行動障害支援体制加算</li>
+        <li>精神障害者支援体制加算</li>
+        <li>高次脳機能障害支援体制加算</li>
+      </ul>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">それぞれの専門研修を修了した相談支援専門員を配置しています。引き続き、関係する研修を受講し、障がい特性の理解や支援技術の向上に努めてまいります。</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">詳しい内容は、えみたすサポートのページに掲載しています。</p>
+      <div style="text-align:center;margin:32px 0 0;">
+        <a href="emitas.dc.html#kasan" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#3a6b30;padding:16px 36px;border-radius:999px;box-shadow:0 4px 0 #2a5022;">体制加算の公表を見る →</a>
+      </div>
+    `
+  },
+  {
     id: 'instagram-100-followers',
     date: '2026-11-02',
     category: 'お知らせ',

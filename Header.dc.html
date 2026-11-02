@@ -58,6 +58,13 @@ html{-webkit-text-size-adjust:100%;}
   /* ヒーローの高さを抑える */
   section[style*="height:480px"],section[style*="height:420px"]{height:320px !important;}
 }
+.nv-dd{position:relative;}
+.nv-dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;display:none;z-index:200;}
+.nv-dd:hover .nv-dd-menu,.nv-dd:focus-within .nv-dd-menu{display:block;}
+.nv-dd-box{background:#fff;border-radius:16px;box-shadow:0 12px 32px rgba(67,51,42,.16);padding:8px;min-width:260px;}
+.nv-dd-box a{display:block;padding:12px 16px;border-radius:10px;text-decoration:none;color:#43332a;font-size:14px;white-space:nowrap;}
+.nv-dd-box a:hover{background:#faf7f0;}
+.nv-dd-box small{display:block;font-size:11px;color:#a99c8f;margin-top:2px;}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
 <style>/* nv-handwriting */ h1,h2,h3{font-family:'Yomogi','Zen Maru Gothic',sans-serif !important;}</style>
@@ -74,7 +81,13 @@ html{-webkit-text-size-adjust:100%;}
     <a href="business.dc.html" style="text-decoration:none;color:#43332a;">事業紹介</a>
     <a href="saiyo.dc.html" style="text-decoration:none;color:#43332a;">採用情報</a>
     <a href="company.dc.html" style="text-decoration:none;color:#43332a;">会社概要</a>
-    <a href="contact.dc.html" style="text-decoration:none;color:#43332a;">お問い合わせ</a>
+    <div class="nv-dd"><a href="contact.dc.html" style="text-decoration:none;color:#43332a;">お問い合わせ ▾</a>
+      <div class="nv-dd-menu"><div class="nv-dd-box">
+        <a href="contact.dc.html">お問い合わせフォーム<small>サービス・採用などのご相談</small></a>
+        <a href="shomei.dc.html">実務経験証明書・在職証明書<small>ネットで申し込み（1通1,650円）</small></a>
+        <a href="faq.dc.html">よくある質問<small>入職・資格・待遇など</small></a>
+      </div></div>
+    </div>
     <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="text-decoration:none;font-weight:700;font-size:13px;color:#fff;background:#06C755;padding:10px 20px;border-radius:999px;box-shadow:0 3px 0 #059440;">LINE相談</a>
     <a href="entry.dc.html" style="text-decoration:none;font-weight:700;font-size:13px;color:#fff;background:#6f9fc1;padding:10px 20px;border-radius:999px;box-shadow:0 3px 0 #5a89ab;">エントリー</a>
   </nav>
@@ -94,6 +107,7 @@ html{-webkit-text-size-adjust:100%;}
   <a href="saiyo.dc.html">採用情報</a>
   <a href="company.dc.html">会社概要</a>
   <a href="contact.dc.html">お問い合わせ</a>
+  <a href="shomei.dc.html" style="font-size:.9em;">└ 実務経験証明書・在職証明書</a>
   <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="color:#06C755!important;">LINE相談</a>
   <a href="entry.dc.html" style="color:#fff!important;background:#6f9fc1;padding:12px 28px;border-radius:999px;">エントリー</a>
 </div>

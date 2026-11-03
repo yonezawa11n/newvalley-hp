@@ -17,6 +17,17 @@
 #mobile-menu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;}
 #mobile-menu-btn span{display:block;width:24px;height:2px;background:#43332a;border-radius:2px;transition:all .3s;}
 #mobile-nav{display:none;}
+#mobile-nav{justify-content:flex-start!important;align-items:stretch!important;gap:0!important;overflow-y:auto;padding:64px 22px 40px;}
+#mobile-nav .mn-top,#mobile-nav summary{display:block;padding:15px 6px;border-bottom:1px solid #ece4d4;font-size:17px;color:#43332a;cursor:pointer;list-style:none;}
+#mobile-nav summary::-webkit-details-marker{display:none;}
+#mobile-nav summary:after{content:'+';float:right;color:#a99c8f;}
+#mobile-nav details[open] summary:after{content:'−';}
+#mobile-nav .mn-sub{background:#fff;border-radius:12px;margin:8px 0 10px;padding:4px 0;}
+#mobile-nav .mn-sub a{display:block;padding:12px 18px;font-size:15px;font-weight:500;border-bottom:1px solid #f5efe3;}
+#mobile-nav .mn-sub a:last-child{border-bottom:none;}
+#mobile-nav .mn-btns{display:flex;gap:10px;margin-top:22px;}
+#mobile-nav .mn-btns a{flex:1;text-align:center;padding:14px 0;border-radius:999px;font-size:16px;}
+
 
 /* nv-responsive */
 img{max-width:100%;}
@@ -129,17 +140,14 @@ html{-webkit-text-size-adjust:100%;}
 <!-- モバイルメニューオーバーレイ -->
 <div id="mobile-nav">
   <span id="mobile-nav-close">✕</span>
-  <a href="find.dc.html">探す</a>
-  <a href="index.dc.html">ホーム</a>
-  <a href="business.dc.html">事業紹介</a>
-<a href="riyou.dc.html" style="font-size:.9em;">└ ご利用を検討の方へ</a>
-  <a href="saiyo.dc.html">採用情報</a>
-  <a href="company.dc.html">会社概要</a>
-  <a href="news.dc.html" style="font-size:.9em;">└ お知らせ</a>
-  <a href="contact.dc.html">お問い合わせ</a>
-  <a href="shomei.dc.html" style="font-size:.9em;">└ 実務経験証明書・在職証明書</a>
-  <a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="color:#06C755!important;">LINE相談</a>
-  <a href="entry.dc.html" style="color:#fff!important;background:#6f9fc1;padding:12px 28px;border-radius:999px;">エントリー</a>
+  <a class="mn-top" href="find.dc.html">探す</a>
+  <a class="mn-top" href="index.dc.html">ホーム</a>
+  <details class="mn-g"><summary>事業紹介</summary><div class="mn-sub"><a href="business.dc.html">事業紹介トップ</a><a href="riyou.dc.html">ご利用を検討の方・保護者の方へ</a><a href="march-yamato.dc.html">マーチ大和</a><a href="march-machida.dc.html">マーチ町田</a><a href="biyondo.dc.html">びよんど</a><a href="courage.dc.html">訪問介護クラージュ</a><a href="emitas.dc.html">相談支援 えみたすサポート</a><a href="sharehouse.dc.html">障がい者シェアハウス</a><a href="xmobile.dc.html">エックスモバイル</a><a href="dx.dc.html">DX / IT デザイン</a></div></details>
+  <details class="mn-g"><summary>各種サービスについて</summary><div class="mn-sub"><a href="houkago-day.dc.html">放課後等デイサービス</a><a href="soudan-shien.dc.html">計画相談（相談支援）</a><a href="jyudo-houmon.dc.html">重度訪問介護</a><a href="doukou-engo.dc.html">同行援護</a><a href="koudou-engo.dc.html">行動援護</a><a href="kyotaku-kaigo.dc.html">居宅介護</a><a href="kaigo-hoken.dc.html">介護保険の訪問介護</a></div></details>
+  <a class="mn-top" href="saiyo.dc.html">採用情報</a>
+  <details class="mn-g"><summary>会社概要</summary><div class="mn-sub"><a href="company.dc.html">会社概要トップ</a><a href="news.dc.html">お知らせ</a><a href="https://www.instagram.com/march2623244/" target=_blank rel=noopener>Instagram：マーチ大和</a><a href="https://www.instagram.com/ma_chi.machida/" target=_blank rel=noopener>Instagram：マーチ町田</a><a href="https://www.instagram.com/nv.biyondo/" target=_blank rel=noopener>Instagram：びよんど</a><a href="https://www.instagram.com/shougai_houmon_courage/" target=_blank rel=noopener>Instagram：クラージュ</a><a href="https://www.instagram.com/xmobile.sakuragaoka/" target=_blank rel=noopener>Instagram：エックスモバイル</a><a href="https://www.instagram.com/newvalley_recruit/" target=_blank rel=noopener>Instagram：採用</a></div></details>
+  <details class="mn-g"><summary>お問い合わせ</summary><div class="mn-sub"><a href="contact.dc.html">お問い合わせトップ</a><a href="shomei.dc.html">実務経験証明書・在職証明書</a><a href="faq.dc.html">よくある質問</a></div></details>
+  <div class="mn-btns"><a href="https://line.me/R/ti/p/@296dkcwv" target="_blank" style="color:#fff!important;background:#06C755;">LINE相談</a><a href="entry.dc.html" style="color:#fff!important;background:#6f9fc1;">エントリー</a></div>
 </div>
 
 <script>

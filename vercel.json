@@ -1,6 +1,7 @@
 {
   "redirects": [
-    { "source": "/", "destination": "/find.dc.html", "permanent": false }
+    { "source": "/", "destination": "/find.dc.html", "permanent": false },
+    { "source": "/shomei.dc.html", "destination": "/taishoku.dc.html", "permanent": true }
   ],
   "crons": [
     {

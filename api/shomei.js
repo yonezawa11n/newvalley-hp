@@ -1,12 +1,12 @@
 /**
- * 実務経験証明書・在職証明書 申し込み API
+ * 実務経験証明書 申し込み API（退職者向け）
  * POST /api/shomei
  * 必要な環境変数: RESEND_API_KEY
  * 任意: MAIL_TO（会社の届け先。未設定なら newvalley.it@gmail.com）
  * 任意: SHOMEI_BANK_INFO（申込者への自動返信に載せる振込先。改行可。未設定なら「担当者から改めて連絡」と送る）
  */
-const FEE = 1650;
-const TYPES = ['実務経験証明書', '在職証明書'];
+const FEE = 3300;
+const TYPES = ['実務経験証明書'];
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');

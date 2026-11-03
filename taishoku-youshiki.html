@@ -15,9 +15,9 @@ body{margin:0;background:#eee;font-family:'Hiragino Kaku Gothic ProN','Noto Sans
 h1{text-align:center;font-size:22px;letter-spacing:.2em;margin:0 0 4px;}
 .to{margin:14px 0 4px;font-size:14px;}
 .date{text-align:right;font-size:13px;margin:0 0 10px;}
-table{width:100%;border-collapse:collapse;font-size:13px;}
+table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;}
 th,td{border:1px solid #444;padding:0 8px;height:11mm;vertical-align:middle;}
-th{width:36mm;background:#f4f4f4;text-align:left;font-weight:700;}
+th{background:#f4f4f4;text-align:left;font-weight:700;}
 td.tall{height:22mm;vertical-align:top;padding-top:6px;}
 .s{font-size:11px;color:#555;}
 .box{display:inline-block;width:12px;height:12px;border:1px solid #444;margin:0 4px 0 10px;vertical-align:-1px;}
@@ -36,11 +36,12 @@ td.tall{height:22mm;vertical-align:top;padding-top:6px;}
   <div class="date">申請日　　　　年　　　月　　　日</div>
   <p style="font-size:13px;margin:0 0 10px;">下記のとおり、実務経験証明書の発行を申請します。</p>
   <table>
+    <colgroup><col style="width:30mm"><col><col style="width:30mm"><col></colgroup>
     <tr><th>フリガナ</th><td colspan="3"></td></tr>
     <tr><th>氏名</th><td colspan="3" style="height:15mm;"></td></tr>
-    <tr><th>旧姓<div class="s">在籍時と違う場合</div></th><td></td><th style="width:26mm;">生年月日</th><td>　　　　年　　月　　日</td></tr>
+    <tr style="height:15mm;"><th>旧姓<div class="s">在籍時と違う場合</div></th><td></td><th>生年月日</th><td style="text-align:right;">年　　 月　　 日</td></tr>
     <tr><th>送付先住所</th><td colspan="3" class="tall">〒　　　－</td></tr>
-    <tr><th>電話番号</th><td></td><th style="width:26mm;">メール<div class="s">任意</div></th><td></td></tr>
+    <tr style="height:15mm;"><th>電話番号</th><td></td><th>メール<div class="s">任意</div></th><td></td></tr>
     <tr><th>在籍していた<br>事業所</th><td colspan="3"><span class="s">例：訪問介護クラージュ、マーチ大和校</span></td></tr>
     <tr><th>在籍期間</th><td colspan="3">　　　　年　　月　～　　　　年　　月　<span class="s">（おおよそで構いません）</span></td></tr>
     <tr><th>職種</th><td colspan="3"><span class="s">例：ヘルパー、児童指導員</span></td></tr>

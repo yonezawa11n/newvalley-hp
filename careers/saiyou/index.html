@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>まだ福祉の仕事、NewValleyとやってないの？｜放課後等デイ・訪問介護スタッフ募集｜株式会社NewValley</title>
+<meta name="description" content="大和市・町田市・相模原市の放課後等デイサービス（マーチ・びよんど）と訪問介護（クラージュ）でスタッフ募集。未経験OK・研修あり。人が好きなスタッフが集まる NewValley の採用ページです。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="まだ福祉の仕事、NewValleyとやってないの？｜NewValley 採用">
+<meta property="og:description" content="放課後等デイサービス・訪問介護スタッフ募集。未経験OK・研修あり。大和市・町田市・相模原市。">
+<meta property="og:image" content="https://newvalleyhp.com/uploads/staff_group.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Outfit:wght@700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   NewValley 採用LP「NEW VALLEY SAIYOU」
+   色はすべて :root で管理。数字・リンクは下の <script> の CONFIG に集約
+   ===================================================================== */
+:root{
+  --bg:#e8e8e8;
+  --paper:#fbfaf7;
+  --ink:#1c1917;
+  --ink2:#4a4440;
+  --muted:#8a827c;
+  --line:#1c1917;
+  --orange:#ff6a13;
+  --orange2:#ff9a2e;
+  --lime:#d6f04a;
+  --green:#3f8f4f;
+  --line-brand:#06C755;
+  --purple:#7b4dff;
+  --pink:#ff7a8a;
+  --dark:#1c1917;
+  --col:460px;
+  --jp:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --serif:"Noto Serif JP","Hiragino Mincho ProN",serif;
+  --en:"Outfit","Noto Sans JP",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--jp);color:var(--ink);line-height:1.8;overflow-x:hidden;
+  background-color:var(--bg);
+  background-image:linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px);
+  background-size:24px 24px}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+
+/* ---------- レイアウト（スマホ1列を中央に） ---------- */
+.col{max-width:var(--col);margin:0 auto;background:var(--paper);position:relative;
+  background-image:linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px);
+  background-size:20px 20px;border-left:1.5px solid var(--line);border-right:1.5px solid var(--line);min-height:100vh}
+.side{display:none}
+@media (min-width:1100px){
+  .side{display:flex;position:fixed;top:0;bottom:0;width:calc((100vw - var(--col))/2);flex-direction:column;justify-content:center;padding:40px}
+  .side.l{left:0;align-items:flex-end;text-align:right}
+  .side.r{right:0;align-items:flex-start}
+}
+.side .brand{font-family:var(--en);font-weight:900;font-style:italic;font-size:44px;line-height:1;letter-spacing:-.01em}
+.side .brand em{color:var(--orange);font-style:italic}
+.side .catch{font-family:var(--serif);font-weight:900;font-size:26px;line-height:1.5;margin-top:22px}
+.side .catch b{color:var(--orange)}
+.side .small{font-size:13px;color:var(--ink2);margin-top:14px;font-weight:700}
+.index{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:22px 26px;box-shadow:4px 4px 0 var(--line);min-width:240px}
+.index h3{font-family:var(--en);font-style:italic;font-weight:900;letter-spacing:.1em;font-size:14px;color:var(--orange);margin-bottom:8px}
+.index a{display:block;font-weight:700;font-size:14px;padding:6px 0;border-bottom:1px dashed #ccc}
+.index a:last-child{border:0}
+.index a:hover{color:var(--orange)}
+.side .btns{margin-top:18px;width:260px}
+
+/* ---------- ヘッダー ---------- */
+.hd{position:sticky;top:0;z-index:40;padding:10px 12px 8px;background:linear-gradient(var(--paper) 70%,transparent)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;background:var(--dark);border-radius:14px;padding:8px 8px 8px 14px;box-shadow:0 0 0 2px var(--orange) inset}
+.logo-t{font-family:var(--en);font-weight:900;font-style:italic;color:#fff;font-size:19px;white-space:nowrap;letter-spacing:-.01em;line-height:1}
+.logo-t em{color:var(--orange);font-style:italic}
+.logo-t small{display:block;font-size:8.5px;letter-spacing:.22em;color:#bbb;font-style:normal;font-weight:700;margin-top:3px}
+.hd-btn{background:linear-gradient(90deg,var(--orange),var(--orange2));color:#fff;font-weight:900;font-size:12px;border-radius:999px;padding:8px 14px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.menu{width:38px;height:38px;border-radius:50%;background:#fff;border:0;margin-left:6px;position:relative;cursor:pointer;flex:none}
+.menu i{position:absolute;left:11px;right:11px;height:2px;background:var(--ink);transition:.3s}
+.menu i:nth-child(1){top:13px}.menu i:nth-child(2){top:18px}.menu i:nth-child(3){top:23px}
+.nav-open .menu i:nth-child(1){top:18px;transform:rotate(45deg)}
+.nav-open .menu i:nth-child(2){opacity:0}
+.nav-open .menu i:nth-child(3){top:18px;transform:rotate(-45deg)}
+.drawer{position:absolute;left:12px;right:12px;top:64px;background:var(--dark);color:#fff;border-radius:16px;padding:14px 20px;display:none;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.nav-open .drawer{display:block}
+.drawer a{display:flex;justify-content:space-between;padding:11px 2px;border-bottom:1px solid rgba(255,255,255,.14);font-weight:700;font-size:15px}
+.drawer a::after{content:"→";color:var(--orange)}
+.drawer a:last-child{border:0}
+
+/* ---------- タグ帯 ---------- */
+.tags{overflow:hidden;padding:4px 0 2px}
+.tags .track{display:flex;gap:8px;width:max-content;animation:flow 40s linear infinite}
+.tags span{border:1.5px solid var(--line);border-radius:999px;padding:3px 12px;font-size:12px;font-weight:700;background:#fff;white-space:nowrap}
+@keyframes flow{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tags .track,.band .track{animation:none}}
+
+/* ---------- HERO ---------- */
+.hero{margin:12px 12px 0;border:1.5px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;
+  background-image:linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px);background-size:16px 16px;box-shadow:0 3px 0 var(--line)}
+.hero-in{padding:20px 16px 0;position:relative}
+.hero .lead{font-weight:900;font-size:12.5px;white-space:nowrap;text-align:center;letter-spacing:.02em}
+.hero h1{font-family:var(--serif);font-weight:900;line-height:1.18;margin-top:10px;font-size:34px;letter-spacing:-.01em}
+.hero h1 .big{display:inline-block;font-family:var(--en);font-style:italic;font-size:54px;letter-spacing:-.02em;padding-right:.08em;color:var(--orange);line-height:1.05;text-shadow:3px 3px 0 var(--ink);-webkit-text-stroke:1px var(--ink)}
+.hero h1 .ni{font-size:34px}
+.hero-vis{position:relative;margin-top:14px;height:270px}
+.term{background:var(--dark);color:#eee;border-radius:10px;font-family:var(--mono);font-size:10px;line-height:1.6;padding:7px 9px 8px;width:64%;position:absolute;left:0;top:0;z-index:2;box-shadow:3px 3px 0 rgba(0,0,0,.25)}
+.dots{display:flex;gap:4px;margin-bottom:6px}
+.dots i{width:7px;height:7px;border-radius:50%;background:#ff5f57}
+.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+.term .ok{color:var(--lime)}
+.cursor{display:inline-block;width:7px;height:12px;background:var(--lime);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-photo{position:absolute;right:0;bottom:0;width:100%;height:190px;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;background:#ddd}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo .bar{position:absolute;top:0;left:0;right:0;z-index:1;justify-content:flex-end;background:var(--dark);color:#ddd;font-family:var(--mono);font-size:10px;padding:3px 8px;display:flex;gap:6px;align-items:center}
+.hero-photo .bar .dots{margin:0}
+.hl{display:inline-block;background:var(--dark);color:#fff;font-weight:900;padding:2px 10px;font-size:17px;line-height:1.6;margin-top:6px}
+.hl b{color:var(--orange)}
+.hero .copy{position:relative;z-index:3;margin-top:-26px}
+.hero-foot{background:var(--dark);color:#fff;margin-top:16px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.hero-foot .logo-t{font-size:22px}
+.hero-foot .meta{font-family:var(--mono);font-size:9px;white-space:nowrap;color:#aaa;text-align:right;line-height:1.5}
+
+/* ---------- ボタン ---------- */
+.cta{padding:16px 12px 6px;display:grid;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;font-weight:900;padding:12px 18px;position:relative;border:1.5px solid var(--line);box-shadow:0 4px 0 var(--line);transition:transform .15s,box-shadow .15s;text-align:center;line-height:1.35}
+.btn:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--line)}
+.btn small{display:block;font-size:10.5px;font-weight:700}
+.btn.line{background:var(--line-brand);color:#fff;font-size:17px;outline:3px solid #fff;outline-offset:-5px}
+.btn.or{background:linear-gradient(90deg,var(--orange),var(--orange2));color:#fff;font-size:17px;outline:3px solid rgba(255,255,255,.6);outline-offset:-5px}
+.btn.dk{background:var(--dark);color:#fff;font-size:15px}
+.btn.wh{background:#fff;color:var(--ink);font-size:15px}
+.btn .arw{position:absolute;right:14px;width:22px;height:22px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:12px}
+.ic{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;flex:none}
+.ic svg{width:14px;height:14px}
+
+/* ---------- 流れる帯 ---------- */
+.band{background:var(--dark);color:#fff;overflow:hidden;padding:8px 0;margin-top:22px;transform:rotate(0)}
+.band.or{background:var(--orange)}
+.band .track{display:flex;gap:26px;width:max-content;animation:flow 22s linear infinite;font-family:var(--en);font-weight:900;font-style:italic;font-size:17px;white-space:nowrap}
+.band .track span::after{content:"◆";margin-left:26px;font-size:10px;vertical-align:3px}
+
+/* ---------- セクション共通 ---------- */
+.sec{padding:52px 16px}
+.sec.dark{background:var(--dark);color:#fff;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:20px 20px}
+.eyebrow{display:flex;justify-content:center;align-items:center;gap:10px;font-family:var(--en);font-style:italic;font-weight:800;font-size:12px;color:var(--orange);letter-spacing:.12em}
+.eyebrow::before,.eyebrow::after{content:"";width:22px;height:1.5px;background:var(--orange)}
+.h2{font-family:var(--serif);font-weight:900;font-size:27px;line-height:1.45;text-align:center;margin-top:10px}
+.h2 b{color:var(--orange)}
+.h2 .en{font-family:var(--en);font-style:italic;font-weight:900;letter-spacing:-.01em}
+.lead-txt{text-align:center;font-size:13.5px;color:var(--ink2);margin-top:10px}
+.dark .lead-txt{color:#ccc}
+.stack{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:18px}
+.stack .hl{font-size:19px;margin:0}
+.stack .hl .lm{color:var(--lime)}
+
+/* ---------- WHO：職種カード ---------- */
+.roles{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:22px 16px 10px;margin:0 -16px;scrollbar-width:none}
+.roles::-webkit-scrollbar{display:none}
+.role{flex:0 0 66%;scroll-snap-align:center;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 0 var(--line)}
+.role .top{padding:10px 12px 0;color:#fff;font-weight:900;font-size:15px;text-align:center}
+.role .ph{height:170px;margin:8px 10px 0;border-radius:10px 10px 0 0;overflow:hidden;border:1.5px solid var(--line);border-bottom:0}
+.role .ph img{width:100%;height:100%;object-fit:cover}
+.role .bot{background:#fff;border-top:1.5px solid var(--line);padding:10px 12px 12px;text-align:center}
+.role .bot i{font-family:var(--en);font-weight:800;font-size:11px;color:var(--muted)}
+.role .bot b{display:block;font-size:14px;line-height:1.5}
+.role .bot span{display:inline-block;margin-top:6px;font-size:11px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:0 8px}
+.c-or{background:var(--orange)}.c-pu{background:var(--purple)}.c-pk{background:var(--pink)}.c-gr{background:var(--green)}.c-dk{background:var(--dark)}
+.swipe{text-align:center;font-size:11px;color:var(--muted);font-weight:700}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+.facts div{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:10px 4px;text-align:center;font-size:11px;font-weight:700;line-height:1.4}
+.facts b{display:block;font-family:var(--en);font-weight:900;font-size:24px;color:var(--orange);line-height:1.2}
+.facts b small{font-size:12px;font-family:var(--jp)}
+.open{margin-top:10px;background:var(--dark);color:#fff;border-radius:14px;padding:14px 12px;text-align:center;border:1.5px solid var(--line);box-shadow:0 4px 0 var(--orange)}
+.open .d{display:inline-block;background:var(--orange);color:#fff;font-weight:900;font-size:12px;border-radius:999px;padding:1px 12px}
+.open p{font-weight:900;font-size:18px;line-height:1.5;margin-top:6px}
+.open p b{color:var(--lime)}
+.open small{display:block;font-size:11.5px;color:#ccc;margin-top:2px}
+.prize{display:inline-block;margin-top:6px;background:var(--dark);color:#fff;font-weight:900;font-size:15px;padding:2px 10px;transform:rotate(-2deg)}
+.prize b{color:var(--lime)}
+
+/* ---------- WHY ---------- */
+.why-box{margin:22px auto 0;background:#fff;color:var(--ink);border-radius:16px;padding:14px 18px;text-align:center;max-width:330px;position:relative}
+.why-box::before{content:"";position:absolute;top:-16px;left:50%;width:1.5px;height:16px;background:var(--orange)}
+.why-box .logo-t{color:var(--ink);font-size:22px}
+.why-box p{font-weight:900;font-size:18px;margin-top:4px}
+.why-box p span{background:linear-gradient(transparent 55%,var(--lime) 55%)}
+.why-box p b{font-family:var(--en);font-size:30px;color:var(--orange);font-style:italic;line-height:1}
+
+.promise{padding:44px 16px 36px;border-bottom:1.5px dashed #c9c4bf}
+.promise:last-of-type{border-bottom:0}
+.pnum{display:flex;align-items:flex-end;justify-content:center;gap:8px}
+.pnum span{font-family:var(--en);font-style:italic;font-weight:900;font-size:17px;letter-spacing:.06em;padding-bottom:10px}
+.pnum b{font-family:var(--en);font-style:italic;font-weight:900;font-size:76px;line-height:.9;padding-right:.12em;background:linear-gradient(90deg,var(--orange),var(--orange2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.habit{margin:12px auto 0;max-width:300px;border:1.5px solid var(--line);border-radius:14px;padding:16px 14px 12px;background:#fff;text-align:center;position:relative;font-weight:900;font-size:15px;line-height:1.6}
+.habit::before{content:"NEW VALLEY'S HABIT";position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--paper);padding:0 8px;font-family:var(--en);font-style:italic;font-size:10px;color:var(--muted);letter-spacing:.1em;line-height:1.6}
+.arrow{width:1.5px;height:28px;margin:12px auto 0;background-image:linear-gradient(var(--ink) 50%,transparent 50%);background-size:1.5px 6px;position:relative}
+.arrow::after{content:"";position:absolute;bottom:-4px;left:-4px;border:5px solid transparent;border-top:7px solid var(--ink)}
+.dakara{display:table;margin:12px auto 0;background:linear-gradient(90deg,var(--orange),var(--orange2));color:#fff;font-weight:900;border-radius:999px;padding:2px 16px;font-size:14px}
+.win{margin-top:16px;border:1.5px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.win .wbar{background:var(--dark);color:#ddd;font-family:var(--mono);font-size:10.5px;padding:5px 10px;display:flex;gap:8px;align-items:center}
+.win .wbar .dots{margin:0}
+.win .wbody{padding:14px;font-size:13px;position:relative}
+.win.t-or .wbody{background:#fff3ea}.win .wbody.pb{padding-bottom:58px}.win.t-pu .wbody{background:#f2edff}.win.t-gr .wbody{background:#eef8ec}.win.t-pk .wbody{background:#fff0f1}.win.t-lm .wbody{background:#f8fde2}
+.ptxt{margin-top:14px;font-size:14px;line-height:2}
+.note{font-size:11px;color:var(--muted);margin-top:6px}
+/* 窓の中身 */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-family:var(--en);font-weight:800;font-size:12px}
+.cal i{font-style:normal;color:var(--muted);font-size:10px}
+.cal span{background:#fff;border:1px solid #ddd;border-radius:6px;padding:3px 0}
+.cal span.off{background:var(--orange);color:#fff;border-color:var(--orange)}
+.stamp{position:absolute;right:10px;bottom:8px;border:2.5px solid #e2362f;color:#e2362f;font-weight:900;font-family:var(--en);font-size:14px;padding:2px 8px;border-radius:6px;transform:rotate(-8deg);background:rgba(255,255,255,.85);line-height:1.3;text-align:center}
+.stamp small{display:block;font-size:9px;font-family:var(--jp)}
+.check{list-style:none;display:grid;gap:7px}
+.check li{display:flex;gap:8px;align-items:flex-start;font-weight:700;line-height:1.5}
+.check li::before{content:"✓";flex:none;width:18px;height:18px;border:1.5px solid var(--ink);border-radius:4px;display:grid;place-items:center;font-size:12px;background:#fff;color:var(--orange);font-weight:900}
+.check li small{display:block;font-weight:500;font-size:11px;color:var(--ink2)}
+.done{margin-top:10px;font-weight:900;color:var(--orange);text-align:center}
+.bars{display:grid;gap:9px}
+.bars .r{display:grid;grid-template-columns:98px 1fr;align-items:center;gap:8px;font-weight:700;font-size:12px;line-height:1.3}
+.bars .b{height:24px;border:1.5px solid var(--ink);border-radius:6px;background:#fff;overflow:hidden}
+.bars .b i{display:flex;align-items:center;justify-content:flex-end;height:100%;color:#fff;font-style:normal;font-weight:900;font-size:12px;padding-right:6px;white-space:nowrap;width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.in .bars .b i{width:var(--w)}
+.tl{list-style:none;position:relative;padding-left:4px}
+.tl li{display:grid;grid-template-columns:52px 1fr;gap:8px;font-size:12.5px;padding:3px 0;font-weight:700}
+.tl li b{font-family:var(--en);font-weight:800}
+.tl li.hi span{background:var(--lime);padding:0 4px}
+.tl li.end span{color:var(--orange);font-weight:900}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.chips span{border:1.5px solid var(--line);border-radius:8px;padding:3px 10px;background:#fff;font-weight:700;font-size:12.5px}
+.chips span.new{background:var(--orange);color:#fff;border-color:var(--orange)}
+.gacha{display:flex;gap:12px;align-items:center}
+.gacha .cap{flex:none;width:64px;height:64px;border-radius:50%;border:2px solid var(--ink);background:linear-gradient(var(--orange) 50%,#fff 50%);position:relative;animation:spin 3s ease-in-out infinite}
+.gacha .cap::after{content:"";position:absolute;left:-2px;right:-2px;top:calc(50% - 1px);height:2px;background:var(--ink)}
+@keyframes spin{0%,70%{transform:rotate(0)}85%{transform:rotate(-14deg)}100%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){.gacha .cap{animation:none}}
+
+/* ---------- 「NewValleyが必要」 ---------- */
+.must{text-align:center;position:relative;overflow:hidden}
+.must::before{content:"";position:absolute;left:50%;top:48%;width:340px;height:340px;transform:translate(-50%,-50%);background:radial-gradient(rgba(255,106,19,.45),transparent 65%)}
+.must>*{position:relative}
+.must .s{font-weight:900;font-size:15px}
+.must .b{font-family:var(--serif);font-weight:900;font-size:34px;line-height:1.3;margin-top:6px}
+.must .b em{font-style:normal;color:var(--orange)}
+.must .ph{margin:20px auto 0;width:86%;border-radius:14px;overflow:hidden;border:2px solid #fff;aspect-ratio:3/2}
+.must .ph img{width:100%;height:100%;object-fit:cover}
+.must .logo-t{font-size:32px;margin-top:18px;white-space:normal}
+.must .cta{padding:18px 0 0}
+.must .btn.wh{background:transparent;color:#fff;border-color:#fff;box-shadow:none}
+
+/* ---------- DATA ---------- */
+.data{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+.dcard{border:1.5px solid var(--line);border-radius:14px;background:#fff;padding:12px 10px;text-align:center;box-shadow:0 3px 0 var(--line)}
+.dcard .k{font-size:11.5px;font-weight:900;background:var(--lime);display:inline-block;padding:0 6px;line-height:1.7}
+.dcard .v{font-family:var(--en);font-weight:900;font-size:40px;line-height:1.1;margin-top:6px;color:var(--orange)}
+.dcard .v small{font-size:15px;color:var(--ink);font-family:var(--jp)}
+.dcard .d{font-size:10.5px;color:var(--muted);line-height:1.5}
+.dcard.wide{grid-column:1/-1}
+.age{display:flex;height:28px;border:1.5px solid var(--line);border-radius:6px;overflow:hidden;margin-top:8px;font-size:10.5px;font-weight:900;color:#fff}
+.age span{display:grid;place-items:center;white-space:nowrap}
+.age-l{display:flex;justify-content:space-between;font-size:10.5px;font-weight:700;margin-top:4px;color:var(--ink2)}
+.award{display:flex;gap:12px;align-items:center;text-align:left}
+.award .medal{flex:none;width:52px;height:52px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:900;font-size:22px;border:2px solid var(--ink)}
+.award b{font-size:13px;line-height:1.5;display:block}
+
+/* ---------- JOBS ---------- */
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}
+.tab{border:1.5px solid var(--line);border-radius:12px 12px 0 0;background:#fff;padding:10px 4px;font-weight:900;font-size:14px;cursor:pointer;line-height:1.35;color:var(--ink)}
+.tab small{display:block;font-size:10.5px;font-weight:700;color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--dark);color:#fff}
+.tab[aria-selected="true"] small{color:var(--orange2)}
+.panel{border:1.5px solid var(--line);border-radius:0 0 14px 14px;background:#fff;padding:14px;margin-top:-1.5px}
+.panel[hidden]{display:none}
+.job{border-bottom:1.5px dashed #ccc;padding:12px 0}
+.job:first-child{padding-top:0}
+.job:last-of-type{border:0}
+.job h3{font-size:16px;font-weight:900;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.job h3 .tg{font-size:10.5px;background:var(--orange);color:#fff;border-radius:999px;padding:0 8px}
+.job h3 .tg.g{background:var(--green)}
+.job dl{display:grid;grid-template-columns:72px 1fr;gap:4px 10px;margin-top:8px;font-size:13px;line-height:1.65}
+.job dt{font-weight:900;font-size:12px;color:var(--ink2)}
+.job dd b{color:var(--orange);font-size:15px;white-space:nowrap}
+.job dd small{display:block;color:var(--muted);font-size:11px;line-height:1.55}
+.newbox{background:var(--dark);color:#fff;border-radius:12px;padding:12px 14px;margin-bottom:14px;font-size:13px}
+.newbox b{color:var(--lime)}
+.newbox .t{font-weight:900;font-size:15px}
+.more{display:block;text-align:center;font-weight:900;font-size:13px;border:1.5px solid var(--line);border-radius:999px;padding:8px;margin-top:12px}
+.more:hover{background:var(--lime)}
+
+/* ---------- FLOW ---------- */
+.flow{list-style:none;margin-top:24px;position:relative}
+.flow::before{content:"";position:absolute;left:21px;top:20px;bottom:30px;width:2px;background:var(--orange)}
+.flow li{display:grid;grid-template-columns:44px 1fr;gap:10px;margin-bottom:12px;position:relative}
+.flow .n{width:44px;height:36px;border-radius:8px;background:var(--dark);color:#fff;font-family:var(--en);font-weight:900;font-style:italic;display:grid;place-items:center;font-size:16px}
+.flow .bx{border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:10px 12px}
+.flow .bx b{font-size:15px;display:block}
+.flow .bx p{font-size:12.5px;color:var(--ink2);line-height:1.75;margin-top:2px}
+.flow li.last .n{background:linear-gradient(var(--orange),var(--orange2))}
+.flow li.last .bx{background:var(--dark);color:#fff}
+.flow li.last .bx b{color:var(--orange2)}
+.flow li.last .bx p{color:#ddd}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:22px;display:grid;gap:8px}
+.faq details{border:1.5px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:12px 40px 12px 14px;font-weight:900;font-size:14px;position:relative;line-height:1.55}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q.";font-family:var(--en);color:var(--orange);margin-right:6px}
+.faq summary::after{content:"+";position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:700}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding:0 14px 14px;font-size:13px;line-height:1.85;color:var(--ink2)}
+
+/* ---------- ENTRY ---------- */
+.final{margin:0 12px;border:1.5px solid var(--line);border-radius:22px;background:#fff;padding:30px 16px 22px;box-shadow:0 4px 0 var(--line)}
+.final .h2{font-size:28px}
+.final .h2 b{font-size:38px}
+.form{display:grid;gap:12px;margin-top:18px}
+.form label{font-weight:900;font-size:13px;display:grid;gap:4px}
+.form label .req{font-size:10px;background:var(--orange);color:#fff;border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:2px}
+.form label .opt{font-size:10px;background:#ddd;border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:2px}
+.form input,.form select,.form textarea{width:100%;border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;font-size:16px;font-family:inherit;background:#fff;color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:3px solid var(--lime);outline-offset:0}
+.form textarea{min-height:96px;resize:vertical}
+.form .agree{font-size:11.5px;color:var(--ink2);font-weight:500}
+.form .msg{font-size:13px;font-weight:700;text-align:center;min-height:1em}
+.form .msg.ok{color:var(--green)}.form .msg.ng{color:#d23}
+.form button.btn{width:100%;cursor:pointer;font-size:17px}
+.form button[disabled]{opacity:.6;cursor:wait}
+.or-line{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);font-weight:700;margin:18px 0 8px}
+.or-line::before,.or-line::after{content:"";flex:1;height:1px;background:#ccc}
+
+/* ---------- FOOTER ---------- */
+.ft{padding:36px 16px 110px;text-align:center;font-size:12px;color:var(--ink2)}
+.ft .logo-t{color:var(--ink);font-size:26px;white-space:normal}
+.ft .logo-t small{color:var(--muted)}
+.ft p{margin-top:12px;line-height:1.9}
+.ft .links{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}
+.ft .links a{border:1.5px solid var(--line);border-radius:999px;padding:3px 12px;font-weight:700;background:#fff}
+.ft small.c{display:block;margin-top:18px;font-family:var(--en);color:var(--muted)}
+
+/* ---------- 下に固定のボタン（スマホ） ---------- */
+.fix{position:fixed;left:50%;bottom:10px;transform:translate(-50%,140%);width:min(var(--col),100%);padding:0 12px;z-index:45;display:grid;grid-template-columns:1fr 1fr;gap:8px;transition:transform .35s}
+.fix.show{transform:translate(-50%,0)}
+.fix .btn{font-size:14px;padding:10px 8px;box-shadow:0 3px 0 var(--line)}
+@media (min-width:1100px){.fix{display:none}}
+
+/* ---------- ふわっと表示 ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+@media (max-width:370px){
+  .hd-in .logo-t{font-size:14px!important}.hd-btn{padding:7px 9px;font-size:11px}.menu{width:34px;height:34px;margin-left:4px}.menu i{left:9px;right:9px}
+  .hero .lead{font-size:11px}.hero-foot .logo-t{font-size:19px}.must .logo-t{font-size:26px}
+  .hero h1{font-size:29px}.hero h1 .big{font-size:44px}.hero h1 .ni{font-size:29px}
+  .h2{font-size:23px}.must .b{font-size:29px}
+}
+</style>
+</head>
+<body>
+
+<!-- PC：左右の飾り -->
+<aside class="side l" aria-hidden="true">
+  <div class="brand">NEW VALLEY<br><em>SAIYOU</em></div>
+  <p class="catch">まだ福祉の仕事、<br><b>NewValley</b>と<br>やってないの？</p>
+  <p class="small">放課後等デイサービス・訪問介護<br>大和市・町田市・相模原市</p>
+</aside>
+<aside class="side r">
+  <nav class="index" aria-label="ページ内メニュー">
+    <h3>INDEX</h3>
+    <a href="#top">TOP</a>
+    <a href="#who">NEW VALLEY とは？</a>
+    <a href="#why">5つの約束</a>
+    <a href="#data">数字で見る</a>
+    <a href="#jobs">募集職種・条件</a>
+    <a href="#flow">応募までの流れ</a>
+    <a href="#faq">よくある質問</a>
+    <a href="#entry">エントリー</a>
+  </nav>
+  <div class="btns">
+    <a class="btn line js-line" href="#" target="_blank" rel="noopener"><span>LINEで気軽に相談</span></a>
+  </div>
+</aside>
+
+<div class="col" id="top">
+
+  <!-- ヘッダー -->
+  <header class="hd">
+    <div class="hd-in">
+      <a href="#top" class="logo-t" style="font-size:16px">NEW VALLEY <em>SAIYOU</em><small>CARE STAFF RECRUIT</small></a>
+      <div style="display:flex;align-items:center">
+        <a class="hd-btn" href="#entry">エントリー ＞</a>
+        <button class="menu" type="button" aria-label="メニューを開く" aria-expanded="false"><i></i><i></i><i></i></button>
+      </div>
+    </div>
+    <nav class="drawer" aria-label="メニュー">
+      <a href="#who">NEW VALLEY とは？</a>
+      <a href="#why">5つの約束</a>
+      <a href="#data">数字で見る</a>
+      <a href="#jobs">募集職種・条件</a>
+      <a href="#flow">応募までの流れ</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#entry">エントリー</a>
+    </nav>
+  </header>
+
+  <!-- タグ帯 -->
+  <div class="tags" aria-hidden="true"><div class="track" id="tagTrack"></div></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-in">
+      <p class="lead">＼ 子どもも利用者さんも、人が好きなあなたへ ／</p>
+      <h1>まだ福祉の仕事、<br><span class="big">NewValley</span><span class="ni">と</span><br>やってないの？</h1>
+      <div class="hero-vis">
+        <div class="term" aria-hidden="true">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div>$ newvalley --find you</div>
+          <div id="typing"></div>
+        </div>
+        <div class="hero-photo">
+          <div class="bar"><span class="dots"><i></i><i></i><i></i></span>our_team.jpg</div>
+          <img src="/uploads/staff_group.jpg" alt="NewValleyで働くスタッフ" width="1200" height="800" style="object-position:center 20%">
+        </div>
+      </div>
+      <div class="copy">
+        <span class="hl">人が好きなスタッフが集まるチームが</span><br>
+        <span class="hl"><b>未経験から</b>まるごとサポート</span>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <span class="logo-t">NEW VALLEY <em>SAIYOU</em></span>
+      <span class="meta">DAY SERVICE<br>HOME CARE<br>YAMATO / MACHIDA</span>
+    </div>
+  </section>
+
+  <div class="cta">
+    <a class="btn line js-line" href="#" target="_blank" rel="noopener"><span><small>履歴書なし・質問だけでもOK</small>LINEで気軽に相談する</span><span class="arw">›</span></a>
+    <a class="btn dk" href="#entry"><span class="ic" style="background:var(--orange)"><svg viewBox="0 0 24 24" fill="#fff"><path d="M4 4h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg></span>WEBでエントリーする</a>
+  </div>
+
+  <div class="band" aria-hidden="true"><div class="track js-band" data-word="Who are we?"></div></div>
+
+  <!-- WHO WE ARE -->
+  <section class="sec" id="who">
+    <p class="eyebrow">WHO WE ARE</p>
+    <h2 class="h2"><span class="en">NEW VALLEY</span> とは？</h2>
+    <div class="stack">
+      <span class="hl">趣味が<b>「人の笑顔」</b>の</span>
+      <span class="hl">世にも<span class="lm">奇妙</span>な</span>
+      <span class="hl">福祉のチームです</span>
+    </div>
+    <p class="lead-txt">大和市・町田市・相模原市で、<br>放課後等デイサービスと訪問介護を運営しています。</p>
+
+    <div class="roles" role="list">
+      <article class="role" role="listitem">
+        <div class="top c-or">#児童指導員・指導員</div>
+        <div class="ph"><img src="/uploads/yamato-march/work1.jpg" alt="マーチのスタッフ" loading="lazy"></div>
+        <div class="bot"><i>Child Instructor</i><b>放課後等デイサービスで<br>子どもの療育・活動支援</b><span>マーチ・びよんど</span></div>
+      </article>
+      <article class="role" role="listitem">
+        <div class="top c-pu">#保育士・教員免許</div>
+        <div class="ph"><img src="/uploads/march-machida/work7.jpg" alt="マーチ町田校のスタッフ" loading="lazy"></div>
+        <div class="bot"><i>Licensed Staff</i><b>資格を活かして<br>児童指導員として活躍</b><span>放課後等デイ</span></div>
+      </article>
+      <article class="role" role="listitem">
+        <div class="top c-gr">#ホームヘルパー</div>
+        <div class="ph"><img src="/homon/images/hero.jpg" alt="利用者様の自宅で笑顔で会話する訪問介護スタッフ" loading="lazy" style="object-position:center 25%"></div>
+        <div class="bot"><i>Home Helper</i><b>ご自宅に訪問して<br>暮らしと外出をサポート</b><span>訪問介護 クラージュ</span></div>
+      </article>
+      <article class="role" role="listitem">
+        <div class="top c-pk">#サービス提供責任者</div>
+        <div class="ph"><img src="/uploads/courage/work2.jpg" alt="クラージュのスタッフ" loading="lazy"></div>
+        <div class="bot"><i>Service Manager</i><b>ヘルパーのシフトや<br>支援計画をまとめる</b><span>訪問介護 クラージュ</span></div>
+      </article>
+      <article class="role" role="listitem">
+        <div class="top c-dk">#送迎ドライバー</div>
+        <div class="ph"><img src="/uploads/marchyamato.jpg" alt="マーチ大和校" loading="lazy"></div>
+        <div class="bot"><i>Driver</i><b>普通免許でOK<br>下校時刻〜夕方の短時間</b><span>放課後等デイ</span></div>
+      </article>
+    </div>
+    <p class="swipe">← 横にスワイプ →</p>
+
+    <div class="facts">
+      <div><b>2016</b>設立</div>
+      <div><b>5<small>事業所</small></b>大和・町田</div>
+      <div><b>11<small>年目</small></b>事業拡大中</div>
+    </div>
+    <a class="open" href="#jobs" style="display:block"><span class="d">NEW OPEN</span><p><b>2027年2月</b> 新規事業所オープン予定！<br>オープニングスタッフ募集！</p><small>大和市の放課後等デイサービス　くわしくは募集職種へ →</small></a>
+  </section>
+
+  <div class="band or" aria-hidden="true"><div class="track js-band" data-word="Why New Valley?"></div></div>
+
+  <!-- WHY -->
+  <section class="sec dark" id="why">
+    <p class="eyebrow">WHY NEW VALLEY</p>
+    <h2 class="h2">なぜ<b>NewValley</b>で働くと<br>毎日がラクになるのか？</h2>
+    <div class="why-box">
+      <span class="logo-t">NEW VALLEY <em>SAIYOU</em></span>
+      <p><span>働きやすさにつながる <b>5</b> つの約束</span></p>
+    </div>
+  </section>
+
+  <div class="promises">
+    <!-- 01 -->
+    <section class="promise rv">
+      <div class="pnum"><span>PROMISE</span><b>01</b></div>
+      <p class="habit">私たちは推し・家族・趣味の<br>予定をゆずらない</p>
+      <div class="arrow"></div>
+      <span class="dakara">だから</span>
+      <div class="stack"><span class="hl"><b>希望休</b>がちゃんと取れる</span><span class="hl">シフトをみんなで組む</span></div>
+      <div class="win t-or">
+        <div class="wbar"><span class="dots"><i></i><i></i><i></i></span>shift_request.csv</div>
+        <div class="wbody pb">
+          <div class="cal" aria-hidden="true">
+            <i>月</i><i>火</i><i>水</i><i>木</i><i>金</i><i>土</i><i>日</i>
+            <span>1</span><span>2</span><span class="off">3</span><span>4</span><span>5</span><span class="off">6</span><span class="off">7</span>
+            <span>8</span><span>9</span><span>10</span><span class="off">11</span><span>12</span><span>13</span><span class="off">14</span>
+          </div>
+          <div class="stamp">100%<small>希望休取得率</small></div>
+        </div>
+      </div>
+      <p class="ptxt">ライブ、推し活、子どもの行事、家族との時間。<br>休みたい日に休めるから、仕事にも全力になれる。<br>訪問介護部門の<b>希望休の取得率は100%</b>、<b>有給消化率は80%以上</b>。シフトは本人の希望がベースです。</p>
+      <p class="note">※数値は訪問介護部門の実績です</p>
+    </section>
+
+    <!-- 02 -->
+    <section class="promise rv">
+      <div class="pnum"><span>PROMISE</span><b>02</b></div>
+      <p class="habit">私たちは未経験の仲間を<br>ほっとけない</p>
+      <div class="arrow"></div>
+      <span class="dakara">だから</span>
+      <div class="stack"><span class="hl"><b>未経験</b>からでも</span><span class="hl">ひとりにしない</span></div>
+      <div class="win t-pu">
+        <div class="wbar"><span class="dots"><i></i><i></i><i></i></span>onboarding.md</div>
+        <div class="wbody">
+          <ul class="check">
+            <li><span>先輩と同行・ペアで訪問<small>訪問介護：同行期間は約3ヶ月</small></span></li>
+            <li><span>1年間、教育担当がつく<small>訪問介護：OJTとして1年間</small></span></li>
+            <li><span>研修・勉強会あり<small>放課後等デイ：先輩スタッフによる研修</small></span></li>
+            <li><span>費用ゼロで資格取得<small>研修に参加するとバイト代を支給</small></span></li>
+          </ul>
+          <p class="done">あなた専用のスタート準備、完了！</p>
+        </div>
+      </div>
+      <p class="ptxt">「福祉は初めて」「ブランクがある」。大丈夫です。<br>訪問介護部門では、<b>未経験からスタートした人が4割</b>。最初は先輩と一緒に動いて、ひとりで不安なまま現場に出ることはありません。</p>
+    </section>
+
+    <!-- 03 -->
+    <section class="promise rv">
+      <div class="pnum"><span>PROMISE</span><b>03</b></div>
+      <p class="habit">私たちは成長を<br>止めたくない</p>
+      <div class="arrow"></div>
+      <span class="dakara">だから</span>
+      <div class="stack"><span class="hl">事業拡大中で</span><span class="hl"><b>キャリアと年収</b>が伸びる</span></div>
+      <div class="win t-gr">
+        <div class="wbar"><span class="dots"><i></i><i></i><i></i></span>career.log</div>
+        <div class="wbody">
+          <div class="bars" id="careerBars"></div>
+          <p class="note" style="margin-top:8px">※訪問介護の年収目安です</p>
+        </div>
+      </div>
+      <p class="ptxt">NewValley は今年で11年目。放課後等デイの新規オープンが続き、生活介護・グループホームも準備中です。事業所が増える＝リーダーのポストが増える。<b>若手の昇格が多い</b>のはそのためです。</p>
+    </section>
+
+    <!-- 04 -->
+    <section class="promise rv">
+      <div class="pnum"><span>PROMISE</span><b>04</b></div>
+      <p class="habit">私たちはムダな時間を<br>なくしたい</p>
+      <div class="arrow"></div>
+      <span class="dakara">だから</span>
+      <div class="stack"><span class="hl"><b>直行直帰</b>・残業なしの</span><span class="hl">働き方を選べる</span></div>
+      <div class="win t-lm">
+        <div class="wbar"><span class="dots"><i></i><i></i><i></i></span>one_day_homecare.log</div>
+        <div class="wbody">
+          <ul class="tl">
+            <li><b>10:00</b><span>自宅から訪問先へ直行</span></li>
+            <li class="hi"><b>11:00</b><span>移動・待機（これも勤務時間）</span></li>
+            <li><b>13:00</b><span>外出支援</span></li>
+            <li><b>…</b><span>訪問をいくつか</span></li>
+            <li class="end"><b>19:30</b><span>終了・そのまま帰宅！</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="ptxt">訪問介護は基本<b>自宅から訪問先への直行直帰</b>。移動・待機の時間も勤務時間で、残業代は1分単位で支給します。<br>放課後等デイのパートは<b>平日12:00〜18:00、残業なし</b>のシフト制です。</p>
+    </section>
+
+    <!-- 05 -->
+    <section class="promise rv">
+      <div class="pnum"><span>PROMISE</span><b>05</b></div>
+      <p class="habit">私たちは「できた！」の瞬間を<br>見逃さない</p>
+      <div class="arrow"></div>
+      <span class="dakara">だから</span>
+      <div class="stack"><span class="hl">子どもの<b>成長</b>を</span><span class="hl">チームで一緒に喜べる</span></div>
+      <div class="win t-pk">
+        <div class="wbar"><span class="dots"><i></i><i></i><i></i></span>our_places.json</div>
+        <div class="wbody">
+          <div class="chips">
+            <span>マーチ大和校</span><span>マーチ町田校</span><span>運動療育・運動あそび</span>
+            <span>びよんど</span><span>学習・就労支援</span><span>クラージュ（訪問介護）</span>
+            <span class="new">NEW！ 2027年2月 大和市にオープン予定</span>
+          </div>
+        </div>
+      </div>
+      <p class="ptxt">マーチは運動あそびを中心にした集団療育、びよんどは学習・就労支援。「昨日できなかったことが、今日できた」をスタッフみんなで喜べる、あたたかいチームです。</p>
+    </section>
+
+    <!-- おまけ -->
+    <section class="promise rv">
+      <div class="pnum"><span>BONUS</span><b style="font-size:58px">＋α</b></div>
+      <div class="win t-or" style="margin-top:14px">
+        <div class="wbar"><span class="dots"><i></i><i></i><i></i></span>gacha.exe</div>
+        <div class="wbody">
+          <div class="gacha"><div class="cap" aria-hidden="true"></div><div><p style="font-weight:900;line-height:1.6">出勤した日に<br>必ず1回引ける<br><span style="background:var(--lime);padding:0 4px">「出勤ガチャ」</span>あり</p><span class="prize">特賞は<b>人気テーマパーク</b><br>ペアチケット！？</span></div></div>
+        </div>
+      </div>
+      <p class="ptxt">ちょっと楽しい仕組みも、本気で作っています。</p>
+    </section>
+  </div>
+
+  <!-- NewValleyが必要 -->
+  <section class="sec dark must">
+    <p class="s">子どもと利用者さんの毎日には</p>
+    <p class="b">あなたの<em>"好き"</em>が<br>必要です!!</p>
+    <div class="ph"><img src="/uploads/courage/work3.jpg" alt="NewValleyのスタッフ集合写真" loading="lazy"></div>
+    <p class="logo-t">NEW VALLEY <em>SAIYOU</em></p>
+    <div class="cta">
+      <a class="btn line js-line" href="#" target="_blank" rel="noopener"><span><small>質問だけでもOK</small>LINEで気軽に相談する</span><span class="arw">›</span></a>
+      <a class="btn wh" href="#entry">WEBでエントリーする</a>
+    </div>
+  </section>
+
+  <!-- DATA -->
+  <section class="sec" id="data">
+    <p class="eyebrow">DATA</p>
+    <h2 class="h2">数字で見る<br><span class="en">NEW <b>VALLEY</b></span></h2>
+    <div class="data">
+      <div class="dcard rv"><span class="k">直近1年の入社</span><p class="v" data-count="14">14<small>人</small></p><p class="d">訪問介護部門</p></div>
+      <div class="dcard rv"><span class="k">未経験スタート</span><p class="v">4<small>割</small></p><p class="d">訪問介護部門</p></div>
+      <div class="dcard rv"><span class="k">希望休取得率</span><p class="v">100<small>%</small></p><p class="d">訪問介護部門</p></div>
+      <div class="dcard rv"><span class="k">有給消化率</span><p class="v">80<small>%以上</small></p><p class="d">訪問介護部門</p></div>
+      <div class="dcard wide rv">
+        <span class="k">スタッフの年代</span>
+        <div class="age" aria-label="20代・30代が6割、40代・50代が2割、10代が1割、60代以上が1割">
+          <span style="width:60%;background:var(--orange)">20〜30代 6割</span>
+          <span style="width:20%;background:var(--purple)">40〜50代</span>
+          <span style="width:10%;background:var(--green)">10代</span>
+          <span style="width:10%;background:var(--dark)">60代〜</span>
+        </div>
+        <div class="age-l"><span>若手が中心</span><span>10代〜60代以上まで活躍中</span></div>
+        <p class="d" style="margin-top:4px">訪問介護部門</p>
+      </div>
+      <div class="dcard wide rv">
+        <div class="award"><div class="medal">賞</div><div><b>令和7年度 大和市 女性活躍及び<br>ワーク・ライフ・バランス推進企業表彰</b><span class="d">大和市から表彰していただきました</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band" aria-hidden="true"><div class="track js-band" data-word="Join us!"></div></div>
+
+  <!-- JOBS -->
+  <section class="sec" id="jobs">
+    <p class="eyebrow">JOBS</p>
+    <h2 class="h2">募集職種と<br>働き方</h2>
+    <p class="lead-txt">正社員・短時間社員・パート。<br>ライフスタイルに合わせて選べます。</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="t-day" aria-controls="p-day" aria-selected="true">放課後等デイ<small>マーチ・びよんど</small></button>
+      <button class="tab" role="tab" id="t-home" aria-controls="p-home" aria-selected="false">訪問介護<small>クラージュ</small></button>
+    </div>
+
+    <div class="panel" id="p-day" role="tabpanel" aria-labelledby="t-day">
+      <div class="newbox"><p class="t">大和市に新しい放課後等デイが <b style="white-space:nowrap">2027年2月</b> オープン予定！</p>オープニングスタッフを募集しています。立ち上げから関われるチャンスです。</div>
+      <div class="job">
+        <h3>児童指導員 <span class="tg">正社員</span></h3>
+        <dl>
+          <dt>給与</dt><dd>研修期間（2〜4か月）：月給 <b>204,500円〜206,500円</b><br>児童指導員へ移行後：月給 <b>211,500円〜215,500円</b><small>基本給＋職能給（処遇改善含む）＋業務手当。等級により決定。ほかに精勤手当・会議手当（条件あり）、運転手当、資格手当、家族手当、通勤費別途</small></dd>
+          <dt>勤務時間</dt><dd>平日 午後〜／長期休みは日中<small>短時間社員：週32時間は正社員の80%、週28時間は60%の給与</small></dd>
+          <dt>休日</dt><dd>公休 年105日／夏季休暇3日／冬季休暇3日／バースデー休暇1日／有給休暇10日</dd>
+          <dt>資格</dt><dd>児童指導員任用資格・保育士・教員免許など<br>普通自動車免許（送迎あり）</dd>
+        </dl>
+      </div>
+      <div class="job">
+        <h3>指導員・児童指導員 <span class="tg g">パート</span></h3>
+        <dl>
+          <dt>給与</dt><dd>時給 <b>1,226円〜1,500円</b><small>送迎の可否・資格・キャリアアップ等により決定</small></dd>
+          <dt>勤務時間</dt><dd>平日 12:00〜18:00<br>祝祭日・長期休み 9:30〜17:00<small>シフト制。残業なし</small></dd>
+          <dt>資格</dt><dd>指導員は資格なしでOK（強度行動障害の資格を社内で取得）<br>普通免許必須（送迎あり）</dd>
+          <dt>その他</dt><dd>学生可・ブランクOK・Wワーク可<small>交通費支給（月上限20,000円／実費相当）</small></dd>
+        </dl>
+      </div>
+      <div class="job">
+        <h3>送迎ドライバー <span class="tg g">パート</span></h3>
+        <dl>
+          <dt>内容</dt><dd>下校時刻〜夕方の短時間。普通免許でOK。Wワーク可</dd>
+        </dl>
+      </div>
+      <a class="more" href="/careers/career/jido/">放課後等デイの募集要項をくわしく見る →</a>
+    </div>
+
+    <div class="panel" id="p-home" role="tabpanel" aria-labelledby="t-home" hidden>
+      <div class="job">
+        <h3>ホームヘルパー <span class="tg">フルタイム</span></h3>
+        <dl>
+          <dt>給与</dt><dd>月給 <b>273,500円〜</b>（週40時間）<small>契約社員でスタートし、6か月後に勤務状況・勤務態度の確認と管理者面談のうえ正社員へ</small></dd>
+          <dt>賞与</dt><dd>年2回（昨年実績2〜3ヶ月分）／昇給 毎年4月</dd>
+          <dt>休日</dt><dd>年間108日〜（有給含む）<small>シフトは本人希望ベース</small></dd>
+          <dt>手当</dt><dd>移動手当 21,000円〜／資格手当／家族手当 ほか<small>通勤交通費 実費相当。バイク・マイカー通勤OK</small></dd>
+        </dl>
+      </div>
+      <div class="job">
+        <h3>ホームヘルパー <span class="tg">短時間社員</span></h3>
+        <dl>
+          <dt>給与</dt><dd>週32時間：月給 <b>218,900円〜</b><br>週28時間：月給 <b>164,300円〜</b><small>契約社員</small></dd>
+        </dl>
+      </div>
+      <div class="job">
+        <h3>登録ヘルパー <span class="tg g">パート</span></h3>
+        <dl>
+          <dt>資格</dt><dd>未経験・無資格OK<small>運転免許（原付可）があれば、パート・アルバイトからスタート。資格取得後または6ヶ月勤務後に社員へ</small></dd>
+        </dl>
+      </div>
+      <div class="job">
+        <h3>年収の目安</h3>
+        <dl>
+          <dt>1年目</dt><dd>約350万円</dd>
+          <dt>2年目〜</dt><dd>約420万円</dd>
+          <dt>役職</dt><dd>サービス提供責任者・管理者 <b>500万円〜</b></dd>
+        </dl>
+      </div>
+      <a class="more" href="/careers/career/kaigo/">訪問介護の募集要項をくわしく見る →</a>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section class="sec" id="flow" style="padding-top:20px">
+    <p class="eyebrow">FLOW</p>
+    <h2 class="h2"><b>NewValley</b>の仲間に<br>なるまでの流れ</h2>
+    <ol class="flow">
+      <li class="rv"><span class="n">01</span><div class="bx"><b>LINE・WEBで相談</b><p>「話だけ聞きたい」「給料を知りたい」だけでも大歓迎。公式LINEかエントリーフォームから気軽にどうぞ。</p></div></li>
+      <li class="rv"><span class="n">02</span><div class="bx"><b>管理者と面談</b><p>営業担当ではなく、現場の管理者が直接お話しします。仕事の雰囲気やスタッフの人柄も確かめてください。</p></div></li>
+      <li class="rv"><span class="n">03</span><div class="bx"><b>働き方を決めて契約</b><p>正社員・短時間社員・パートから、あなたの生活に合う働き方を一緒に決めます。</p></div></li>
+      <li class="rv"><span class="n">04</span><div class="bx"><b>先輩と一緒にスタート</b><p>訪問介護は先輩と同行訪問から、放課後等デイは研修から。ひとりにはしません。</p></div></li>
+      <li class="rv last"><span class="n">05</span><div class="bx"><b>NewValleyの仲間に</b><p>気づけば、子どもや利用者さんの「できた！」が楽しみな毎日に。</p></div></li>
+    </ol>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq" style="padding-top:10px">
+    <p class="eyebrow">FAQ</p>
+    <h2 class="h2">よくある質問</h2>
+    <div class="faq">
+      <details><summary>福祉の仕事は未経験です。大丈夫ですか？</summary><p>大丈夫です。訪問介護部門では未経験からスタートした人が4割。放課後等デイでも先輩スタッフによる研修があります。</p></details>
+      <details><summary>資格がありません。</summary><p>放課後等デイの「指導員」は資格なしで応募できます（強度行動障害の資格は社内で取得）。訪問介護は未経験・無資格の方はパート・アルバイトからスタートし、費用ゼロで資格を取得できます。</p></details>
+      <details><summary>運転免許は必要ですか？</summary><p>放課後等デイは送迎があるため普通免許が必要です。訪問介護は運転免許（原付可）があればスタートできます。</p></details>
+      <details><summary>見学はできますか？</summary><p>訪問介護は施設がないため見学はありませんが、事務所で管理者と面談できます。くわしくはLINEでお気軽にご相談ください。</p></details>
+      <details><summary>Wワークや学生でも働けますか？</summary><p>放課後等デイのパート・送迎ドライバーは学生可・Wワーク可です。訪問介護も副業・Wワーク可です。</p></details>
+    </div>
+  </section>
+
+  <!-- ENTRY -->
+  <section class="final" id="entry">
+    <p class="eyebrow">ENTRY</p>
+    <h2 class="h2">NewValleyと一緒に<br><b>"好き"</b>を仕事に</h2>
+    <p class="lead-txt">まずは気軽に相談から。<br>担当者から折り返しご連絡します。</p>
+
+    <a class="btn line js-line" href="#" target="_blank" rel="noopener" style="margin-top:18px"><span><small>いちばんカンタン</small>LINEで相談する</span><span class="arw">›</span></a>
+
+    <p class="or-line">または、フォームでエントリー</p>
+    <form class="form" id="entryForm" novalidate>
+      <label>お名前<span class="req">必須</span><input name="name" autocomplete="name" required maxlength="100"></label>
+      <label>メールアドレス<span class="req">必須</span><input name="email" type="email" autocomplete="email" required maxlength="200"></label>
+      <label>電話番号<span class="opt">任意</span><input name="tel" type="tel" autocomplete="tel" maxlength="30"></label>
+      <label>希望の職種<span class="opt">任意</span>
+        <select name="position">
+          <option value="">選んでください</option>
+          <option>放課後等デイ：児童指導員（正社員）</option>
+          <option>放課後等デイ：大和市 新規オープニング</option>
+          <option>放課後等デイ：指導員・児童指導員（パート）</option>
+          <option>放課後等デイ：送迎ドライバー</option>
+          <option>訪問介護：ホームヘルパー（フルタイム）</option>
+          <option>訪問介護：ホームヘルパー（短時間社員）</option>
+          <option>訪問介護：登録ヘルパー（パート）</option>
+          <option>まだ決めていない・相談したい</option>
+        </select>
+      </label>
+      <label>聞きたいこと・ご希望<span class="opt">任意</span><textarea name="message" maxlength="2000" placeholder="例）週3日くらいで働きたい／給与をくわしく知りたい"></textarea></label>
+      <p class="agree">送信いただいた情報は、採用のご連絡のためだけに使用します。</p>
+      <button class="btn or" type="submit">この内容でエントリーする</button>
+      <p class="msg" id="formMsg" role="status"></p>
+    </form>
+  </section>
+
+  <footer class="ft">
+    <p class="logo-t">NEW VALLEY <em>SAIYOU</em><small>CARE STAFF RECRUIT</small></p>
+    <p><b>株式会社ニューバリー（New Valley）</b><br>神奈川県大和市福田5520 茜ビル2階<br>TEL <a href="tel:0462067238">046-206-7238</a></p>
+    <div class="links">
+      <a href="/careers/">採用サイト</a>
+      <a href="/careers/data/">データで見る</a>
+      <a href="/careers/interview/">社員インタビュー</a>
+      <a class="js-insta" href="#" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <small class="c">© NewValley Inc.</small>
+  </footer>
+</div>
+
+<!-- スマホ下部の固定ボタン -->
+<div class="fix" id="fix">
+  <a class="btn line js-line" href="#" target="_blank" rel="noopener">LINEで相談</a>
+  <a class="btn or" href="#entry">エントリー</a>
+</div>
+
+<script>
+/* ===== 数字・リンクはここだけ直せばOK ===== */
+const CONFIG = {
+  lineUrl: "https://line.me/R/ti/p/@296dkcwv",
+  instagramUrl: "https://www.instagram.com/newvalley_recruit/",
+  tags: ["#放課後等デイサービス","#訪問介護","#児童指導員","#保育士","#教員免許","#ホームヘルパー","#サービス提供責任者","#送迎ドライバー","#未経験OK","#ブランクOK","#Wワーク可","#大和市","#町田市","#相模原市","#2027年2月新規オープン"],
+  career: [ // 訪問介護の年収目安（careers/assets/careers.js の CAREER_MODEL と同じ数字）
+    { label: "入社1年目",           value: "約350万円",  w: 38, color: "var(--green)" },
+    { label: "2年目〜",             value: "約420万円",  w: 46, color: "var(--purple)" },
+    { label: "サ責・管理者",         value: "500万円〜",  w: 60, color: "var(--orange)" },
+    { label: "事業部長",             value: "920万円〜",  w: 100, color: "var(--dark)" }
+  ],
+  typing: ["> 働き方を検索中...", "> 放デイ・訪問介護 ヒット!", "> 仲間が見つかりました ✓"]
+};
+
+/* リンク反映 */
+document.querySelectorAll('.js-line').forEach(a => a.href = CONFIG.lineUrl);
+document.querySelectorAll('.js-insta').forEach(a => a.href = CONFIG.instagramUrl);
+
+/* タグ帯・流れる帯 */
+const tagTrack = document.getElementById('tagTrack');
+tagTrack.innerHTML = [...CONFIG.tags, ...CONFIG.tags].map(t => `<span>${t}</span>`).join('');
+document.querySelectorAll('.js-band').forEach(el => {
+  el.innerHTML = Array(16).fill(`<span>${el.dataset.word}</span>`).join('');
+});
+
+/* キャリアの棒グラフ */
+document.getElementById('careerBars').innerHTML = CONFIG.career.map(c =>
+  `<div class="r"><span>${c.label}</span><div class="b"><i style="--w:${c.w}%;background:${c.color}">${c.value}</i></div></div>`).join('');
+
+/* ターミナル風の文字表示 */
+(function(){
+  const el = document.getElementById('typing');
+  const lines = CONFIG.typing; let li = 0, ci = 0;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { el.innerHTML = lines.map((l,i)=>`<div class="${i===lines.length-1?'ok':''}">${l}</div>`).join(''); return; }
+  function tick(){
+    const done = lines.slice(0, li).map((l,i)=>`<div class="${i===lines.length-1?'ok':''}">${l}</div>`).join('');
+    const cur = li < lines.length ? `<div class="${li===lines.length-1?'ok':''}">${lines[li].slice(0, ci)}<span class="cursor"></span></div>` : '<span class="cursor"></span>';
+    el.innerHTML = done + cur;
+    if (li >= lines.length) { setTimeout(()=>{ li = 0; ci = 0; tick(); }, 4000); return; }
+    if (ci < lines[li].length) { ci++; setTimeout(tick, 55); } else { li++; ci = 0; setTimeout(tick, 500); }
+  }
+  tick();
+})();
+
+/* メニュー */
+const menuBtn = document.querySelector('.menu');
+menuBtn.addEventListener('click', () => {
+  const open = document.body.classList.toggle('nav-open');
+  menuBtn.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('.drawer a').forEach(a => a.addEventListener('click', () => {
+  document.body.classList.remove('nav-open'); menuBtn.setAttribute('aria-expanded', 'false');
+}));
+
+/* タブ */
+document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(t => t.setAttribute('aria-selected', t === tab));
+  document.querySelectorAll('.panel').forEach(p => p.hidden = p.id !== tab.getAttribute('aria-controls'));
+}));
+
+/* スクロールで表示 */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* 下部固定ボタン：ヒーローを過ぎたら表示、フォーム付近では隠す */
+const fix = document.getElementById('fix');
+const hero = document.querySelector('.hero');
+const entry = document.getElementById('entry');
+function onScroll(){
+  const pastHero = hero.getBoundingClientRect().bottom < 0;
+  const r = entry.getBoundingClientRect();
+  const atEntry = r.top < innerHeight && r.bottom > 0;
+  fix.classList.toggle('show', pastHero && !atEntry);
+}
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+/* エントリーフォーム（/api/entry に送信。個人情報はログに出さない） */
+document.getElementById('entryForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target, msg = document.getElementById('formMsg'), btn = f.querySelector('button');
+  const data = Object.fromEntries(new FormData(f));
+  if (!data.name.trim() || !data.email.trim()) { msg.className = 'msg ng'; msg.textContent = 'お名前とメールアドレスを入力してください'; return; }
+  if (!f.email.checkValidity()) { msg.className = 'msg ng'; msg.textContent = 'メールアドレスの形式を確認してください'; return; }
+  data.message = `【採用LP（/careers/saiyou/）から】\n${data.message || ''}`;
+  btn.disabled = true; msg.className = 'msg'; msg.textContent = '送信中…';
+  try {
+    const res = await fetch('/api/entry', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+    if (!res.ok) throw new Error();
+    f.reset(); msg.className = 'msg ok'; msg.textContent = 'エントリーを受け付けました！担当者からご連絡します。';
+  } catch {
+    msg.className = 'msg ng'; msg.textContent = '送信できませんでした。お手数ですがLINEからご連絡ください。';
+  } finally { btn.disabled = false; }
+});
+</script>
+</body>
+</html>

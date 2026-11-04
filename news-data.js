@@ -14,6 +14,29 @@
 
 var NEWS_DATA = [
   {
+    id: 'saiyou-lp-2026',
+    date: '2026-11-04',
+    category: '採用情報',
+    title: '採用ページ「まだ福祉の仕事、NewValleyとやってないの？」を公開しました',
+    excerpt: '放課後等デイサービス・訪問介護スタッフの採用ページを公開しました。働きやすさにつながる5つの約束や、募集職種・給与、応募までの流れをまとめています。2027年2月オープン予定の新規事業所のオープニングスタッフも募集中です。',
+    image: 'uploads/oshirase/saiyou-lp.jpg',
+    body: `
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">放課後等デイサービス（マーチ・びよんど）と訪問介護（クラージュ）のスタッフを募集する採用ページ<strong>「まだ福祉の仕事、NewValleyとやってないの？」</strong>を公開しました！</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">このページで紹介していること</p>
+      <ul style="font-size:15px;line-height:2.0;color:#6b6358;padding-left:1.4em;">
+        <li>働きやすさにつながる5つの約束（希望休・未経験サポート・キャリア・直行直帰・子どもの成長）</li>
+        <li>数字で見るNewValley</li>
+        <li>募集職種と給与・勤務時間（放課後等デイ／訪問介護）</li>
+        <li>応募までの流れ・よくある質問</li>
+      </ul>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">また、<strong>2027年2月に大和市で新しい放課後等デイサービスがオープン予定</strong>です。オープニングスタッフを募集しています。</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">「話だけ聞いてみたい」という方も大歓迎です。LINEやエントリーフォームから気軽にご連絡ください。</p>
+      <div style="text-align:center;margin:32px 0 0;">
+        <a href="careers/saiyou/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#ff6a13;padding:16px 36px;border-radius:999px;box-shadow:0 4px 0 #c94f08;">採用ページを見る →</a>
+      </div>
+    `
+  },
+  {
     id: 'emitas-kasan-2026',
     date: '2026-11-02',
     category: 'お知らせ',

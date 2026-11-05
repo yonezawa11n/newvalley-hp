@@ -201,3 +201,18 @@
     });
   }
 })();
+
+/* 全サイト共通：最初の選択ページへ戻るボタン */
+(function () {
+  var site = (document.body.getAttribute('data-root') || './') + '../';
+  function add() {
+    if (document.getElementById('nv-home-back')) return;
+    var w = document.createElement('div');
+    w.id = 'nv-home-back';
+    w.style.cssText = 'position:fixed;top:76px;left:14px;z-index:90;';
+    w.innerHTML = '<a href="' + site + 'find.dc.html" style="display:inline-block;text-decoration:none;font-weight:700;font-size:13px;color:#1c2620;background:#fff;border:1.5px solid #d9d9d0;border-radius:999px;padding:7px 16px;">← ホームに戻る</a>';
+    var h = document.querySelector('header');
+    if (h) h.insertAdjacentElement('afterend', w); else document.body.insertBefore(w, document.body.firstChild);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', add); else add();
+})();

@@ -14,6 +14,36 @@
 
 var NEWS_DATA = [
   {
+    id: 'nurse-kyujin-2026',
+    date: '2026-11-13',
+    category: '採用情報',
+    title: '看護師の募集を始めました（日勤のみ・夜勤なし）',
+    excerpt: '看護師の資格を生かして働く社員の募集を始めました。社内の医療相談、初任者研修の講師、生活介護などの看護業務をお任せします。日勤のみで夜勤はありません。週32時間・28時間の短時間社員も選べます。勤務地は大和市（桜ケ丘駅 徒歩1分）です。',
+    image: 'uploads/company-group.jpg',
+    body: `
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;"><strong>看護師の資格を生かして働く社員</strong>の募集を始めました。病院とはちがう形で、看護師の知識と経験を生かせるお仕事です。</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">お任せする仕事</p>
+      <ul style="font-size:15px;line-height:2.0;color:#6b6358;padding-left:1.4em;">
+        <li>社内の医療相談（スタッフからの相談に看護師の立場で答えます）</li>
+        <li>介護職員初任者研修の講師（医学的な知識の科目）</li>
+        <li>生活介護などの事業所での看護業務</li>
+      </ul>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">募集の内容</p>
+      <ul style="font-size:15px;line-height:2.0;color:#6b6358;padding-left:1.4em;">
+        <li>一般候補：月収例 35万円（年収例 450万円〜）</li>
+        <li>管理者候補：月収例 40万円（年収例 500万円〜）</li>
+        <li>働き方：40時間社員・32時間社員・28時間社員から選べます</li>
+        <li><strong>日勤のみ（夜勤はありません）</strong></li>
+        <li>応募資格：正看護師</li>
+        <li>勤務地：大和市（桜ケ丘駅 徒歩1分）</li>
+      </ul>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">「話だけ聞いてみたい」という方も大歓迎です。エントリーフォームから気軽にご連絡ください。</p>
+      <div style="text-align:center;margin:32px 0 0;">
+        <a href="recruit-nurse.dc.html" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#2f8f8a;padding:16px 36px;border-radius:999px;box-shadow:0 4px 0 #1f6b67;">看護師の求人を見る →</a>
+      </div>
+    `
+  },
+  {
     id: 'saiyou-lp-2026',
     date: '2026-11-04',
     category: '採用情報',

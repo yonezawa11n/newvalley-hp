@@ -9,8 +9,6 @@
     homon: { year1: 350, mid: 420, satsu: 500, manager: [500], director: 920 },
     // 放課後等デイ（正社員）の目安（万円）※訪問介護の年収モデルに合わせた目安
     hoday: { staff: [350, 420], jihatsu: [420, 500] },
-    // シェアハウス夜勤専従（正社員）：月給297,700円×12＝約357万円、夜勤5回なら月322,700円×12＝約387万円
-    share: { staff: [357, 387] },
     // 短時間社員（契約社員）は正社員の何割で計算するか
     ratio: { ft: 1, s32: 0.8, s28: 0.7 },
     // 放デイ パートの時給（円）
@@ -27,9 +25,8 @@
   /* ---------- 質問 ---------- */
   var Q = [
     { id: 'field', q: '働きたいのは？', type: 'one', opts: [
-      { v: 'homon', t: '訪問介護', d: 'ご自宅を訪問して、大人の暮らしを支える', img: 'uploads/couragemachida.jpg' },
+      { v: 'homon', t: '訪問介護', d: 'ご自宅への訪問や、大和市のシェアハウス（2027年1月オープン予定）で暮らしを支える', img: 'uploads/couragemachida.jpg' },
       { v: 'hoday', t: '放課後等デイサービス', d: '子どもたちの成長と「できた！」を支える', img: 'uploads/marchyamato.jpg' },
-      { v: 'share', t: '障がい者シェアハウス（夜勤）', d: '2027年1月オープン予定。夜間の暮らしを支える', img: 'uploads/sharehouse/night.jpg' },
       { v: 'undecided', t: 'まだ決めていない', d: '資格や経験から、合いそうな道をおすすめします', img: 'uploads/staff_group.jpg' }
     ]},
     { id: 'style', q: '希望の働き方は？', type: 'one', opts: [
@@ -198,28 +195,6 @@
     return p;
   }
 
-  function planShare() {
-    var c = CONFIG.share, careQual = has('shoninsha') || has('jitsumu') || has('kaifuku') || has('kodo');
-    var p = { field: 'share', job: '重度訪問介護スタッフ（シェアハウス夜勤専従）', href: SITE + 'recruit-sharehouse.dc.html', fixedInc: true };
-    p.steps = [
-      { t: '同行研修', s: '先輩と一緒に夜間の支援に入り、仕事を覚えます', inc: null },
-      { t: '夜勤専従スタッフ（正社員）', s: '月給297,700円〜。夜勤手当 1回5,000〜10,000円（等級による）', inc: [c.staff[0]], plus: true },
-      { t: 'リーダー・サービス提供責任者', s: '経験と資格（実務者研修以上）でステップアップ。給与は面談で決定', inc: null }
-    ];
-    p.now = careQual ? 1 : 0;
-    p.pos = careQual ? '夜勤専従スタッフ（正社員）' : '同行研修からスタート（正社員）';
-    p.inc = [c.staff[0], c.staff[1]]; p.plus = false;
-    p.wage = '月給 297,700円〜（夜勤5回で322,700円〜）';
-    if (A.style !== 'ft') p.note = 'シェアハウスの夜勤専従は正社員（フルタイム）の募集です。短時間・パートをご希望の場合は、訪問介護クラージュでの勤務も含めて面談でご相談ください。';
-    p.next = [];
-    if (!careQual) p.next.push('重度訪問介護従業者養成研修（支援に入る前に取得）');
-    if (!has('jitsumu') && !has('kaifuku')) p.next.push('実務者研修（リーダー・サ責へのステップ）');
-    else if (!has('kaifuku')) p.next.push('介護福祉士（国家資格）');
-    p.allow = [];
-    p.lic = '';
-    return p;
-  }
-
   function incText(p) {
     if (p.fixedInc) return range(p.inc[0], p.inc[1], p.plus);
     if (p.partInc) return range(p.partInc[0], p.partInc[1]);
@@ -235,8 +210,7 @@
       var childLean = has('child') && !(has('jitsumu') || has('kaifuku'));
       main = childLean ? planHoday() : planHomon();
       sub = childLean ? planHomon() : planHoday();
-    } else main = A.field === 'homon' ? planHomon() : A.field === 'share' ? planShare() : planHoday();
-    if (A.field === 'homon' && A.style === 'ft' && A.exp >= 2) sub = planShare();
+    } else main = A.field === 'homon' ? planHomon() : planHoday();
 
     var inc = incText(main);
     var road = main.steps.map(function (s, k) {
@@ -284,7 +258,7 @@
 
         (sub ? '<div class="rs-sub"><div class="k">こちらの道も</div><a href="' + sub.href + '"><b>' + esc(sub.job) + '</b><span>' + esc(sub.pos) + '／推定年収 ' + esc(incText(sub) || sub.wage || '応相談') + '</span></a></div>' : '') +
 
-        (main.field === 'share' ? '<p class="note">シェアハウスの年収は、月給 × 12か月の目安です（夜勤手当は夜勤0〜5回で計算）。</p>' : '') +
+        
         '<div class="rs-btns">' +
           '<a class="btn btn-ink" href="' + main.href + '">' + esc(main.job) + 'を詳しく見る →</a>' +
           '<a class="btn btn-lime" href="' + SITE + 'entry.dc.html">この内容でエントリー</a>' +

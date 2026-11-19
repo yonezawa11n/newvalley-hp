@@ -127,7 +127,13 @@ html{-webkit-text-size-adjust:100%;}
   <!-- FORM -->
   <section style="padding:48px 44px 88px;">
     <div style="max-width:680px;margin:0 auto;background:#fff;border-radius:24px;padding:48px 44px;box-shadow:0 8px 28px rgba(67,51,42,.07);">
-      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;color:#43332a;margin:0 0 32px;">お問い合わせフォーム</h2>
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;color:#43332a;margin:0 0 20px;">お問い合わせフォーム</h2>
+
+      <div style="background:#fbf4ec;border:1px solid #eee5d6;border-radius:14px;padding:16px 20px;margin:0 0 32px;font-size:14px;line-height:1.8;color:#43332a;">
+        <strong style="display:block;margin-bottom:4px;">営業・ご提案のご連絡はご遠慮ください</strong>
+        AI活用、採用活動、広告・Web制作などに関する営業のご連絡は、お受けしておりません。採用活動やシステム導入は自社で行っております。<br>
+        このフォームは、サービスのご利用・ご相談、求人へのご応募に関するお問い合わせ専用です。営業目的のご連絡には返信いたしませんので、あらかじめご了承ください。
+      </div>
 
       <form id="contact-form" onsubmit="handleSubmit(event)">
         <div class="field">
@@ -156,6 +162,7 @@ html{-webkit-text-size-adjust:100%;}
           <label>お問い合わせ内容 <span style="color:#c86880;">*</span></label>
           <textarea name="message" required placeholder="ご質問・ご相談内容をご記入ください"></textarea>
         </div>
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#43332a;margin:0 0 20px;cursor:pointer;"><input type="checkbox" required style="margin-top:4px;width:18px;height:18px;"> 営業・ご提案目的のお問い合わせではありません</label>
         <button type="submit" id="contact-submit-btn" style="width:100%;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#fff;background:#6f9fc1;border:none;padding:18px;border-radius:999px;cursor:pointer;box-shadow:0 5px 0 #5a89ab;transition:opacity .15s;">送信する</button>
         <div id="contact-err" style="display:none;margin-top:12px;text-align:center;color:#c86880;font-size:13px;"></div>
       </form>

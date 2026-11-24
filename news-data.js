@@ -19,8 +19,9 @@ var NEWS_DATA = [
     category: 'お知らせ',
     title: '強度行動障害支援者養成研修を11月23日から開催しています',
     excerpt: 'リフルカレッジのページを更新しました。11月23日から、強度行動障害支援者養成研修を開催しています。研修の詳細は、リフルカレッジのサイトをご覧ください。',
-    image: '',
+    image: 'uploads/oshirase/kyodo-kensyu-2026-11.jpg',
     body: `
+      <img src="uploads/oshirase/kyodo-kensyu-2026-11.jpg" alt="強度行動障害支援者養成研修をオンラインで受講している様子" style="width:100%;border-radius:16px;margin:0 0 24px;">
       <p style="font-size:15px;line-height:2.0;color:#6b6358;">リフルカレッジのページを更新しました。</p>
       <p style="font-size:15px;line-height:2.0;color:#6b6358;"><strong>11月23日から、強度行動障害支援者養成研修</strong>を開催しています。</p>
       <p style="font-size:15px;line-height:2.0;color:#6b6358;">研修の日程や申し込み方法などの詳細は、リフルカレッジのサイトをご覧ください。</p>

@@ -14,6 +14,22 @@
 
 var NEWS_DATA = [
   {
+    id: 'kyodo-kensyu-2026-11',
+    date: '2026-11-24',
+    category: 'お知らせ',
+    title: '強度行動障害支援者養成研修を11月23日から開催しています',
+    excerpt: 'リフルカレッジのページを更新しました。11月23日から、強度行動障害支援者養成研修を開催しています。研修の詳細は、リフルカレッジのサイトをご覧ください。',
+    image: '',
+    body: `
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">リフルカレッジのページを更新しました。</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;"><strong>11月23日から、強度行動障害支援者養成研修</strong>を開催しています。</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">研修の日程や申し込み方法などの詳細は、リフルカレッジのサイトをご覧ください。</p>
+      <div style="text-align:center;margin:32px 0 0;">
+        <a href="https://www.liful-college.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#4a7a3f;padding:16px 36px;border-radius:999px;box-shadow:0 4px 0 #365c2e;">リフルカレッジのサイトへ →</a>
+      </div>
+    `
+  },
+  {
     id: 'nurse-kyujin-2026',
     date: '2026-11-13',
     category: '採用情報',

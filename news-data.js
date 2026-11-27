@@ -14,6 +14,28 @@
 
 var NEWS_DATA = [
   {
+    id: 'xmobile-store-close-2026-11',
+    date: '2026-11-27',
+    category: 'お知らせ',
+    title: 'エックスモバイル大和桜ヶ丘駅前店の店舗運営終了のお知らせ（11月30日まで）',
+    excerpt: 'モバイル事業の店舗運営を、2026年11月30日で終了します。12月からは、法人のお客さま・福祉サービスの利用者さま・施設さまへの対応が中心になります。個人のお客さまは予約制で対応し、修理・物販・イベントはウェブで受け付けます。',
+    image: '',
+    body: `
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">いつもエックスモバイル大和桜ヶ丘駅前店をご利用いただき、ありがとうございます。</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">モバイル事業の<strong>店舗運営を、2026年11月30日で終了</strong>することになりました。これまでご来店いただいたみなさまに、心よりお礼申し上げます。</p>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;"><strong>12月からの対応</strong></p>
+      <ul style="font-size:15px;line-height:2.0;color:#6b6358;padding-left:1.4em;">
+        <li>法人のお客さま、福祉サービスの利用者さま、施設さまへの対応が中心になります。</li>
+        <li>個人のお客さまは、ご予約をいただいたときに対応します。</li>
+        <li>修理・物販・イベントは、ウェブでの受付になります。</li>
+      </ul>
+      <p style="font-size:15px;line-height:2.0;color:#6b6358;">今お使いのスマートフォンや回線で困ったことがあれば、これまでどおりご連絡ください。</p>
+      <div style="text-align:center;margin:32px 0 0;">
+        <a href="https://www.xmobile-yamatosakuragaoka.com/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#6f9fc1;padding:16px 36px;border-radius:999px;box-shadow:0 4px 0 #5a89ab;">ウェブ受付・お問い合わせはこちら →</a>
+      </div>
+    `
+  },
+  {
     id: 'kyodo-kensyu-2026-11',
     date: '2026-11-24',
     category: 'お知らせ',
